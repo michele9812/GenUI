@@ -529,7 +529,9 @@ export default function JourneyDetail() {
             className="h1-responsive w-full text-center block"
             style={{
               fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-              transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
+              transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
+                `scale(${Math.min(selectedPersona.typography.scale, 1.1)})` : undefined, // Cap scale at 1.1 to prevent overflow
+              transformOrigin: 'center top',
               color: primaryColor,
               lineHeight: selectedPersona.typography?.lineHeight || '1.2',
               marginBottom: window.innerWidth < 768 ? '8px' : (
@@ -551,7 +553,9 @@ export default function JourneyDetail() {
             className="w-full text-center block"
             style={{
               fontSize: window.innerWidth < 768 ? '16pt' : '18pt', // 16pt mobile, 18pt desktop
-              transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
+              transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
+                `scale(${Math.min(selectedPersona.typography.scale, 1.1)})` : undefined, // Cap scale at 1.1 to prevent overflow
+              transformOrigin: 'center top',
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? 'rgba(255, 255, 255, 0.8)' : selectedPersona.colors.secondary,
@@ -569,7 +573,9 @@ export default function JourneyDetail() {
             className="w-full font-thin text-center block"
             style={{
               fontSize: '18px', // Fixed 18px size for all breakpoints
-              transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
+              transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
+                `scale(${Math.min(selectedPersona.typography.scale, 1.1)})` : undefined, // Cap scale at 1.1 to prevent overflow
+              transformOrigin: 'center top',
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
