@@ -1,39 +1,39 @@
 // Journey Step Image Constants
 export const JOURNEY_IMAGES = {
   // Terminal and Arrival Areas
-  TERMINAL: '/attached_assets/Modern Airport Terminal_1753099981602.png',
-  ARRIVAL: '/attached_assets/Modern Airport Terminal_1753099981602.png', 
+  TERMINAL: '/attached_assets/Modern%20Airport%20Terminal_1753099981602.png',
+  ARRIVAL: '/attached_assets/Modern%20Airport%20Terminal_1753099981602.png', 
   
   // Security and Screening
-  SECURITY: '/attached_assets/Airport Security Scene_1753099981603.png',
-  SCREENING: '/attached_assets/Airport Security Scene_1753099981603.png',
+  SECURITY: '/attached_assets/Airport%20Security%20Scene_1753099981603.png',
+  SCREENING: '/attached_assets/Airport%20Security%20Scene_1753099981603.png',
   
   // Boarding Areas
-  BOARDING: '/attached_assets/Airport Boarding Area_1753099981602.png',
-  IMBARCO: '/attached_assets/Airport Boarding Area_1753099981602.png',
-  RETURN: '/attached_assets/Airport Boarding Area_1753099981602.png',
+  BOARDING: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
+  IMBARCO: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
+  RETURN: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
   
   // Service Counters
-  SERVICE_COUNTER: '/attached_assets/Airport Service Counter_1753099981602.png',
-  HELP_DESK: '/attached_assets/Airport Service Counter_1753099981602.png',
-  TRANSFER: '/attached_assets/Airport Service Counter_1753099981602.png',
-  POST_FLIGHT: '/attached_assets/Airport Service Counter_1753099981602.png',
+  SERVICE_COUNTER: '/attached_assets/Airport%20Service%20Counter_1753099981602.png',
+  HELP_DESK: '/attached_assets/Airport%20Service%20Counter_1753099981602.png',
+  TRANSFER: '/attached_assets/Airport%20Service%20Counter_1753099981602.png',
+  POST_FLIGHT: '/attached_assets/Airport%20Service%20Counter_1753099981602.png',
   
   // Kiosk Interactions
-  KIOSK: '/attached_assets/Airport Kiosk Interaction_1753099981603.png',
-  CHECKIN: '/attached_assets/Airport Kiosk Interaction_1753099981603.png',
-  SELF_SERVICE: '/attached_assets/Airport Kiosk Interaction_1753099981603.png',
-  POST_MEETING: '/attached_assets/Airport Kiosk Interaction_1753099981603.png',
+  KIOSK: '/attached_assets/Airport%20Kiosk%20Interaction_1753099981603.png',
+  CHECKIN: '/attached_assets/Airport%20Kiosk%20Interaction_1753099981603.png',
+  SELF_SERVICE: '/attached_assets/Airport%20Kiosk%20Interaction_1753099981603.png',
+  POST_MEETING: '/attached_assets/Airport%20Kiosk%20Interaction_1753099981603.png',
   
   // Waiting Areas and Lounges
-  WAITING: '/attached_assets/Airport Boarding Area_1753099981602.png',
-  LOUNGE: '/attached_assets/Airport Boarding Area_1753099981602.png',
-  WORK_AREA: '/attached_assets/Airport Boarding Area_1753099981602.png',
+  WAITING: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
+  LOUNGE: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
+  WORK_AREA: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
   
   // Corridors and Navigation
-  CORRIDOR: '/attached_assets/Modern Airport Terminal_1753099981602.png',
-  LAYOVER: '/attached_assets/Modern Airport Terminal_1753099981602.png',
-  IMMIGRATION: '/attached_assets/Airport Security Scene_1753099981603.png'
+  CORRIDOR: '/attached_assets/Modern%20Airport%20Terminal_1753099981602.png',
+  LAYOVER: '/attached_assets/Modern%20Airport%20Terminal_1753099981602.png',
+  IMMIGRATION: '/attached_assets/Airport%20Security%20Scene_1753099981603.png'
 } as const;
 
 export interface PersonaColors {
