@@ -12,6 +12,7 @@ interface DockApp {
 interface MacOSDockProps {
   apps: DockApp[];
   onAppClick: (appId: string) => void;
+  onAppHover?: (appId: string) => void;
   openApps?: string[];
   className?: string;
 }
@@ -19,6 +20,7 @@ interface MacOSDockProps {
 const MacOSDock: React.FC<MacOSDockProps> = ({ 
   apps, 
   onAppClick, 
+  onAppHover,
   openApps = [],
   className = ''
 }) => {
@@ -276,6 +278,7 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
               className="absolute cursor-pointer flex flex-col items-center justify-end"
               title={app.name}
               onClick={() => handleAppClick(app.id, index)}
+              onMouseEnter={() => onAppHover?.(app.id)}
               style={{
                 left: `${position - scaledSize / 2}px`,
                 bottom: '0px',

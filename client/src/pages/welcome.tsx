@@ -7,6 +7,7 @@ import { usePersona } from '@/hooks/use-persona';
 export default function Welcome() {
   const { selectedPersona, selectStep, userName } = usePersona();
   const [currentImage, setCurrentImage] = useState<string>('');
+  const [isZooming, setIsZooming] = useState(false);
   const [, setLocation] = useLocation();
 
   if (!selectedPersona) {
@@ -19,10 +20,19 @@ export default function Welcome() {
   };
 
   const handleStepClick = (stepId: string) => {
-    selectStep(stepId);
-    setTimeout(() => {
-      setLocation('/journey-detail');
-    }, 800);
+    const step = selectedPersona.journeySteps.find(s => s.id === stepId);
+    if (step) {
+      // Set the image for the zoom effect
+      setCurrentImage(step.image);
+      // Start zoom animation
+      setIsZooming(true);
+      
+      selectStep(stepId);
+      // Navigate after zoom animation completes
+      setTimeout(() => {
+        setLocation('/journey-detail');
+      }, 1200);
+    }
   };
 
   const defaultImage = selectedPersona.journeySteps[0]?.image || 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600';
@@ -49,9 +59,27 @@ export default function Welcome() {
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }}
-          className="w-72 h-52 sm:w-80 sm:h-60 md:w-96 md:h-72 lg:w-[28rem] lg:h-80 rounded-2xl overflow-hidden shadow-2xl"
+          animate={{ 
+            opacity: 1, 
+            scale: isZooming ? 12 : 1,
+            x: isZooming ? 0 : 0,
+            y: isZooming ? 0 : 0
+          }}
+          transition={{ 
+            duration: isZooming ? 1.2 : 0.3,
+            ease: isZooming ? [0.4, 0, 0.2, 1] : "easeOut"
+          }}
+          className={`w-72 h-52 sm:w-80 sm:h-60 md:w-96 md:h-72 lg:w-[28rem] lg:h-80 rounded-2xl overflow-hidden shadow-2xl ${
+            isZooming ? 'fixed inset-0 z-50 w-screen h-screen' : ''
+          }`}
+          style={{
+            transformOrigin: 'center center',
+            ...(isZooming && {
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)'
+            })
+          }}
         >
           <img
             src={currentImage || defaultImage}
@@ -71,10 +99,12 @@ export default function Welcome() {
               icon: step.icon
             }))}
             onAppClick={(appId) => {
+              handleStepClick(appId);
+            }}
+            onAppHover={(appId) => {
               const step = selectedPersona.journeySteps.find(s => s.id === appId);
               if (step) {
                 handleStepHover(step.image);
-                handleStepClick(appId);
               }
             }}
             openApps={[]}
