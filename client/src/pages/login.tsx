@@ -103,7 +103,7 @@ export default function Login() {
               disabled={!selectedPersonaId || !userName.trim()}
               className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Prosegui
+              Start the journey
               <span className="material-icons ml-2 text-sm">arrow_forward</span>
             </Button>
           </div>
