@@ -47,138 +47,140 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
     }
   };
 
-  // Auto-rotate prevention (manual controls only)
-  useEffect(() => {
-    // No auto-rotate as requested
-  }, []);
-
-  const getCardTransform = (index: number) => {
-    const diff = index - currentIndex;
-    const totalItems = items.length;
+  // Get visible cards (center + 2 on each side)
+  const getVisibleCards = () => {
+    const visibleCards = [];
+    const totalCards = Math.min(5, items.length); // Show max 5 cards
+    const startOffset = Math.floor(totalCards / 2);
     
-    // Normalize difference to handle circular nature
-    let normalizedDiff = diff;
-    if (Math.abs(diff) > totalItems / 2) {
-      normalizedDiff = diff > 0 ? diff - totalItems : diff + totalItems;
+    for (let i = 0; i < totalCards; i++) {
+      const index = (currentIndex - startOffset + i + items.length) % items.length;
+      const position = i - startOffset; // -2, -1, 0, 1, 2
+      visibleCards.push({ item: items[index], originalIndex: index, position });
     }
-
-    const isActive = index === currentIndex;
-    const baseRotation = (normalizedDiff * 360) / totalItems;
-    const radius = 200;
     
-    if (isActive) {
-      return {
-        rotateY: 0,
-        translateZ: 100,
-        translateX: 0,
-        scale: 1.2,
-        opacity: 1,
-        zIndex: 10
-      };
-    } else {
-      const x = Math.sin((normalizedDiff * Math.PI * 2) / totalItems) * radius;
-      const z = Math.cos((normalizedDiff * Math.PI * 2) / totalItems) * radius - 100;
-      
-      return {
-        rotateY: baseRotation,
-        translateZ: z,
-        translateX: x,
-        scale: 0.8,
-        opacity: Math.abs(normalizedDiff) <= 2 ? 0.7 : 0.3,
-        zIndex: Math.abs(normalizedDiff) <= 2 ? 5 : 1
-      };
-    }
+    return visibleCards;
   };
 
+  const getCardStyle = (position: number) => {
+    const isCenter = position === 0;
+    const baseWidth = 280;
+    const centerWidth = 320;
+    
+    return {
+      width: isCenter ? centerWidth : baseWidth,
+      scale: isCenter ? 1.05 : 0.95,
+      translateX: position * (baseWidth + 20), // Card spacing
+      opacity: Math.abs(position) <= 1 ? 1 : 0.6,
+      zIndex: isCenter ? 10 : 5 - Math.abs(position)
+    };
+  };
+
+  const visibleCards = getVisibleCards();
+
   return (
-    <div className={cn("relative w-full h-96 flex items-center justify-center", className)}>
-      {/* 3D Carousel Container */}
-      <div className="relative w-full h-full" style={{ perspective: '1000px' }}>
-        <div className="relative w-full h-full flex items-center justify-center">
-          {items.map((item, index) => {
-            const transform = getCardTransform(index);
-            const isActive = index === currentIndex;
-            
-            return (
-              <motion.div
-                key={item.id}
-                className={cn(
-                  "absolute w-64 h-80 rounded-2xl cursor-pointer transition-all duration-300",
-                  isActive ? "shadow-2xl" : "shadow-lg"
-                )}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  zIndex: transform.zIndex
-                }}
-                animate={{
-                  rotateY: transform.rotateY,
-                  translateZ: transform.translateZ,
-                  translateX: transform.translateX,
-                  scale: transform.scale,
-                  opacity: transform.opacity
-                }}
-                transition={{
-                  duration: 0.6,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }}
-                onClick={() => handleCardClick(index)}
-                whileHover={isActive ? { scale: 1.25 } : { scale: transform.scale * 1.05 }}
-              >
-                <div 
-                  className="w-full h-full rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20"
-                  style={{
-                    background: isActive 
-                      ? `linear-gradient(135deg, ${accentColor}20, ${accentColor}10)`
-                      : 'rgba(255, 255, 255, 0.1)'
-                  }}
-                >
-                  {/* Card Image */}
-                  <div className="relative h-2/3 overflow-hidden rounded-t-2xl">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/20" />
-                    
-                    {/* Icon Overlay */}
-                    <div 
-                      className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: accentColor }}
-                    >
-                      <span className="material-icons text-white text-xl">{item.icon}</span>
-                    </div>
+    <div className={cn("relative w-full h-[500px] flex items-center justify-center overflow-hidden", className)}>
+      {/* Cards Container */}
+      <div className="relative flex items-center justify-center">
+        {visibleCards.map(({ item, originalIndex, position }) => {
+          const style = getCardStyle(position);
+          const isCenter = position === 0;
+          
+          return (
+            <motion.div
+              key={`${item.id}-${position}`}
+              className={cn(
+                "absolute rounded-2xl cursor-pointer transition-all duration-300 bg-white shadow-lg",
+                isCenter ? "shadow-2xl border-2" : "shadow-md"
+              )}
+              style={{
+                width: style.width,
+                height: 400,
+                zIndex: style.zIndex,
+                borderColor: isCenter ? '#F59E0B' : 'transparent'
+              }}
+              animate={{
+                x: style.translateX,
+                scale: style.scale,
+                opacity: style.opacity
+              }}
+              transition={{
+                duration: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              onClick={() => handleCardClick(originalIndex)}
+              whileHover={{ scale: style.scale * 1.02 }}
+            >
+              {/* Card Content */}
+              <div className="w-full h-full rounded-2xl overflow-hidden flex flex-col">
+                {/* Header */}
+                <div className={cn(
+                  "px-6 py-4 text-center",
+                  isCenter ? "bg-amber-50" : "bg-gray-50"
+                )}>
+                  <p className={cn(
+                    "text-xs font-medium uppercase tracking-wider mb-2",
+                    isCenter ? "text-amber-600" : "text-gray-500"
+                  )}>
+                    NAVIGATION
+                  </p>
+                  
+                  {/* Icon */}
+                  <div className={cn(
+                    "w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center",
+                    isCenter ? "bg-amber-400" : "bg-gray-200"
+                  )}>
+                    <span className={cn(
+                      "material-icons text-xl",
+                      isCenter ? "text-white" : "text-gray-600"
+                    )}>
+                      {item.icon}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 px-6 py-4 flex flex-col justify-between">
+                  <div className="text-center">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
                   
-                  {/* Card Content */}
-                  <div className="p-4 h-1/3 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-white font-semibold text-lg mb-2 line-clamp-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-white/80 text-sm line-clamp-2">
-                        {item.description}
-                      </p>
-                    </div>
-                    
-                    {isActive && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="mt-2"
+                  {/* Action Button */}
+                  <div className="mt-6">
+                    {isCenter ? (
+                      <motion.button
+                        className="w-full py-3 bg-amber-400 hover:bg-amber-500 text-white font-medium rounded-lg transition-colors"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onItemSelect?.(item);
+                        }}
                       >
-                        <div 
-                          className="w-full h-1 rounded-full"
-                          style={{ backgroundColor: accentColor }}
-                        />
-                      </motion.div>
+                        Start Action
+                      </motion.button>
+                    ) : (
+                      <button 
+                        className="w-full py-3 border border-gray-300 text-gray-600 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleCardClick(originalIndex);
+                        }}
+                      >
+                        View Details
+                      </button>
                     )}
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Navigation Controls */}
@@ -186,11 +188,11 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
         <motion.button
           onClick={handlePrevious}
           disabled={isAnimating}
-          className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-white/30 transition-all disabled:opacity-50"
+          className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-white hover:text-gray-900 transition-all disabled:opacity-50 shadow-md"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-5 h-5" />
         </motion.button>
       </div>
 
@@ -198,11 +200,11 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
         <motion.button
           onClick={handleNext}
           disabled={isAnimating}
-          className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-white/30 transition-all disabled:opacity-50"
+          className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-white hover:text-gray-900 transition-all disabled:opacity-50 shadow-md"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-5 h-5" />
         </motion.button>
       </div>
 
@@ -215,12 +217,9 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
             className={cn(
               "w-2 h-2 rounded-full transition-all duration-300",
               index === currentIndex 
-                ? "w-8" 
-                : "opacity-50 hover:opacity-80"
+                ? "w-6 bg-amber-400" 
+                : "bg-gray-300 hover:bg-gray-400"
             )}
-            style={{
-              backgroundColor: index === currentIndex ? accentColor : 'white'
-            }}
           />
         ))}
       </div>
