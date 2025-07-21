@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
@@ -10,6 +10,20 @@ export default function Welcome() {
   const [currentImage, setCurrentImage] = useState<string>('');
   const [isZooming, setIsZooming] = useState(false);
   const [, setLocation] = useLocation();
+  const [screenWidth, setScreenWidth] = useState<number>(0);
+
+  // Handle responsive screen width
+  useEffect(() => {
+    const updateScreenWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    
+    if (typeof window !== 'undefined') {
+      updateScreenWidth();
+      window.addEventListener('resize', updateScreenWidth);
+      return () => window.removeEventListener('resize', updateScreenWidth);
+    }
+  }, []);
 
   if (!selectedPersona) {
     setLocation('/');
@@ -94,22 +108,46 @@ export default function Welcome() {
         </p>
       </div>
       {/* Central Image */}
-      <div className="absolute left-1/2 top-[45%] sm:top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-4 flex items-center justify-center z-10">
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
             opacity: 1, 
-            scale: isZooming ? 3 : 1
+            scale: isZooming ? [1, 1.5, 4] : 1
           }}
           transition={{ 
             duration: isZooming ? 0.9 : 0.3,
-            ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
+            ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut",
+            times: isZooming ? [0, 0.3, 1] : undefined
           }}
-          className="w-60 h-40 sm:w-64 sm:h-44 md:w-72 md:h-52 lg:w-80 lg:h-60 rounded-lg overflow-hidden shadow-2xl"
+          className="rounded-lg overflow-hidden shadow-2xl"
           style={{
             transformOrigin: 'center center',
-            zIndex: isZooming ? 9999 : 10
+            zIndex: isZooming ? 9999 : 10,
+            // Responsive dimensions with 16px margins from viewport edges
+            // Calculate dimensions to maintain aspect ratio while fitting viewport with margins
+            width: screenWidth <= 640 ? 
+              'calc(100vw - 32px)' : // Mobile: full width minus 16px margins
+              screenWidth <= 768 ? 
+                'min(480px, calc(100vw - 32px))' : // Tablet: max 480px or viewport minus margins
+                'min(560px, calc(100vw - 32px))', // Desktop: max 560px or viewport minus margins
+            height: screenWidth <= 640 ? 
+              'calc((100vw - 32px) * 0.6)' : // Mobile: maintain aspect ratio
+              screenWidth <= 768 ? 
+                'min(320px, calc((100vw - 32px) * 0.67))' : // Tablet: maintain aspect ratio
+                'min(375px, calc((100vw - 32px) * 0.67))', // Desktop: maintain aspect ratio
+            // Ensure zoom animation fills viewport with 16px margins
+            ...(isZooming && {
+              position: 'fixed',
+              top: '16px',
+              left: '16px',
+              right: '16px',
+              bottom: '16px',
+              width: 'calc(100vw - 32px)',
+              height: 'calc(100vh - 32px)',
+              objectFit: 'cover'
+            })
           }}
         >
           <img
