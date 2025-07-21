@@ -87,7 +87,7 @@ export default function Welcome() {
       </div>
       {/* Header Section - Responsive with proper spacing for text scaling */}
       <div 
-              className="absolute left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full pt-[8px] pb-[8px]"
+              className="absolute left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full pt-[8px] pb-[16px]"
               style={{
                 top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
                   ? '80px' // More space for Senior persona with 125% scaling
@@ -130,8 +130,8 @@ export default function Welcome() {
         className="absolute left-1/2 transform -translate-x-1/2 z-10"
         style={{
           top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-            ? '55%' // Slightly lower for Senior persona to avoid header overlap
-            : '50%',
+            ? '52%' // Adjusted for Senior persona to ensure 16px spacing from header
+            : '48%', // Adjusted to ensure 16px spacing from header
           transform: 'translateX(-50%) translateY(-50%)'
         }}
       >
@@ -180,13 +180,7 @@ export default function Welcome() {
       <div 
         className="absolute left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full"
         style={{
-          bottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-            ? '32px' // More bottom space for Senior persona
-            : screenWidth <= 640 
-              ? '24px' // Mobile: 24px
-              : screenWidth <= 768
-                ? '32px' // Tablet: 32px
-                : '48px' // Desktop: 48px
+          bottom: '32px' // Consistent 32px bottom spacing for dock
         }}
       >
         <div className="flex justify-center w-full">
