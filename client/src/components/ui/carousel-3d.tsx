@@ -193,7 +193,7 @@ export function Carousel3D({
     
     return {
       width: cardWidth,
-      height: isMobile ? 220 : 320, // Mobile-responsive height
+      height: isMobile ? (window.innerWidth < 414 ? 220 : Math.max(320, Math.min(350, cardWidth * 1.4))) : 320, // Mobile-responsive height with min 320px for larger phones
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
@@ -214,8 +214,8 @@ export function Carousel3D({
     <div 
       className="relative w-full"
       style={{
-        height: window.innerWidth < 640 ? '360px' : '450px',
-        maxHeight: window.innerWidth < 640 ? '360px' : '450px'
+        height: window.innerWidth < 414 ? '360px' : window.innerWidth < 640 ? '400px' : '450px',
+        maxHeight: window.innerWidth < 414 ? '360px' : window.innerWidth < 640 ? '400px' : '450px'
       }}
     >
       <div 
