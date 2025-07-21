@@ -124,7 +124,7 @@ export default function JourneyDetail() {
               items={carouselItems}
               onItemSelect={handleCarouselItemSelect}
               accentColor={selectedPersona.colors.primary}
-              className="h-[500px]"
+              className="h-[400px] sm:h-[450px] lg:h-[500px]"
             />
           </motion.div>
 

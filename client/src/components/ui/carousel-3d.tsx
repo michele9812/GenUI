@@ -176,11 +176,13 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                 }}
                 initial={{
                   x: style.translateX,
-                  scale: style.scale,
+                  y: style.translateY,
+                  scale: style.scale * 0.8,
                   opacity: 0
                 }}
                 animate={{
                   x: style.translateX,
+                  y: style.translateY,
                   scale: style.scale,
                   opacity: style.opacity
                 }}
