@@ -331,7 +331,7 @@ export function Carousel3D({
                     <div className="mt-4 sm:mt-6">
                       {isCenter ? (
                         <motion.button
-                          className="w-full py-3 text-white font-medium rounded-lg transition-colors hover:opacity-90"
+                          className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90 bg-[#a7ff4d] text-[#111827]"
                           style={{ 
                             backgroundColor: accentColor,
                             fontFamily: personaTypography?.fontFamily || 'inherit',
