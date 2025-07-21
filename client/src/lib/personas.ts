@@ -96,7 +96,7 @@ export const personas: Record<string, Persona> = {
       { id: 'arrival', name: 'Arrivo', icon: 'local_parking', image: '/attached_assets/Modern Airport Terminal_1753098968199.png' },
       { id: 'security', name: 'Sicurezza', icon: 'security', image: '/attached_assets/Airport Security Scene_1753098968200.png' },
       { id: 'lounge', name: 'Lounge', icon: 'airline_seat_recline_normal', image: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n' },
-      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: '/attached_assets/Airport Boarding Area_1753098968199.png' },
+      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: '/attached_assets/Airport Boarding Area_1753099125283.png' },
       { id: 'post_flight', name: 'Post-volo', icon: 'flight_land', image: '/attached_assets/Airport Service Counter_1753098968198.png' }
     ],
     actions: {
@@ -162,7 +162,7 @@ export const personas: Record<string, Persona> = {
       { id: 'checkin', name: 'Check-in', icon: 'how_to_reg', image: '/attached_assets/Airport Kiosk Interaction_1753098968200.png' },
       { id: 'security', name: 'Sicurezza', icon: 'security', image: '/attached_assets/Airport Security Scene_1753098968200.png' },
       { id: 'waiting', name: 'Attesa', icon: 'schedule', image: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n' },
-      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: '/attached_assets/Airport Boarding Area_1753098968199.png' }
+      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: '/attached_assets/Airport Boarding Area_1753099125283.png' }
     ],
     actions: {
       parking: [
@@ -286,7 +286,7 @@ export const personas: Record<string, Persona> = {
       { id: 'post_meeting', name: 'Post-meeting', icon: 'business_center', image: '/attached_assets/Airport Kiosk Interaction_1753098968200.png' },
       { id: 'work', name: 'Work', icon: 'laptop', image: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n' },
       { id: 'leisure', name: 'Leisure', icon: 'explore', image: '/attached_assets/Modern Airport Terminal_1753098968199.png' },
-      { id: 'return', name: 'Rientro', icon: 'flight_takeoff', image: '/attached_assets/Airport Boarding Area_1753098968199.png' }
+      { id: 'return', name: 'Rientro', icon: 'flight_takeoff', image: '/attached_assets/Airport Boarding Area_1753099125283.png' }
     ],
     actions: {
       post_meeting: [
