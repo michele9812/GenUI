@@ -408,9 +408,23 @@ interface PromptInputBoxProps {
   isLoading?: boolean;
   placeholder?: string;
   className?: string;
+  accentColor?: string;
+  personaTypography?: {
+    fontFamily: string;
+    headingFont: string;
+    fontSize: string;
+    scale?: number;
+  };
 }
 export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref: React.Ref<HTMLDivElement>) => {
-  const { onSend = () => {}, isLoading = false, placeholder = "Ask me anything about your journey...", className } = props;
+  const { 
+    onSend = () => {}, 
+    isLoading = false, 
+    placeholder = "Ask me anything about your journey...", 
+    className,
+    accentColor = '#3B82F6',
+    personaTypography
+  } = props;
   const [input, setInput] = React.useState("");
   const [files, setFiles] = React.useState<File[]>([]);
   const [filePreviews, setFilePreviews] = React.useState<{ [key: string]: string }>({});
@@ -586,6 +600,10 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                 : placeholder
             }
             className="text-base"
+            style={{
+              fontFamily: personaTypography?.fontFamily || 'inherit',
+              fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined
+            }}
           />
         </div>
 
@@ -644,9 +662,13 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                 isRecording
                   ? "bg-transparent hover:bg-gray-600/30 text-red-500 hover:text-red-400"
                   : hasContent
-                  ? "bg-white hover:bg-white/80 text-[#1F2023]"
+                  ? "hover:opacity-80 text-white"
                   : "bg-transparent hover:bg-gray-600/30 text-[#9CA3AF] hover:text-[#D1D5DB]"
               )}
+              style={{
+                backgroundColor: hasContent ? accentColor : undefined,
+                fontFamily: personaTypography?.fontFamily || 'inherit'
+              }}
               onClick={() => {
                 if (isRecording) setIsRecording(false);
                 else if (hasContent) handleSubmit();
