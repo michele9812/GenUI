@@ -81,7 +81,13 @@ export default function JourneyDetail() {
     ? '#FFFFFF' // White text for dark background
     : selectedPersona.colors.text || '#111827';
   const primaryColor = isStudentPersona
-    ? '#F59E0B' // Gold accent for better contrast on dark background
+    ? '#FFFFFF' // White for H1 on dark background
+    : selectedPersona.colors.primary;
+  const nameColor = isStudentPersona
+    ? '#F59E0B' // Yellow for user name
+    : selectedPersona.colors.secondary;
+  const buttonColor = isStudentPersona
+    ? '#F59E0B' // Yellow accent for buttons
     : selectedPersona.colors.primary;
 
   return (
@@ -104,8 +110,8 @@ export default function JourneyDetail() {
           className="flex items-center gap-2 px-4 py-2 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
           style={{
             backgroundColor: isStudentPersona ? 'rgba(245, 158, 11, 0.1)' : 'rgba(255, 255, 255, 0.9)',
-            borderColor: primaryColor,
-            color: isStudentPersona ? '#F59E0B' : selectedPersona.colors.primary,
+            borderColor: buttonColor,
+            color: buttonColor,
             borderWidth: '1px',
             borderStyle: 'solid'
           }}
@@ -140,7 +146,7 @@ export default function JourneyDetail() {
             >
               Hello{' '}
               <span
-                style={{ color: isStudentPersona ? '#60A5FA' : selectedPersona.colors.secondary }}>
+                style={{ color: nameColor }}>
                 {userName || 'User'}
               </span>
               ,
@@ -150,7 +156,7 @@ export default function JourneyDetail() {
               style={{
                 fontSize: selectedPersona.typography?.scale ? `calc(1.25rem * ${selectedPersona.typography.scale})` : undefined,
                 fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
-                color: isStudentPersona ? '#D1D5DB' : selectedPersona.colors.secondary,
+                color: isStudentPersona ? '#FFFFFF' : selectedPersona.colors.secondary,
                 lineHeight: selectedPersona.typography?.lineHeight || '1.4'
               }}
             >
@@ -168,8 +174,8 @@ export default function JourneyDetail() {
             <Carousel3D 
               items={carouselItems}
               onItemSelect={handleCarouselItemSelect}
-              accentColor={primaryColor}
-              secondaryColor={isStudentPersona ? '#60A5FA' : selectedPersona.colors.secondary}
+              accentColor={buttonColor}
+              secondaryColor={isStudentPersona ? '#1D4ED8' : selectedPersona.colors.secondary}
               personaTypography={selectedPersona.typography}
               selectedPersona={selectedPersona}
             />
@@ -186,7 +192,7 @@ export default function JourneyDetail() {
               onSend={handleSendMessage}
               placeholder="Ask me anything about your journey..."
               className="w-full"
-              accentColor={primaryColor}
+              accentColor={buttonColor}
               personaTypography={selectedPersona.typography}
             />
           </motion.div>
