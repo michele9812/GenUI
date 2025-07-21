@@ -443,7 +443,7 @@ export default function JourneyDetail() {
       <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
         {/* AirBuddy Logo Square - Separate button */}
         <motion.div
-          className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden"
+          className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden cursor-pointer"
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.9)',
             borderRadius: '12px',
@@ -464,6 +464,7 @@ export default function JourneyDetail() {
             ease: [0.16, 1, 0.3, 1],
             delay: 0.1
           }}
+          onClick={() => setLocation('/')}
         />
 
         {/* Back Action Button */}
