@@ -96,89 +96,94 @@ export default function LoginPage() {
           </div>
           
           {/* Content - Fixed position */}
-          <div className="absolute top-64 left-6 right-6 space-y-4">
-            <div>
-              <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
-                Name
-              </Label>
-              <Input
-                id="userName"
-                type="text"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                placeholder="Enter your name..."
-                className="w-full"
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-1">
-                Select Your Profile
-              </Label>
-              <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Choose your traveler profile..." />
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.entries(personas).map(([id, persona]) => (
-                    <SelectItem key={id} value={id}>
-                      {persona.title}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {selectedPersona && (
-              <div 
-                className="p-2 rounded-lg border"
-                style={{ 
-                  backgroundColor: `${selectedPersona.colors.primary}20`,
-                  borderColor: `${selectedPersona.colors.primary}40`,
-                  width: `${100 / (selectedPersona.typography.scale || 1)}%`,
-                  transform: `scale(${selectedPersona.typography.scale || 1})`,
-                  transformOrigin: 'left center'
-                }}
-              >
-                <div className="flex items-start space-x-2">
-                  <div 
-                    className="w-6 h-6 rounded-full flex items-center justify-center text-white flex-shrink-0"
-                    style={{ backgroundColor: `${selectedPersona.colors.primary}` }}
-                  >
-                    {(() => {
-                      const IconComponent = getPersonaIcon(selectedPersona.id);
-                      const MaterialIconComponent = getMaterialIcon(selectedPersona.id);
-                      
-                      if (IconComponent) {
-                        return <IconComponent className="w-3 h-3" />;
-                      } else if (MaterialIconComponent) {
-                        return <MaterialIconComponent className="w-3 h-3" />;
-                      } else {
-                        return selectedPersona.title.charAt(0);
-                      }
-                    })()}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 
-                      className="font-semibold text-gray-900 text-sm mb-1"
-                      style={{ 
-                        fontFamily: selectedPersona.typography.headingFont
-                      }}
-                    >
-                      {selectedPersona.title}
-                    </h3>
-                    <p 
-                      className="text-xs text-gray-600 leading-tight"
-                      style={{ 
-                        fontFamily: selectedPersona.typography.fontFamily
-                      }}
-                    >
-                      {selectedPersona.description}
-                    </p>
-                  </div>
-                </div>
+          <div className="absolute top-64 left-6 right-6">
+            <div className="space-y-6">
+              <div>
+                <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-2">
+                  Name
+                </Label>
+                <Input
+                  id="userName"
+                  type="text"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                  placeholder="Enter your name..."
+                  className="w-full"
+                />
               </div>
-            )}
+
+              <div>
+                <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-2">
+                  Select Your Profile
+                </Label>
+                <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Choose your traveler profile..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.entries(personas).map(([id, persona]) => (
+                      <SelectItem key={id} value={id}>
+                        {persona.title}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Fixed height container for preview */}
+              <div className="h-16 flex items-start">
+                {selectedPersona && (
+                  <div 
+                    className="p-2 rounded-lg border h-16 flex items-center"
+                    style={{ 
+                      backgroundColor: `${selectedPersona.colors.primary}20`,
+                      borderColor: `${selectedPersona.colors.primary}40`,
+                      width: `${100 / (selectedPersona.typography.scale || 1)}%`,
+                      transform: `scale(${selectedPersona.typography.scale || 1})`,
+                      transformOrigin: 'left center'
+                    }}
+                  >
+                    <div className="flex items-center space-x-2 w-full">
+                      <div 
+                        className="w-6 h-6 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                        style={{ backgroundColor: `${selectedPersona.colors.primary}` }}
+                      >
+                        {(() => {
+                          const IconComponent = getPersonaIcon(selectedPersona.id);
+                          const MaterialIconComponent = getMaterialIcon(selectedPersona.id);
+                          
+                          if (IconComponent) {
+                            return <IconComponent className="w-3 h-3" />;
+                          } else if (MaterialIconComponent) {
+                            return <MaterialIconComponent className="w-3 h-3" />;
+                          } else {
+                            return selectedPersona.title.charAt(0);
+                          }
+                        })()}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 
+                          className="font-semibold text-gray-900 text-sm leading-tight"
+                          style={{ 
+                            fontFamily: selectedPersona.typography.headingFont
+                          }}
+                        >
+                          {selectedPersona.title}
+                        </h3>
+                        <p 
+                          className="text-xs text-gray-600 leading-tight truncate"
+                          style={{ 
+                            fontFamily: selectedPersona.typography.fontFamily
+                          }}
+                        >
+                          {selectedPersona.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
 
           {/* Button - Fixed at bottom */}
