@@ -99,6 +99,11 @@ export default function Welcome() {
       containerClassName="h-viewport"
       className="flex flex-col"
     >
+      {/* Navbar - Full width with horizontal layout */}
+      <div className="w-full px-2 py-2 flex items-center justify-start relative">
+        {/* Navbar content here */}
+      </div>
+
       {/* Back Button - Top Left */}
       <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
         {/* AirBuddy Logo Square - Separate button */}
