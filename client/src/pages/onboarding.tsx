@@ -52,19 +52,17 @@ export default function OnboardingPage() {
                 </p>
               </div>
               
-              {/* Additional content area to match login step height */}
-              <div className="space-y-6">
-                <div>
-                  <div className="h-[40px]"></div> {/* Space equivalent to name input */}
-                </div>
-                
-                <div>
-                  <div className="h-[40px]"></div> {/* Space equivalent to profile selector */}
-                </div>
-                
-                <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]">
-                  {/* Space equivalent to persona preview area */}
-                </div>
+              {/* Equivalent spacing to match login step form inputs */}
+              <div>
+                <div className="h-[44px] mb-4"></div> {/* Space equivalent to name input + margin */}
+              </div>
+              
+              <div>
+                <div className="h-[44px] mb-6"></div> {/* Space equivalent to profile selector + margin */}
+              </div>
+              
+              <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]">
+                {/* Space equivalent to persona preview area */}
               </div>
             </div>
           </div>
