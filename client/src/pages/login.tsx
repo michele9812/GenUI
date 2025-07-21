@@ -66,11 +66,8 @@ export default function LoginPage() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md h-[600px] shadow-2xl">
+      <Card className="w-full max-w-md h-[600px] shadow-2xl animation-scale-in">
         <CardContent className="p-0 h-full relative">
-          {/* Fixed positioning for all elements */}
-          
-          {/* Image - Fixed at top with responsive positioning */}
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
             <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-blue-50">
               <img 
@@ -108,7 +105,7 @@ export default function LoginPage() {
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
                   placeholder="Enter your name..."
-                  className="w-full"
+                  className="w-full focus:scale-105"
                 />
               </div>
 
@@ -134,7 +131,7 @@ export default function LoginPage() {
               <div className="h-24 flex items-start">
                 {selectedPersona && (
                   <div 
-                    className="p-3 radius-responsive-small border min-h-[96px] flex items-start w-full"
+                    className="p-3 border min-h-[96px] flex items-start w-full transition-fluid animation-fade-in-up"
                     style={{ 
                       backgroundColor: `${selectedPersona.colors.primary}20`,
                       borderColor: `${selectedPersona.colors.primary}40`,
@@ -182,7 +179,7 @@ export default function LoginPage() {
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
-              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium radius-responsive-small bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               Start the journey
             </Button>
