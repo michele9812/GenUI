@@ -225,7 +225,7 @@
   /* Senior Globetrotter PRM */
   --senior-primary: hsl(201, 100%, 20%);
   --senior-secondary: hsl(0, 0%, 96%);
-  --senior-accent: hsl(258, 42%, 42%); /* Keep for persona-specific use */
+  --senior-accent: hsl(258, 42%, 42%);
   --senior-bg: hsl(189, 14%, 95%);
 
   /* Bleisure Nomad */
