@@ -100,7 +100,7 @@ export const personas: Record<string, Persona> = {
     id: 'tech',
     name: 'Marco',
     title: 'Frequent Flyer Tech-Savvy',
-    description: '38 anni, consulente direzionale italiano basato a Milano. 60 voli/anno, status élite, appassionato di gadget e soluzioni friction-less.',
+    description: '38 years old, Italian management consultant based in Milan. 60 flights per year, elite status, passionate about gadgets and friction-less solutions.',
     icon: 'laptop',
     theme: 'persona-theme-tech',
     colors: {
@@ -165,7 +165,7 @@ export const personas: Record<string, Persona> = {
     id: 'family',
     name: 'Fatima',
     title: 'Family Planner',
-    description: '34 anni, insegnante marocchina che viaggia con marito e bimbi (4 e 7 anni). Frequenza 2 viaggi/anno; budget-sensitive ma orientata a servizi kids-friendly.',
+    description: '34 years old, Moroccan teacher traveling with husband and children (ages 4 and 7). 2 trips per year; budget-conscious but focused on kid-friendly services.',
     icon: 'family_restroom',
     theme: 'persona-theme-family',
     colors: {
@@ -230,7 +230,7 @@ export const personas: Record<string, Persona> = {
     id: 'senior',
     name: 'Jonas',
     title: 'Senior Globetrotter PRM',
-    description: '72 anni, pensionato tedesco, viaggia con moglie, ama tour culturali lunghi. Artrite alle ginocchia, usa bastone; sente bene ma vista ridotta.',
+    description: '72 years old, retired German, travels with wife, loves long cultural tours. Knee arthritis, uses walking stick; good hearing but reduced vision.',
     icon: 'accessible',
     theme: 'persona-theme-senior',
     colors: {
@@ -290,7 +290,7 @@ export const personas: Record<string, Persona> = {
     id: 'bleisure',
     name: 'Nikhil',
     title: 'Bleisure Nomad',
-    description: '29 anni, ingegnere software indiano in full remote, vola ogni 2-3 mesi. Combina 3 giorni meeting con 4 giorni esplorazione locale.',
+    description: '29 years old, Indian software engineer working fully remote, flies every 2-3 months. Combines 3 days of meetings with 4 days of local exploration.',
     icon: 'work',
     theme: 'persona-theme-bleisure',
     colors: {
@@ -350,7 +350,7 @@ export const personas: Record<string, Persona> = {
     id: 'student',
     name: 'Li Wei',
     title: 'First-Time Student',
-    description: '20 anni, matricola cinese diretta a un college statunitense. Primo volo intercontinentale sola; inglese intermedio; alto stress.',
+    description: '20 years old, Chinese freshman heading to an American college. First solo intercontinental flight; intermediate English; high stress levels.',
     icon: 'school',
     theme: 'persona-theme-student',
     colors: {
