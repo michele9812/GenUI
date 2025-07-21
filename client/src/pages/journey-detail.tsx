@@ -517,11 +517,11 @@ export default function JourneyDetail() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 h-full overflow-hidden" style={{ paddingTop: '180px', paddingBottom: '100px' }}>
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 h-full overflow-hidden" style={{ paddingTop: '160px', paddingBottom: '80px' }}>
 
         {/* 3D Carousel, Senior Accordion, or Family Tabs */}
         <motion.div 
-          className="mb-16 sm:mb-16 md:mb-16"
+          className="mb-8 sm:mb-8 md:mb-8"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -558,7 +558,7 @@ export default function JourneyDetail() {
       {/* Floating AI Prompt Input - Fixed at bottom */}
       <div 
         className="absolute left-0 right-0 z-30 px-4 sm:px-6 lg:px-8"
-        style={{ bottom: '24px' }}
+        style={{ bottom: '16px' }}
       >
         <motion.div 
           className="max-w-4xl mx-auto"
