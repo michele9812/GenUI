@@ -15,13 +15,6 @@ import {
   Globe, 
   GraduationCap 
 } from 'lucide-react';
-import { 
-  MdComputer,
-  MdFamilyRestroom,
-  MdAccessible,
-  MdTravelExplore,
-  MdSchool
-} from 'react-icons/md';
 
 export default function LoginPage() {
   const [, navigate] = useLocation();
@@ -51,17 +44,7 @@ export default function LoginPage() {
       'student': <GraduationCap className="w-4 h-4" />
     };
 
-    const materialIconMap = {
-      'tech': <MdComputer className="w-4 h-4" />,
-      'family': <MdFamilyRestroom className="w-4 h-4" />,
-      'senior': <MdAccessible className="w-4 h-4" />,
-      'bleisure': <MdTravelExplore className="w-4 h-4" />,
-      'student': <MdSchool className="w-4 h-4" />
-    };
-
-    return iconMap[personaId as keyof typeof iconMap] || 
-           materialIconMap[personaId as keyof typeof materialIconMap] || 
-           personaId.charAt(0).toUpperCase();
+    return iconMap[personaId as keyof typeof iconMap] || personaId.charAt(0).toUpperCase();
   };
 
   return (
@@ -78,21 +61,17 @@ export default function LoginPage() {
             </div>
           </div>
           
-          {/* Title - Fixed position responsive */}
           <div className="absolute top-24 sm:top-28 md:top-28 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
             <h1 className="h1-responsive-small text-gray-900">
               AirBuddy Assistant
             </h1>
           </div>
-          
-          {/* Subtitle - Fixed position responsive */}
+
           <div className="absolute top-36 sm:top-44 md:top-44 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
             <p className="text-sm sm:text-base md:text-base text-gray-600">
               Select your profile to continue
             </p>
           </div>
-          
-          {/* Content - Fixed position - responsive optimization */}
           <div className="absolute top-48 sm:top-56 md:top-56 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
             <div className="space-y-3 sm:space-y-4 md:space-y-4">
               <div>
@@ -127,11 +106,10 @@ export default function LoginPage() {
                 </Select>
               </div>
 
-              {/* Fixed height container for preview with instant transition */}
               <div className="h-32 flex items-start overflow-hidden">
                 {selectedPersona && (
                   <div 
-                    key={selectedPersona.id} // Force re-render for instant transition
+                    key={selectedPersona.id}
                     className="p-3 border radius-responsive-small w-full flex items-start transition-all duration-0"
                     style={{ 
                       backgroundColor: `${selectedPersona.colors.primary}20`,
@@ -176,7 +154,6 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* Button - Fixed at bottom responsive */}
           <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
             <Button 
               onClick={handleStart}

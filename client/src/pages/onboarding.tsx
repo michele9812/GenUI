@@ -23,7 +23,6 @@ export default function OnboardingPage() {
               />
             </div>
           </div>
-          
 
           <div className="absolute top-24 sm:top-28 md:top-28 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
             <h1 className="h1-responsive-small text-gray-900">
@@ -45,7 +44,6 @@ export default function OnboardingPage() {
             </p>
           </div>
 
-          
           <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
             <Button 
               onClick={handleContinue}
