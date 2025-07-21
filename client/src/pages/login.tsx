@@ -1,30 +1,42 @@
 import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Card, CardContent } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { personas } from '@/lib/personas';
-import cheerfulPilotImage from '@assets/Cheerful Pilot Character_1753105244175.png';
 import { usePersona } from '@/hooks/use-persona';
-import { Laptop, Users, Heart, Globe, GraduationCap } from 'lucide-react';
-import { MdComputer, MdFamilyRestroom, MdAccessible, MdTravelExplore, MdSchool } from 'react-icons/md';
+import cheerfulPilotImage from '@assets/Cheerful Pilot Character_1753105244175.png';
+import { 
+  Laptop, 
+  Users, 
+  Heart, 
+  Globe, 
+  GraduationCap 
+} from 'lucide-react';
+import { 
+  MdComputer,
+  MdFamilyRestroom,
+  MdAccessible,
+  MdTravelExplore,
+  MdSchool
+} from 'react-icons/md';
 
-export default function Login() {
+export default function LoginPage() {
+  const [, navigate] = useLocation();
+  const { setPersona } = usePersona();
+  const [userName, setUserName] = useState('');
   const [selectedPersonaId, setSelectedPersonaId] = useState<string>('');
-  const [userName, setUserName] = useState<string>('');
-  const [, setLocation] = useLocation();
-  const { selectPersona } = usePersona();
 
-  const handlePersonaChange = (value: string) => {
-    setSelectedPersonaId(value);
+  const handlePersonaChange = (personaId: string) => {
+    setSelectedPersonaId(personaId);
   };
 
   const handleStart = () => {
     if (selectedPersonaId && userName.trim()) {
-      selectPersona(selectedPersonaId, userName.trim());
-      setLocation('/welcome');
+      setPersona(personas[selectedPersonaId], userName);
+      navigate('/welcome');
     }
   };
 
@@ -54,129 +66,121 @@ export default function Login() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
+      <Card className="w-full max-w-md h-[600px] shadow-2xl">
         <CardContent className="p-0 h-full relative">
-          <div className="h-full flex flex-col px-6 pt-8 pb-20">
-            {/* Header */}
-            <div className="flex-shrink-0 space-y-6">
-              <div className="text-center">
-                <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
-                  <img 
-                    src={cheerfulPilotImage} 
-                    alt="AirBuddy Pilot" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <h1 className="h1-responsive-small text-gray-900">
-                  AirBuddy Assistant
-                </h1>
-              </div>
-              
-              <div className="text-center">
-                <p className="text-gray-600">
-                  Select your profile to continue
-                </p>
-              </div>
+          {/* Fixed positioning for all elements */}
+          
+          {/* Image - Fixed at top */}
+          <div className="absolute top-8 left-0 right-0 text-center">
+            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
+              <img 
+                src={cheerfulPilotImage} 
+                alt="AirBuddy Pilot" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+          
+          {/* Title - Fixed position */}
+          <div className="absolute top-28 left-6 right-6 text-center">
+            <h1 className="h1-responsive-small text-gray-900">
+              AirBuddy Assistant
+            </h1>
+          </div>
+          
+          {/* Subtitle - Fixed position */}
+          <div className="absolute top-44 left-6 right-6 text-center">
+            <p className="text-gray-600">
+              Select your profile to continue
+            </p>
+          </div>
+          
+          {/* Content - Fixed position */}
+          <div className="absolute top-64 left-6 right-6 space-y-4">
+            <div>
+              <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
+                Name
+              </Label>
+              <Input
+                id="userName"
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                placeholder="Enter your name..."
+                className="w-full"
+              />
             </div>
 
-            {/* Content */}
-            <div className="flex-1 flex flex-col space-y-6">
-              <div>
-                <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name
-                </Label>
-                <Input
-                  id="userName"
-                  type="text"
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                  placeholder="Enter your name..."
-                  className="w-full"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-1">
-                  Select Your Profile
-                </Label>
-                <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Choose your traveler profile..." />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Object.entries(personas).map(([id, persona]) => (
-                      <SelectItem key={id} value={id}>
-                        {persona.title}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]">
-                  {selectedPersona && (
-                    <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 h-full">
-                      <div className="flex items-start gap-3 h-full">
-                        <div 
-                          className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full border-2 border-blue-200"
-                          style={{ 
-                            backgroundColor: `${selectedPersona.colors.primary}20`
-                          }}
-                        >
-                          {(() => {
-                            const IconComponent = getPersonaIcon(selectedPersonaId);
-                            const MaterialIcon = getMaterialIcon(selectedPersonaId);
-                            
-                            if (IconComponent) {
-                              return (
-                                <IconComponent 
-                                  className="w-5 h-5" 
-                                  style={{ color: selectedPersona.colors.primary }}
-                                />
-                              );
-                            } else if (MaterialIcon) {
-                              return (
-                                <MaterialIcon 
-                                  className="w-5 h-5" 
-                                  style={{ color: selectedPersona.colors.primary }}
-                                />
-                              );
-                            }
-                            
-                            return null;
-                          })()}
-                        </div>
-                        <div className="flex-1">
-                          <h3 
-                            className="font-semibold text-gray-900 mb-2"
-                            style={{ 
-                              fontFamily: selectedPersona.typography.headingFont,
-                              transform: `scale(${selectedPersona.typography.scale || 1})`
-                            }}
-                          >
-                            {selectedPersona.title}
-                          </h3>
-                          <p 
-                            className="text-sm text-gray-600"
-                            style={{ 
-                              fontFamily: selectedPersona.typography.fontFamily,
-                              transform: `scale(${selectedPersona.typography.scale || 1})`
-                            }}
-                          >
-                            {selectedPersona.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
+            <div>
+              <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-1">
+                Select Your Profile
+              </Label>
+              <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Choose your traveler profile..." />
+                </SelectTrigger>
+                <SelectContent>
+                  {Object.entries(personas).map(([id, persona]) => (
+                    <SelectItem key={id} value={id}>
+                      {persona.title}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
-          {/* Button */}
+            {selectedPersona && (
+              <div 
+                className="p-3 rounded-lg border"
+                style={{ 
+                  backgroundColor: `${selectedPersona.colors.primary}20`,
+                  borderColor: `${selectedPersona.colors.primary}40`
+                }}
+              >
+                <div className="flex items-start space-x-3">
+                  <div 
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                    style={{ backgroundColor: `${selectedPersona.colors.primary}` }}
+                  >
+                    {(() => {
+                      const IconComponent = getPersonaIcon(selectedPersona.id);
+                      const MaterialIconComponent = getMaterialIcon(selectedPersona.id);
+                      
+                      if (IconComponent) {
+                        return <IconComponent className="w-4 h-4" />;
+                      } else if (MaterialIconComponent) {
+                        return <MaterialIconComponent className="w-4 h-4" />;
+                      } else {
+                        return selectedPersona.title.charAt(0);
+                      }
+                    })()}
+                  </div>
+                  <div className="flex-1">
+                    <h3 
+                      className="font-semibold text-gray-900 text-sm mb-1"
+                      style={{ 
+                        fontFamily: selectedPersona.typography.headingFont,
+                        transform: `scale(${selectedPersona.typography.scale || 1})`
+                      }}
+                    >
+                      {selectedPersona.title}
+                    </h3>
+                    <p 
+                      className="text-xs text-gray-600"
+                      style={{ 
+                        fontFamily: selectedPersona.typography.fontFamily,
+                        transform: `scale(${selectedPersona.typography.scale || 1})`
+                      }}
+                    >
+                      {selectedPersona.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Button - Fixed at bottom */}
           <div className="absolute bottom-6 left-6 right-6">
             <Button 
               onClick={handleStart}
