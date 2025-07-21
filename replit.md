@@ -17,6 +17,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Enhanced dock navigation**: Added hover labels to dock icons showing clear journey detail titles with persona-specific typography
 - **Centered image positioning**: Anchored journey point selection image to the center of the viewport for better visual balance
 - **Increased carousel spacing**: Enhanced spacing between carousel elements to 32px desktop, 24px tablet, 16px mobile for better visual separation
+- **Updated all journey step images**: Replaced images with content appropriate to each journey point label across all personas for better visual context
 - Disabled interactions for inactive carousel cards (only center card is clickable and hoverable)
 - Updated persona selection page to use neutral styling (gray colors) except for the persona preview card
 - Enhanced journey pages (welcome and detail) to use full persona-specific theming including colors, typography, and gradients
