@@ -86,45 +86,45 @@ export default function Welcome() {
         </motion.button>
       </div>
       {/* Header Section - Responsive with proper spacing for text scaling */}
-<div 
-        className="absolute left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full"
-        style={{
-          top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-            ? '80px' // More space for Senior persona with 125% scaling
-            : screenWidth <= 640 
-              ? '48px' // Mobile: top-12
-              : screenWidth <= 1024 
-                ? '80px' // Tablet: top-20
-                : '96px' // Desktop: top-24
-        }}
-      >
-        <h1 
-          className="h1-responsive-small text-white"
-          style={{ 
-            fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-            fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
-            lineHeight: selectedPersona.typography?.lineHeight || '1.2',
-            color: 'white',
-            marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-              ? '24px' // More space for Senior persona
-              : screenWidth <= 640 
-                ? '8px' // Mobile: mb-2
-                : '16px' // Tablet/Desktop: mb-4
-          }}
-        >
-          Hello {userName || 'User'}
-        </h1>
-        <p 
-          className="text-white/80"
-          style={{
-            fontSize: selectedPersona.typography?.scale ? `calc(18pt * ${selectedPersona.typography.scale})` : '18pt',
-            lineHeight: selectedPersona.typography?.lineHeight || '1.4',
-            fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
-          }}
-        >
-          Select your journey phase as {selectedPersona.title}
-        </p>
-      </div>
+      <div 
+              className="absolute left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full pt-[8px] pb-[8px]"
+              style={{
+                top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+                  ? '80px' // More space for Senior persona with 125% scaling
+                  : screenWidth <= 640 
+                    ? '48px' // Mobile: top-12
+                    : screenWidth <= 1024 
+                      ? '80px' // Tablet: top-20
+                      : '96px' // Desktop: top-24
+              }}
+            >
+              <h1 
+                className="h1-responsive-small text-white"
+                style={{ 
+                  fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
+                  fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
+                  lineHeight: selectedPersona.typography?.lineHeight || '1.2',
+                  color: 'white',
+                  marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+                    ? '24px' // More space for Senior persona
+                    : screenWidth <= 640 
+                      ? '8px' // Mobile: mb-2
+                      : '16px' // Tablet/Desktop: mb-4
+                }}
+              >
+                Hello {userName || 'User'}
+              </h1>
+              <p 
+                className="text-white/80"
+                style={{
+                  fontSize: selectedPersona.typography?.scale ? `calc(18pt * ${selectedPersona.typography.scale})` : '18pt',
+                  lineHeight: selectedPersona.typography?.lineHeight || '1.4',
+                  fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
+                }}
+              >
+                Select your journey phase as {selectedPersona.title}
+              </p>
+            </div>
       {/* Central Image - Adjusted for responsive header spacing */}
       <div 
         className="absolute left-1/2 transform -translate-x-1/2 z-10"
