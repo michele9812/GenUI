@@ -3,6 +3,8 @@ import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import MacOSDock from '@/components/ui/mac-os-dock';
+import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation';
+import { getPersonaBackgroundColors } from '@/lib/background-colors';
 import { usePersona } from '@/hooks/use-persona';
 
 export default function Welcome() {
@@ -86,18 +88,16 @@ export default function Welcome() {
     setLocation('/');
   };
 
+  const backgroundColors = getPersonaBackgroundColors(selectedPersona);
+
   return (
-    <div 
-      className="h-viewport flex flex-col"
-      style={{ 
-        background: `linear-gradient(135deg, ${selectedPersona.colors.primary}, ${selectedPersona.colors.secondary})`,
-        fontFamily: selectedPersona.typography?.fontFamily || 'system-ui, -apple-system, sans-serif',
-        fontSize: selectedPersona.typography?.fontSize || '16px',
-        lineHeight: selectedPersona.typography?.lineHeight || '1.5',
-        letterSpacing: selectedPersona.typography?.letterSpacing || 'normal',
-        backgroundColor: selectedPersona.colors.bg,
-        overflow: isZooming ? 'hidden' : 'visible'
-      }}
+    <BackgroundGradientAnimation
+      {...backgroundColors}
+      size="90%"
+      blendingValue="soft-light"
+      interactive={true}
+      containerClassName="h-viewport"
+      className="flex flex-col"
     >
       {/* Back Button - Top Left */}
       <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
@@ -287,6 +287,6 @@ export default function Welcome() {
           />
         </div>
       </div>
-    </div>
+    </BackgroundGradientAnimation>
   );
 }
