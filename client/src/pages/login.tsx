@@ -199,34 +199,70 @@ export default function LoginPage() {
                         </p>
                       </div>
 
-                      {/* Color and Typography Sample */}
-                      <div className="flex items-center space-x-2 pt-1">
-                        <div 
-                          className="w-3 h-3 rounded-full border"
-                          style={{ 
-                            backgroundColor: selectedPersona.colors.primary,
-                            borderColor: selectedPersona.colors.primary 
-                          }}
-                          title="Primary Color"
-                        ></div>
-                        <div 
-                          className="w-3 h-3 rounded-full border"
-                          style={{ 
-                            backgroundColor: selectedPersona.colors.secondary || selectedPersona.colors.accent,
-                            borderColor: selectedPersona.colors.secondary || selectedPersona.colors.accent 
-                          }}
-                          title="Secondary/Accent Color"
-                        ></div>
-                        <div className="flex-1">
+                      {/* Typography Details */}
+                      <div className="space-y-2 pt-1">
+                        {/* Typefaces Information */}
+                        <div className="space-y-1">
                           <div 
-                            className="text-xs truncate"
+                            className="text-xs font-medium"
                             style={{ 
-                              color: selectedPersona.colors.textSecondary || '#9ca3af',
+                              color: selectedPersona.colors.primary,
+                              fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily,
+                              fontSize: '0.7rem'
+                            }}
+                          >
+                            Heading: {(selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily).split(',')[0]}
+                          </div>
+                          <div 
+                            className="text-xs"
+                            style={{ 
+                              color: selectedPersona.colors.textSecondary || '#6b7280',
                               fontFamily: selectedPersona.typography.fontFamily,
                               fontSize: '0.7rem'
                             }}
                           >
-                            {selectedPersona.typography.fontFamily.split(',')[0]}
+                            Body: {selectedPersona.typography.fontFamily.split(',')[0]}
+                          </div>
+                          {selectedPersona.typography.scale && selectedPersona.typography.scale > 1 && (
+                            <div 
+                              className="text-xs font-medium px-2 py-1 rounded"
+                              style={{ 
+                                color: selectedPersona.colors.primary,
+                                backgroundColor: `${selectedPersona.colors.primary}15`,
+                                fontSize: '0.65rem'
+                              }}
+                            >
+                              {selectedPersona.id === 'senior' ? 'Accessibility: ' : ''}{Math.round(selectedPersona.typography.scale * 100)}% Text Scale
+                            </div>
+                          )}
+                        </div>
+                        
+                        {/* Color Palette */}
+                        <div className="flex items-center space-x-2">
+                          <div 
+                            className="w-3 h-3 rounded-full border"
+                            style={{ 
+                              backgroundColor: selectedPersona.colors.primary,
+                              borderColor: selectedPersona.colors.primary 
+                            }}
+                            title="Primary Color"
+                          ></div>
+                          <div 
+                            className="w-3 h-3 rounded-full border"
+                            style={{ 
+                              backgroundColor: selectedPersona.colors.secondary || selectedPersona.colors.accent,
+                              borderColor: selectedPersona.colors.secondary || selectedPersona.colors.accent 
+                            }}
+                            title="Secondary/Accent Color"
+                          ></div>
+                          <div 
+                            className="text-xs flex-1"
+                            style={{ 
+                              color: selectedPersona.colors.textSecondary || '#9ca3af',
+                              fontSize: '0.65rem'
+                            }}
+                          >
+                            Color Palette
                           </div>
                         </div>
                       </div>
