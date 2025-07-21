@@ -16,9 +16,8 @@ export default function OnboardingPage() {
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
       <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
         <CardContent className="p-0 h-full relative">
-          {/* Content Area */}
           <div className="h-full flex flex-col px-6 pt-8 pb-20">
-            {/* Fixed Header Area */}
+            {/* Header */}
             <div className="flex-shrink-0 space-y-6">
               <div className="text-center">
                 <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
@@ -43,7 +42,7 @@ export default function OnboardingPage() {
               </div>
             </div>
 
-            {/* Flexible Content Area */}
+            {/* Content */}
             <div className="flex-1 flex flex-col justify-center space-y-6">
               <div className="text-center">
                 <p className="text-gray-600 leading-relaxed">
@@ -57,7 +56,7 @@ export default function OnboardingPage() {
             </div>
           </div>
 
-          {/* Fixed Button Area - Fixed to bottom with 24px spacing */}
+          {/* Button */}
           <div className="absolute bottom-6 left-6 right-6">
             <Button
               onClick={handleContinue}
