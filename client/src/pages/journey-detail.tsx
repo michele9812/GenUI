@@ -439,8 +439,8 @@ export default function JourneyDetail() {
         delay: 0.2
       }}
     >
-      {/* Back Button - Top Left */}
-      <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
+      {/* Navbar - Full width with horizontal layout */}
+      <div className="w-full px-2 py-2 flex items-center justify-start relative gap-2">
         {/* AirBuddy Logo Square - Separate button */}
         <motion.div
           className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden cursor-pointer"
@@ -496,7 +496,7 @@ export default function JourneyDetail() {
                 fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
               }}
             >
-              Back to journey selection
+              Back to phase selection
             </span>
           </div>
 
@@ -510,7 +510,7 @@ export default function JourneyDetail() {
       <div 
         className="text-center container-responsive-padding"
         style={{
-          marginTop: window.innerWidth < 768 ? '48px' : '64px', // 48px mobile, 64px desktop
+          marginTop: '16px', // Unified 16px margin across all breakpoints
           marginBottom: window.innerWidth < 768 ? '8px' : '16px', // 8px mobile, 16px desktop
           paddingBottom: window.innerWidth < 768 ? '4px' : '8px' // 4px mobile, 8px desktop
         }}
