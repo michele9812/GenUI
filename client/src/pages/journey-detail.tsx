@@ -100,7 +100,6 @@ export default function JourneyDetail() {
           <span className="text-sm font-medium">Back to journey selection</span>
         </motion.button>
       </div>
-
       {/* Main Content */}
       <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[40px] pb-[40px]">
           
@@ -126,7 +125,7 @@ export default function JourneyDetail() {
               ,
             </h1>
             <p 
-              className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-2"
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-2 text-[#111827]"
               style={{
                 fontSize: selectedPersona.typography?.scale ? `calc(2rem * ${selectedPersona.typography.scale})` : undefined,
                 fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
