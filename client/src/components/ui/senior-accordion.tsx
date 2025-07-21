@@ -89,7 +89,7 @@ export function SeniorAccordion({
               <AccordionTrigger 
                 className="w-full text-left transition-all duration-200 hover:bg-gray-50 bg-white"
               >
-                <div className="flex items-center justify-between w-full h-full px-0 py-0">
+                <div className="flex items-center justify-between w-full h-full px-4 md:px-6 lg:px-8 py-0">
                 <div className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-3">
                   {/* Icon */}
                   <div 
@@ -156,7 +156,7 @@ export function SeniorAccordion({
             />
             
             <AccordionContent className="bg-white">
-              <div className="px-0 py-0">
+              <div className="px-4 md:px-6 lg:px-8 py-0">
                 {/* Horizontal layout: text + button */}
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 sm:gap-3 md:gap-4">
                   {/* Text content */}
