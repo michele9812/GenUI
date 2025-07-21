@@ -512,9 +512,11 @@ export default function JourneyDetail() {
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               color: primaryColor,
               lineHeight: selectedPersona.typography?.lineHeight || '1.2',
-              marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-                ? '16px' // More space for Senior persona
+              marginBottom: window.innerWidth < 768 ? '8px' : (
+                selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+                ? '16px' // More space for Senior persona on desktop
                 : '8px' // Standard spacing between title elements
+              )
             }}
           >
             Hello{' '}
@@ -530,7 +532,7 @@ export default function JourneyDetail() {
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? 'rgba(255, 255, 255, 0.8)' : selectedPersona.colors.secondary,
-              marginBottom: '8px' // Spacing before next element (atomic spacing)
+              marginBottom: window.innerWidth < 768 ? '8px' : '8px' // 8px spacing mobile and desktop
             }}
           >
             I am your AirBuddy and I am here to assist you!
@@ -544,7 +546,7 @@ export default function JourneyDetail() {
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
-              marginBottom: '16px' // Ensure 16px spacing with content below
+              marginBottom: window.innerWidth < 768 ? '8px' : '16px' // 8px mobile, 16px desktop
             }}
           >
             You are in "{currentStepObj?.name || 'Journey Point'}" phase
