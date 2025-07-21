@@ -129,7 +129,7 @@ export function Carousel3D({
   const getCardStyle = useCallback((position: number) => {
     const isCenter = position === 0;
     
-    // Simplified responsive breakpoints
+    // Get current screen width for responsive calculations
     const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
     const isMobile = screenWidth < 640;
     const isTablet = screenWidth < 1024;
@@ -192,10 +192,11 @@ export function Carousel3D({
       contentBrightness: Math.max(0.6, 1 - (distanceFromCenter * 0.15)),
       containerPadding
     };
-  }, []); // Empty dependency array since this function doesn't depend on any props/state
+  }, []); // Empty dependency array since this function gets screen width dynamically
 
   const visibleCards = getVisibleCards();
 
+  // Current screen dimensions for responsive container
   const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
   const isMobile = screenWidth < 640;
   const isIPhoneSE = screenWidth < 375;
