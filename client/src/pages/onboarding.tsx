@@ -43,7 +43,7 @@ export default function OnboardingPage() {
             </div>
 
             {/* Content */}
-            <div className="flex-1 flex flex-col space-y-6">
+            <div className="flex-1 flex flex-col justify-center space-y-6">
               <div className="text-center">
                 <p className="text-gray-600 leading-relaxed">
                   AirBuddy is a Generative UI prototype applied to airport and travel experience. 
@@ -52,18 +52,8 @@ export default function OnboardingPage() {
                 </p>
               </div>
               
-              {/* Equivalent spacing to match login step form inputs */}
-              <div>
-                <div className="h-[44px] mb-4"></div> {/* Space equivalent to name input + margin */}
-              </div>
-              
-              <div>
-                <div className="h-[44px] mb-6"></div> {/* Space equivalent to profile selector + margin */}
-              </div>
-              
-              <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]">
-                {/* Space equivalent to persona preview area */}
-              </div>
+              {/* Fixed spacer to match login step total content height */}
+              <div className="min-h-[200px] sm:min-h-[210px] md:min-h-[220px] lg:min-h-[230px]"></div>
             </div>
           </div>
 
