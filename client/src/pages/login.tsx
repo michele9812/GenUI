@@ -132,15 +132,16 @@ export default function LoginPage() {
                         >
                           {renderPersonaIcon(selectedPersona.id)}
                         </div>
-                        <span 
+                        <h3 
                           className="text-xs font-medium"
                           style={{ 
                             color: selectedPersona.colors.text || selectedPersona.colors.primary,
-                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily
+                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily,
+                            fontSize: selectedPersona.typography.scale ? `${0.75 * selectedPersona.typography.scale}rem` : '0.75rem'
                           }}
                         >
-                          Preview Journey Experience
-                        </span>
+                          {selectedPersona.title}
+                        </h3>
                       </div>
                       <div 
                         className="text-xs px-2 py-1 rounded-full"
@@ -149,7 +150,7 @@ export default function LoginPage() {
                           color: selectedPersona.colors.primary
                         }}
                       >
-                        Test Mode
+                        Preview
                       </div>
                     </div>
 
