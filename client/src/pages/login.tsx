@@ -57,62 +57,69 @@ export default function Login() {
       <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
         <CardContent className="p-6 pt-8 pb-6 h-full flex flex-col">
           {/* Fixed Header Area */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 space-y-6">
             <div className="text-center">
-              <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
+              <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
                 <img 
                   src={cheerfulPilotImage} 
                   alt="AirBuddy Pilot" 
                   className="w-full h-full object-contain"
                 />
               </div>
-              <h1 
-                className="h1-responsive-small text-gray-900 mb-6"
-              >AirBuddy Assistant</h1>
-              <p className="text-gray-600 mb-6">Select your profile to continue</p>
+            </div>
+            
+            <div className="text-center">
+              <h1 className="h1-responsive-small text-gray-900">
+                AirBuddy Assistant
+              </h1>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-gray-600">
+                Select your profile to continue
+              </p>
             </div>
           </div>
 
           {/* Flexible Content Area */}
-          <div className="flex-1 flex flex-col justify-center">
-            <div className="space-y-6">
-              <div>
-                <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name
-                </Label>
-                <Input
-                  id="userName"
-                  type="text"
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                  placeholder="Enter your name..."
-                  className="w-full"
-                />
-              </div>
+          <div className="flex-1 flex flex-col justify-center space-y-6">
+            <div>
+              <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
+                Name
+              </Label>
+              <Input
+                id="userName"
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                placeholder="Enter your name..."
+                className="w-full"
+              />
+            </div>
 
-              <div>
-                <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-1">
-                  Select Your Profile
-                </Label>
-                <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Choose your traveler profile..." />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Object.entries(personas).map(([id, persona]) => (
-                      <SelectItem key={id} value={id}>
-                        {persona.title}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+            <div>
+              <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-1">
+                Select Your Profile
+              </Label>
+              <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Choose your traveler profile..." />
+                </SelectTrigger>
+                <SelectContent>
+                  {Object.entries(personas).map(([id, persona]) => (
+                    <SelectItem key={id} value={id}>
+                      {persona.title}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
 
-              <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]">
-                {selectedPersona && (
-                  <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 h-full">
-                    <div className="flex items-start gap-3 h-full">
-                      <div 
+            <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]">
+              {selectedPersona && (
+                <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 h-full">
+                  <div className="flex items-start gap-3 h-full">
+                    <div 
                       className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full border-2 border-blue-200"
                       style={{ 
                         backgroundColor: `${selectedPersona.primaryColor}20`
@@ -140,9 +147,9 @@ export default function Login() {
                         
                         return null;
                       })()}
-                      </div>
-                      <div className="flex-1">
-                        <h3 
+                    </div>
+                    <div className="flex-1">
+                      <h3 
                         className="font-semibold text-gray-900 mb-2"
                         style={{ 
                           fontFamily: selectedPersona.headingFont,
@@ -159,12 +166,11 @@ export default function Login() {
                         }}
                       >
                         {selectedPersona.description}
-                        </p>
-                      </div>
+                      </p>
                     </div>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
 
