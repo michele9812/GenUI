@@ -18,7 +18,7 @@ export default function OnboardingPage() {
           
           {/* Image - Fixed at top with responsive positioning */}
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center rounded-xl overflow-hidden bg-blue-50">
               <img 
                 src={cheerfulPilotPath} 
                 alt="AirBuddy Pilot" 
@@ -41,8 +41,8 @@ export default function OnboardingPage() {
             </p>
           </div>
           
-          {/* Content - Fixed position responsive with mobile optimization */}
-          <div className="absolute top-44 sm:top-56 md:top-64 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
+          {/* Content - Fixed position responsive */}
+          <div className="absolute top-44 sm:top-56 md:top-56 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
             <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-tight sm:leading-relaxed md:leading-relaxed">
               AirBuddy is a Generative UI prototype applied to airport and travel experience. 
               By sensing who you are — whether you're a frequent flyer, a family traveler — 

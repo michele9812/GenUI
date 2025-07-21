@@ -25,7 +25,7 @@ import {
 
 export default function LoginPage() {
   const [, navigate] = useLocation();
-  const { setPersona } = usePersona();
+  const { selectPersona } = usePersona();
   const [userName, setUserName] = useState('');
   const [selectedPersonaId, setSelectedPersonaId] = useState<string>('');
 
@@ -35,7 +35,7 @@ export default function LoginPage() {
 
   const handleStart = () => {
     if (selectedPersonaId && userName.trim()) {
-      setPersona(personas[selectedPersonaId], userName);
+      selectPersona(selectedPersonaId, userName);
       navigate('/welcome');
     }
   };
@@ -72,7 +72,7 @@ export default function LoginPage() {
           
           {/* Image - Fixed at top with responsive positioning */}
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center rounded-xl overflow-hidden bg-blue-50">
               <img 
                 src={cheerfulPilotImage} 
                 alt="AirBuddy Pilot" 
@@ -134,7 +134,7 @@ export default function LoginPage() {
               <div className="h-24 flex items-start">
                 {selectedPersona && (
                   <div 
-                    className="p-3 rounded-lg border min-h-[96px] flex items-start w-full"
+                    className="p-3 rounded-xl border min-h-[96px] flex items-start w-full"
                     style={{ 
                       backgroundColor: `${selectedPersona.colors.primary}20`,
                       borderColor: `${selectedPersona.colors.primary}40`,
