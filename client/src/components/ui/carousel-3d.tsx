@@ -242,7 +242,7 @@ export function Carousel3D({
                 )}
                 style={{
                   width: style.width,
-                  height: 320, // Altezza fissa di 320px per tutte le card
+                  height: selectedPersona?.typography?.scale && selectedPersona.typography.scale > 1.1 ? 280 : 320, // Reduced height for Senior persona
                   zIndex: style.zIndex,
                   borderColor: isCenter ? accentColor : 'transparent',
                   filter: style.blur,
@@ -289,18 +289,20 @@ export function Carousel3D({
                 )}>
                   {/* Header */}
                   <div 
-                    className="px-4 py-3 sm:px-6 sm:py-4 text-center"
+                    className="px-4 py-2 sm:px-6 sm:py-3 text-center"
                     style={{
                       backgroundColor: isCenter ? (selectedPersona?.colors?.primary || accentColor) : '#f9fafb',
                       borderBottom: isCenter ? `2px solid ${selectedPersona?.colors?.secondary || secondaryColor}` : '1px solid #e5e7eb'
                     }}
                   >
                     <p 
-                      className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-2"
+                      className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-1 sm:mb-2"
                       style={{
                         color: isCenter ? 'white' : '#6b7280',
                         fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
-                        fontWeight: '600'
+                        fontWeight: '600',
+                        fontSize: selectedPersona?.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
+                          `calc(0.75rem * ${selectedPersona.typography.scale})` : undefined
                       }}
                     >
                       NAVIGATION
@@ -308,14 +310,14 @@ export function Carousel3D({
                     
                     {/* Icon */}
                     <div 
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center"
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full mx-auto mb-2 sm:mb-3 flex items-center justify-center"
                       style={{
                         backgroundColor: isCenter ? (selectedPersona?.colors?.secondary || secondaryColor) : '#e5e7eb',
                         border: isCenter ? `2px solid ${selectedPersona?.colors?.accent || accentColor}` : '1px solid #d1d5db'
                       }}
                     >
                       <span 
-                        className="material-icons text-lg sm:text-xl"
+                        className="material-icons text-base sm:text-lg"
                         style={{
                           color: isCenter ? 'white' : '#6b7280'
                         }}
@@ -326,25 +328,25 @@ export function Carousel3D({
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 px-4 py-3 sm:px-6 sm:py-4 flex flex-col justify-between">
+                  <div className="flex-1 px-4 py-2 sm:px-6 sm:py-3 flex flex-col justify-between">
                     <div className="text-center">
                       <h3 
-                        className="text-base sm:text-lg font-semibold mb-2 sm:mb-3"
+                        className="text-sm sm:text-base font-semibold mb-1 sm:mb-2"
                         style={{
                           color: isCenter ? (selectedPersona?.colors?.text || '#111827') : '#111827',
                           fontFamily: personaTypography?.headingFont || personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
-                          fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
+                          fontSize: personaTypography?.scale ? `calc(0.9rem * ${personaTypography.scale})` : undefined,
                           lineHeight: personaTypography?.lineHeight || '1.5'
                         }}
                       >
                         {item.title}
                       </h3>
                       <p 
-                        className="text-xs sm:text-sm leading-relaxed line-clamp-2 overflow-hidden"
+                        className="text-xs leading-relaxed line-clamp-2 overflow-hidden"
                         style={{
                           color: isCenter ? (selectedPersona?.colors?.text || '#111827') : '#6b7280',
                           fontFamily: personaTypography?.fontFamily || 'inherit',
-                          fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
+                          fontSize: personaTypography?.scale ? `calc(0.75rem * ${personaTypography.scale})` : undefined
                         }}
                       >
                         {item.description}
@@ -352,7 +354,7 @@ export function Carousel3D({
                     </div>
                     
                     {/* Action Button */}
-                    <div className="mt-4 sm:mt-6">
+                    <div className="mt-2 sm:mt-4">
                       {isCenter ? (
                         <motion.button
                           className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90"

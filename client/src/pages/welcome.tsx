@@ -70,24 +70,31 @@ export default function Welcome() {
         </motion.button>
       </div>
       {/* Header Section */}
-      <div className="absolute top-[120px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="absolute top-[80px] sm:top-[100px] lg:top-[120px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
         <h1 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-4 leading-tight"
           style={{ 
             fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-            fontSize: selectedPersona.typography?.scale ? `calc(3rem * ${selectedPersona.typography.scale})` : undefined,
-            color: 'white'
+            fontSize: selectedPersona.typography?.scale ? `calc(2rem * ${selectedPersona.typography.scale})` : undefined,
+            color: 'white',
+            lineHeight: selectedPersona.typography?.lineHeight || '1.2'
           }}
         >
           Ciao {userName || 'Utente'}
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-white/80">
+        <p 
+          className="text-base sm:text-lg md:text-xl text-white/80"
+          style={{
+            fontSize: selectedPersona.typography?.scale ? `calc(1rem * ${selectedPersona.typography.scale})` : undefined,
+            lineHeight: selectedPersona.typography?.lineHeight || '1.4'
+          }}
+        >
           Seleziona il punto del journey
         </p>
       </div>
 
       {/* Central Image */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 sm:px-6 lg:px-8 top-[220px] sm:top-[244px] lg:top-[260px]"> {/* 120+40+60=220 mobile, 120+64+60=244 tablet, 120+80+60=260 desktop */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 sm:px-6 lg:px-8 top-[180px] sm:top-[200px] lg:top-[220px]"> {/* Reduced top spacing for Senior persona */}
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -99,7 +106,7 @@ export default function Welcome() {
             duration: isZooming ? 1.2 : 0.3,
             ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
           }}
-          className="w-72 h-52 sm:w-80 sm:h-60 md:w-96 md:h-72 lg:w-[28rem] lg:h-80 rounded-2xl overflow-hidden shadow-2xl"
+          className="w-64 h-44 sm:w-72 sm:h-52 md:w-80 md:h-60 lg:w-96 lg:h-72 rounded-2xl overflow-hidden shadow-2xl"
           style={{
             transformOrigin: 'center center',
             zIndex: isZooming ? 9999 : 10
@@ -114,7 +121,7 @@ export default function Welcome() {
       </div>
 
       {/* Interactive Dock Navigation */}
-      <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 lg:bottom-20 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-12 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-center w-full">
           <MacOSDock 
             apps={selectedPersona.journeySteps.map((step, idx) => ({
