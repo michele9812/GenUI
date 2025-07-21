@@ -559,8 +559,9 @@ export default function JourneyDetail() {
           
           {/* Current Journey Phase */}
           <p 
-            className="font-medium text-responsive w-full"
+            className="font-medium w-full"
             style={{
+              fontSize: '18pt', // Fixed 18pt size for all breakpoints
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
@@ -568,7 +569,7 @@ export default function JourneyDetail() {
               marginBottom: window.innerWidth < 768 ? '8px' : '16px' // 8px mobile, 16px desktop
             }}
           >
-            You are in "{currentStepObj?.name || 'Journey Point'}" phase
+            You are in {currentStepObj?.name || 'Journey Point'} phase
           </p>
         </motion.div>
       </div>
