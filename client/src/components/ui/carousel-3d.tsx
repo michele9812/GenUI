@@ -214,13 +214,14 @@ export function Carousel3D({
     <div className="relative w-full h-[256px] sm:h-[356px] md:h-[396px] lg:h-[416px]">
       <div 
         ref={containerRef}
-        className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-full"
+        className="container-responsive relative w-full flex items-center justify-center h-full"
         style={{
-          paddingLeft: `${getCardStyle(0).containerPadding}px`,
-          paddingRight: `${getCardStyle(0).containerPadding}px`,
-          // Add subtle gradient fade-out masks on sides - only affects carousel content
-          maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
+          paddingLeft: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
+          paddingRight: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
+          overflow: window.innerWidth < 640 ? 'visible' : 'hidden',
+          // Add subtle gradient fade-out masks on sides - only on larger screens
+          maskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
+          WebkitMaskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
         }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
