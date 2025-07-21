@@ -138,6 +138,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Synchronized white fade transition**: Added white overlay fade during final 300ms of zoom animation to smooth transition between welcome and journey-detail pages, with subtle brightness increase on image during zoom for enhanced visual flow
 - **Fixed AirBuddy subtitle responsive sizing**: Updated "I am your AirBuddy and I am here to assist you!" paragraph to use 16pt on mobile and 18pt on desktop, removing text-responsive class and implementing custom responsive fontSize logic
 - **Unified header typography with responsive scaling**: Updated journey phase paragraph to use 16pt mobile/18pt desktop and restored H1 elements to use h1-responsive class across welcome and journey-detail pages for consistent sizing hierarchy
+- **Standardized journey phase text to 18px**: Updated "You are in [touchpoint] phase" paragraph to use fixed 18px font size across all breakpoints with font-thin weight for consistent typography
 - **Separated navigation buttons design**: Split AirBuddy logo and back action into separate buttons - logo as standalone square (10x10), back button with icon+text on desktop and icon-only on mobile with responsive design and staggered animations
 - **Reduced carousel height by 64px**: Decreased carousel container height across all breakpoints (256px mobile, 356px tablet, 396px medium, 416px desktop) for optimized viewport space utilization
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
