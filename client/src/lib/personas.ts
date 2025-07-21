@@ -1,0 +1,260 @@
+export interface PersonaColors {
+  primary: string;
+  secondary: string;
+  accent: string;
+  bg: string;
+}
+
+export interface PersonaFonts {
+  primary: string;
+  secondary: string;
+}
+
+export interface JourneyStep {
+  id: string;
+  name: string;
+  icon: string;
+  image: string;
+}
+
+export interface Action {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface Persona {
+  id: string;
+  name: string;
+  title: string;
+  description: string;
+  icon: string;
+  theme: string;
+  colors: PersonaColors;
+  fonts: PersonaFonts;
+  journeySteps: JourneyStep[];
+  actions: Record<string, Action[]>;
+}
+
+export const personas: Record<string, Persona> = {
+  tech: {
+    id: 'tech',
+    name: 'Marco',
+    title: 'Frequent Flyer Tech-Savvy',
+    description: '38 anni, consulente direzionale italiano basato a Milano. 60 voli/anno, status élite, appassionato di gadget e soluzioni friction-less.',
+    icon: 'laptop',
+    theme: 'persona-theme-tech',
+    colors: {
+      primary: '#1C304A',
+      secondary: '#0C7BDC',
+      accent: '#FFC20A',
+      bg: '#f5f7fa'
+    },
+    fonts: {
+      primary: 'Manrope',
+      secondary: 'Lora'
+    },
+    journeySteps: [
+      { id: 'arrival', name: 'Arrivo', icon: 'local_parking', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'security', name: 'Sicurezza', icon: 'security', image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'lounge', name: 'Lounge', icon: 'airline_seat_recline_normal', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'post_flight', name: 'Post-volo', icon: 'flight_land', image: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+    ],
+    actions: {
+      arrival: [
+        { title: 'App Parcheggio', description: 'Scansione QR per apertura automatica', icon: 'qr_code_scanner' },
+        { title: 'Varco Priority', description: 'Accesso veloce tramite app compagnia', icon: 'fast_forward' }
+      ],
+      security: [
+        { title: 'e-Gate Biometrico', description: 'Passaggio con Face-ID', icon: 'face' },
+        { title: 'Conferma Smartwatch', description: 'Notifica immediata OK', icon: 'watch' }
+      ],
+      lounge: [
+        { title: 'Barista Self-Service', description: 'Ordinazione automatica bevande', icon: 'local_cafe' },
+        { title: 'Prenotazione Doccia', description: 'Touch-screen e sblocco NFC', icon: 'shower' }
+      ],
+      boarding: [
+        { title: 'Self-Scan NFC', description: 'Smartwatch al lettore gate', icon: 'nfc' },
+        { title: 'Boarding Complete', description: 'Notifica live su app', icon: 'notifications' }
+      ],
+      post_flight: [
+        { title: 'Mobile Lost & Found', description: 'Segnalazione oggetti smarriti', icon: 'search' },
+        { title: 'Tracking Bagaglio', description: 'Stato ritrovamento e delivery', icon: 'luggage' }
+      ]
+    }
+  },
+  family: {
+    id: 'family',
+    name: 'Fatima',
+    title: 'Family Planner',
+    description: '34 anni, insegnante marocchina che viaggia con marito e bimbi (4 e 7 anni). Frequenza 2 viaggi/anno; budget-sensitive ma orientata a servizi kids-friendly.',
+    icon: 'family_restroom',
+    theme: 'persona-theme-family',
+    colors: {
+      primary: '#111827',
+      secondary: '#A7FF4D',
+      accent: '#E66100',
+      bg: '#fafaf6'
+    },
+    fonts: {
+      primary: 'Roboto',
+      secondary: 'Roboto Serif'
+    },
+    journeySteps: [
+      { id: 'parking', name: 'Parcheggio', icon: 'local_parking', image: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'checkin', name: 'Check-in', icon: 'how_to_reg', image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'security', name: 'Sicurezza', icon: 'security', image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'waiting', name: 'Attesa', icon: 'schedule', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+    ],
+    actions: {
+      parking: [
+        { title: 'Shuttle Call Point', description: 'Chiamata automatica shuttle', icon: 'airport_shuttle' },
+        { title: 'Family Vehicle', description: 'Caricamento passeggino e bagagli', icon: 'luggage' }
+      ],
+      checkin: [
+        { title: 'Counter Famiglia', description: 'Etichette bagagli colorate per membri', icon: 'color_lens' },
+        { title: 'Posto Prioritario', description: 'Assegnazione cabina immediata', icon: 'airline_seat_recline_normal' }
+      ],
+      security: [
+        { title: 'Family Lane', description: 'Corsia larga dedicata', icon: 'family_restroom' },
+        { title: 'Scanning Passeggino', description: 'Controllo senza smontaggio', icon: 'scanner' }
+      ],
+      waiting: [
+        { title: 'Playground', description: 'Giochi interattivi pre-gate', icon: 'toys' },
+        { title: 'Story-telling App', description: 'Intrattenimento per bambini', icon: 'menu_book' }
+      ],
+      boarding: [
+        { title: 'Pre-boarding Famiglie', description: 'Chiamata dedicata', icon: 'family_restroom' },
+        { title: 'Accompagnamento Staff', description: 'Assistenza personale gate', icon: 'support_agent' }
+      ]
+    }
+  },
+  senior: {
+    id: 'senior',
+    name: 'Jonas',
+    title: 'Senior Globetrotter PRM',
+    description: '72 anni, pensionato tedesco, viaggia con moglie, ama tour culturali lunghi. Artrite alle ginocchia, usa bastone; sente bene ma vista ridotta.',
+    icon: 'accessible',
+    theme: 'persona-theme-senior',
+    colors: {
+      primary: '#004166',
+      secondary: '#F5F5F5',
+      accent: '#5D3A9B',
+      bg: '#f0f3f4'
+    },
+    fonts: {
+      primary: 'Titillium Web',
+      secondary: 'Titillium Web'
+    },
+    journeySteps: [
+      { id: 'terminal', name: 'Terminal', icon: 'domain', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'screening', name: 'Screening', icon: 'security', image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'waiting', name: 'Attesa', icon: 'event_seat', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'transfer', name: 'Transfer', icon: 'transfer_within_a_station', image: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+    ],
+    actions: {
+      terminal: [
+        { title: 'Call Pillar PRM', description: 'Richiesta assistenza immediata', icon: 'support_agent' },
+        { title: 'Sala Amica', description: 'Sedute ergonomiche e font leggibile', icon: 'accessible' }
+      ],
+      screening: [
+        { title: 'Corsia Dedicata PRM', description: 'Controllo con sedia mobile', icon: 'wheelchair_pickup' },
+        { title: 'Assistenza Personalizzata', description: 'Staff dedicato per controlli', icon: 'personal_injury' }
+      ],
+      waiting: [
+        { title: 'Gate Seating', description: 'Posti con braccioli ergonomici', icon: 'event_seat' },
+        { title: 'Display Large Font', description: 'Informazioni volo ingrandite', icon: 'zoom_in' }
+      ],
+      transfer: [
+        { title: 'Ambu-lift', description: 'Assistenza per salita aereo', icon: 'elevator' },
+        { title: 'Golf-car', description: 'Trasporto per gate distanti', icon: 'directions_car' }
+      ]
+    }
+  },
+  bleisure: {
+    id: 'bleisure',
+    name: 'Nikhil',
+    title: 'Bleisure Nomad',
+    description: '29 anni, ingegnere software indiano in full remote, vola ogni 2-3 mesi. Combina 3 giorni meeting con 4 giorni esplorazione locale.',
+    icon: 'work',
+    theme: 'persona-theme-bleisure',
+    colors: {
+      primary: '#000000',
+      secondary: '#40B0A6',
+      accent: '#FFD44B',
+      bg: '#ffffff'
+    },
+    fonts: {
+      primary: 'Work Sans',
+      secondary: 'Playfair Display'
+    },
+    journeySteps: [
+      { id: 'post_meeting', name: 'Post-meeting', icon: 'business_center', image: 'https://images.unsplash.com/photo-1524749292158-7540c2494485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'work', name: 'Work', icon: 'laptop', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'leisure', name: 'Leisure', icon: 'explore', image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'return', name: 'Rientro', icon: 'flight_takeoff', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+    ],
+    actions: {
+      post_meeting: [
+        { title: 'Smart Locker Bagagli', description: 'Deposito contactless flessibile', icon: 'lock' },
+        { title: 'Business Lounge', description: 'Spazio dedicato post-meeting', icon: 'business_center' }
+      ],
+      work: [
+        { title: 'Coworking Lounge', description: 'Spazio produttivo air-side', icon: 'work' },
+        { title: 'Phone-booth', description: 'Chiamate private e video call', icon: 'phone' }
+      ],
+      leisure: [
+        { title: 'City-pass App', description: 'Tour ed esperienze locali', icon: 'map' },
+        { title: 'Cultural Guide', description: 'Offerte culturali in terminal', icon: 'museum' }
+      ],
+      return: [
+        { title: 'Shower Pod', description: 'Docce veloci pre-volo', icon: 'shower' },
+        { title: 'Yoga Room', description: 'Relax e stretching', icon: 'self_improvement' }
+      ]
+    }
+  },
+  student: {
+    id: 'student',
+    name: 'Li Wei',
+    title: 'First-Time Student',
+    description: '20 anni, matricola cinese diretta a un college statunitense. Primo volo intercontinentale sola; inglese intermedio; alto stress.',
+    icon: 'school',
+    theme: 'persona-theme-student',
+    colors: {
+      primary: '#002B5B',
+      secondary: '#FFB700',
+      accent: '#FFFFFF',
+      bg: '#f9fafb'
+    },
+    fonts: {
+      primary: 'Montserrat',
+      secondary: 'Nunito'
+    },
+    journeySteps: [
+      { id: 'checkin_origin', name: 'Check-in', icon: 'how_to_reg', image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'layover', name: 'Scalo', icon: 'transfer_within_a_station', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'immigration', name: 'Immigrazione', icon: 'badge', image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'exit', name: 'Uscita', icon: 'exit_to_app', image: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+    ],
+    actions: {
+      checkin_origin: [
+        { title: 'Kiosk Multi-lang', description: 'Check-in con supporto staff', icon: 'translate' },
+        { title: 'Document Help', description: 'Assistenza compilazione moduli', icon: 'description' }
+      ],
+      layover: [
+        { title: 'Wayfinding Universale', description: 'Icone comprensibili globalmente', icon: 'place' },
+        { title: 'Transit Guide', description: 'Guida passo-passo connessioni', icon: 'map' }
+      ],
+      immigration: [
+        { title: 'APC Kiosk USA', description: 'Chiosco automatico + agente', icon: 'computer' },
+        { title: 'Immigration Support', description: 'Assistenza domande CBP', icon: 'support_agent' }
+      ],
+      exit: [
+        { title: 'Pick-up e-SIM', description: 'Connettività immediata', icon: 'sim_card' },
+        { title: 'Shuttle Campus', description: 'Trasporto verso università', icon: 'school' }
+      ]
+    }
+  }
+};

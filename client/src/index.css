@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Lora:wght@400;500;600&family=Roboto:wght@300;400;500;700&family=Titillium+Web:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Frequent Flyer Tech-Savvy */
+  --tech-primary: hsl(213, 46%, 20%);
+  --tech-secondary: hsl(205, 89%, 45%);
+  --tech-accent: hsl(48, 100%, 52%);
+  --tech-bg: hsl(210, 25%, 97%);
+
+  /* Family Planner */
+  --family-primary: hsl(216, 66%, 11%);
+  --family-secondary: hsl(84, 100%, 65%);
+  --family-accent: hsl(23, 100%, 45%);
+  --family-bg: hsl(60, 25%, 98%);
+
+  /* Senior Globetrotter PRM */
+  --senior-primary: hsl(201, 100%, 20%);
+  --senior-secondary: hsl(0, 0%, 96%);
+  --senior-accent: hsl(258, 42%, 42%);
+  --senior-bg: hsl(189, 14%, 95%);
+
+  /* Bleisure Nomad */
+  --bleisure-primary: hsl(0, 0%, 0%);
+  --bleisure-secondary: hsl(174, 46%, 46%);
+  --bleisure-accent: hsl(48, 100%, 65%);
+  --bleisure-bg: hsl(0, 0%, 100%);
+
+  /* First-Time Student */
+  --student-primary: hsl(210, 100%, 18%);
+  --student-secondary: hsl(42, 100%, 50%);
+  --student-accent: hsl(0, 0%, 100%);
+  --student-bg: hsl(220, 14%, 98%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+/* Persona Themes */
+.persona-theme-tech {
+  --primary: var(--tech-primary);
+  --secondary: var(--tech-secondary);
+  --accent: var(--tech-accent);
+  --background: var(--tech-bg);
+  font-family: 'Manrope', sans-serif;
+}
+
+.persona-theme-family {
+  --primary: var(--family-primary);
+  --secondary: var(--family-secondary);
+  --accent: var(--family-accent);
+  --background: var(--family-bg);
+  font-family: 'Roboto', sans-serif;
+}
+
+.persona-theme-senior {
+  --primary: var(--senior-primary);
+  --secondary: var(--senior-secondary);
+  --accent: var(--senior-accent);
+  --background: var(--senior-bg);
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.persona-theme-bleisure {
+  --primary: var(--bleisure-primary);
+  --secondary: var(--bleisure-secondary);
+  --accent: var(--bleisure-accent);
+  --background: var(--bleisure-bg);
+  font-family: 'Work Sans', sans-serif;
+}
+
+.persona-theme-student {
+  --primary: var(--student-primary);
+  --secondary: var(--student-secondary);
+  --accent: var(--student-accent);
+  --background: var(--student-bg);
+  font-family: 'Montserrat', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom animations */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle {
+  animation: sparkle 2s infinite;
+}
+
+.dock-item {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform: translateY(0px);
+}
+
+.dock-item:hover {
+  transform: translateY(-8px) scale(1.1);
+}
+
+.image-zoom {
+  transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.image-zoom.expanded {
+  transform: scale(3) translateZ(0);
+}
+
+.glare-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.glare-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+  z-index: -1;
+  border-radius: inherit;
+}
