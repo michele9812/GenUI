@@ -103,7 +103,7 @@ export default function Welcome() {
       <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
         {/* AirBuddy Logo Square - Separate button */}
         <motion.div
-          className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden"
+          className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden cursor-pointer"
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.9)',
             borderRadius: '12px',
@@ -120,6 +120,7 @@ export default function Welcome() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
+          onClick={() => setLocation('/')}
         />
 
         {/* Back Action Button */}

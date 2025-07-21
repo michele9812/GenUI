@@ -565,16 +565,16 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
               onClick={() => uploadInputRef.current?.click()}
               className="flex-shrink-0 h-8 w-8 cursor-pointer flex items-center justify-center rounded-full transition-colors"
               style={{
-                color: accentColor ? `${accentColor}80` : '#6B7280', // 50% opacity accent color or gray-500
+                color: accentColor || '#6B7280', // Primary color full opacity or gray-500
                 backgroundColor: 'transparent'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}20` : '#F3F4F6'; // 20% accent or gray-100
-                e.currentTarget.style.color = accentColor || '#374151'; // accent or gray-700
+                e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(107, 114, 128, 0.1)'; // 10% opacity background
+                e.currentTarget.style.color = accentColor ? `${accentColor}E6` : '#374151'; // 90% opacity color or gray-700
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = accentColor ? `${accentColor}80` : '#6B7280';
+                e.currentTarget.style.color = accentColor || '#6B7280';
               }}
               disabled={isRecording}
             >
@@ -642,24 +642,24 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                   ? '#ef4444' // red-500
                   : hasContent
                   ? 'white'
-                  : accentColor ? `${accentColor}80` : '#6B7280', // 50% opacity accent color or gray-500
+                  : accentColor || '#6B7280', // Primary color full opacity or gray-500
                 fontFamily: personaTypography?.fontFamily || 'inherit'
               }}
               onMouseEnter={(e) => {
                 if (!isRecording && !hasContent) {
-                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}20` : '#F3F4F6'; // 20% accent or gray-100
-                  e.currentTarget.style.color = accentColor || '#374151'; // accent or gray-700
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(107, 114, 128, 0.1)'; // 10% opacity background
+                  e.currentTarget.style.color = accentColor ? `${accentColor}E6` : '#374151'; // 90% opacity color or gray-700
                 } else if (hasContent) {
                   e.currentTarget.style.opacity = '0.8';
                 } else if (isRecording) {
-                  e.currentTarget.style.backgroundColor = '#F3F4F6'; // gray-100
+                  e.currentTarget.style.backgroundColor = 'rgba(107, 114, 128, 0.1)'; // gray-500 10% opacity
                   e.currentTarget.style.color = '#f87171'; // red-400
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isRecording && !hasContent) {
                   e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = accentColor ? `${accentColor}80` : '#6B7280';
+                  e.currentTarget.style.color = accentColor || '#6B7280';
                 } else if (hasContent) {
                   e.currentTarget.style.opacity = '1';
                 } else if (isRecording) {
@@ -791,16 +791,16 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                 onClick={() => uploadInputRef.current?.click()}
                 className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-colors"
                 style={{
-                  color: accentColor ? `${accentColor}80` : '#9CA3AF', // 50% opacity accent color
+                  color: accentColor || '#9CA3AF', // Primary color full opacity
                   backgroundColor: 'transparent'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}20` : 'rgba(156, 163, 175, 0.3)';
-                  e.currentTarget.style.color = accentColor || '#D1D5DB';
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(156, 163, 175, 0.1)'; // 10% opacity background
+                  e.currentTarget.style.color = accentColor ? `${accentColor}E6` : '#D1D5DB'; // 90% opacity color
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = accentColor ? `${accentColor}80` : '#9CA3AF';
+                  e.currentTarget.style.color = accentColor || '#9CA3AF';
                 }}
                 disabled={isRecording}
               >
@@ -844,24 +844,24 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                   ? '#ef4444' // red-500
                   : hasContent
                   ? 'white'
-                  : accentColor ? `${accentColor}80` : '#9CA3AF', // 50% opacity accent color
+                  : accentColor || '#9CA3AF', // Primary color full opacity
                 fontFamily: personaTypography?.fontFamily || 'inherit'
               }}
               onMouseEnter={(e) => {
                 if (!isRecording && !hasContent) {
-                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}20` : 'rgba(156, 163, 175, 0.3)';
-                  e.currentTarget.style.color = accentColor || '#D1D5DB';
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(156, 163, 175, 0.1)'; // 10% opacity background
+                  e.currentTarget.style.color = accentColor ? `${accentColor}E6` : '#D1D5DB'; // 90% opacity color
                 } else if (hasContent) {
                   e.currentTarget.style.opacity = '0.8';
                 } else if (isRecording) {
-                  e.currentTarget.style.backgroundColor = 'rgba(156, 163, 175, 0.3)';
+                  e.currentTarget.style.backgroundColor = 'rgba(156, 163, 175, 0.1)';
                   e.currentTarget.style.color = '#f87171'; // red-400
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isRecording && !hasContent) {
                   e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = accentColor ? `${accentColor}80` : '#9CA3AF';
+                  e.currentTarget.style.color = accentColor || '#9CA3AF';
                 } else if (hasContent) {
                   e.currentTarget.style.opacity = '1';
                 } else if (isRecording) {
