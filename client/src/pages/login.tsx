@@ -127,17 +127,15 @@ export default function LoginPage() {
                 </Select>
               </div>
 
-              {/* Fixed height container for preview - calculated for longest description with 125% scale */}
-              <div className="h-24 flex items-start">
+              {/* Fixed height container for preview with instant transition */}
+              <div className="h-32 flex items-start overflow-hidden">
                 {selectedPersona && (
                   <div 
-                    className="p-3 border radius-responsive-small min-h-[96px] flex items-start w-full transition-fluid animation-fade-in-up"
+                    key={selectedPersona.id} // Force re-render for instant transition
+                    className="p-3 border radius-responsive-small w-full flex items-start transition-all duration-0"
                     style={{ 
                       backgroundColor: `${selectedPersona.colors.primary}20`,
-                      borderColor: `${selectedPersona.colors.primary}40`,
-                      width: `${100 / (selectedPersona.typography.scale || 1)}%`,
-                      transform: `scale(${Math.min(selectedPersona.typography.scale || 1, 1.1)})`,
-                      transformOrigin: 'left top'
+                      borderColor: `${selectedPersona.colors.primary}40`
                     }}
                   >
                     <div className="flex items-start space-x-3 w-full">
@@ -147,25 +145,25 @@ export default function LoginPage() {
                       >
                         {renderPersonaIcon(selectedPersona.id)}
                       </div>
-                      <div className="flex-1 w-full">
+                      <div className="flex-1 min-w-0">
                         <h3 
-                          className="font-semibold text-gray-900 text-sm mb-1 w-full"
+                          className="font-semibold text-gray-900 text-sm mb-1 truncate"
                           style={{ 
-                            fontFamily: selectedPersona.typography.headingFont,
-                            fontSize: selectedPersona.typography.scale ? 
-                              `calc(0.875rem * ${Math.min(selectedPersona.typography.scale, 1.1)})` : '0.875rem'
+                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily
                           }}
                         >
                           {selectedPersona.title}
                         </h3>
                         <p 
-                          className="text-xs text-gray-600 leading-relaxed w-full h-fit"
+                          className="text-xs text-gray-600 leading-relaxed line-clamp-3"
                           style={{ 
                             fontFamily: selectedPersona.typography.fontFamily,
-                            fontSize: selectedPersona.typography.scale ? 
-                              `calc(0.75rem * ${Math.min(selectedPersona.typography.scale, 1.1)})` : '0.75rem',
                             wordWrap: 'break-word',
-                            overflowWrap: 'break-word'
+                            overflowWrap: 'break-word',
+                            display: '-webkit-box',
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden'
                           }}
                         >
                           {selectedPersona.description}
