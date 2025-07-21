@@ -114,10 +114,10 @@ export default function JourneyDetail() {
             transition={{ duration: 0.6 }}
           >
             <h1 
-              className="text-2xl md:text-3xl lg:text-3xl font-bold"
+              className="h1-responsive"
               style={{
                 fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-                fontSize: selectedPersona.typography?.scale ? `calc(1.75rem * ${selectedPersona.typography.scale})` : '1.75rem',
+                fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
                 color: selectedPersona.colors.primary,
                 lineHeight: selectedPersona.typography?.lineHeight || '1.2'
               }}

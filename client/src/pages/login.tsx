@@ -36,7 +36,11 @@ export default function Login() {
             <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Plane className="text-white text-3xl" size={24} />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Smart Airport Navigation</h1>
+            <h1 
+              className="h1-responsive text-gray-900 mb-2"
+            >
+              Smart Airport Navigation
+            </h1>
             <p className="text-gray-600">Personalized journey assistant</p>
           </div>
 
