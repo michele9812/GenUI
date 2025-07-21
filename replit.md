@@ -7,6 +7,7 @@ This is an intelligent airport navigation web application that provides personal
 ## Recent Changes
 
 **July 21, 2025:**
+- **Updated journey step images with new high-quality assets**: Replaced all JOURNEY_IMAGES constants with new airport photos - Modern Airport Terminal for terminal/arrival areas, Airport Boarding Area for boarding/waiting areas, Airport Service Counter for service interactions, Airport Kiosk Interaction for check-in processes, and Airport Security Scene for security/screening areas
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
