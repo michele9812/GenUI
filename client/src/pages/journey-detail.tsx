@@ -104,20 +104,20 @@ export default function JourneyDetail() {
         </motion.button>
       </div>
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[80px] pb-[40px] max-h-screen overflow-y-auto">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[70px] pb-[30px] h-screen overflow-hidden">
           
           {/* Title */}
           <motion.div 
-            className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
+            className="text-center mb-4 sm:mb-5 md:mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <h1 
-              className="text-2xl md:text-3xl lg:text-4xl font-bold"
+              className="text-2xl md:text-3xl lg:text-3xl font-bold"
               style={{
                 fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-                fontSize: selectedPersona.typography?.scale ? `calc(2rem * ${selectedPersona.typography.scale})` : undefined,
+                fontSize: selectedPersona.typography?.scale ? `calc(1.75rem * ${selectedPersona.typography.scale})` : '1.75rem',
                 color: selectedPersona.colors.primary,
                 lineHeight: selectedPersona.typography?.lineHeight || '1.2'
               }}
@@ -145,7 +145,7 @@ export default function JourneyDetail() {
 
           {/* 3D Carousel */}
           <motion.div 
-            className="mb-8 sm:mb-10 md:mb-12 lg:mb-16"
+            className="mb-4 sm:mb-5 md:mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -157,13 +157,13 @@ export default function JourneyDetail() {
               secondaryColor={selectedPersona.colors.secondary}
               personaTypography={selectedPersona.typography}
               selectedPersona={selectedPersona}
-              className="h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px]"
+              className="h-[350px] sm:h-[380px] md:h-[400px] lg:h-[420px]"
             />
           </motion.div>
 
           {/* AI Prompt Input */}
           <motion.div 
-            className="max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12"
+            className="max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
