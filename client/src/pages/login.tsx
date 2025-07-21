@@ -114,7 +114,7 @@ export default function LoginPage() {
                   Select Your Profile
                 </Label>
                 <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full hover:bg-gray-50 transition-colors duration-200">
                     <SelectValue placeholder="Choose your traveler profile..." />
                   </SelectTrigger>
                   <SelectContent>
@@ -131,23 +131,39 @@ export default function LoginPage() {
               <div className="h-24 flex items-start">
                 {selectedPersona && (
                   <div 
-                    className="p-3 border radius-responsive-small min-h-[96px] flex items-start w-full transition-fluid animation-fade-in-up bg-gray-50 border-gray-200"
+                    className="p-3 border radius-responsive-small min-h-[96px] flex items-start w-full transition-fluid animation-fade-in-up"
+                    style={{ 
+                      backgroundColor: `${selectedPersona.colors.primary}20`,
+                      borderColor: `${selectedPersona.colors.primary}40`,
+                      width: `${100 / (selectedPersona.typography.scale || 1)}%`,
+                      transform: `scale(${Math.min(selectedPersona.typography.scale || 1, 1.1)})`,
+                      transformOrigin: 'left top'
+                    }}
                   >
                     <div className="flex items-start space-x-3 w-full">
                       <div 
-                        className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0 bg-gray-600"
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                        style={{ backgroundColor: `${selectedPersona.colors.primary}` }}
                       >
                         {renderPersonaIcon(selectedPersona.id)}
                       </div>
                       <div className="flex-1 w-full">
                         <h3 
                           className="font-semibold text-gray-900 text-sm mb-1 w-full"
+                          style={{ 
+                            fontFamily: selectedPersona.typography.headingFont,
+                            fontSize: selectedPersona.typography.scale ? 
+                              `calc(0.875rem * ${Math.min(selectedPersona.typography.scale, 1.1)})` : '0.875rem'
+                          }}
                         >
                           {selectedPersona.title}
                         </h3>
                         <p 
                           className="text-xs text-gray-600 leading-relaxed w-full h-fit"
                           style={{ 
+                            fontFamily: selectedPersona.typography.fontFamily,
+                            fontSize: selectedPersona.typography.scale ? 
+                              `calc(0.75rem * ${Math.min(selectedPersona.typography.scale, 1.1)})` : '0.75rem',
                             wordWrap: 'break-word',
                             overflowWrap: 'break-word'
                           }}
