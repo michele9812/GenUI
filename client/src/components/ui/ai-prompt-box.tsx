@@ -747,7 +747,19 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
             <PromptInputAction tooltip="Upload image">
               <button
                 onClick={() => uploadInputRef.current?.click()}
-                className="flex h-8 w-8 text-[#9CA3AF] cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-600/30 hover:text-[#D1D5DB]"
+                className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-colors"
+                style={{
+                  color: accentColor ? `${accentColor}80` : '#9CA3AF', // 50% opacity accent color
+                  backgroundColor: 'transparent'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}20` : 'rgba(156, 163, 175, 0.3)';
+                  e.currentTarget.style.color = accentColor || '#D1D5DB';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = accentColor ? `${accentColor}80` : '#9CA3AF';
+                }}
                 disabled={isRecording}
               >
                 <Paperclip className="h-5 w-5 transition-colors" />
@@ -779,17 +791,41 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
             <Button
               variant="default"
               size="icon"
-              className={cn(
-                "h-8 w-8 rounded-full transition-all duration-200",
-                isRecording
-                  ? "bg-transparent hover:bg-gray-600/30 text-red-500 hover:text-red-400"
-                  : hasContent
-                  ? "hover:opacity-80 text-white"
-                  : "bg-transparent hover:bg-gray-600/30 text-[#9CA3AF] hover:text-[#D1D5DB]"
-              )}
+              className="h-8 w-8 rounded-full transition-all duration-200"
               style={{
-                backgroundColor: hasContent ? accentColor : undefined,
+                backgroundColor: isRecording
+                  ? 'transparent'
+                  : hasContent
+                  ? accentColor
+                  : 'transparent',
+                color: isRecording
+                  ? '#ef4444' // red-500
+                  : hasContent
+                  ? 'white'
+                  : accentColor ? `${accentColor}80` : '#9CA3AF', // 50% opacity accent color
                 fontFamily: personaTypography?.fontFamily || 'inherit'
+              }}
+              onMouseEnter={(e) => {
+                if (!isRecording && !hasContent) {
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}20` : 'rgba(156, 163, 175, 0.3)';
+                  e.currentTarget.style.color = accentColor || '#D1D5DB';
+                } else if (hasContent) {
+                  e.currentTarget.style.opacity = '0.8';
+                } else if (isRecording) {
+                  e.currentTarget.style.backgroundColor = 'rgba(156, 163, 175, 0.3)';
+                  e.currentTarget.style.color = '#f87171'; // red-400
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isRecording && !hasContent) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = accentColor ? `${accentColor}80` : '#9CA3AF';
+                } else if (hasContent) {
+                  e.currentTarget.style.opacity = '1';
+                } else if (isRecording) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#ef4444'; // red-500
+                }
               }}
               onClick={() => {
                 if (isRecording) setIsRecording(false);
