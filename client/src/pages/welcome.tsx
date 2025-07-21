@@ -70,12 +70,12 @@ export default function Welcome() {
         </motion.button>
       </div>
       {/* Header Section */}
-      <div className="absolute top-[80px] sm:top-[100px] lg:top-[120px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="absolute top-[70px] sm:top-[80px] lg:top-[90px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
         <h1 
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-4 leading-tight"
+          className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-bold text-white mb-2 sm:mb-4 leading-tight"
           style={{ 
             fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-            fontSize: selectedPersona.typography?.scale ? `calc(2rem * ${selectedPersona.typography.scale})` : undefined,
+            fontSize: selectedPersona.typography?.scale ? `calc(1.75rem * ${selectedPersona.typography.scale})` : '1.75rem',
             color: 'white',
             lineHeight: selectedPersona.typography?.lineHeight || '1.2'
           }}
@@ -93,7 +93,7 @@ export default function Welcome() {
         </p>
       </div>
       {/* Central Image */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 sm:px-6 lg:px-8 top-[180px] sm:top-[200px] lg:top-[220px]"> {/* Reduced top spacing for Senior persona */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 sm:px-6 lg:px-8 top-[160px] sm:top-[170px] lg:top-[180px]">
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -105,7 +105,7 @@ export default function Welcome() {
             duration: isZooming ? 1.2 : 0.3,
             ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
           }}
-          className="w-64 h-44 sm:w-72 sm:h-52 md:w-80 md:h-60 lg:w-96 lg:h-72 rounded-2xl overflow-hidden shadow-2xl"
+          className="w-60 h-40 sm:w-64 sm:h-44 md:w-72 md:h-52 lg:w-80 lg:h-60 rounded-2xl overflow-hidden shadow-2xl"
           style={{
             transformOrigin: 'center center',
             zIndex: isZooming ? 9999 : 10
