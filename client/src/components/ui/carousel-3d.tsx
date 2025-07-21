@@ -211,10 +211,10 @@ export function Carousel3D({
   const visibleCards = getVisibleCards();
 
   return (
-    <div className="relative w-full h-auto sm:h-[356px] md:h-[396px] lg:h-[416px]">
+    <div className="relative w-full h-[256px] sm:h-[356px] md:h-[396px] lg:h-[416px]">
       <div 
         ref={containerRef}
-        className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-auto sm:h-full"
+        className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-full"
         style={{
           paddingLeft: `${getCardStyle(0).containerPadding}px`,
           paddingRight: `${getCardStyle(0).containerPadding}px`,
@@ -227,7 +227,7 @@ export function Carousel3D({
       >
         {/* Cards Container */}
         <motion.div 
-          className="relative flex items-center justify-center w-auto sm:w-full h-auto sm:h-full"
+          className="relative flex items-center justify-center w-full h-full"
           drag="x"
           dragControls={dragControls}
           dragConstraints={{ left: 0, right: 0 }}
