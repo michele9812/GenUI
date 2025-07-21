@@ -143,9 +143,11 @@ export default function Welcome() {
             transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
             lineHeight: selectedPersona.typography?.lineHeight || '1.2',
             color: 'white',
-            marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-              ? '24px' // More space for Senior persona
+            marginBottom: window.innerWidth < 768 ? '8px' : (
+              selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+              ? '24px' // More space for Senior persona on desktop
               : '8px' // Standard spacing between title and subtitle
+            )
           }}
         >
           Hello {userName || 'User'}
