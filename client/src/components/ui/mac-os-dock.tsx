@@ -311,7 +311,7 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
                 <div
                   className="absolute px-2 py-1 bg-black bg-opacity-80 text-white text-xs rounded-lg whitespace-nowrap"
                   style={{
-                    bottom: `${scaledSize + 40}px`,
+                    bottom: `${scaledSize + 16}px`,
                     left: '50%',
                     transform: 'translateX(-50%)',
                     fontSize: `${Math.max(10, baseIconSize * 0.2)}px`,
