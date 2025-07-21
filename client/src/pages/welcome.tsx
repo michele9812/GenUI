@@ -6,7 +6,7 @@ import { ScrollExpandMedia } from '@/components/ui/scroll-expand-media';
 import { usePersona } from '@/hooks/use-persona';
 
 export default function Welcome() {
-  const { selectedPersona, selectStep } = usePersona();
+  const { selectedPersona, selectStep, userName } = usePersona();
   const [currentImage, setCurrentImage] = useState<string>('');
   const [isExpanded, setIsExpanded] = useState(false);
   const [, setLocation] = useLocation();
@@ -44,7 +44,7 @@ export default function Welcome() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Benvenuto <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{selectedPersona.name}</span>
+            Benvenuto <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{userName}</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300">Scegli in che punto del journey ti trovi</p>
         </div>

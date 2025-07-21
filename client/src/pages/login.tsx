@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Plane } from 'lucide-react';
 import { personas } from '@/lib/personas';
@@ -9,6 +11,7 @@ import { usePersona } from '@/hooks/use-persona';
 
 export default function Login() {
   const [selectedPersonaId, setSelectedPersonaId] = useState<string>('');
+  const [userName, setUserName] = useState<string>('');
   const [, setLocation] = useLocation();
   const { selectPersona } = usePersona();
 
@@ -17,8 +20,8 @@ export default function Login() {
   };
 
   const handleStart = () => {
-    if (selectedPersonaId) {
-      selectPersona(selectedPersonaId);
+    if (selectedPersonaId && userName.trim()) {
+      selectPersona(selectedPersonaId, userName.trim());
       setLocation('/welcome');
     }
   };
@@ -39,9 +42,23 @@ export default function Login() {
 
           <div className="space-y-6">
             <div>
-              <label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-2">
+                Name
+              </Label>
+              <Input
+                id="userName"
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                placeholder="Enter your name..."
+                className="w-full"
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-2">
                 Select Your Profile
-              </label>
+              </Label>
               <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Choose your traveler profile..." />
@@ -49,7 +66,7 @@ export default function Login() {
                 <SelectContent>
                   {Object.entries(personas).map(([id, persona]) => (
                     <SelectItem key={id} value={id}>
-                      {persona.name} - {persona.title}
+                      {persona.title}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -74,7 +91,7 @@ export default function Login() {
                   </div>
                   <div>
                     <h3 className="font-semibold">{selectedPersona.title}</h3>
-                    <p className="text-sm opacity-75">{selectedPersona.name}</p>
+                    <p className="text-sm opacity-75">{userName || 'Enter your name'}</p>
                   </div>
                 </div>
                 <p className="text-sm">{selectedPersona.description}</p>
@@ -83,10 +100,10 @@ export default function Login() {
 
             <Button 
               onClick={handleStart}
-              disabled={!selectedPersonaId}
+              disabled={!selectedPersonaId || !userName.trim()}
               className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Conferma & Start Journey
+              Prosegui
               <span className="material-icons ml-2 text-sm">arrow_forward</span>
             </Button>
           </div>
