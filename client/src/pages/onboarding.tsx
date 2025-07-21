@@ -14,12 +14,13 @@ export default function OnboardingPage() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md shadow-2xl">
-        <CardContent className="p-6 pt-8 pb-8">
+      <Card className="w-full max-w-md min-h-[480px] shadow-2xl">
+        <CardContent className="p-6 pt-8 pb-8 h-full flex flex-col justify-between">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="flex flex-col justify-between h-full"
           >
             {/* Header with pilot character */}
             <div className="text-center mb-6">
@@ -71,31 +72,34 @@ export default function OnboardingPage() {
               </div>
             </motion.div>
 
-            {/* Continue button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.0 }}
-            >
-              <Button
-                onClick={handleContinue}
-                className="w-full py-3 font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
+            <div className="mt-auto">
+              {/* Continue button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0 }}
+                className="mb-6"
               >
-                Continue
-              </Button>
-            </motion.div>
+                <Button
+                  onClick={handleContinue}
+                  className="w-full py-3 font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
+                >
+                  Continue
+                </Button>
+              </motion.div>
 
-            {/* Footer */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-              className="text-center mt-6"
-            >
-              <p className="text-xs text-gray-500">
-                Powered by intelligent navigation technology
-              </p>
-            </motion.div>
+              {/* Footer */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2 }}
+                className="text-center"
+              >
+                <p className="text-xs text-gray-500">
+                  Powered by intelligent navigation technology
+                </p>
+              </motion.div>
+            </div>
           </motion.div>
         </CardContent>
       </Card>
