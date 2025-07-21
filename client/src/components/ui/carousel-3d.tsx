@@ -285,7 +285,7 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-2 overflow-hidden">
                         {item.description}
                       </p>
                     </div>
