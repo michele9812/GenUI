@@ -301,7 +301,7 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
                 left: `${position - scaledSize / 2}px`,
                 bottom: '0px',
                 width: `${scaledSize}px`,
-                height: `${scaledSize + (isHovered ? 40 : 0)}px`,
+                height: `${scaledSize + (isHovered ? 25 : 0)}px`,
                 transformOrigin: 'bottom center',
                 zIndex: Math.round(scale * 10)
               }}
@@ -309,9 +309,9 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
               {/* Hover Label */}
               {hoveredIndex === index && (
                 <div
-                  className="absolute mb-6 px-2 py-1 bg-black bg-opacity-80 text-white text-xs rounded-lg whitespace-nowrap"
+                  className="absolute px-2 py-1 bg-black bg-opacity-80 text-white text-xs rounded-lg whitespace-nowrap"
                   style={{
-                    bottom: `${scaledSize + 24}px`,
+                    bottom: `${scaledSize + 40}px`,
                     left: '50%',
                     transform: 'translateX(-50%)',
                     fontSize: `${Math.max(10, baseIconSize * 0.2)}px`,
