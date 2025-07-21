@@ -271,20 +271,20 @@ export default function Welcome() {
               transformOrigin: 'center center'
             }}
             animate={{
-              // Progressive blur and white fade during zoom
+              // Progressive blur and white fade during zoom - starts at 112% (45% of animation)
               filter: isZooming ? [
                 'brightness(1.1) contrast(0.95) blur(0px)',  // Start: clear image
-                'brightness(1.1) contrast(0.95) blur(0px)',  // 0-50%: still clear  
-                'brightness(1.3) contrast(0.8) blur(2px)',   // 50-75%: start blur
-                'brightness(1.6) contrast(0.6) blur(6px)',   // 75-90%: more blur
-                'brightness(2.2) contrast(0.3) blur(12px)',  // 90-100%: heavy blur + white
-                'brightness(3.0) contrast(0.1) blur(20px)'   // 100%: almost white
+                'brightness(1.1) contrast(0.95) blur(0px)',  // 0-45%: still clear (112% reached)
+                'brightness(1.3) contrast(0.8) blur(2px)',   // 45-60%: start blur 
+                'brightness(1.6) contrast(0.6) blur(6px)',   // 60-75%: more blur
+                'brightness(2.2) contrast(0.3) blur(12px)',  // 75-90%: heavy blur + white
+                'brightness(3.0) contrast(0.1) blur(20px)'   // 90-100%: almost white
               ] : 'brightness(1.0) contrast(1.0) blur(0px)'
             }}
             transition={{
               duration: isZooming ? 1.2 : 0.3,
               ease: isZooming ? [0.16, 1, 0.3, 1] : 'easeOut',
-              times: isZooming ? [0, 0.4, 0.6, 0.75, 0.9, 1.0] : undefined
+              times: isZooming ? [0, 0.45, 0.6, 0.75, 0.9, 1.0] : undefined
             }}
           />
         </motion.div>
