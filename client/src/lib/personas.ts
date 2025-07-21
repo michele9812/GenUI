@@ -93,11 +93,11 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '20px'
     },
     journeySteps: [
-      { id: 'arrival', name: 'Arrivo', icon: 'local_parking', image: 'https://www.lummi.ai/photo/modern-airport-terminal-mdhom' },
-      { id: 'security', name: 'Sicurezza', icon: 'security', image: 'https://www.lummi.ai/photo/airport-security-scene-dzoe0' },
+      { id: 'arrival', name: 'Arrivo', icon: 'local_parking', image: '/attached_assets/Modern Airport Terminal_1753098968199.png' },
+      { id: 'security', name: 'Sicurezza', icon: 'security', image: '/attached_assets/Airport Security Scene_1753098968200.png' },
       { id: 'lounge', name: 'Lounge', icon: 'airline_seat_recline_normal', image: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n' },
-      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: 'https://www.lummi.ai/photo/airport-boarding-area-zd1dr' },
-      { id: 'post_flight', name: 'Post-volo', icon: 'flight_land', image: 'https://www.lummi.ai/photo/airport-service-counter-ssnsr' }
+      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: '/attached_assets/Airport Boarding Area_1753098968199.png' },
+      { id: 'post_flight', name: 'Post-volo', icon: 'flight_land', image: '/attached_assets/Airport Service Counter_1753098968198.png' }
     ],
     actions: {
       arrival: [
@@ -158,11 +158,11 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '20px'
     },
     journeySteps: [
-      { id: 'parking', name: 'Parcheggio', icon: 'local_parking', image: 'https://www.lummi.ai/photo/modern-airport-terminal-mdhom' },
-      { id: 'checkin', name: 'Check-in', icon: 'how_to_reg', image: 'https://www.lummi.ai/photo/airport-security-scene-dzoe0' },
-      { id: 'security', name: 'Sicurezza', icon: 'security', image: 'https://www.lummi.ai/photo/airport-security-scene-dzoe0' },
+      { id: 'parking', name: 'Parcheggio', icon: 'local_parking', image: '/attached_assets/Modern Airport Terminal_1753098968199.png' },
+      { id: 'checkin', name: 'Check-in', icon: 'how_to_reg', image: '/attached_assets/Airport Kiosk Interaction_1753098968200.png' },
+      { id: 'security', name: 'Sicurezza', icon: 'security', image: '/attached_assets/Airport Security Scene_1753098968200.png' },
       { id: 'waiting', name: 'Attesa', icon: 'schedule', image: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n' },
-      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: 'https://www.lummi.ai/photo/airport-boarding-area-zd1dr' }
+      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: '/attached_assets/Airport Boarding Area_1753098968199.png' }
     ],
     actions: {
       parking: [
@@ -223,10 +223,10 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '28px'
     },
     journeySteps: [
-      { id: 'terminal', name: 'Terminal', icon: 'domain', image: 'https://www.lummi.ai/photo/modern-airport-terminal-mdhom' },
-      { id: 'screening', name: 'Screening', icon: 'security', image: 'https://www.lummi.ai/photo/airport-security-scene-dzoe0' },
+      { id: 'terminal', name: 'Terminal', icon: 'domain', image: '/attached_assets/Modern Airport Terminal_1753098968199.png' },
+      { id: 'screening', name: 'Screening', icon: 'security', image: '/attached_assets/Airport Security Scene_1753098968200.png' },
       { id: 'waiting', name: 'Attesa', icon: 'event_seat', image: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n' },
-      { id: 'transfer', name: 'Transfer', icon: 'transfer_within_a_station', image: 'https://www.lummi.ai/photo/airport-service-counter-ssnsr' }
+      { id: 'transfer', name: 'Transfer', icon: 'transfer_within_a_station', image: '/attached_assets/Airport Service Counter_1753098968198.png' }
     ],
     actions: {
       terminal: [
@@ -283,10 +283,10 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '20px'
     },
     journeySteps: [
-      { id: 'post_meeting', name: 'Post-meeting', icon: 'business_center', image: 'https://www.lummi.ai/photo/airport-kiosk-interaction-smkmb' },
+      { id: 'post_meeting', name: 'Post-meeting', icon: 'business_center', image: '/attached_assets/Airport Kiosk Interaction_1753098968200.png' },
       { id: 'work', name: 'Work', icon: 'laptop', image: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n' },
-      { id: 'leisure', name: 'Leisure', icon: 'explore', image: 'https://www.lummi.ai/photo/modern-airport-terminal-mdhom' },
-      { id: 'return', name: 'Rientro', icon: 'flight_takeoff', image: 'https://www.lummi.ai/photo/airport-boarding-area-zd1dr' }
+      { id: 'leisure', name: 'Leisure', icon: 'explore', image: '/attached_assets/Modern Airport Terminal_1753098968199.png' },
+      { id: 'return', name: 'Rientro', icon: 'flight_takeoff', image: '/attached_assets/Airport Boarding Area_1753098968199.png' }
     ],
     actions: {
       post_meeting: [
@@ -343,10 +343,10 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '20px'
     },
     journeySteps: [
-      { id: 'checkin_origin', name: 'Check-in', icon: 'how_to_reg', image: 'https://www.lummi.ai/photo/airport-security-scene-dzoe0' },
+      { id: 'checkin_origin', name: 'Check-in', icon: 'how_to_reg', image: '/attached_assets/Airport Kiosk Interaction_1753098968200.png' },
       { id: 'layover', name: 'Scalo', icon: 'transfer_within_a_station', image: 'https://www.lummi.ai/photo/modern-airport-corridor-epzzw' },
       { id: 'immigration', name: 'Immigrazione', icon: 'badge', image: 'https://www.lummi.ai/photo/modern-airport-corridor-epzzw' },
-      { id: 'exit', name: 'Uscita', icon: 'exit_to_app', image: 'https://www.lummi.ai/photo/modern-airport-terminal-mdhom' }
+      { id: 'exit', name: 'Uscita', icon: 'exit_to_app', image: '/attached_assets/Modern Airport Terminal_1753098968199.png' }
     ],
     actions: {
       checkin_origin: [
