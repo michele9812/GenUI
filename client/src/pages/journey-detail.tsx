@@ -34,7 +34,8 @@ export default function JourneyDetail() {
 
   // Generate contextual actions based on current journey step and persona
   const getContextualActions = () => {
-    const generalServices = [
+    // Universal services available everywhere in the airport
+    const universalServices = [
       {
         id: 'security_assistance',
         title: 'Security & Assistance',
@@ -42,9 +43,9 @@ export default function JourneyDetail() {
         icon: 'security'
       },
       {
-        id: 'restrooms',
-        title: 'Restrooms',
-        description: 'Locate nearest restrooms and accessibility facilities',
+        id: 'accessible_restrooms',
+        title: 'Accessible Restrooms',
+        description: 'Locate nearby restrooms and accessible facilities',
         icon: 'wc'
       }
     ];
@@ -377,7 +378,8 @@ export default function JourneyDetail() {
     const currentPersonaActions = personaStepActions[selectedPersona?.id || ''] || {};
     const stepActions = currentPersonaActions[currentStep?.id || ''] || [];
     
-    return [...stepActions, ...generalServices];
+    // Return only step-specific actions + universal services (security & restrooms)
+    return [...stepActions, ...universalServices];
   };
 
   const carouselItems = getContextualActions();
