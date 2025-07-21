@@ -145,6 +145,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Increased mobile carousel to 480px with iPhone 16+ configuration**: Enhanced mobile carousel height to 480px and simplified all mobile devices to use iPhone 16+ configuration (260/280px width, 320px card height, 16px spacing) eliminating device-specific variables for consistency
 - **Corrected iPhone SE carousel proportions**: Fixed iPhone SE sizing to use much smaller card dimensions (120/140px width, 180px height, 360px container) to maintain proper proportions within the compact container space
 - **Reduced iPhone SE container to 320px**: Further optimized iPhone SE layout by reducing container height from 360px to 320px for better viewport utilization on smallest mobile devices
+- **Ultra-compact iPhone SE card dimensions**: Reduced card size to 100/120px width and 160px height with tighter spacing (10px) and padding (6px) for optimal fit in 320px container
 - **Separated navigation buttons design**: Split AirBuddy logo and back action into separate buttons - logo as standalone square (10x10), back button with icon+text on desktop and icon-only on mobile with responsive design and staggered animations
 - **Reduced carousel height by 64px**: Decreased carousel container height across all breakpoints (256px mobile, 356px tablet, 396px medium, 416px desktop) for optimized viewport space utilization
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
