@@ -16,9 +16,9 @@ export default function OnboardingPage() {
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
       <Card className="w-full max-w-md min-h-[480px] shadow-2xl">
         <CardContent className="p-6 pt-8 pb-8 h-full flex flex-col justify-between">
-          <div>
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full overflow-hidden bg-blue-50">
+          <div className="space-y-6">
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full overflow-hidden bg-blue-50">
                 <img 
                   src={cheerfulPilotPath} 
                   alt="AirBuddy Pilot" 
@@ -26,7 +26,7 @@ export default function OnboardingPage() {
                 />
               </div>
               
-              <h1 className="h1-responsive-small text-gray-900 mb-2">
+              <h1 className="h1-responsive-small text-gray-900 mb-6">
                 Welcome to AirBuddy
               </h1>
               
@@ -35,13 +35,13 @@ export default function OnboardingPage() {
               </p>
             </div>
 
-            <div className="space-y-4">
-              <div className="text-center">
-                <p className="text-gray-600 leading-relaxed">AirBuddy is a Generative UI prototype applied to airport and travel experience. By sensing who you are — whether you’re a frequent flyer, a family traveler — AirBuddy dynamically build and adapt interface and features to fit your context.</p>
-              </div>
+            <div className="text-center">
+              <p className="text-gray-600 leading-relaxed">
+                AirBuddy is a Generative UI prototype applied to airport and travel experience. 
+                By sensing who you are — whether you're a frequent flyer, a family traveler — 
+                AirBuddy dynamically build and adapt interface and features to fit your context.
+              </p>
             </div>
-
-
           </div>
 
           <Button
