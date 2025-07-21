@@ -45,7 +45,7 @@ export default function Welcome() {
       </div>
 
       {/* Central Image */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 top-[240px] sm:top-[264px] lg:top-[280px]">
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
