@@ -160,7 +160,7 @@ export function SeniorAccordion({
                 {/* Horizontal layout: text + button */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-3 md:gap-4">
                   {/* Text content */}
-                  <div className="flex-1">
+                  <div className="flex-1 h-fit">
                     <p 
                       className="text-xs sm:text-sm leading-relaxed mb-1 sm:mb-2 md:mb-0"
                       style={{
