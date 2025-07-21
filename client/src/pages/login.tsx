@@ -50,7 +50,7 @@ export default function LoginPage() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gray-200 container-responsive-padding">
-      <Card className="w-full max-w-md h-[600px] shadow-2xl animation-scale-in">
+      <Card className="w-full max-w-md h-[680px] shadow-2xl animation-scale-in">
         <CardContent className="p-0 h-full relative">
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
             <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-gray-50">
@@ -107,46 +107,132 @@ export default function LoginPage() {
                 </Select>
               </div>
 
-              <div className="h-32 flex items-start overflow-hidden">
+              <div className="h-48 flex items-start overflow-hidden">
                 {selectedPersona && (
                   <div 
                     key={selectedPersona.id}
-                    className="p-3 border radius-responsive-small w-full flex items-start transition-all duration-0"
+                    className="border radius-responsive-small w-full transition-all duration-300 overflow-hidden"
                     style={{ 
-                      backgroundColor: `${selectedPersona.colors.primary}20`,
-                      borderColor: `${selectedPersona.colors.primary}40`
+                      backgroundColor: selectedPersona.colors.bg || `${selectedPersona.colors.primary}08`,
+                      borderColor: `${selectedPersona.colors.primary}30`
                     }}
                   >
-                    <div className="flex items-start space-x-3 w-full">
-                      <div 
-                        className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0"
-                        style={{ backgroundColor: `${selectedPersona.colors.primary}` }}
-                      >
-                        {renderPersonaIcon(selectedPersona.id)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 
-                          className="font-semibold text-gray-900 text-sm mb-1 truncate"
+                    {/* Preview Header */}
+                    <div 
+                      className="px-3 py-2 border-b flex items-center justify-between"
+                      style={{ 
+                        backgroundColor: `${selectedPersona.colors.primary}15`,
+                        borderBottomColor: `${selectedPersona.colors.primary}25`
+                      }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <div 
+                          className="w-5 h-5 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                          style={{ backgroundColor: selectedPersona.colors.primary }}
+                        >
+                          {renderPersonaIcon(selectedPersona.id)}
+                        </div>
+                        <span 
+                          className="text-xs font-medium"
                           style={{ 
+                            color: selectedPersona.colors.text || selectedPersona.colors.primary,
                             fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily
+                          }}
+                        >
+                          Preview Journey Experience
+                        </span>
+                      </div>
+                      <div 
+                        className="text-xs px-2 py-1 rounded-full"
+                        style={{ 
+                          backgroundColor: `${selectedPersona.colors.primary}20`,
+                          color: selectedPersona.colors.primary
+                        }}
+                      >
+                        Test Mode
+                      </div>
+                    </div>
+
+                    {/* Journey Step Preview */}
+                    <div className="p-3 space-y-2">
+                      {/* Step Title */}
+                      <div className="flex items-center justify-between">
+                        <h3 
+                          className="font-semibold text-sm"
+                          style={{ 
+                            color: selectedPersona.colors.text || '#1f2937',
+                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily,
+                            fontSize: selectedPersona.typography.scale ? `${0.875 * selectedPersona.typography.scale}rem` : '0.875rem'
                           }}
                         >
                           {selectedPersona.title}
                         </h3>
-                        <p 
-                          className="text-xs text-gray-600 leading-relaxed line-clamp-3"
+                        <div 
+                          className="w-2 h-2 rounded-full animate-pulse"
+                          style={{ backgroundColor: selectedPersona.colors.accent || selectedPersona.colors.secondary }}
+                        ></div>
+                      </div>
+
+                      {/* Mock Journey Content */}
+                      <div 
+                        className="p-2 rounded border"
+                        style={{ 
+                          backgroundColor: `${selectedPersona.colors.secondary || selectedPersona.colors.primary}08`,
+                          borderColor: `${selectedPersona.colors.secondary || selectedPersona.colors.primary}20`
+                        }}
+                      >
+                        <div 
+                          className="text-xs font-medium mb-1"
                           style={{ 
-                            fontFamily: selectedPersona.typography.fontFamily,
-                            wordWrap: 'break-word',
-                            overflowWrap: 'break-word',
-                            display: '-webkit-box',
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: 'vertical',
-                            overflow: 'hidden'
+                            color: selectedPersona.colors.secondary || selectedPersona.colors.primary,
+                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily
                           }}
                         >
-                          {selectedPersona.description}
+                          Next: Security Checkpoint
+                        </div>
+                        <p 
+                          className="text-xs leading-relaxed"
+                          style={{ 
+                            color: selectedPersona.colors.textSecondary || '#6b7280',
+                            fontFamily: selectedPersona.typography.fontFamily,
+                            fontSize: selectedPersona.typography.scale ? `${0.75 * selectedPersona.typography.scale}rem` : '0.75rem',
+                            lineHeight: selectedPersona.typography.lineHeight || '1.5'
+                          }}
+                        >
+                          {selectedPersona.description.split(' ').slice(0, 12).join(' ')}...
                         </p>
+                      </div>
+
+                      {/* Color and Typography Sample */}
+                      <div className="flex items-center space-x-2 pt-1">
+                        <div 
+                          className="w-3 h-3 rounded-full border"
+                          style={{ 
+                            backgroundColor: selectedPersona.colors.primary,
+                            borderColor: selectedPersona.colors.primary 
+                          }}
+                          title="Primary Color"
+                        ></div>
+                        <div 
+                          className="w-3 h-3 rounded-full border"
+                          style={{ 
+                            backgroundColor: selectedPersona.colors.secondary || selectedPersona.colors.accent,
+                            borderColor: selectedPersona.colors.secondary || selectedPersona.colors.accent 
+                          }}
+                          title="Secondary/Accent Color"
+                        ></div>
+                        <div className="flex-1">
+                          <div 
+                            className="text-xs truncate"
+                            style={{ 
+                              color: selectedPersona.colors.textSecondary || '#9ca3af',
+                              fontFamily: selectedPersona.typography.fontFamily,
+                              fontSize: '0.7rem'
+                            }}
+                          >
+                            {selectedPersona.typography.fontFamily.split(',')[0]}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
