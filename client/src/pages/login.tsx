@@ -37,7 +37,7 @@ export default function Login() {
               <Plane className="text-white text-3xl" size={24} />
             </div>
             <h1 
-              className="h1-responsive-small text-gray-900 mb-2"
+              className="h1-responsive-small text-gray-900 mb-2 text-[40px]"
             >AirBuddy Assistant</h1>
             <p className="text-gray-600">Personalising your trip</p>
           </div>
