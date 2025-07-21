@@ -156,9 +156,9 @@ export function SeniorAccordion({
             />
             
             <AccordionContent className="bg-white">
-              <div className="px-4 md:px-6 lg:px-8 py-2">
+              <div className="px-4 md:px-6 lg:px-8 py-2 h-fit">
                 {/* Horizontal layout: text + button */}
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-3 md:gap-4">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-3 md:gap-4 h-fit">
                   {/* Text content */}
                   <div className="flex-1 h-fit">
                     <p 
@@ -176,7 +176,7 @@ export function SeniorAccordion({
                   </div>
                   
                   {/* Action Button */}
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 h-fit">
                     <motion.button
                       className="w-full sm:w-auto py-2 px-4 sm:py-2.5 sm:px-5 md:py-3 md:px-6 font-medium rounded-lg transition-all duration-200 hover:opacity-90 max-h-[56px] md:max-h-none"
                       style={{ 
