@@ -17,28 +17,32 @@ export default function OnboardingPage() {
       <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
         <CardContent className="p-6 pt-8 pb-6 h-full flex flex-col">
           {/* Fixed Header Area */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 space-y-6">
             <div className="text-center">
-              <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
+              <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
                 <img 
                   src={cheerfulPilotPath} 
                   alt="AirBuddy Pilot" 
                   className="w-full h-full object-contain"
                 />
               </div>
-              
-              <h1 className="h1-responsive-small text-gray-900 mb-6">
+            </div>
+            
+            <div className="text-center">
+              <h1 className="h1-responsive-small text-gray-900">
                 Welcome to AirBuddy
               </h1>
-              
-              <p className="text-gray-600 mb-6">
+            </div>
+            
+            <div className="text-center">
+              <p className="text-gray-600">
                 Your intelligent navigation companion
               </p>
             </div>
           </div>
 
           {/* Flexible Content Area */}
-          <div className="flex-1 flex flex-col justify-center">
+          <div className="flex-1 flex flex-col justify-center space-y-6">
             <div className="text-center">
               <p className="text-gray-600 leading-relaxed">
                 AirBuddy is a Generative UI prototype applied to airport and travel experience. 
@@ -47,7 +51,7 @@ export default function OnboardingPage() {
               </p>
             </div>
             {/* Fixed spacer to match login step preview area */}
-            <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px] mt-6"></div>
+            <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]"></div>
           </div>
 
           {/* Fixed Button Area */}
