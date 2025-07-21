@@ -10,6 +10,13 @@ export interface PersonaFonts {
   secondary: string;
 }
 
+export interface PersonaTypography {
+  fontFamily: string;
+  headingFont: string;
+  fontSize: string;
+  scale?: number; // For accessibility (Senior: 125%)
+}
+
 export interface JourneyStep {
   id: string;
   name: string;
@@ -32,6 +39,7 @@ export interface Persona {
   theme: string;
   colors: PersonaColors;
   fonts: PersonaFonts;
+  typography: PersonaTypography;
   journeySteps: JourneyStep[];
   actions: Record<string, Action[]>;
 }
@@ -45,14 +53,20 @@ export const personas: Record<string, Persona> = {
     icon: 'laptop',
     theme: 'persona-theme-tech',
     colors: {
-      primary: '#1C304A',
-      secondary: '#0C7BDC',
-      accent: '#FFC20A',
+      primary: '#1C304A', // Midnight Navy
+      secondary: '#0C7BDC', // Electric Blue
+      accent: '#FFC20A', // Vivid Gold
       bg: '#f5f7fa'
     },
     fonts: {
       primary: 'Manrope',
       secondary: 'Lora'
+    },
+    typography: {
+      fontFamily: 'Manrope, sans-serif',
+      headingFont: 'Lora, serif',
+      fontSize: '16px',
+      scale: 1
     },
     journeySteps: [
       { id: 'arrival', name: 'Arrivo', icon: 'local_parking', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
@@ -92,14 +106,20 @@ export const personas: Record<string, Persona> = {
     icon: 'family_restroom',
     theme: 'persona-theme-family',
     colors: {
-      primary: '#111827',
-      secondary: '#A7FF4D',
-      accent: '#E66100',
+      primary: '#111827', // Charcoal
+      secondary: '#A7FF4D', // Fresh Lime
+      accent: '#E66100', // Sunset Orange
       bg: '#fafaf6'
     },
     fonts: {
       primary: 'Roboto',
       secondary: 'Roboto Serif'
+    },
+    typography: {
+      fontFamily: 'Roboto, sans-serif',
+      headingFont: 'Roboto Serif, serif',
+      fontSize: '16px',
+      scale: 1
     },
     journeySteps: [
       { id: 'parking', name: 'Parcheggio', icon: 'local_parking', image: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
@@ -139,14 +159,20 @@ export const personas: Record<string, Persona> = {
     icon: 'accessible',
     theme: 'persona-theme-senior',
     colors: {
-      primary: '#004166',
-      secondary: '#F5F5F5',
-      accent: '#5D3A9B',
+      primary: '#004166', // Deep Teal
+      secondary: '#F5F5F5', // Soft Ivory
+      accent: '#5D3A9B', // Royal Violet
       bg: '#f0f3f4'
     },
     fonts: {
       primary: 'Titillium Web',
       secondary: 'Titillium Web'
+    },
+    typography: {
+      fontFamily: 'Titillium Web, sans-serif',
+      headingFont: 'Titillium Web, sans-serif',
+      fontSize: '20px', // 125% bigger = 16px * 1.25 = 20px
+      scale: 1.25
     },
     journeySteps: [
       { id: 'terminal', name: 'Terminal', icon: 'domain', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
@@ -190,6 +216,12 @@ export const personas: Record<string, Persona> = {
       primary: 'Work Sans',
       secondary: 'Playfair Display'
     },
+    typography: {
+      fontFamily: 'Work Sans, sans-serif',
+      headingFont: 'Playfair Display, serif',
+      fontSize: '16px',
+      scale: 1
+    },
     journeySteps: [
       { id: 'post_meeting', name: 'Post-meeting', icon: 'business_center', image: 'https://images.unsplash.com/photo-1524749292158-7540c2494485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
       { id: 'work', name: 'Work', icon: 'laptop', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
@@ -223,14 +255,20 @@ export const personas: Record<string, Persona> = {
     icon: 'school',
     theme: 'persona-theme-student',
     colors: {
-      primary: '#002B5B',
-      secondary: '#FFB700',
-      accent: '#FFFFFF',
+      primary: '#002B5B', // Oxford Blue
+      secondary: '#FFB700', // Lantern Yellow
+      accent: '#FFFFFF', // Arctic White
       bg: '#f9fafb'
     },
     fonts: {
       primary: 'Montserrat',
       secondary: 'Nunito'
+    },
+    typography: {
+      fontFamily: 'Montserrat, sans-serif',
+      headingFont: 'Nunito, sans-serif',
+      fontSize: '16px',
+      scale: 1
     },
     journeySteps: [
       { id: 'checkin_origin', name: 'Check-in', icon: 'how_to_reg', image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },

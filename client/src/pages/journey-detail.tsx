@@ -7,7 +7,7 @@ import { PromptInputBox } from '@/components/ui/ai-prompt-box';
 import { motion } from 'framer-motion';
 
 export default function JourneyDetail() {
-  const { selectedPersona, currentStep } = usePersona();
+  const { selectedPersona, currentStep, userName } = usePersona();
   const [, setLocation] = useLocation();
 
   if (!selectedPersona || !currentStep) {
@@ -74,7 +74,9 @@ export default function JourneyDetail() {
       className="min-h-screen flex flex-col"
       style={{ 
         fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
-        background: `linear-gradient(135deg, ${selectedPersona.colors.primary}10, ${selectedPersona.colors.secondary}10)` 
+        fontSize: selectedPersona.typography?.fontSize || '16px',
+        background: `linear-gradient(135deg, ${selectedPersona.colors.primary}10, ${selectedPersona.colors.secondary}10)`,
+        backgroundColor: selectedPersona.colors.bg
       }}
     >
       {/* Back Button - Top Left */}
@@ -109,14 +111,25 @@ export default function JourneyDetail() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+            <h1 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold"
+              style={{
+                fontFamily: selectedPersona.typography?.headingFont || 'inherit',
+                fontSize: selectedPersona.typography?.scale ? `calc(3rem * ${selectedPersona.typography.scale})` : undefined
+              }}
+            >
               Ciao{' '}
               <span style={{ color: selectedPersona.colors.primary }}>
-                {selectedPersona.name}
+                {userName}
               </span>
               ,
             </h1>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-2 text-gray-700">
+            <p 
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-2 text-gray-700"
+              style={{
+                fontSize: selectedPersona.typography?.scale ? `calc(2rem * ${selectedPersona.typography.scale})` : undefined
+              }}
+            >
               I am your AirBuddy and I am here to assist you!
             </p>
           </motion.div>
