@@ -61,24 +61,16 @@ export default function Welcome() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
             opacity: 1, 
-            scale: isZooming ? 12 : 1,
-            x: isZooming ? 0 : 0,
-            y: isZooming ? 0 : 0
+            scale: isZooming ? 15 : 1
           }}
           transition={{ 
             duration: isZooming ? 1.2 : 0.3,
-            ease: isZooming ? [0.4, 0, 0.2, 1] : "easeOut"
+            ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
           }}
-          className={`w-72 h-52 sm:w-80 sm:h-60 md:w-96 md:h-72 lg:w-[28rem] lg:h-80 rounded-2xl overflow-hidden shadow-2xl ${
-            isZooming ? 'fixed inset-0 z-50 w-screen h-screen' : ''
-          }`}
+          className="w-72 h-52 sm:w-80 sm:h-60 md:w-96 md:h-72 lg:w-[28rem] lg:h-80 rounded-2xl overflow-hidden shadow-2xl"
           style={{
             transformOrigin: 'center center',
-            ...(isZooming && {
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%)'
-            })
+            zIndex: isZooming ? 9999 : 10
           }}
         >
           <img
