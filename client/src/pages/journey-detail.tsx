@@ -4,6 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import { usePersona } from '@/hooks/use-persona';
 import { Carousel3D } from '@/components/ui/carousel-3d';
 import { SeniorAccordion } from '@/components/ui/senior-accordion';
+import FamilyTabs from '@/components/ui/family-tabs';
 import { PromptInputBox } from '@/components/ui/ai-prompt-box';
 import { motion } from 'framer-motion';
 
@@ -48,9 +49,10 @@ export default function JourneyDetail() {
       }
     ];
 
-    // Persona-specific actions by journey step
+    // Persona-specific actions by journey step - mapped to actual persona journey step IDs
     const personaStepActions: { [personaId: string]: { [stepId: string]: any[] } } = {
       'tech': {
+        // Tech persona journey: parking -> security -> lounge -> boarding -> post_flight
         'parking': [
           {
             id: 'parking_app_scan',
@@ -79,7 +81,7 @@ export default function JourneyDetail() {
             icon: 'watch'
           }
         ],
-        'layover': [
+        'lounge': [
           {
             id: 'auto_barista',
             title: 'Self-Service Barista',
@@ -107,7 +109,7 @@ export default function JourneyDetail() {
             icon: 'notifications_active'
           }
         ],
-        'arrival': [
+        'post_flight': [
           {
             id: 'mobile_lost_found',
             title: 'Mobile Lost & Found',
@@ -124,6 +126,7 @@ export default function JourneyDetail() {
       },
       
       'family': {
+        // Family persona journey: parking -> checkin -> security -> waiting -> boarding
         'parking': [
           {
             id: 'shuttle_call_point',
@@ -166,7 +169,7 @@ export default function JourneyDetail() {
             icon: 'baby_changing_station'
           }
         ],
-        'layover': [
+        'waiting': [
           {
             id: 'playground_access',
             title: 'Pre-Gate Playground',
@@ -191,7 +194,8 @@ export default function JourneyDetail() {
       },
 
       'senior': {
-        'parking': [
+        // Senior persona journey: terminal -> screening -> waiting -> transfer
+        'terminal': [
           {
             id: 'prm_call_pillar',
             title: 'PRM Call Pillar',
@@ -205,7 +209,7 @@ export default function JourneyDetail() {
             icon: 'accessible'
           }
         ],
-        'security': [
+        'screening': [
           {
             id: 'prm_security_lane',
             title: 'PRM Security Lane',
@@ -219,7 +223,7 @@ export default function JourneyDetail() {
             icon: 'luggage'
           }
         ],
-        'layover': [
+        'waiting': [
           {
             id: 'ergonomic_seating',
             title: 'Ergonomic Gate Seating',
@@ -233,7 +237,7 @@ export default function JourneyDetail() {
             icon: 'room_service'
           }
         ],
-        'arrival': [
+        'transfer': [
           {
             id: 'ambu_lift',
             title: 'Ambu-Lift Transfer',
@@ -249,8 +253,9 @@ export default function JourneyDetail() {
         ]
       },
 
-      'nomad': {
-        'arrival': [
+      'bleisure': {
+        // Bleisure persona journey: post_meeting -> work -> leisure -> return
+        'post_meeting': [
           {
             id: 'smart_locker',
             title: 'Contactless Smart Locker',
@@ -264,7 +269,7 @@ export default function JourneyDetail() {
             icon: 'sms'
           }
         ],
-        'layover': [
+        'work': [
           {
             id: 'coworking_space',
             title: 'Air-Side Coworking',
@@ -276,7 +281,9 @@ export default function JourneyDetail() {
             title: 'Soundproof Phone Booth',
             description: 'Use soundproof booth for calls and video conferences',
             icon: 'call'
-          },
+          }
+        ],
+        'leisure': [
           {
             id: 'city_pass_app',
             title: 'City-Pass Activation',
@@ -290,7 +297,7 @@ export default function JourneyDetail() {
             icon: 'tour'
           }
         ],
-        'boarding': [
+        'return': [
           {
             id: 'shower_pod',
             title: 'Shower Pod Booking',
@@ -307,7 +314,8 @@ export default function JourneyDetail() {
       },
 
       'student': {
-        'checkin': [
+        // Student persona journey: checkin_origin -> layover -> immigration -> exit
+        'checkin_origin': [
           {
             id: 'multilingual_kiosk',
             title: 'Multilingual Kiosk',
@@ -335,7 +343,7 @@ export default function JourneyDetail() {
             icon: 'help'
           }
         ],
-        'arrival': [
+        'immigration': [
           {
             id: 'apc_kiosk',
             title: 'APC Immigration Kiosk',
@@ -347,7 +355,9 @@ export default function JourneyDetail() {
             title: 'CBP Translation Service',
             description: 'Interact with CBP agent using simultaneous translator totem',
             icon: 'hearing'
-          },
+          }
+        ],
+        'exit': [
           {
             id: 'esim_pickup',
             title: 'e-SIM Pickup Point',
@@ -467,7 +477,7 @@ export default function JourneyDetail() {
             </p>
           </motion.div>
 
-          {/* 3D Carousel or Senior Accordion */}
+          {/* 3D Carousel, Senior Accordion, or Family Tabs */}
           <motion.div 
             className="mb-8 sm:mb-8 md:mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -482,6 +492,13 @@ export default function JourneyDetail() {
                 secondaryColor={isStudentPersona ? '#1D4ED8' : selectedPersona.colors.secondary}
                 personaTypography={selectedPersona.typography}
                 selectedPersona={selectedPersona}
+              />
+            ) : selectedPersona.id === 'family' ? (
+              <FamilyTabs 
+                items={carouselItems}
+                onItemSelect={handleCarouselItemSelect}
+                accentColor={buttonColor}
+                secondaryColor={isStudentPersona ? '#1D4ED8' : selectedPersona.colors.secondary}
               />
             ) : (
               <Carousel3D 
