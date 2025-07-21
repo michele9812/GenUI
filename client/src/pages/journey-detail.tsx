@@ -440,7 +440,33 @@ export default function JourneyDetail() {
       }}
     >
       {/* Navbar - Full width with horizontal layout */}
-      <div className="w-full px-2 py-2 flex items-center justify-between relative gap-2">
+      <div className="w-full px-2 py-2 flex items-center justify-start relative gap-2">
+        {/* AirBuddy Logo Square - Separate button */}
+        <motion.div
+          className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden cursor-pointer"
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '12px',
+            border: '1px solid rgba(107, 114, 128, 0.3)',
+            width: '48px',
+            height: '48px',
+            backgroundImage: "url('/attached_assets/Cheerful%20Pilot%20Character_1753110261655.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          initial={{ opacity: 0, x: -24, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ 
+            duration: 0.4,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.1
+          }}
+          onClick={() => setLocation('/')}
+        />
+
         {/* Back Action Button */}
         <motion.button
           onClick={handleBack}
@@ -479,35 +505,6 @@ export default function JourneyDetail() {
             <ArrowLeft className="w-6 h-6 text-gray-600" />
           </div>
         </motion.button>
-
-        {/* AirBuddy Logo Square - Centered in navbar */}
-        <motion.div
-          className="absolute left-1/2 transform -translate-x-1/2 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden cursor-pointer"
-          style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            borderRadius: '12px',
-            border: '1px solid rgba(107, 114, 128, 0.3)',
-            width: '48px',
-            height: '48px',
-            backgroundImage: "url('/attached_assets/Cheerful%20Pilot%20Character_1753110261655.png')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0, y: -24, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ 
-            duration: 0.4,
-            ease: [0.16, 1, 0.3, 1],
-            delay: 0.1
-          }}
-          onClick={() => setLocation('/')}
-        />
-
-        {/* Spacer for layout balance */}
-        <div style={{ width: '48px' }}></div>
       </div>
       {/* Header Section - Full width with responsive padding */}
       <div 
