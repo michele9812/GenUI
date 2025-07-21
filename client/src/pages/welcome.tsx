@@ -179,12 +179,12 @@ export default function Welcome() {
           className="rounded-lg overflow-hidden shadow-2xl cursor-pointer"
           onClick={() => setIsZooming(!isZooming)}
           style={{
-            transformOrigin: 'center center', // Anchor scaling to viewport center
+            transformOrigin: 'center center', // Anchor scaling to center of container
             zIndex: isZooming ? 9999 : 10,
             position: isZooming ? 'fixed' : 'relative',
             top: isZooming ? '50%' : 'auto',
             left: isZooming ? '50%' : 'auto',
-            transform: isZooming ? 'translate(-50%, -50%)' : 'none',
+            transform: isZooming ? 'translate(-50%, -50%) scale(1)' : 'scale(1)',
             // Base responsive dimensions with proper aspect ratio
             width: isZooming ? '100vw' : (
               screenWidth <= 640 ? 
@@ -217,7 +217,9 @@ export default function Welcome() {
             style={{
               // Ensure image maintains quality during zoom and proper border radius
               imageRendering: isZooming ? 'auto' : 'crisp-edges',
-              borderRadius: isZooming ? '0' : '8px'
+              borderRadius: isZooming ? '0' : '8px',
+              // Anchor scaling to center of image element
+              transformOrigin: 'center center'
             }}
           />
         </motion.div>

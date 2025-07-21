@@ -122,7 +122,7 @@ export default function FamilyTabs({
               }}
             >
               {/* Header with Icon and Title */}
-              <div className="flex items-center gap-2 md:gap-4 mb-2 md:mb-8">
+              <div className="flex items-center gap-2 md:gap-4 mb-2 md:mb-6">
                 <div 
                   className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center"
                   style={{
@@ -163,7 +163,7 @@ export default function FamilyTabs({
 
               {/* Description */}
               <p 
-                className="text-sm leading-relaxed mb-2 md:mb-8"
+                className="text-sm leading-relaxed mb-2 md:mb-6"
                 style={{
                   color: selectedPersona?.colors.text || '#111827',
                   fontFamily: personaTypography?.fontFamily || 'inherit',
