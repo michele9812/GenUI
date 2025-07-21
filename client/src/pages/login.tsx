@@ -131,35 +131,23 @@ export default function LoginPage() {
               <div className="h-24 flex items-start">
                 {selectedPersona && (
                   <div 
-                    className="p-3 border radius-responsive-small min-h-[96px] flex items-start w-full transition-fluid animation-fade-in-up"
-                    style={{ 
-                      backgroundColor: `${selectedPersona.colors.primary}20`,
-                      borderColor: `${selectedPersona.colors.primary}40`,
-                      width: `${100 / (selectedPersona.typography.scale || 1)}%`,
-                      transform: `scale(${selectedPersona.typography.scale || 1})`,
-                      transformOrigin: 'left top'
-                    }}
+                    className="p-3 border radius-responsive-small min-h-[96px] flex items-start w-full transition-fluid animation-fade-in-up bg-gray-50 border-gray-200"
                   >
                     <div className="flex items-start space-x-3 w-full">
                       <div 
-                        className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0"
-                        style={{ backgroundColor: `${selectedPersona.colors.primary}` }}
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0 bg-gray-600"
                       >
                         {renderPersonaIcon(selectedPersona.id)}
                       </div>
                       <div className="flex-1 w-full">
                         <h3 
                           className="font-semibold text-gray-900 text-sm mb-1 w-full"
-                          style={{ 
-                            fontFamily: selectedPersona.typography.headingFont
-                          }}
                         >
                           {selectedPersona.title}
                         </h3>
                         <p 
                           className="text-xs text-gray-600 leading-relaxed w-full h-fit"
                           style={{ 
-                            fontFamily: selectedPersona.typography.fontFamily,
                             wordWrap: 'break-word',
                             overflowWrap: 'break-word'
                           }}

@@ -510,9 +510,9 @@ export default function JourneyDetail() {
       <div 
         className="text-center container-responsive-padding"
         style={{
-          marginTop: '64px', // 64px top margin
-          marginBottom: window.innerWidth < 768 ? '8px' : '24px', // 8px mobile, 24px desktop
-          paddingBottom: window.innerWidth < 768 ? '8px' : '8px' // 8px mobile, 8px desktop
+          marginTop: window.innerWidth < 768 ? '48px' : '64px', // 48px mobile, 64px desktop
+          marginBottom: window.innerWidth < 768 ? '8px' : '16px', // 8px mobile, 16px desktop
+          paddingBottom: window.innerWidth < 768 ? '4px' : '8px' // 4px mobile, 8px desktop
         }}
       >
         <motion.div
@@ -534,10 +534,7 @@ export default function JourneyDetail() {
               transformOrigin: 'center top',
               color: primaryColor,
               lineHeight: selectedPersona.typography?.lineHeight || '1.2',
-              marginBottom: window.innerWidth < 768 ? '8px' : (
-                (selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? // More space for Senior persona on desktop
-                '16px' : '8px') // Standard spacing between title elements
-              ),
+              marginBottom: window.innerWidth < 768 ? '8px' : '8px', // 8px consistent spacing
               width: '100%',
               display: 'block',
               boxSizing: 'border-box'
@@ -579,7 +576,7 @@ export default function JourneyDetail() {
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
-              marginBottom: window.innerWidth < 768 ? '8px' : '16px', // 8px mobile, 16px desktop
+              marginBottom: window.innerWidth < 768 ? '8px' : '8px', // 8px consistent spacing
               width: '100%',
               display: 'block',
               boxSizing: 'border-box'
@@ -594,9 +591,9 @@ export default function JourneyDetail() {
 
         {/* 3D Carousel, Senior Accordion, or Family Tabs */}
         <motion.div 
-          className="mb-3 sm:mb-8 md:mb-8"
+          className="mb-2 sm:mb-4 md:mb-6"
           style={{
-            marginBottom: window.innerWidth < 768 ? '12px' : undefined
+            marginBottom: window.innerWidth < 768 ? '8px' : undefined
           }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

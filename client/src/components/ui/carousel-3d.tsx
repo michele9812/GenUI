@@ -239,8 +239,8 @@ export function Carousel3D({
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: window.innerWidth <= 320 ? 'calc(100% - 48px)' : // iPhone SE: reduced gap (48px total)
-                  window.innerWidth < 640 ? 'calc(100% - 72px)' : 'calc(100% - 48px)' // Mobile: 72px total, Desktop: 48px total
+          height: window.innerWidth <= 320 ? 'calc(100% - 32px)' : // iPhone SE: minimal gap (32px total)
+                  window.innerWidth < 640 ? 'calc(100% - 48px)' : 'calc(100% - 32px)' // Mobile: 48px total, Desktop: 32px total
         }}
 
         onMouseEnter={() => setIsPaused(true)}
