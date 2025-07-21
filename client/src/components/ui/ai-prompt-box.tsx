@@ -559,7 +559,7 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
           style={{ maxHeight: '56px' }}
           ref={ref || promptBoxRef}
         >
-          <div className="flex items-center justify-between h-full px-3 py-2 gap-2">
+          <div className="flex items-center justify-between h-full px-3 py-2 gap-6">
             {/* Left: Attachment Icon */}
             <button
               onClick={() => uploadInputRef.current?.click()}

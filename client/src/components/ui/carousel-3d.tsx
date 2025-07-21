@@ -141,25 +141,25 @@ export function Carousel3D({
         // iPhone SE configuration (≤375px) - increased width to 240px minimum
         baseWidth = 200;
         centerWidth = 240;
-        spacing = 10; // Reduced spacing for smaller screen
+        spacing = 24; // Updated spacing to 24px
         containerPadding = 6;
       } else {
         // iPhone 16+ unified mobile configuration
         baseWidth = 260;
         centerWidth = 280;
-        spacing = 16; // 16px mobile spacing
+        spacing = 24; // Updated spacing to 24px
         containerPadding = 16;
       }
     } else if (isTablet) {
       baseWidth = 200;
       centerWidth = 240;
-      spacing = 24; // 24px tablet spacing
+      spacing = 24; // Maintained 24px spacing
       containerPadding = 24;
     } else {
       // Desktop configuration
       baseWidth = 240;
       centerWidth = 280;
-      spacing = 32; // 32px desktop spacing
+      spacing = 24; // Updated spacing to 24px
       containerPadding = 40;
     }
     

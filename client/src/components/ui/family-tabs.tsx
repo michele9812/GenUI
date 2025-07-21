@@ -47,7 +47,7 @@ export default function FamilyTabs({
     <div className={`w-full ${className}`}>
         {/* Horizontal Tab List - Hug Content with Active Label */}
         <div 
-          className="flex items-stretch w-full gap-1 p-2 mb-2 md:mb-8 rounded-lg"
+          className="flex items-stretch w-full gap-6 p-2 mb-6 rounded-lg"
           style={{
             backgroundColor: `${selectedPersona?.colors.primary}10` || '#f9fafb'
           }}
@@ -55,7 +55,7 @@ export default function FamilyTabs({
           {items.map((item) => (
             <motion.button
               key={item.id}
-              className="flex items-center justify-center gap-1 md:gap-2 py-1.5 md:py-2 px-2 md:px-3 rounded-lg transition-all min-w-0 max-h-[56px] md:max-h-none"
+              className="flex items-center justify-center gap-6 py-1.5 md:py-2 px-2 md:px-3 rounded-lg transition-all min-w-0 max-h-[56px] md:max-h-none"
               style={{
                 backgroundColor: activeTab === item.id ? 
                   (selectedPersona?.colors.primary || accentColor) : 
