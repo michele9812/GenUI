@@ -186,7 +186,7 @@ export function SeniorAccordion({
                   {/* Action Button */}
                   <div className="flex-shrink-0 flex items-center h-full">
                     <motion.button
-                      className="w-full sm:w-auto py-3 px-6 font-medium rounded-lg transition-colors hover:opacity-90"
+                      className="w-full sm:w-auto py-3 px-6 font-medium rounded-lg transition-colors hover:opacity-90 pt-[8px] pb-[8px]"
                       style={{ 
                         backgroundColor: accentColor,
                         color: 'white',
