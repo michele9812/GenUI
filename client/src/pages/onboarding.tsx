@@ -14,46 +14,45 @@ export default function OnboardingPage() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
+      <Card className="w-full max-w-md h-[600px] shadow-2xl">
         <CardContent className="p-0 h-full relative">
-          <div className="h-full flex flex-col px-6 pt-8 pb-20">
-            {/* Header */}
-            <div className="flex-shrink-0 space-y-6">
-              <div className="text-center">
-                <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
-                  <img 
-                    src={cheerfulPilotPath} 
-                    alt="AirBuddy Pilot" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <h1 className="h1-responsive-small text-gray-900">
-                  Welcome to AirBuddy
-                </h1>
-              </div>
-              
-              <div className="text-center">
-                <p className="text-gray-600">
-                  Your intelligent navigation companion
-                </p>
-              </div>
+          {/* Fixed positioning for all elements */}
+          
+          {/* Image - Fixed at top */}
+          <div className="absolute top-8 left-0 right-0 text-center">
+            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
+              <img 
+                src={cheerfulPilotPath} 
+                alt="AirBuddy Pilot" 
+                className="w-full h-full object-contain"
+              />
             </div>
+          </div>
+          
+          {/* Title - Fixed position */}
+          <div className="absolute top-28 left-6 right-6 text-center">
+            <h1 className="h1-responsive-small text-gray-900">
+              Welcome to AirBuddy
+            </h1>
+          </div>
+          
+          {/* Subtitle - Fixed position */}
+          <div className="absolute top-44 left-6 right-6 text-center">
+            <p className="text-gray-600">
+              Your intelligent navigation companion
+            </p>
+          </div>
+          
+          {/* Content - Fixed position */}
+          <div className="absolute top-64 left-6 right-6 text-center">
+            <p className="text-gray-600 leading-relaxed">
+              AirBuddy is a Generative UI prototype applied to airport and travel experience. 
+              By sensing who you are — whether you're a frequent flyer, a family traveler — 
+              AirBuddy dynamically build and adapt interface and features to fit your context.
+            </p>
+          </div>
 
-            {/* Content */}
-            <div className="flex-1 flex flex-col space-y-6">
-              <div className="text-center">
-                <p className="text-gray-600 leading-relaxed">
-                  AirBuddy is a Generative UI prototype applied to airport and travel experience. 
-                  By sensing who you are — whether you're a frequent flyer, a family traveler — 
-                  AirBuddy dynamically build and adapt interface and features to fit your context.
-                </p>
-              </div>
-            </div>
-
-          {/* Button */}
+          {/* Button - Fixed at bottom */}
           <div className="absolute bottom-6 left-6 right-6">
             <Button 
               onClick={handleContinue}
@@ -61,7 +60,6 @@ export default function OnboardingPage() {
             >
               Continue
             </Button>
-          </div>
           </div>
         </CardContent>
       </Card>
