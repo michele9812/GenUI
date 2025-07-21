@@ -51,9 +51,21 @@ export default function OnboardingPage() {
                   AirBuddy dynamically build and adapt interface and features to fit your context.
                 </p>
               </div>
-              
-              {/* Fixed spacer to match login step total content height */}
-              <div className="min-h-[200px] sm:min-h-[210px] md:min-h-[220px] lg:min-h-[230px]"></div>
+
+              {/* Invisible placeholder elements to match login step exact structure */}
+              <div style={{opacity: 0, pointerEvents: 'none'}}>
+                <div className="block text-sm font-medium text-gray-700 mb-1">Name</div>
+                <div className="w-full h-[40px] border rounded-md px-3 py-2"></div>
+              </div>
+
+              <div style={{opacity: 0, pointerEvents: 'none'}}>
+                <div className="block text-sm font-medium text-gray-700 mb-1">Select Your Profile</div>
+                <div className="w-full h-[40px] border rounded-md px-3 py-2"></div>
+              </div>
+
+              <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]" style={{opacity: 0, pointerEvents: 'none'}}>
+                {/* Invisible persona preview area */}
+              </div>
             </div>
           </div>
 
