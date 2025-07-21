@@ -14,6 +14,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Mobile viewport optimization**: Increased top/bottom margins for mobile devices (100px top, 60px bottom) while maintaining centered content layout for better visual balance
 - **Fixed carousel card radius consistency**: Updated carousel card content container from `rounded-2xl` to `rounded-lg` to match site-wide border radius standard
 - **Code cleanup and consistency**: Removed borders from carousel icon containers, cleaned up unnecessary comments, standardized image border radius, and optimized CSS classes
+- **Enhanced dock navigation**: Added hover labels to dock icons showing clear journey detail titles with persona-specific typography
 - Disabled interactions for inactive carousel cards (only center card is clickable and hoverable)
 - Updated persona selection page to use neutral styling (gray colors) except for the persona preview card
 - Enhanced journey pages (welcome and detail) to use full persona-specific theming including colors, typography, and gradients

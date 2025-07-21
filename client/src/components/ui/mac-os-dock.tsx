@@ -279,27 +279,45 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
           const scale = currentScales[index];
           const position = currentPositions[index] || 0;
           const scaledSize = baseIconSize * scale;
+          const isHovered = scale > 1.1;
           
           return (
             <div
               key={app.id}
               ref={(el) => { iconRefs.current[index] = el; }}
               className="absolute cursor-pointer flex flex-col items-center justify-end"
-              title={app.name}
               onClick={() => handleAppClick(app.id, index)}
               onMouseEnter={() => onAppHover?.(app.id)}
               style={{
                 left: `${position - scaledSize / 2}px`,
                 bottom: '0px',
                 width: `${scaledSize}px`,
-                height: `${scaledSize}px`,
+                height: `${scaledSize + (isHovered ? 40 : 0)}px`,
                 transformOrigin: 'bottom center',
                 zIndex: Math.round(scale * 10)
               }}
             >
+              {/* Hover Label */}
+              {isHovered && (
+                <div
+                  className="absolute mb-2 px-2 py-1 bg-black bg-opacity-80 text-white text-xs rounded-lg whitespace-nowrap"
+                  style={{
+                    bottom: `${scaledSize + 8}px`,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    fontSize: `${Math.max(10, baseIconSize * 0.2)}px`,
+                    fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif'
+                  }}
+                >
+                  {app.name}
+                </div>
+              )}
+
               <div
-                className="w-full h-full rounded-2xl flex items-center justify-center text-white shadow-lg"
+                className="rounded-lg flex items-center justify-center text-white shadow-lg"
                 style={{
+                  width: `${scaledSize}px`,
+                  height: `${scaledSize}px`,
                   backgroundColor: accentColor,
                   filter: `drop-shadow(0 ${scale > 1.2 ? Math.max(2, baseIconSize * 0.05) : Math.max(1, baseIconSize * 0.03)}px ${scale > 1.2 ? Math.max(4, baseIconSize * 0.1) : Math.max(2, baseIconSize * 0.06)}px rgba(0,0,0,${0.2 + (scale - 1) * 0.15}))`
                 }}
