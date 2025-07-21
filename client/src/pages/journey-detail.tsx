@@ -561,7 +561,7 @@ export default function JourneyDetail() {
           <p 
             className="w-full font-thin"
             style={{
-              fontSize: window.innerWidth < 768 ? '16pt' : '18pt', // 16pt mobile, 18pt desktop
+              fontSize: '18px', // Fixed 18px size for all breakpoints
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
