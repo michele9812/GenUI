@@ -47,6 +47,23 @@ export function SeniorAccordion({
   personaTypography,
   selectedPersona
 }: SeniorAccordionProps) {
+  // Helper function to create color with opacity
+  const createColorWithOpacity = (color: string, opacity: number) => {
+    // If it's a hex color, convert to rgba
+    if (color.startsWith('#')) {
+      const hex = color.replace('#', '');
+      const r = parseInt(hex.substr(0, 2), 16);
+      const g = parseInt(hex.substr(2, 2), 16);
+      const b = parseInt(hex.substr(4, 2), 16);
+      return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+    }
+    // If it's already rgba or other format, append opacity
+    return `${color}${Math.round(opacity * 255).toString(16).padStart(2, '0')}`;
+  };
+
+  // Create icon background (10% primary) and icon color (40% primary)
+  const iconBackgroundColor = createColorWithOpacity(accentColor, 0.1);
+  const iconColor = createColorWithOpacity(accentColor, 0.4);
   
   return (
     <div className="w-full max-w-4xl mx-auto h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px]" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
@@ -84,11 +101,14 @@ export function SeniorAccordion({
                   <div 
                     className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center"
                     style={{
-                      backgroundColor: accentColor
+                      backgroundColor: iconBackgroundColor
                     }}
                   >
                     <span 
-                      className="material-icons text-base sm:text-lg text-white"
+                      className="material-icons text-base sm:text-lg"
+                      style={{
+                        color: iconColor
+                      }}
                     >
                       {item.icon}
                     </span>
