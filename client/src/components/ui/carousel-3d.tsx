@@ -215,7 +215,7 @@ export function Carousel3D({
       className="relative w-full sm:h-[450px] md:h-[450px] lg:h-[450px]"
       style={{
         height: window.innerWidth < 640 ? '400px' : undefined,
-        paddingTop: window.innerWidth < 640 ? '40px' : undefined
+        maxHeight: window.innerWidth < 640 ? '400px' : undefined
       }}
     >
       <div 
@@ -223,14 +223,14 @@ export function Carousel3D({
         className="container-responsive relative w-full flex justify-center"
         style={{
           alignItems: window.innerWidth < 640 ? 'center' : 'flex-start',
-          paddingTop: window.innerWidth < 640 ? '16px' : '32px',
+          paddingTop: '16px',
           paddingLeft: window.innerWidth < 640 ? '16px' : '80px',
           paddingRight: window.innerWidth < 640 ? '16px' : '80px',
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: window.innerWidth < 640 ? 'calc(100% - 40px)' : 'calc(100% - 48px)'
+          height: 'calc(100% - 16px)'
         }}
 
         onMouseEnter={() => setIsPaused(true)}
