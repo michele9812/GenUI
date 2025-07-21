@@ -2,16 +2,37 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  personaColors?: {
+    primary?: string;
+    secondary?: string;
+    accent?: string;
+    bg?: string;
+    text?: string;
+  };
+  isActive?: boolean;
+}
+
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  CardProps
+>(({ className, personaColors, isActive = false, style, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      "rounded-lg border shadow-sm transition-all duration-200",
+      isActive && personaColors ? "" : "bg-card text-card-foreground",
       className
     )}
+    style={{
+      ...style,
+      ...(isActive && personaColors ? {
+        backgroundColor: personaColors.bg || '#ffffff',
+        borderColor: personaColors.primary || '#d1d5db',
+        borderWidth: '2px',
+        color: personaColors.text || '#111827'
+      } : {})
+    }}
     {...props}
   />
 ))
