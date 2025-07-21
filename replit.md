@@ -152,6 +152,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Applied consistent gradient background**: Extended blue-to-purple gradient background from first onboarding step to login page (second step) for complete visual coherence across both onboarding phases
 - **Unified button styling across onboarding steps**: Applied same blue-indigo gradient button styling (`from-blue-600 to-indigo-600`) to both "Continue" and "Start the journey" buttons for consistent interaction design
 - **Fixed card dimensions consistency**: Applied uniform `min-h-[480px]` height constraint and flexbox layout to both onboarding steps ensuring identical card dimensions regardless of content length
+- **Aligned onboarding structure with login page**: Removed motion animations and restructured onboarding page to match exact layout pattern of login page - same header structure, same content positioning, same button placement at bottom, ensuring no visual jumps between steps
 - **Separated navigation buttons design**: Split AirBuddy logo and back action into separate buttons - logo as standalone square (10x10), back button with icon+text on desktop and icon-only on mobile with responsive design and staggered animations
 - **Reduced carousel height by 64px**: Decreased carousel container height across all breakpoints (256px mobile, 356px tablet, 396px medium, 416px desktop) for optimized viewport space utilization
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
