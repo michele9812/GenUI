@@ -70,7 +70,7 @@ export default function Welcome() {
         </motion.button>
       </div>
       {/* Header Section */}
-      <div className="absolute top-[70px] sm:top-[80px] lg:top-[90px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="absolute top-[100px] sm:top-[80px] lg:top-[90px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
         <h1 
           className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-bold text-white mb-2 sm:mb-4 leading-tight"
           style={{ 
@@ -93,7 +93,7 @@ export default function Welcome() {
         </p>
       </div>
       {/* Central Image */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 sm:px-6 lg:px-8 top-[160px] sm:top-[170px] lg:top-[180px]">
+      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 sm:px-6 lg:px-8 top-[200px] sm:top-[170px] lg:top-[180px]">
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -119,7 +119,7 @@ export default function Welcome() {
         </motion.div>
       </div>
       {/* Interactive Dock Navigation */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-12 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="absolute bottom-8 sm:bottom-6 md:bottom-8 lg:bottom-12 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-center w-full">
           <MacOSDock 
             apps={selectedPersona.journeySteps.map((step, idx) => ({

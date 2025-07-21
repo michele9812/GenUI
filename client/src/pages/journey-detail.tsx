@@ -104,7 +104,7 @@ export default function JourneyDetail() {
         </motion.button>
       </div>
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[70px] pb-[30px] h-screen overflow-hidden">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[100px] sm:pt-[70px] pb-[60px] sm:pb-[30px] h-screen overflow-hidden">
           
           {/* Title */}
           <motion.div 
@@ -157,7 +157,7 @@ export default function JourneyDetail() {
               secondaryColor={selectedPersona.colors.secondary}
               personaTypography={selectedPersona.typography}
               selectedPersona={selectedPersona}
-              className="h-[350px] sm:h-[380px] md:h-[400px] lg:h-[420px]"
+              className="h-[300px] sm:h-[380px] md:h-[400px] lg:h-[420px]"
             />
           </motion.div>
 
