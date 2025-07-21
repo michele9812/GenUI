@@ -32,22 +32,22 @@ export default function Login() {
 
   const getPersonaIcon = (personaId: string) => {
     const iconMap = {
-      'marco': Laptop,
-      'fatima': Users,
-      'jonas': Heart,
-      'nikhil': Globe,
-      'liwei': GraduationCap
+      'tech': Laptop,
+      'family': Users,
+      'senior': Heart,
+      'bleisure': Globe,
+      'student': GraduationCap
     };
     return iconMap[personaId as keyof typeof iconMap];
   };
 
   const getMaterialIcon = (personaId: string) => {
     const materialIconMap = {
-      'marco': MdComputer,
-      'fatima': MdFamilyRestroom,
-      'jonas': MdAccessible,
-      'nikhil': MdTravelExplore,
-      'liwei': MdSchool
+      'tech': MdComputer,
+      'family': MdFamilyRestroom,
+      'senior': MdAccessible,
+      'bleisure': MdTravelExplore,
+      'student': MdSchool
     };
     return materialIconMap[personaId as keyof typeof materialIconMap];
   };
@@ -123,7 +123,7 @@ export default function Login() {
                         <div 
                           className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full border-2 border-blue-200"
                           style={{ 
-                            backgroundColor: `${selectedPersona.primaryColor}20`
+                            backgroundColor: `${selectedPersona.colors.primary}20`
                           }}
                         >
                           {(() => {
@@ -134,14 +134,14 @@ export default function Login() {
                               return (
                                 <IconComponent 
                                   className="w-5 h-5" 
-                                  style={{ color: selectedPersona.primaryColor }}
+                                  style={{ color: selectedPersona.colors.primary }}
                                 />
                               );
                             } else if (MaterialIcon) {
                               return (
                                 <MaterialIcon 
                                   className="w-5 h-5" 
-                                  style={{ color: selectedPersona.primaryColor }}
+                                  style={{ color: selectedPersona.colors.primary }}
                                 />
                               );
                             }
@@ -153,8 +153,8 @@ export default function Login() {
                           <h3 
                             className="font-semibold text-gray-900 mb-2"
                             style={{ 
-                              fontFamily: selectedPersona.headingFont,
-                              transform: `scale(${selectedPersona.fontScale || 1})`
+                              fontFamily: selectedPersona.typography.headingFont,
+                              transform: `scale(${selectedPersona.typography.scale || 1})`
                             }}
                           >
                             {selectedPersona.title}
@@ -162,8 +162,8 @@ export default function Login() {
                           <p 
                             className="text-sm text-gray-600"
                             style={{ 
-                              fontFamily: selectedPersona.fontFamily,
-                              transform: `scale(${selectedPersona.fontScale || 1})`
+                              fontFamily: selectedPersona.typography.fontFamily,
+                              transform: `scale(${selectedPersona.typography.scale || 1})`
                             }}
                           >
                             {selectedPersona.description}
