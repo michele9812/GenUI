@@ -532,9 +532,8 @@ export default function JourneyDetail() {
               color: primaryColor,
               lineHeight: selectedPersona.typography?.lineHeight || '1.2',
               marginBottom: window.innerWidth < 768 ? '8px' : (
-                selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-                ? '16px' // More space for Senior persona on desktop
-                : '8px' // Standard spacing between title elements
+                (selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? // More space for Senior persona on desktop
+                '16px' : '8px') // Standard spacing between title elements
               )
             }}
           >
@@ -560,7 +559,7 @@ export default function JourneyDetail() {
           
           {/* Current Journey Phase */}
           <p 
-            className="font-medium w-full"
+            className="w-full font-thin"
             style={{
               fontSize: window.innerWidth < 768 ? '16pt' : '18pt', // 16pt mobile, 18pt desktop
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
@@ -574,7 +573,6 @@ export default function JourneyDetail() {
           </p>
         </motion.div>
       </div>
-
       {/* Main Content - Full width with responsive padding */}
       <main className="flex-1 w-full h-full overflow-hidden container-responsive-padding">
 
@@ -616,7 +614,6 @@ export default function JourneyDetail() {
           )}
         </motion.div>
       </main>
-
       {/* Floating AI Prompt Input - Full width with responsive padding */}
       <div 
         className="container-responsive-padding"
