@@ -138,7 +138,7 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
   return (
     <div 
       ref={containerRef}
-      className={cn("relative w-full h-[400px] sm:h-[450px] lg:h-[500px] flex items-center justify-center overflow-hidden", className)}
+      className="relative w-full flex items-center justify-center overflow-hidden h-[400px] sm:h-[450px] lg:h-[500px] pl-[24px] pr-[24px] pt-[80px] pb-[80px]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -276,7 +276,6 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
           })}
         </AnimatePresence>
       </motion.div>
-
       {/* Navigation Controls */}
       <div className="absolute left-4 top-1/2 -translate-y-1/2 z-20">
         <motion.button
@@ -289,7 +288,6 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
           <ChevronLeft className="w-5 h-5" />
         </motion.button>
       </div>
-
       <div className="absolute right-4 top-1/2 -translate-y-1/2 z-20">
         <motion.button
           onClick={handleNext}
@@ -301,7 +299,6 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
           <ChevronRight className="w-5 h-5" />
         </motion.button>
       </div>
-
       {/* Indicators */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {items.map((_, index) => (
