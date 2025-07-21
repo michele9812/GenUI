@@ -7,6 +7,10 @@ This is an intelligent airport navigation web application that provides personal
 ## Recent Changes
 
 **July 21, 2025:**
+- **Implemented comprehensive responsive design system**: Created responsive CSS classes for border radius (radius-responsive, radius-responsive-small) and spacing that scale appropriately across mobile (6px-8px), tablet (8px-12px), and desktop (12px-16px) breakpoints for consistent visual hierarchy
+- **Standardized content text sizing**: Applied text-content-responsive class ensuring content paragraphs display at 16px on mobile/tablet and 18px on desktop for optimal readability across all devices
+- **Fixed onboarding component consistency**: Corrected selectPersona function reference, removed unused imports, unified radius system, and ensured identical element positioning between onboarding steps with proper responsive behavior
+- **Enhanced visual coherence**: Applied systematic radius and spacing classes across all onboarding elements including image containers, preview cards, and buttons for consistent design language
 - **Updated journey step images with new high-quality assets**: Replaced all JOURNEY_IMAGES constants with new airport photos - Modern Airport Terminal for terminal/arrival areas, Airport Boarding Area for boarding/waiting areas, Airport Service Counter for service interactions, Airport Kiosk Interaction for check-in processes, and Airport Security Scene for security/screening areas
 - **Fixed image visibility issue**: Converted image paths from direct URL references to proper import statements using @assets/ syntax to ensure images are visible and properly bundled by Vite
 - **Enhanced journey step images with specialized airport photos**: Added 4 new high-quality images - Modern Airport Terminal (2) for terminal areas, Modern Baggage Claim for arrival/post-flight areas, TSA PreCheck Area for security/screening, and Airport Terminal Scene for service counters with luggage carts - all images use URL-encoded paths for proper accessibility

@@ -55,6 +55,23 @@
   }
 }
 
+/* Content paragraph sizing */
+.text-content-responsive {
+  font-size: 16px; /* Mobile: 16px */
+}
+
+@media (min-width: 768px) {
+  .text-content-responsive {
+    font-size: 16px; /* Tablet: 16px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-content-responsive {
+    font-size: 18px; /* Desktop: 18px */
+  }
+}
+
 /* Responsive padding classes for full width containers */
 .container-responsive-padding {
   padding-left: 16px; /* Mobile: 16px margins */
@@ -73,6 +90,88 @@
   .container-responsive-padding {
     padding-left: 64px; /* Desktop: 64px margins */
     padding-right: 64px;
+  }
+}
+
+/* Responsive Border Radius Classes */
+.radius-responsive {
+  border-radius: 8px; /* Mobile: compact radius */
+}
+
+@media (min-width: 768px) {
+  .radius-responsive {
+    border-radius: 12px; /* Tablet: medium radius */
+  }
+}
+
+@media (min-width: 1024px) {
+  .radius-responsive {
+    border-radius: 16px; /* Desktop: large radius */
+  }
+}
+
+.radius-responsive-small {
+  border-radius: 6px; /* Mobile: extra compact */
+}
+
+@media (min-width: 768px) {
+  .radius-responsive-small {
+    border-radius: 8px; /* Tablet: small radius */
+  }
+}
+
+@media (min-width: 1024px) {
+  .radius-responsive-small {
+    border-radius: 12px; /* Desktop: medium radius */
+  }
+}
+
+/* Responsive Spacing Classes */
+.spacing-responsive-xs {
+  margin: 4px; /* Mobile: 4px */
+}
+
+@media (min-width: 768px) {
+  .spacing-responsive-xs {
+    margin: 6px; /* Tablet: 6px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .spacing-responsive-xs {
+    margin: 8px; /* Desktop: 8px */
+  }
+}
+
+.spacing-responsive-sm {
+  margin: 8px; /* Mobile: 8px */
+}
+
+@media (min-width: 768px) {
+  .spacing-responsive-sm {
+    margin: 12px; /* Tablet: 12px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .spacing-responsive-sm {
+    margin: 16px; /* Desktop: 16px */
+  }
+}
+
+.spacing-responsive-md {
+  margin: 12px; /* Mobile: 12px */
+}
+
+@media (min-width: 768px) {
+  .spacing-responsive-md {
+    margin: 16px; /* Tablet: 16px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .spacing-responsive-md {
+    margin: 24px; /* Desktop: 24px */
   }
 }
 
