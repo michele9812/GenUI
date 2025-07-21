@@ -167,6 +167,10 @@ export default function LoginPage() {
                         >
                           {selectedPersona.title}
                         </h3>
+                        <div 
+                          className="w-2 h-2 rounded-full animate-pulse"
+                          style={{ backgroundColor: selectedPersona.colors.accent || selectedPersona.colors.secondary }}
+                        ></div>
                       </div>
 
                       {/* Mock Journey Content */}
