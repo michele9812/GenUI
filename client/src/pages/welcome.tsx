@@ -108,8 +108,8 @@ export default function Welcome() {
                   marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
                     ? '24px' // More space for Senior persona
                     : screenWidth <= 640 
-                      ? '8px' // Mobile: mb-2
-                      : '16px' // Tablet/Desktop: mb-4
+                      ? '8px' // Mobile: small spacing between title and subtitle
+                      : '16px' // Tablet/Desktop: component spacing
                 }}
               >
                 Hello {userName || 'User'}
@@ -162,7 +162,7 @@ export default function Welcome() {
                 '320px' : // Tablet
                 '375px', // Desktop
             maxWidth: 'calc(100vw - 32px)',
-            maxHeight: 'calc(100vh - 200px)' // Leave space for header and dock
+            maxHeight: 'calc(100vh - 240px)' // Leave space for header and dock with proper spacing
           }}
         >
           <img
@@ -181,12 +181,12 @@ export default function Welcome() {
         className="absolute left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full"
         style={{
           bottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-            ? '32px' // More bottom space for Senior persona
+            ? '40px' // More bottom space for Senior persona
             : screenWidth <= 640 
-              ? '24px' // Mobile: bottom-6
+              ? '32px' // Mobile: minimum 32px
               : screenWidth <= 768
-                ? '32px' // Tablet: bottom-8
-                : '48px' // Desktop: bottom-12
+                ? '40px' // Tablet: 40px
+                : '56px' // Desktop: more space
         }}
       >
         <div className="flex justify-center w-full">

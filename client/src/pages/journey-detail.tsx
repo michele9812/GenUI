@@ -476,8 +476,8 @@ export default function JourneyDetail() {
               color: primaryColor,
               lineHeight: selectedPersona.typography?.lineHeight || '1.2',
               marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-                ? '24px' // More space for Senior persona
-                : '16px' // Standard spacing
+                ? '16px' // More space for Senior persona
+                : '8px' // Standard spacing between title elements
             }}
           >
             Hello{' '}
@@ -492,7 +492,7 @@ export default function JourneyDetail() {
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? 'rgba(255, 255, 255, 0.8)' : selectedPersona.colors.secondary,
-              marginBottom: '16px' // Spacing before next element
+              marginBottom: '8px' // Spacing before next element (atomic spacing)
             }}
           >
             I am your AirBuddy and I am here to assist you!
@@ -517,11 +517,11 @@ export default function JourneyDetail() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 h-full overflow-hidden" style={{ paddingTop: '160px', paddingBottom: '24px' }}>
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 h-full overflow-hidden" style={{ paddingTop: '180px', paddingBottom: '100px' }}>
 
         {/* 3D Carousel, Senior Accordion, or Family Tabs */}
         <motion.div 
-          className="mb-8 sm:mb-8 md:mb-8"
+          className="mb-16 sm:mb-16 md:mb-16"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
