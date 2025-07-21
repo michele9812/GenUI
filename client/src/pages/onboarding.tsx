@@ -14,7 +14,7 @@ export default function OnboardingPage() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md min-h-[460px] sm:min-h-[490px] md:min-h-[540px] lg:min-h-[570px] shadow-2xl">
+      <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
         <CardContent className="p-6 pt-8 pb-6 h-full flex flex-col">
           {/* Fixed Header Area */}
           <div className="flex-shrink-0">
@@ -46,6 +46,8 @@ export default function OnboardingPage() {
                 AirBuddy dynamically build and adapt interface and features to fit your context.
               </p>
             </div>
+            {/* Fixed spacer to match login step preview area */}
+            <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px] mt-6"></div>
           </div>
 
           {/* Fixed Button Area */}

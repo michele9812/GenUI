@@ -54,7 +54,7 @@ export default function Login() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md min-h-[460px] sm:min-h-[490px] md:min-h-[540px] lg:min-h-[570px] shadow-2xl">
+      <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
         <CardContent className="p-6 pt-8 pb-6 h-full flex flex-col">
           {/* Fixed Header Area */}
           <div className="flex-shrink-0">
@@ -108,10 +108,11 @@ export default function Login() {
                 </Select>
               </div>
 
-              {selectedPersona && (
-                <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 min-h-[100px] sm:min-h-[110px] md:min-h-[120px] lg:min-h-[130px]">
-                  <div className="flex items-start gap-3 h-full">
-                    <div 
+              <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]">
+                {selectedPersona && (
+                  <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 h-full">
+                    <div className="flex items-start gap-3 h-full">
+                      <div 
                       className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full border-2 border-blue-200"
                       style={{ 
                         backgroundColor: `${selectedPersona.primaryColor}20`
@@ -139,9 +140,9 @@ export default function Login() {
                         
                         return null;
                       })()}
-                    </div>
-                    <div className="flex-1">
-                      <h3 
+                      </div>
+                      <div className="flex-1">
+                        <h3 
                         className="font-semibold text-gray-900 mb-2"
                         style={{ 
                           fontFamily: selectedPersona.headingFont,
@@ -158,11 +159,12 @@ export default function Login() {
                         }}
                       >
                         {selectedPersona.description}
-                      </p>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
 
