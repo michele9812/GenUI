@@ -169,7 +169,7 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
   return (
     <div 
       ref={containerRef}
-      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[420px] sm:h-[440px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing"
+      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[420px] sm:h-[440px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing pt-[0px] pb-[0px]"
       style={{
         paddingLeft: `${getCardStyle(0).containerPadding}px`,
         paddingRight: `${getCardStyle(0).containerPadding}px`
