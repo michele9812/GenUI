@@ -331,7 +331,12 @@ export function Carousel3D({
                     <div className="mt-4 sm:mt-6">
                       {isCenter ? (
                         <motion.button
-                          className="w-full py-3 bg-amber-400 hover:bg-amber-500 text-white font-medium rounded-lg transition-colors"
+                          className="w-full py-3 text-white font-medium rounded-lg transition-colors hover:opacity-90"
+                          style={{ 
+                            backgroundColor: accentColor,
+                            fontFamily: personaTypography?.fontFamily || 'inherit',
+                            fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined
+                          }}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={(e) => {
@@ -362,7 +367,11 @@ export function Carousel3D({
         <motion.button
           onClick={handlePrevious}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-white hover:text-gray-900 transition-all disabled:opacity-50 shadow-md"
+          className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border flex items-center justify-center transition-all disabled:opacity-50 shadow-md hover:bg-white"
+          style={{
+            borderColor: accentColor,
+            color: accentColor
+          }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -373,7 +382,11 @@ export function Carousel3D({
         <motion.button
           onClick={handleNext}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-white hover:text-gray-900 transition-all disabled:opacity-50 shadow-md"
+          className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border flex items-center justify-center transition-all disabled:opacity-50 shadow-md hover:bg-white"
+          style={{
+            borderColor: accentColor,
+            color: accentColor
+          }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -389,9 +402,12 @@ export function Carousel3D({
             className={cn(
               "w-2 h-2 rounded-full transition-all duration-300",
               index === currentIndex 
-                ? "w-6 bg-amber-400" 
-                : "bg-gray-300 hover:bg-gray-400"
+                ? "w-6" 
+                : "hover:opacity-70"
             )}
+            style={{
+              backgroundColor: index === currentIndex ? accentColor : '#d1d5db'
+            }}
           />
         ))}
       </div>
