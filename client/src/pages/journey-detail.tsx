@@ -69,6 +69,21 @@ export default function JourneyDetail() {
     }
   ];
 
+  // Special dark navy background for First-Time Student persona
+  const isStudentPersona = selectedPersona.id === 'student';
+  const backgroundColor = isStudentPersona 
+    ? '#0F172A' // Dark navy background for student persona
+    : selectedPersona.colors.bg;
+  const backgroundGradient = isStudentPersona
+    ? 'none'
+    : `linear-gradient(135deg, ${selectedPersona.colors.primary}10, ${selectedPersona.colors.secondary}10)`;
+  const textColor = isStudentPersona 
+    ? '#FFFFFF' // White text for dark background
+    : selectedPersona.colors.text || '#111827';
+  const primaryColor = isStudentPersona
+    ? '#F59E0B' // Gold accent for better contrast on dark background
+    : selectedPersona.colors.primary;
+
   return (
     <div 
       className="h-viewport flex flex-col"
@@ -77,19 +92,20 @@ export default function JourneyDetail() {
         fontSize: selectedPersona.typography?.fontSize || '16px',
         lineHeight: selectedPersona.typography?.lineHeight || '1.5',
         letterSpacing: selectedPersona.typography?.letterSpacing || 'normal',
-        background: `linear-gradient(135deg, ${selectedPersona.colors.primary}10, ${selectedPersona.colors.secondary}10)`,
-        backgroundColor: selectedPersona.colors.bg,
-        color: selectedPersona.colors.text || '#111827'
+        background: backgroundGradient,
+        backgroundColor: backgroundColor,
+        color: textColor
       }}
     >
       {/* Back Button - Top Left */}
       <div className="absolute top-4 left-4 z-50">
         <motion.button
           onClick={handleBack}
-          className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-200"
+          className="flex items-center gap-2 px-4 py-2 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
           style={{
-            borderColor: selectedPersona.colors.primary,
-            color: selectedPersona.colors.primary,
+            backgroundColor: isStudentPersona ? 'rgba(245, 158, 11, 0.1)' : 'rgba(255, 255, 255, 0.9)',
+            borderColor: primaryColor,
+            color: isStudentPersona ? '#F59E0B' : selectedPersona.colors.primary,
             borderWidth: '1px',
             borderStyle: 'solid'
           }}
@@ -118,24 +134,23 @@ export default function JourneyDetail() {
               style={{
                 fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
                 fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
-                color: selectedPersona.colors.primary,
+                color: primaryColor,
                 lineHeight: selectedPersona.typography?.lineHeight || '1.2'
               }}
             >
               Hello{' '}
               <span
-                style={{ color: selectedPersona.colors.secondary }}
-                className="text-[#111827]">
+                style={{ color: isStudentPersona ? '#60A5FA' : selectedPersona.colors.secondary }}>
                 {userName || 'User'}
               </span>
               ,
             </h1>
             <p 
-              className="text-lg md:text-xl lg:text-2xl font-semibold mt-1 text-[#111827]"
+              className="text-lg md:text-xl lg:text-2xl font-semibold mt-1"
               style={{
                 fontSize: selectedPersona.typography?.scale ? `calc(1.25rem * ${selectedPersona.typography.scale})` : undefined,
                 fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
-                color: selectedPersona.colors.secondary,
+                color: isStudentPersona ? '#D1D5DB' : selectedPersona.colors.secondary,
                 lineHeight: selectedPersona.typography?.lineHeight || '1.4'
               }}
             >
@@ -153,11 +168,10 @@ export default function JourneyDetail() {
             <Carousel3D 
               items={carouselItems}
               onItemSelect={handleCarouselItemSelect}
-              accentColor={selectedPersona.colors.primary}
-              secondaryColor={selectedPersona.colors.secondary}
+              accentColor={primaryColor}
+              secondaryColor={isStudentPersona ? '#60A5FA' : selectedPersona.colors.secondary}
               personaTypography={selectedPersona.typography}
               selectedPersona={selectedPersona}
-              className="h-[300px] sm:h-[380px] md:h-[400px] lg:h-[420px]"
             />
           </motion.div>
 
@@ -172,7 +186,7 @@ export default function JourneyDetail() {
               onSend={handleSendMessage}
               placeholder="Ask me anything about your journey..."
               className="w-full"
-              accentColor={selectedPersona.colors.primary}
+              accentColor={primaryColor}
               personaTypography={selectedPersona.typography}
             />
           </motion.div>

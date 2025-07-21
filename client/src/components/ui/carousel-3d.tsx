@@ -304,14 +304,16 @@ export function Carousel3D({
                   <div 
                     className="px-4 py-2 sm:px-6 sm:py-3 text-center"
                     style={{
-                      backgroundColor: isCenter ? (selectedPersona?.colors?.primary || accentColor) : '#f9fafb',
-                      borderBottom: isCenter ? `2px solid ${selectedPersona?.colors?.secondary || secondaryColor}` : '1px solid #e5e7eb'
+                      backgroundColor: isCenter ? (selectedPersona?.colors?.primary || accentColor) : 
+                        (selectedPersona?.id === 'student' ? '#1E293B' : '#f9fafb'),
+                      borderBottom: isCenter ? `2px solid ${selectedPersona?.colors?.secondary || secondaryColor}` : 
+                        (selectedPersona?.id === 'student' ? '1px solid #374151' : '1px solid #e5e7eb')
                     }}
                   >
                     <p 
                       className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-1 sm:mb-2"
                       style={{
-                        color: isCenter ? 'white' : '#6b7280',
+                        color: isCenter ? 'white' : (selectedPersona?.id === 'student' ? '#D1D5DB' : '#6b7280'),
                         fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
                         fontWeight: '600',
                         fontSize: selectedPersona?.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
@@ -325,13 +327,14 @@ export function Carousel3D({
                     <div 
                       className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg mx-auto mb-2 sm:mb-3 flex items-center justify-center"
                       style={{
-                        backgroundColor: isCenter ? (selectedPersona?.colors?.secondary || secondaryColor) : '#e5e7eb'
+                        backgroundColor: isCenter ? (selectedPersona?.colors?.secondary || secondaryColor) : 
+                          (selectedPersona?.id === 'student' ? '#374151' : '#e5e7eb')
                       }}
                     >
                       <span 
                         className="material-icons text-base sm:text-lg"
                         style={{
-                          color: isCenter ? 'white' : '#6b7280'
+                          color: isCenter ? 'white' : (selectedPersona?.id === 'student' ? '#D1D5DB' : '#6b7280')
                         }}
                       >
                         {item.icon}
@@ -340,12 +343,18 @@ export function Carousel3D({
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 px-4 py-2 sm:px-6 sm:py-3 flex flex-col justify-between">
+                  <div 
+                    className="flex-1 px-4 py-2 sm:px-6 sm:py-3 flex flex-col justify-between"
+                    style={{
+                      backgroundColor: selectedPersona?.id === 'student' && !isCenter ? '#0F172A' : 'white'
+                    }}
+                  >
                     <div className="text-center">
                       <h3 
                         className="text-sm sm:text-base font-semibold mb-1 sm:mb-2"
                         style={{
-                          color: isCenter ? (selectedPersona?.colors?.text || '#111827') : '#111827',
+                          color: isCenter ? (selectedPersona?.colors?.text || '#111827') : 
+                            (selectedPersona?.id === 'student' ? '#F3F4F6' : '#111827'),
                           fontFamily: personaTypography?.headingFont || personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
                           fontSize: personaTypography?.scale ? `calc(0.9rem * ${personaTypography.scale})` : undefined,
                           lineHeight: personaTypography?.lineHeight || '1.5'
@@ -356,7 +365,8 @@ export function Carousel3D({
                       <p 
                         className="text-xs leading-relaxed line-clamp-2 overflow-hidden"
                         style={{
-                          color: isCenter ? (selectedPersona?.colors?.text || '#111827') : '#6b7280',
+                          color: isCenter ? (selectedPersona?.colors?.text || '#111827') : 
+                            (selectedPersona?.id === 'student' ? '#D1D5DB' : '#6b7280'),
                           fontFamily: personaTypography?.fontFamily || 'inherit',
                           fontSize: personaTypography?.scale ? `calc(0.75rem * ${personaTypography.scale})` : undefined
                         }}
@@ -389,8 +399,12 @@ export function Carousel3D({
                       ) : (
                         <button 
                           disabled
-                          className="w-full py-3 text-gray-400 font-medium rounded-lg bg-gray-100 cursor-not-allowed opacity-60"
-                          style={{ border: 'none' }}
+                          className="w-full py-3 font-medium rounded-lg cursor-not-allowed opacity-60"
+                          style={{ 
+                            border: 'none',
+                            backgroundColor: selectedPersona?.id === 'student' ? '#374151' : '#f3f4f6',
+                            color: selectedPersona?.id === 'student' ? '#9CA3AF' : '#6b7280'
+                          }}
                         >
                           View Details
                         </button>

@@ -28,6 +28,8 @@ This is an intelligent airport navigation web application that provides personal
 - **Consistent H1 sizing for mobile**: Applied h1-responsive-small class to welcome page for consistent mobile typography across onboarding and journey pages
 - **Code cleanup and bug fixes**: Fixed carousel control visibility by moving navigation elements outside masked container with z-index 1000, optimized performance with useCallback hooks, removed unused className prop, and fixed all syntax errors
 - **Enhanced carousel navigation isolation**: Navigation controls (arrows and indicators) now completely independent from content fading effects, ensuring 100% visibility and functionality
+- **Dark navy background for First-Time Student persona**: Implemented special dark navy blue (#0F172A) background exclusively for journey detail page when First-Time Student persona is selected, maintaining accessibility with high-contrast white text and gold accent colors
+- **Comprehensive component styling for dark theme**: Updated all components on journey detail page including back button, titles, carousel cards, and input elements to use appropriate colors for dark navy background - inactive carousel cards use slate gray backgrounds with light gray text for optimal readability
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
