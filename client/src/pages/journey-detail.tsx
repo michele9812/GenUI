@@ -104,11 +104,11 @@ export default function JourneyDetail() {
         </motion.button>
       </div>
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[60px] pb-[20px] max-h-screen overflow-y-auto">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[80px] pb-[40px] max-h-screen overflow-y-auto">
           
           {/* Title */}
           <motion.div 
-            className="text-center mb-4 md:mb-6 lg:mb-8"
+            className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -145,7 +145,7 @@ export default function JourneyDetail() {
 
           {/* 3D Carousel */}
           <motion.div 
-            className="mb-4 md:mb-6 lg:mb-8"
+            className="mb-8 sm:mb-10 md:mb-12 lg:mb-16"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -157,13 +157,13 @@ export default function JourneyDetail() {
               secondaryColor={selectedPersona.colors.secondary}
               personaTypography={selectedPersona.typography}
               selectedPersona={selectedPersona}
-              className="h-[300px] sm:h-[350px] lg:h-[400px]"
+              className="h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px]"
             />
           </motion.div>
 
           {/* AI Prompt Input */}
           <motion.div 
-            className="max-w-4xl mx-auto mb-4 md:mb-6"
+            className="max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
