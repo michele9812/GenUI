@@ -269,7 +269,7 @@ export function Carousel3D({
                 )}>
                   {/* Header */}
                   <div 
-                    className="px-4 py-3 sm:px-6 sm:py-4 text-center"
+                    className="px-4 py-3 sm:px-6 sm:py-4 text-center bg-[#a7ff4d17]"
                     style={{
                       backgroundColor: isCenter ? `${accentColor}15` : '#f9fafb'
                     }}
@@ -331,7 +331,7 @@ export function Carousel3D({
                     <div className="mt-4 sm:mt-6">
                       {isCenter ? (
                         <motion.button
-                          className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90 bg-[#a7ff4d] text-[#111827]"
+                          className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90 text-[#111827] bg-[#a7ff4d]"
                           style={{ 
                             backgroundColor: accentColor,
                             fontFamily: personaTypography?.fontFamily || 'inherit',
