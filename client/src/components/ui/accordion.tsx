@@ -145,7 +145,7 @@ function AccordionTrigger({
       onClick={() => value !== undefined && toggleItem(value)}
       aria-expanded={isExpanded}
       type='button'
-      className={cn('group', className)}
+      className={cn('group py-2 md:py-3', className)}
       {...(isExpanded ? { 'data-expanded': '' } : {})}
     >
       {children}
