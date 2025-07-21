@@ -437,7 +437,7 @@ export function Carousel3D({
                 : "hover:opacity-70"
             )}
             style={{
-              backgroundColor: index === currentIndex ? (selectedPersona?.colors?.accent || accentColor) : '#d1d5db'
+              backgroundColor: index === currentIndex ? (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
             }}
           />
         ))}
