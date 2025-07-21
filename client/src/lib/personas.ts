@@ -1,7 +1,7 @@
 // Journey Step Image Constants - All paths verified and tested
 export const JOURNEY_IMAGES = {
   // Terminal and Arrival Areas
-  TERMINAL: '/attached_assets/Modern%20Airport%20Terminal%20%282%29_1753100330466.png',
+  TERMINAL: '/attached_assets/Modern%20Airport%20Terminal%20%281%29_1753100792152.png',
   ARRIVAL: '/attached_assets/Modern%20Baggage%20Claim_1753100330466.png', 
   
   // Security and Screening  
@@ -13,10 +13,10 @@ export const JOURNEY_IMAGES = {
   IMBARCO: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
   RETURN: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
   
-  // Service Counters and Baggage
-  SERVICE_COUNTER: '/attached_assets/Airport%20Terminal%20Scene_1753100330466.png',
-  HELP_DESK: '/attached_assets/Airport%20Terminal%20Scene_1753100330466.png',
-  TRANSFER: '/attached_assets/Airport%20Terminal%20Scene_1753100330466.png',
+  // Service Counters and Premium Areas
+  SERVICE_COUNTER: '/attached_assets/Modern%20Service%20Area_1753100792151.png',
+  HELP_DESK: '/attached_assets/Modern%20Service%20Area_1753100792151.png',
+  TRANSFER: '/attached_assets/Modern%20Service%20Area_1753100792151.png',
   POST_FLIGHT: '/attached_assets/Modern%20Baggage%20Claim_1753100330466.png',
   
   // Kiosk Interactions
@@ -26,14 +26,14 @@ export const JOURNEY_IMAGES = {
   POST_MEETING: '/attached_assets/Airport%20Kiosk%20Interaction_1753099981603.png',
   
   // Waiting Areas and Lounges
-  WAITING: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
-  LOUNGE: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
-  WORK_AREA: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
+  WAITING: '/attached_assets/Person%20in%20Airport%20Terminal_1753100792151.png',
+  LOUNGE: '/attached_assets/lounge_1753100792150.png',
+  WORK_AREA: '/attached_assets/Person%20in%20Airport%20Terminal_1753100792151.png',
   
   // Corridors and Navigation
-  CORRIDOR: '/attached_assets/Modern%20Airport%20Terminal%20%282%29_1753100330466.png',
-  LAYOVER: '/attached_assets/Modern%20Airport%20Terminal%20%282%29_1753100330466.png',
-  IMMIGRATION: '/attached_assets/TSA%20PreCheck%20Area_1753100330467.png'
+  CORRIDOR: '/attached_assets/Modern%20Airport%20Terminal%20%281%29_1753100792152.png',
+  LAYOVER: '/attached_assets/Modern%20Airport%20Terminal%20%281%29_1753100792152.png',
+  IMMIGRATION: '/attached_assets/immigration_1753100792151.png'
 } as const;
 
 export interface PersonaColors {
