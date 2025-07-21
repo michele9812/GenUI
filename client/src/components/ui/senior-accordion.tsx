@@ -60,7 +60,7 @@ export function SeniorAccordion({
             className="rounded-lg border-2 shadow-lg overflow-hidden"
             style={{
               borderColor: accentColor,
-              backgroundColor: `${accentColor}10`, // 10% opacity background
+              backgroundColor: selectedPersona.colors.text || '#111827', // Background color from text
               marginBottom: index === items.length - 1 ? '0' : '16px'
             }}
           >
@@ -74,8 +74,8 @@ export function SeniorAccordion({
                 <div 
                   className="w-full"
                   style={{
-                    backgroundColor: accentColor,
-                    color: 'white'
+                    backgroundColor: selectedPersona.colors.text || '#111827',
+                    color: selectedPersona.colors.bg || '#ffffff'
                   }}
                 >
               <div className="flex items-center justify-between w-full px-4 py-1 sm:px-6 sm:py-1">
@@ -84,11 +84,14 @@ export function SeniorAccordion({
                   <div 
                     className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center"
                     style={{
-                      backgroundColor: accentColor
+                      backgroundColor: selectedPersona.colors.bg || '#ffffff'
                     }}
                   >
                     <span 
-                      className="material-icons text-base sm:text-lg text-white"
+                      className="material-icons text-base sm:text-lg"
+                      style={{
+                        color: selectedPersona.colors.text || '#111827'
+                      }}
                     >
                       {item.icon}
                     </span>
@@ -99,6 +102,7 @@ export function SeniorAccordion({
                     <p 
                       className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-1"
                       style={{
+                        color: selectedPersona.colors.bg || '#ffffff',
                         fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
                         fontSize: personaTypography?.scale && personaTypography.scale > 1.1 ? 
                           `calc(0.75rem * ${personaTypography.scale})` : undefined
@@ -109,6 +113,7 @@ export function SeniorAccordion({
                     <h3 
                       className="text-sm sm:text-base font-semibold"
                       style={{
+                        color: selectedPersona.colors.bg || '#ffffff',
                         fontFamily: personaTypography?.headingFont || personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
                         fontSize: personaTypography?.scale ? `calc(0.9rem * ${personaTypography.scale})` : undefined,
                         lineHeight: personaTypography?.lineHeight || '1.5'
@@ -121,18 +126,20 @@ export function SeniorAccordion({
                 
                 {/* Chevron Icon */}
                 <ChevronDown 
-                  className="h-5 w-5 text-white transition-transform duration-200 group-data-[expanded]:rotate-180" 
+                  className="h-5 w-5 transition-transform duration-200 group-data-[expanded]:rotate-180"
+                  style={{
+                    color: selectedPersona.colors.bg || '#ffffff'
+                  }}
                 />
                 </div>
               </div>
               </AccordionTrigger>
             
-            <AccordionContent 
-              style={{ 
-                backgroundColor: `${accentColor}05` // Even lighter background for content
-              }}
-            >
-              <div className="px-4 py-1 sm:px-6 sm:py-1">
+            <AccordionContent className="bg-white">
+              <div 
+                className="px-4 py-1 sm:px-6 sm:py-1"
+                style={{ backgroundColor: selectedPersona.colors.bg || '#ffffff' }}
+              >
                 {/* Horizontal layout: text + button */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                   {/* Text content */}
@@ -154,8 +161,8 @@ export function SeniorAccordion({
                     <motion.button
                       className="w-full sm:w-auto py-3 px-6 font-medium rounded-lg transition-colors hover:opacity-90"
                       style={{ 
-                        backgroundColor: accentColor,
-                        color: 'white',
+                        backgroundColor: selectedPersona.colors.text || '#111827',
+                        color: selectedPersona.colors.bg || '#ffffff',
                         fontFamily: personaTypography?.fontFamily || 'inherit',
                         fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
                         border: 'none',
