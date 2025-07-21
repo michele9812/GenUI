@@ -132,32 +132,32 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '20px'
     },
     journeySteps: [
-      { id: 'parking', name: 'Parcheggio', icon: 'local_parking', image: JOURNEY_IMAGES.PARKING },
-      { id: 'security', name: 'Sicurezza', icon: 'security', image: JOURNEY_IMAGES.SECURITY },
+      { id: 'parking', name: 'Parking', icon: 'local_parking', image: JOURNEY_IMAGES.PARKING },
+      { id: 'security', name: 'Security', icon: 'security', image: JOURNEY_IMAGES.SECURITY },
       { id: 'lounge', name: 'Lounge', icon: 'airline_seat_recline_normal', image: JOURNEY_IMAGES.LOUNGE },
-      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: JOURNEY_IMAGES.IMBARCO },
-      { id: 'post_flight', name: 'Post-volo', icon: 'flight_land', image: JOURNEY_IMAGES.POST_FLIGHT }
+      { id: 'boarding', name: 'Boarding', icon: 'flight_takeoff', image: JOURNEY_IMAGES.IMBARCO },
+      { id: 'post_flight', name: 'Post-flight', icon: 'flight_land', image: JOURNEY_IMAGES.POST_FLIGHT }
     ],
     actions: {
       parking: [
-        { title: 'App Parcheggio', description: 'Scansione QR per apertura automatica', icon: 'qr_code_scanner' },
-        { title: 'Varco Priority', description: 'Accesso veloce tramite app compagnia', icon: 'fast_forward' }
+        { title: 'Parking App', description: 'QR scan for automatic gate opening', icon: 'qr_code_scanner' },
+        { title: 'Priority Lane', description: 'Fast access via airline app', icon: 'fast_forward' }
       ],
       security: [
-        { title: 'e-Gate Biometrico', description: 'Passaggio con Face-ID', icon: 'face' },
-        { title: 'Conferma Smartwatch', description: 'Notifica immediata OK', icon: 'watch' }
+        { title: 'Biometric e-Gate', description: 'Face-ID passage', icon: 'face' },
+        { title: 'Smartwatch Confirm', description: 'Instant OK notification', icon: 'watch' }
       ],
       lounge: [
-        { title: 'Barista Self-Service', description: 'Ordinazione automatica bevande', icon: 'local_cafe' },
-        { title: 'Prenotazione Doccia', description: 'Touch-screen e sblocco NFC', icon: 'shower' }
+        { title: 'Self-Service Barista', description: 'Automatic drink ordering', icon: 'local_cafe' },
+        { title: 'Shower Booking', description: 'Touch-screen and NFC unlock', icon: 'shower' }
       ],
       boarding: [
-        { title: 'Self-Scan NFC', description: 'Smartwatch al lettore gate', icon: 'nfc' },
-        { title: 'Boarding Complete', description: 'Notifica live su app', icon: 'notifications' }
+        { title: 'NFC Self-Scan', description: 'Smartwatch to gate reader', icon: 'nfc' },
+        { title: 'Boarding Complete', description: 'Live app notification', icon: 'notifications' }
       ],
       post_flight: [
-        { title: 'Mobile Lost & Found', description: 'Segnalazione oggetti smarriti', icon: 'search' },
-        { title: 'Tracking Bagaglio', description: 'Stato ritrovamento e delivery', icon: 'luggage' }
+        { title: 'Mobile Lost & Found', description: 'Report lost items', icon: 'search' },
+        { title: 'Baggage Tracking', description: 'Recovery status and delivery', icon: 'luggage' }
       ]
     }
   },
@@ -197,32 +197,32 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '20px'
     },
     journeySteps: [
-      { id: 'parking', name: 'Parcheggio', icon: 'local_parking', image: JOURNEY_IMAGES.TERMINAL },
+      { id: 'parking', name: 'Parking', icon: 'local_parking', image: JOURNEY_IMAGES.TERMINAL },
       { id: 'checkin', name: 'Check-in', icon: 'how_to_reg', image: JOURNEY_IMAGES.CHECKIN },
-      { id: 'security', name: 'Sicurezza', icon: 'security', image: JOURNEY_IMAGES.SECURITY },
-      { id: 'waiting', name: 'Attesa', icon: 'schedule', image: JOURNEY_IMAGES.WAITING },
-      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: JOURNEY_IMAGES.IMBARCO }
+      { id: 'security', name: 'Security', icon: 'security', image: JOURNEY_IMAGES.SECURITY },
+      { id: 'waiting', name: 'Waiting', icon: 'schedule', image: JOURNEY_IMAGES.WAITING },
+      { id: 'boarding', name: 'Boarding', icon: 'flight_takeoff', image: JOURNEY_IMAGES.IMBARCO }
     ],
     actions: {
       parking: [
-        { title: 'Shuttle Call Point', description: 'Chiamata automatica shuttle', icon: 'airport_shuttle' },
-        { title: 'Family Vehicle', description: 'Caricamento passeggino e bagagli', icon: 'luggage' }
+        { title: 'Shuttle Call Point', description: 'Automatic shuttle service call', icon: 'airport_shuttle' },
+        { title: 'Family Vehicle', description: 'Stroller and luggage loading assistance', icon: 'luggage' }
       ],
       checkin: [
-        { title: 'Counter Famiglia', description: 'Etichette bagagli colorate per membri', icon: 'color_lens' },
-        { title: 'Posto Prioritario', description: 'Assegnazione cabina immediata', icon: 'airline_seat_recline_normal' }
+        { title: 'Family Counter', description: 'Color-coded baggage tags for family members', icon: 'color_lens' },
+        { title: 'Priority Seating', description: 'Immediate cabin seat assignment', icon: 'airline_seat_recline_normal' }
       ],
       security: [
-        { title: 'Family Lane', description: 'Corsia larga dedicata', icon: 'family_restroom' },
-        { title: 'Scanning Passeggino', description: 'Controllo senza smontaggio', icon: 'scanner' }
+        { title: 'Family Lane', description: 'Dedicated wide lane for families', icon: 'family_restroom' },
+        { title: 'Stroller Scanning', description: 'Security check without disassembly', icon: 'scanner' }
       ],
       waiting: [
-        { title: 'Playground', description: 'Giochi interattivi pre-gate', icon: 'toys' },
-        { title: 'Story-telling App', description: 'Intrattenimento per bambini', icon: 'menu_book' }
+        { title: 'Playground', description: 'Interactive games before gate', icon: 'toys' },
+        { title: 'Story-telling App', description: 'Entertainment for children', icon: 'menu_book' }
       ],
       boarding: [
-        { title: 'Pre-boarding Famiglie', description: 'Chiamata dedicata', icon: 'family_restroom' },
-        { title: 'Accompagnamento Staff', description: 'Assistenza personale gate', icon: 'support_agent' }
+        { title: 'Family Pre-boarding', description: 'Dedicated boarding call', icon: 'family_restroom' },
+        { title: 'Staff Assistance', description: 'Personal assistance at gate', icon: 'support_agent' }
       ]
     }
   },
@@ -264,25 +264,25 @@ export const personas: Record<string, Persona> = {
     journeySteps: [
       { id: 'terminal', name: 'Terminal', icon: 'domain', image: JOURNEY_IMAGES.TERMINAL },
       { id: 'screening', name: 'Screening', icon: 'security', image: JOURNEY_IMAGES.SCREENING },
-      { id: 'waiting', name: 'Attesa', icon: 'event_seat', image: JOURNEY_IMAGES.WAITING },
+      { id: 'waiting', name: 'Waiting', icon: 'event_seat', image: JOURNEY_IMAGES.WAITING },
       { id: 'transfer', name: 'Transfer', icon: 'transfer_within_a_station', image: JOURNEY_IMAGES.TRANSFER }
     ],
     actions: {
       terminal: [
-        { title: 'Call Pillar PRM', description: 'Richiesta assistenza immediata', icon: 'support_agent' },
-        { title: 'Sala Amica', description: 'Sedute ergonomiche e font leggibile', icon: 'accessible' }
+        { title: 'PRM Call Pillar', description: 'Immediate assistance request', icon: 'support_agent' },
+        { title: 'Accessible Lounge', description: 'Ergonomic seating and readable fonts', icon: 'accessible' }
       ],
       screening: [
-        { title: 'Corsia Dedicata PRM', description: 'Controllo con sedia mobile', icon: 'wheelchair_pickup' },
-        { title: 'Assistenza Personalizzata', description: 'Staff dedicato per controlli', icon: 'personal_injury' }
+        { title: 'Dedicated PRM Lane', description: 'Security check with wheelchair access', icon: 'wheelchair_pickup' },
+        { title: 'Personal Assistance', description: 'Dedicated staff for security checks', icon: 'personal_injury' }
       ],
       waiting: [
-        { title: 'Gate Seating', description: 'Posti con braccioli ergonomici', icon: 'event_seat' },
-        { title: 'Display Large Font', description: 'Informazioni volo ingrandite', icon: 'zoom_in' }
+        { title: 'Gate Seating', description: 'Seats with ergonomic armrests', icon: 'event_seat' },
+        { title: 'Large Font Display', description: 'Enhanced flight information displays', icon: 'zoom_in' }
       ],
       transfer: [
-        { title: 'Ambu-lift', description: 'Assistenza per salita aereo', icon: 'elevator' },
-        { title: 'Golf-car', description: 'Trasporto per gate distanti', icon: 'directions_car' }
+        { title: 'Ambulift', description: 'Assistance for boarding aircraft', icon: 'elevator' },
+        { title: 'Golf Cart', description: 'Transport to distant gates', icon: 'directions_car' }
       ]
     }
   },
@@ -325,24 +325,24 @@ export const personas: Record<string, Persona> = {
       { id: 'post_meeting', name: 'Post-meeting', icon: 'business_center', image: JOURNEY_IMAGES.POST_MEETING },
       { id: 'work', name: 'Work', icon: 'laptop', image: JOURNEY_IMAGES.WORK_AREA },
       { id: 'leisure', name: 'Leisure', icon: 'explore', image: JOURNEY_IMAGES.TERMINAL },
-      { id: 'return', name: 'Rientro', icon: 'flight_takeoff', image: JOURNEY_IMAGES.RETURN }
+      { id: 'return', name: 'Return', icon: 'flight_takeoff', image: JOURNEY_IMAGES.RETURN }
     ],
     actions: {
       post_meeting: [
-        { title: 'Smart Locker Bagagli', description: 'Deposito contactless flessibile', icon: 'lock' },
-        { title: 'Business Lounge', description: 'Spazio dedicato post-meeting', icon: 'business_center' }
+        { title: 'Smart Luggage Locker', description: 'Flexible contactless storage', icon: 'lock' },
+        { title: 'Business Lounge', description: 'Dedicated post-meeting space', icon: 'business_center' }
       ],
       work: [
-        { title: 'Coworking Lounge', description: 'Spazio produttivo air-side', icon: 'work' },
-        { title: 'Phone-booth', description: 'Chiamate private e video call', icon: 'phone' }
+        { title: 'Coworking Lounge', description: 'Productive airside workspace', icon: 'work' },
+        { title: 'Phone Booth', description: 'Private calls and video conferences', icon: 'phone' }
       ],
       leisure: [
-        { title: 'City-pass App', description: 'Tour ed esperienze locali', icon: 'map' },
-        { title: 'Cultural Guide', description: 'Offerte culturali in terminal', icon: 'museum' }
+        { title: 'City-pass App', description: 'Local tours and experiences', icon: 'map' },
+        { title: 'Cultural Guide', description: 'Cultural offerings in terminal', icon: 'museum' }
       ],
       return: [
-        { title: 'Shower Pod', description: 'Docce veloci pre-volo', icon: 'shower' },
-        { title: 'Yoga Room', description: 'Relax e stretching', icon: 'self_improvement' }
+        { title: 'Shower Pod', description: 'Quick pre-flight showers', icon: 'shower' },
+        { title: 'Yoga Room', description: 'Relaxation and stretching', icon: 'self_improvement' }
       ]
     }
   },
@@ -383,26 +383,26 @@ export const personas: Record<string, Persona> = {
     },
     journeySteps: [
       { id: 'checkin_origin', name: 'Check-in', icon: 'how_to_reg', image: JOURNEY_IMAGES.CHECKIN },
-      { id: 'layover', name: 'Scalo', icon: 'transfer_within_a_station', image: JOURNEY_IMAGES.LAYOVER },
-      { id: 'immigration', name: 'Immigrazione', icon: 'badge', image: JOURNEY_IMAGES.IMMIGRATION },
-      { id: 'exit', name: 'Uscita', icon: 'exit_to_app', image: JOURNEY_IMAGES.TERMINAL }
+      { id: 'layover', name: 'Layover', icon: 'transfer_within_a_station', image: JOURNEY_IMAGES.LAYOVER },
+      { id: 'immigration', name: 'Immigration', icon: 'badge', image: JOURNEY_IMAGES.IMMIGRATION },
+      { id: 'exit', name: 'Exit', icon: 'exit_to_app', image: JOURNEY_IMAGES.TERMINAL }
     ],
     actions: {
       checkin_origin: [
-        { title: 'Kiosk Multi-lang', description: 'Check-in con supporto staff', icon: 'translate' },
-        { title: 'Document Help', description: 'Assistenza compilazione moduli', icon: 'description' }
+        { title: 'Multi-language Kiosk', description: 'Check-in with staff support', icon: 'translate' },
+        { title: 'Document Help', description: 'Assistance with form completion', icon: 'description' }
       ],
       layover: [
-        { title: 'Wayfinding Universale', description: 'Icone comprensibili globalmente', icon: 'place' },
-        { title: 'Transit Guide', description: 'Guida passo-passo connessioni', icon: 'map' }
+        { title: 'Universal Wayfinding', description: 'Globally understandable icons', icon: 'place' },
+        { title: 'Transit Guide', description: 'Step-by-step connection guide', icon: 'map' }
       ],
       immigration: [
-        { title: 'APC Kiosk USA', description: 'Chiosco automatico + agente', icon: 'computer' },
-        { title: 'Immigration Support', description: 'Assistenza domande CBP', icon: 'support_agent' }
+        { title: 'APC Kiosk USA', description: 'Automated kiosk plus agent', icon: 'computer' },
+        { title: 'Immigration Support', description: 'Assistance with CBP questions', icon: 'support_agent' }
       ],
       exit: [
-        { title: 'Pick-up e-SIM', description: 'Connettività immediata', icon: 'sim_card' },
-        { title: 'Shuttle Campus', description: 'Trasporto verso università', icon: 'school' }
+        { title: 'e-SIM Pickup', description: 'Immediate connectivity', icon: 'sim_card' },
+        { title: 'Campus Shuttle', description: 'Transport to university', icon: 'school' }
       ]
     }
   }

@@ -29,15 +29,15 @@ export default function Login() {
   const selectedPersona = selectedPersonaId ? personas[selectedPersonaId] : null;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-slate-100">
+    <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-gray-50 to-slate-100">
       <Card className="w-full max-w-md mx-4 shadow-2xl">
-        <CardContent className="pt-8 sm:pt-12 lg:pt-16">
+        <CardContent className="p-6 sm:pt-12 lg:pt-16 pt-[24px] pb-[24px]">
           <div className="text-center mb-10 sm:mb-16 lg:mb-20">
             <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Plane className="text-white text-3xl" size={24} />
             </div>
             <h1 
-              className="h1-responsive text-gray-900 mb-2"
+              className="h1-responsive-small text-gray-900 mb-2"
             >
               Smart Airport Navigation
             </h1>

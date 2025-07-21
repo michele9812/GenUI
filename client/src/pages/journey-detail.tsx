@@ -71,7 +71,7 @@ export default function JourneyDetail() {
 
   return (
     <div 
-      className="min-h-screen flex flex-col"
+      className="h-viewport flex flex-col"
       style={{ 
         fontFamily: selectedPersona.typography?.fontFamily || 'system-ui, -apple-system, sans-serif',
         fontSize: selectedPersona.typography?.fontSize || '16px',
@@ -104,11 +104,11 @@ export default function JourneyDetail() {
         </motion.button>
       </div>
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[100px] sm:pt-[70px] pb-[60px] sm:pb-[30px] h-screen overflow-hidden">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-16 sm:pt-16 pb-8 sm:pb-8 h-full overflow-hidden">
           
           {/* Title */}
           <motion.div 
-            className="text-center mb-4 sm:mb-5 md:mb-6"
+            className="text-center mb-8 sm:mb-8 md:mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -122,11 +122,11 @@ export default function JourneyDetail() {
                 lineHeight: selectedPersona.typography?.lineHeight || '1.2'
               }}
             >
-              Ciao{' '}
+              Hello{' '}
               <span
                 style={{ color: selectedPersona.colors.secondary }}
                 className="text-[#111827]">
-                {userName || 'Utente'}
+                {userName || 'User'}
               </span>
               ,
             </h1>
@@ -145,7 +145,7 @@ export default function JourneyDetail() {
 
           {/* 3D Carousel */}
           <motion.div 
-            className="mb-4 sm:mb-5 md:mb-6"
+            className="mb-8 sm:mb-8 md:mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}

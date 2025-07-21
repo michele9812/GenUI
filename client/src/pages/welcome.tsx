@@ -44,7 +44,7 @@ export default function Welcome() {
 
   return (
     <div 
-      className="min-h-screen relative overflow-hidden"
+      className="h-viewport relative overflow-hidden"
       style={{ 
         background: `linear-gradient(135deg, ${selectedPersona.colors.primary}, ${selectedPersona.colors.secondary})`,
         fontFamily: selectedPersona.typography?.fontFamily || 'system-ui, -apple-system, sans-serif',
@@ -66,11 +66,11 @@ export default function Welcome() {
           transition={{ duration: 0.3 }}
         >
           <ArrowLeft className="w-4 h-4" />
-          <span className="text-sm font-medium">Back to behaviour selection</span>
+          <span className="text-sm font-medium">Back to profile selection</span>
         </motion.button>
       </div>
       {/* Header Section */}
-      <div className="absolute top-[100px] sm:top-[80px] lg:top-[90px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="absolute top-[80px] sm:top-[80px] lg:top-[88px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
         <h1 
           className="h1-responsive text-white mb-2 sm:mb-4"
           style={{ 
@@ -80,7 +80,7 @@ export default function Welcome() {
             color: 'white'
           }}
         >
-          Ciao {userName || 'Utente'}
+          Hello {userName || 'User'}
         </h1>
         <p 
           className="text-white/80"
@@ -90,7 +90,7 @@ export default function Welcome() {
             fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
           }}
         >
-          Seleziona la fase del journey come {selectedPersona.title}
+          Select your journey phase as {selectedPersona.title}
         </p>
       </div>
       {/* Central Image */}
@@ -120,7 +120,7 @@ export default function Welcome() {
         </motion.div>
       </div>
       {/* Interactive Dock Navigation */}
-      <div className="absolute bottom-8 sm:bottom-6 md:bottom-8 lg:bottom-12 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="absolute bottom-8 sm:bottom-8 md:bottom-8 lg:bottom-16 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-center w-full">
           <MacOSDock 
             apps={selectedPersona.journeySteps.map((step, idx) => ({
