@@ -233,8 +233,8 @@ export function Carousel3D({
     <div 
       className="relative w-full"
       style={{
-        height: isIPhoneSE ? '360px' : isIPhoneXR && isMobile ? '380px' : isMobile ? '400px' : '418px', // Reduced desktop from 450px to 418px (-32px)
-        maxHeight: isIPhoneSE ? '360px' : isIPhoneXR && isMobile ? '380px' : isMobile ? '400px' : '418px'
+        height: isMobile ? '400px' : '418px', // Unified 400px for all mobile, 418px desktop
+        maxHeight: isMobile ? '400px' : '418px'
       }}
     >
       <div 
