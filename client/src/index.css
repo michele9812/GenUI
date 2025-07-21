@@ -5,34 +5,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* H1 Typography Tokens - Responsive */
+/* H1 Typography Tokens - Responsive with proper scaling */
 .h1-responsive {
-  font-size: 32pt; /* Mobile default */
+  font-size: 28pt; /* Mobile: 28pt base */
   line-height: 1.2;
   font-weight: bold;
 }
 
 .h1-responsive-small {
-  font-size: 24pt; /* Smaller H1 for onboarding */
+  font-size: 20pt; /* Mobile: 20pt for compact screens */
   line-height: 1.2;
   font-weight: bold;
 }
 
+/* Tablet breakpoint: optimized scaling */
 @media (min-width: 768px) {
   .h1-responsive {
-    font-size: 38pt; /* Tablet */
+    font-size: 34pt; /* Tablet: 34pt for readability */
   }
   .h1-responsive-small {
-    font-size: 28pt; /* Tablet */
+    font-size: 24pt; /* Tablet: 24pt for onboarding */
+  }
+}
+
+/* Desktop breakpoint: full scale */
+@media (min-width: 1024px) {
+  .h1-responsive {
+    font-size: 42pt; /* Desktop: 42pt max readable size */
+  }
+  .h1-responsive-small {
+    font-size: 28pt; /* Desktop: 28pt for onboarding */
+  }
+}
+
+/* Text responsive classes for paragraphs */
+.text-responsive {
+  font-size: 14pt; /* Mobile base */
+}
+
+@media (min-width: 768px) {
+  .text-responsive {
+    font-size: 16pt; /* Tablet */
   }
 }
 
 @media (min-width: 1024px) {
-  .h1-responsive {
-    font-size: 48pt; /* Desktop */
-  }
-  .h1-responsive-small {
-    font-size: 32pt; /* Desktop */
+  .text-responsive {
+    font-size: 18pt; /* Desktop */
   }
 }
 

@@ -150,7 +150,7 @@ export default function Welcome() {
           className="h1-responsive-small text-white"
           style={{ 
             fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-            fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
+            transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
             lineHeight: selectedPersona.typography?.lineHeight || '1.2',
             color: 'white',
             marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
@@ -161,9 +161,9 @@ export default function Welcome() {
           Hello {userName || 'User'}
         </h1>
         <p 
-          className="text-white/80"
+          className="text-white/80 text-responsive"
           style={{
-            fontSize: selectedPersona.typography?.scale ? `calc(18pt * ${selectedPersona.typography.scale})` : '18pt',
+            transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
             lineHeight: selectedPersona.typography?.lineHeight || '1.4',
             fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
           }}
