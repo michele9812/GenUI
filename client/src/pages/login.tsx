@@ -38,9 +38,7 @@ export default function Login() {
             </div>
             <h1 
               className="h1-responsive-small text-gray-900 mb-2"
-            >
-              Smart Airport Navigation
-            </h1>
+            >AirBuddy Assistant</h1>
             <p className="text-gray-600">Personalized journey assistant</p>
           </div>
 
