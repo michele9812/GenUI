@@ -54,7 +54,6 @@ export default function OnboardingPage() {
               {/* Fixed spacer to match login step preview area */}
               <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]"></div>
             </div>
-          </div>
 
           {/* Button */}
           <div className="absolute bottom-6 left-6 right-6">
@@ -64,6 +63,7 @@ export default function OnboardingPage() {
             >
               Continue
             </Button>
+          </div>
           </div>
         </CardContent>
       </Card>
