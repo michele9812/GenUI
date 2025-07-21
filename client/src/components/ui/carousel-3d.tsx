@@ -98,38 +98,69 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
   const getCardStyle = (position: number) => {
     const isCenter = position === 0;
     
-    // Responsive card sizes with improved spacing
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    const isTablet = typeof window !== 'undefined' && window.innerWidth < 1024;
+    // Enhanced responsive breakpoints for better mobile experience
+    const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
+    const isXsPhone = screenWidth < 375;
+    const isMobile = screenWidth < 640;
+    const isSmTablet = screenWidth < 768; 
+    const isTablet = screenWidth < 1024;
+    const isSmDesktop = screenWidth < 1280;
+    const isDesktop = screenWidth < 1536;
     
-    let baseWidth, centerWidth, spacing;
+    let baseWidth, centerWidth, spacing, containerPadding;
     
-    if (isMobile) {
+    if (isXsPhone) {
+      baseWidth = 160;
+      centerWidth = 200;
+      spacing = 8;
+      containerPadding = 16;
+    } else if (isMobile) {
+      baseWidth = 180;
+      centerWidth = 230;
+      spacing = 10;
+      containerPadding = 20;
+    } else if (isSmTablet) {
       baseWidth = 200;
       centerWidth = 260;
-      spacing = 10;
+      spacing = 12;
+      containerPadding = 24;
     } else if (isTablet) {
       baseWidth = 240;
       centerWidth = 300;
       spacing = 15;
-    } else {
+      containerPadding = 32;
+    } else if (isSmDesktop) {
       baseWidth = 280;
       centerWidth = 340;
       spacing = 20;
+      containerPadding = 40;
+    } else if (isDesktop) {
+      baseWidth = 320;
+      centerWidth = 380;
+      spacing = 24;
+      containerPadding = 48;
+    } else {
+      baseWidth = 360;
+      centerWidth = 420;
+      spacing = 28;
+      containerPadding = 56;
     }
     
-    // Enhanced positioning for better visual flow
-    const offsetMultiplier = isCenter ? 0 : Math.sign(position) * 0.3;
+    // Enhanced positioning with responsive adjustments
+    const offsetMultiplier = isCenter ? 0 : Math.sign(position) * 0.2;
+    const responsiveScale = isCenter ? (isMobile ? 1.05 : 1.1) : (isMobile ? 0.9 : 0.85);
+    const verticalOffset = isCenter ? (isMobile ? -5 : -10) : Math.abs(position) * (isMobile ? 3 : 5);
     
     return {
       width: isCenter ? centerWidth : baseWidth,
-      scale: isCenter ? 1.1 : 0.85,
-      translateX: position * (baseWidth + spacing) + offsetMultiplier * 20,
-      translateY: isCenter ? -10 : Math.abs(position) * 5,
-      opacity: Math.abs(position) <= 1 ? 1 : 0.4,
+      scale: responsiveScale,
+      translateX: position * (baseWidth + spacing) + offsetMultiplier * (isMobile ? 15 : 20),
+      translateY: verticalOffset,
+      opacity: Math.abs(position) <= 1 ? 1 : (isMobile ? 0.2 : 0.4),
       zIndex: isCenter ? 10 : 5 - Math.abs(position),
-      blur: Math.abs(position) > 1 ? 'blur(3px)' : 'blur(0px)',
-      brightness: isCenter ? 1 : 0.8
+      blur: Math.abs(position) > 1 ? (isMobile ? 'blur(2px)' : 'blur(3px)') : 'blur(0px)',
+      brightness: isCenter ? 1 : (isMobile ? 0.85 : 0.8),
+      containerPadding
     };
   };
 
@@ -138,7 +169,11 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
   return (
     <div 
       ref={containerRef}
-      className="relative w-full flex items-center justify-center overflow-hidden h-[400px] sm:h-[450px] lg:h-[500px] pl-[24px] pr-[24px] pt-[80px] pb-[80px]"
+      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[350px] sm:h-[420px] md:h-[450px] lg:h-[500px] xl:h-[550px] portrait-spacing landscape-spacing"
+      style={{
+        paddingLeft: `${getCardStyle(0).containerPadding}px`,
+        paddingRight: `${getCardStyle(0).containerPadding}px`
+      }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -157,7 +192,11 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
           {visibleCards.map(({ item, originalIndex, position }) => {
             const style = getCardStyle(position);
             const isCenter = position === 0;
-            const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+            const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
+            const isXsPhone = screenWidth < 375;
+            const isMobile = screenWidth < 640;
+            const isSmTablet = screenWidth < 768; 
+            const isTablet = screenWidth < 1024;
             
             return (
               <motion.div
@@ -165,14 +204,18 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                 className={cn(
                   "absolute rounded-2xl cursor-pointer bg-white shadow-lg select-none",
                   isCenter ? "shadow-2xl border-2" : "shadow-md",
-                  isDragging ? "pointer-events-none" : "pointer-events-auto"
+                  isDragging ? "pointer-events-none" : "pointer-events-auto",
+                  // Disable glare for non-active cards
+                  !isCenter && "backdrop-blur-none"
                 )}
                 style={{
                   width: style.width,
-                  height: isMobile ? 360 : 400,
+                  height: isXsPhone ? 320 : isMobile ? 360 : isSmTablet ? 380 : isTablet ? 400 : 420,
                   zIndex: style.zIndex,
                   borderColor: isCenter ? '#F59E0B' : 'transparent',
-                  filter: style.blur
+                  filter: style.blur,
+                  // Remove any glare effects from non-center cards
+                  background: isCenter ? 'white' : '#fafafa'
                 }}
                 initial={{
                   x: style.translateX,
@@ -205,14 +248,18 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                 whileTap={!isDragging ? { scale: style.scale * 0.98 } : {}}
               >
                 {/* Card Content */}
-                <div className="w-full h-full rounded-2xl overflow-hidden flex flex-col">
+                <div className={cn(
+                  "w-full h-full rounded-2xl overflow-hidden flex flex-col",
+                  // Remove glare effect from non-active cards
+                  isCenter ? "glare-card" : ""
+                )}>
                   {/* Header */}
                   <div className={cn(
-                    "px-6 py-4 text-center",
+                    "px-4 py-3 sm:px-6 sm:py-4 text-center",
                     isCenter ? "bg-amber-50" : "bg-gray-50"
                   )}>
                     <p className={cn(
-                      "text-xs font-medium uppercase tracking-wider mb-2",
+                      "text-xs sm:text-sm font-medium uppercase tracking-wider mb-2",
                       isCenter ? "text-amber-600" : "text-gray-500"
                     )}>
                       NAVIGATION
@@ -220,11 +267,11 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                     
                     {/* Icon */}
                     <div className={cn(
-                      "w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center",
+                      "w-10 h-10 sm:w-12 sm:h-12 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center",
                       isCenter ? "bg-amber-400" : "bg-gray-200"
                     )}>
                       <span className={cn(
-                        "material-icons text-xl",
+                        "material-icons text-lg sm:text-xl",
                         isCenter ? "text-white" : "text-gray-600"
                       )}>
                         {item.icon}
@@ -233,18 +280,18 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 px-6 py-4 flex flex-col justify-between">
+                  <div className="flex-1 px-4 py-3 sm:px-6 sm:py-4 flex flex-col justify-between">
                     <div className="text-center">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                         {item.description}
                       </p>
                     </div>
                     
                     {/* Action Button */}
-                    <div className="mt-6">
+                    <div className="mt-4 sm:mt-6">
                       {isCenter ? (
                         <motion.button
                           className="w-full py-3 bg-amber-400 hover:bg-amber-500 text-white font-medium rounded-lg transition-colors"

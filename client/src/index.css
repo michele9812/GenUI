@@ -178,3 +178,187 @@
   z-index: -1;
   border-radius: inherit;
 }
+
+/* Responsive Layout Utilities */
+@layer utilities {
+  /* Mobile First Spacing */
+  .spacing-mobile {
+    @apply p-4 m-2;
+  }
+  
+  .spacing-tablet {
+    @apply p-6 m-3;
+  }
+  
+  .spacing-desktop {
+    @apply p-8 m-4;
+  }
+  
+  /* Responsive Container */
+  .container-responsive {
+    @apply w-full max-w-screen-2xl mx-auto;
+    @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16;
+  }
+  
+  /* Responsive Grid */
+  .grid-responsive {
+    @apply grid gap-4 sm:gap-6 lg:gap-8;
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+  
+  /* Responsive Typography */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  /* Responsive Heights */
+  .h-screen-safe {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+  
+  .min-h-screen-safe {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+}
+
+/* Media Queries for Custom Breakpoints */
+@media (max-width: 374px) {
+  /* Extra small mobile devices */
+  .container-responsive {
+    @apply px-3;
+  }
+  
+  .spacing-mobile {
+    @apply p-3 m-1;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 639px) {
+  /* Standard mobile devices */
+  .carousel-mobile {
+    @apply h-[350px];
+  }
+  
+  .card-mobile {
+    @apply w-48 h-72;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  /* Large mobile / Small tablet */
+  .carousel-tablet-sm {
+    @apply h-[400px];
+  }
+  
+  .card-tablet-sm {
+    @apply w-56 h-80;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet */
+  .carousel-tablet {
+    @apply h-[450px];
+  }
+  
+  .card-tablet {
+    @apply w-64 h-80;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Small desktop */
+  .carousel-desktop-sm {
+    @apply h-[500px];
+  }
+  
+  .card-desktop-sm {
+    @apply w-72 h-96;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  /* Medium desktop */
+  .carousel-desktop {
+    @apply h-[550px];
+  }
+  
+  .card-desktop {
+    @apply w-80 h-[400px];
+  }
+}
+
+@media (min-width: 1536px) {
+  /* Large desktop */
+  .carousel-desktop-lg {
+    @apply h-[600px];
+  }
+  
+  .card-desktop-lg {
+    @apply w-96 h-[450px];
+  }
+}
+
+/* Touch and Hover States */
+@media (hover: hover) and (pointer: fine) {
+  /* Mouse/trackpad devices */
+  .hover-enabled {
+    @apply hover:scale-105 hover:shadow-lg transition-all duration-300;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  /* Touch devices */
+  .touch-enabled {
+    @apply active:scale-95 transition-all duration-150;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi {
+    @apply text-sm; /* Slightly smaller text on high DPI to maintain readability */
+  }
+}
+
+/* Orientation specific styles */
+@media (orientation: portrait) {
+  .portrait-spacing {
+    @apply py-6 px-4;
+  }
+}
+
+@media (orientation: landscape) {
+  .landscape-spacing {
+    @apply py-4 px-6;
+  }
+}
+
+/* Fix for extra small screens */
+@media (max-width: 374px) {
+  .carousel-xs {
+    height: 320px !important;
+  }
+}
