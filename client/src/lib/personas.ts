@@ -1,39 +1,39 @@
 // Journey Step Image Constants
 export const JOURNEY_IMAGES = {
   // Terminal and Arrival Areas
-  TERMINAL: '/attached_assets/Modern Airport Terminal_1753098968199.png',
-  ARRIVAL: '/attached_assets/Modern Airport Terminal (1)_1753099307704.png', 
+  TERMINAL: '/attached_assets/Modern Airport Terminal_1753099981602.png',
+  ARRIVAL: '/attached_assets/Modern Airport Terminal_1753099981602.png', 
   
   // Security and Screening
-  SECURITY: '/attached_assets/Airport Security Scene_1753098968200.png',
-  SCREENING: '/attached_assets/Airport Security Scene_1753098968200.png',
+  SECURITY: '/attached_assets/Airport Security Scene_1753099981603.png',
+  SCREENING: '/attached_assets/Airport Security Scene_1753099981603.png',
   
   // Boarding Areas
-  BOARDING: 'https://www.lummi.ai/photo/airport-boarding-area-zd1dr',
-  IMBARCO: '/attached_assets/Airport Boarding Area_1753099125283.png',
-  RETURN: '/attached_assets/Airport Boarding Area_1753099125283.png',
+  BOARDING: '/attached_assets/Airport Boarding Area_1753099981602.png',
+  IMBARCO: '/attached_assets/Airport Boarding Area_1753099981602.png',
+  RETURN: '/attached_assets/Airport Boarding Area_1753099981602.png',
   
   // Service Counters
-  SERVICE_COUNTER: '/attached_assets/Airport Service Counter_1753098968198.png',
-  HELP_DESK: '/attached_assets/Airport Service Counter_1753098968198.png',
-  TRANSFER: '/attached_assets/Airport Service Counter_1753098968198.png',
-  POST_FLIGHT: '/attached_assets/Modern Airport Terminal (1)_1753099307704.png',
+  SERVICE_COUNTER: '/attached_assets/Airport Service Counter_1753099981602.png',
+  HELP_DESK: '/attached_assets/Airport Service Counter_1753099981602.png',
+  TRANSFER: '/attached_assets/Airport Service Counter_1753099981602.png',
+  POST_FLIGHT: '/attached_assets/Airport Service Counter_1753099981602.png',
   
   // Kiosk Interactions
-  KIOSK: 'https://www.lummi.ai/photo/airport-kiosk-interaction-smkmb',
-  CHECKIN: '/attached_assets/Airport Kiosk Interaction_1753098968200.png',
-  SELF_SERVICE: '/attached_assets/Airport Kiosk Interaction_1753098968200.png',
-  POST_MEETING: '/attached_assets/Airport Kiosk Interaction_1753098968200.png',
+  KIOSK: '/attached_assets/Airport Kiosk Interaction_1753099981603.png',
+  CHECKIN: '/attached_assets/Airport Kiosk Interaction_1753099981603.png',
+  SELF_SERVICE: '/attached_assets/Airport Kiosk Interaction_1753099981603.png',
+  POST_MEETING: '/attached_assets/Airport Kiosk Interaction_1753099981603.png',
   
   // Waiting Areas and Lounges
-  WAITING: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n',
-  LOUNGE: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n',
-  WORK_AREA: 'https://www.lummi.ai/photo/airport-terminal-view-hdj6n',
+  WAITING: '/attached_assets/Airport Boarding Area_1753099981602.png',
+  LOUNGE: '/attached_assets/Airport Boarding Area_1753099981602.png',
+  WORK_AREA: '/attached_assets/Airport Boarding Area_1753099981602.png',
   
   // Corridors and Navigation
-  CORRIDOR: 'https://www.lummi.ai/photo/modern-airport-corridor-epzzw',
-  LAYOVER: 'https://www.lummi.ai/photo/modern-airport-corridor-epzzw',
-  IMMIGRATION: 'https://www.lummi.ai/photo/modern-airport-corridor-epzzw'
+  CORRIDOR: '/attached_assets/Modern Airport Terminal_1753099981602.png',
+  LAYOVER: '/attached_assets/Modern Airport Terminal_1753099981602.png',
+  IMMIGRATION: '/attached_assets/Airport Security Scene_1753099981603.png'
 } as const;
 
 export interface PersonaColors {
