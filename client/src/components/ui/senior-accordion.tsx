@@ -71,7 +71,10 @@ export function SeniorAccordion({
   return (
     <div className="w-full max-w-4xl mx-auto h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px]">
       <Accordion 
-        className="flex w-full flex-col gap-4"
+        className="flex w-full flex-col gap-4 md:gap-4"
+        style={{
+          gap: window.innerWidth < 768 ? '16px' : undefined
+        }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {items.map((item, index) => (

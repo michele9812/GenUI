@@ -137,7 +137,7 @@ export default function Welcome() {
         }}
       >
         <h1 
-          className="h1-responsive-small text-white"
+          className="h1-responsive-small text-white w-full"
           style={{ 
             fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
             transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
@@ -151,7 +151,7 @@ export default function Welcome() {
           Hello {userName || 'User'}
         </h1>
         <p 
-          className="text-white/80 text-responsive"
+          className="text-white/80 text-responsive w-full"
           style={{
             transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
             lineHeight: selectedPersona.typography?.lineHeight || '1.4',
