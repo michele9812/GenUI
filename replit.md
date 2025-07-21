@@ -23,6 +23,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Created image constants**: Organized all journey step images into centralized JOURNEY_IMAGES constants mapped to specific dock button labels for better maintainability
 - **Updated Post-volo image**: Associated the arrivals terminal image showing "Arrival" signage with the "Post-volo" journey step for better contextual accuracy
 - **Modified zoom animation**: Reduced animation speed to 900ms and limited maximum scale to 3x to ensure image fits within viewport
+- **Updated ARRIVAL image constant**: Set ARRIVAL constant to use the correct arrivals terminal image path
 - Disabled interactions for inactive carousel cards (only center card is clickable and hoverable)
 - Updated persona selection page to use neutral styling (gray colors) except for the persona preview card
 - Enhanced journey pages (welcome and detail) to use full persona-specific theming including colors, typography, and gradients
