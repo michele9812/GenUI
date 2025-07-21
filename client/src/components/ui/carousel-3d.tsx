@@ -302,7 +302,7 @@ export function Carousel3D({
                 >
 
                   <div 
-                    className="px-4 py-0 sm:px-6 sm:py-0 text-center"
+                    className="px-4 py-2 sm:px-6 sm:py-3 text-center"
                     style={{
                       backgroundColor: isCenter ? (selectedPersona?.colors?.primary || accentColor) : 
                         (selectedPersona?.id === 'student' ? '#1E293B' : '#f9fafb'),
@@ -344,7 +344,7 @@ export function Carousel3D({
 
                   {/* Content */}
                   <div 
-                    className="flex-1 px-4 py-0 sm:px-6 sm:py-0 flex flex-col justify-between"
+                    className="flex-1 px-4 py-2 sm:px-6 sm:py-3 flex flex-col justify-between"
                     style={{
                       backgroundColor: selectedPersona?.id === 'student' && !isCenter ? '#0F172A' : 'white'
                     }}
@@ -379,7 +379,7 @@ export function Carousel3D({
                     <div className="mt-2 sm:mt-4">
                       {isCenter ? (
                         <motion.button
-                          className="w-full py-0 font-medium rounded-lg transition-colors hover:opacity-90"
+                          className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90"
                           style={{ 
                             backgroundColor: selectedPersona?.colors?.secondary || accentColor,
                             color: 'white', // Always white text for better contrast on colored backgrounds
@@ -399,7 +399,7 @@ export function Carousel3D({
                       ) : (
                         <button 
                           disabled
-                          className="w-full py-0 font-medium rounded-lg cursor-not-allowed opacity-60"
+                          className="w-full py-3 font-medium rounded-lg cursor-not-allowed opacity-60"
                           style={{ 
                             border: 'none',
                             backgroundColor: selectedPersona?.id === 'student' ? '#374151' : '#f3f4f6',
