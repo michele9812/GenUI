@@ -518,7 +518,7 @@ export default function JourneyDetail() {
             className="h1-responsive-small"
             style={{
               fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-              fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
+              transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               color: primaryColor,
               lineHeight: selectedPersona.typography?.lineHeight || '1.2',
               marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
@@ -533,8 +533,9 @@ export default function JourneyDetail() {
             ,
           </h1>
           <p 
+            className="text-responsive"
             style={{
-              fontSize: selectedPersona.typography?.scale ? `calc(18pt * ${selectedPersona.typography.scale})` : '18pt',
+              transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? 'rgba(255, 255, 255, 0.8)' : selectedPersona.colors.secondary,
@@ -546,11 +547,9 @@ export default function JourneyDetail() {
           
           {/* Current Journey Phase */}
           <p 
-            className="font-medium"
+            className="font-medium text-responsive"
             style={{
-              fontSize: selectedPersona.typography?.scale 
-                ? `calc(18pt * ${selectedPersona.typography.scale})` 
-                : '18pt', // Max 18pt on all breakpoints
+              transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
