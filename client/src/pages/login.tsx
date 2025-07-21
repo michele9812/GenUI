@@ -72,7 +72,7 @@ export default function LoginPage() {
           
           {/* Image - Fixed at top with responsive positioning */}
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center rounded-xl overflow-hidden bg-blue-50">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-blue-50">
               <img 
                 src={cheerfulPilotImage} 
                 alt="AirBuddy Pilot" 
@@ -134,7 +134,7 @@ export default function LoginPage() {
               <div className="h-24 flex items-start">
                 {selectedPersona && (
                   <div 
-                    className="p-3 rounded-xl border min-h-[96px] flex items-start w-full"
+                    className="p-3 radius-responsive-small border min-h-[96px] flex items-start w-full"
                     style={{ 
                       backgroundColor: `${selectedPersona.colors.primary}20`,
                       borderColor: `${selectedPersona.colors.primary}40`,
@@ -182,7 +182,7 @@ export default function LoginPage() {
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
-              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium radius-responsive-small bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Start the journey
             </Button>
