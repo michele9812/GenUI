@@ -85,96 +85,96 @@ export default function Login() {
             {/* Content */}
             <div className="flex-1 flex flex-col justify-center space-y-6">
               <div>
-              <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
-                Name
-              </Label>
-              <Input
-                id="userName"
-                type="text"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                placeholder="Enter your name..."
-                className="w-full"
-              />
-            </div>
+                <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
+                  Name
+                </Label>
+                <Input
+                  id="userName"
+                  type="text"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                  placeholder="Enter your name..."
+                  className="w-full"
+                />
+              </div>
 
-            <div>
-              <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-1">
-                Select Your Profile
-              </Label>
-              <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Choose your traveler profile..." />
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.entries(personas).map(([id, persona]) => (
-                    <SelectItem key={id} value={id}>
-                      {persona.title}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+              <div>
+                <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-1">
+                  Select Your Profile
+                </Label>
+                <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Choose your traveler profile..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.entries(personas).map(([id, persona]) => (
+                      <SelectItem key={id} value={id}>
+                        {persona.title}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
 
-            <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]">
-              {selectedPersona && (
-                <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 h-full">
-                  <div className="flex items-start gap-3 h-full">
-                    <div 
-                      className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full border-2 border-blue-200"
-                      style={{ 
-                        backgroundColor: `${selectedPersona.primaryColor}20`
-                      }}
-                    >
-                      {(() => {
-                        const IconComponent = getPersonaIcon(selectedPersonaId);
-                        const MaterialIcon = getMaterialIcon(selectedPersonaId);
-                        
-                        if (IconComponent) {
-                          return (
-                            <IconComponent 
-                              className="w-5 h-5" 
-                              style={{ color: selectedPersona.primaryColor }}
-                            />
-                          );
-                        } else if (MaterialIcon) {
-                          return (
-                            <MaterialIcon 
-                              className="w-5 h-5" 
-                              style={{ color: selectedPersona.primaryColor }}
-                            />
-                          );
-                        }
-                        
-                        return null;
-                      })()}
+              <div className="min-h-[120px] sm:min-h-[130px] md:min-h-[140px] lg:min-h-[150px]">
+                  {selectedPersona && (
+                    <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 h-full">
+                      <div className="flex items-start gap-3 h-full">
+                        <div 
+                          className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full border-2 border-blue-200"
+                          style={{ 
+                            backgroundColor: `${selectedPersona.primaryColor}20`
+                          }}
+                        >
+                          {(() => {
+                            const IconComponent = getPersonaIcon(selectedPersonaId);
+                            const MaterialIcon = getMaterialIcon(selectedPersonaId);
+                            
+                            if (IconComponent) {
+                              return (
+                                <IconComponent 
+                                  className="w-5 h-5" 
+                                  style={{ color: selectedPersona.primaryColor }}
+                                />
+                              );
+                            } else if (MaterialIcon) {
+                              return (
+                                <MaterialIcon 
+                                  className="w-5 h-5" 
+                                  style={{ color: selectedPersona.primaryColor }}
+                                />
+                              );
+                            }
+                            
+                            return null;
+                          })()}
+                        </div>
+                        <div className="flex-1">
+                          <h3 
+                            className="font-semibold text-gray-900 mb-2"
+                            style={{ 
+                              fontFamily: selectedPersona.headingFont,
+                              transform: `scale(${selectedPersona.fontScale || 1})`
+                            }}
+                          >
+                            {selectedPersona.title}
+                          </h3>
+                          <p 
+                            className="text-sm text-gray-600"
+                            style={{ 
+                              fontFamily: selectedPersona.fontFamily,
+                              transform: `scale(${selectedPersona.fontScale || 1})`
+                            }}
+                          >
+                            {selectedPersona.description}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 
-                        className="font-semibold text-gray-900 mb-2"
-                        style={{ 
-                          fontFamily: selectedPersona.headingFont,
-                          transform: `scale(${selectedPersona.fontScale || 1})`
-                        }}
-                      >
-                        {selectedPersona.title}
-                      </h3>
-                      <p 
-                        className="text-sm text-gray-600"
-                        style={{ 
-                          fontFamily: selectedPersona.fontFamily,
-                          transform: `scale(${selectedPersona.fontScale || 1})`
-                        }}
-                      >
-                        {selectedPersona.description}
-                      </p>
-                    </div>
-                  </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
-          </div>
-          </div>
 
           {/* Button */}
           <div className="absolute bottom-6 left-6 right-6">
