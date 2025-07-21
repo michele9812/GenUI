@@ -140,7 +140,7 @@ export default function Welcome() {
         </motion.button>
       </div>
 
-      {/* AirBuddy Logo Square - Fixed positioned at perfect center */}
+      {/* AirBuddy Logo Square - Fixed positioned at center */}
       <motion.div
         className="fixed backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden z-50"
         style={{
@@ -153,10 +153,9 @@ export default function Welcome() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          left: '50vw',
+          left: '50%',
           top: '16px', // Same Y position as navbar
-          transform: 'translate(-50%, 0)',
-          marginLeft: '0px' // Reset any potential margin interference
+          transform: 'translateX(-50%)'
         }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
