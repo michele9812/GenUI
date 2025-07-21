@@ -53,7 +53,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Return static journey data based on persona
       const journeyData = {
         tech: [
-          { id: 'arrival', name: 'Arrivo', icon: 'local_parking' },
+          { id: 'parking', name: 'Parcheggio', icon: 'local_parking' },
           { id: 'security', name: 'Sicurezza', icon: 'security' },
           { id: 'lounge', name: 'Lounge', icon: 'airline_seat_recline_normal' },
           { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff' },
