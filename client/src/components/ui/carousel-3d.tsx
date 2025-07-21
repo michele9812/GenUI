@@ -286,7 +286,7 @@ export function Carousel3D({
                     
                     {/* Icon */}
                     <div 
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center bg-[#a7ff4d]"
                       style={{
                         backgroundColor: isCenter ? accentColor : '#e5e7eb'
                       }}
