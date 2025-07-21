@@ -146,8 +146,8 @@ export function Carousel3D({
       spacing = 16; // 16px mobile spacing
       containerPadding = 12;
     } else if (isMobile) {
-      baseWidth = 160;
-      centerWidth = 200;
+      baseWidth = window.innerWidth >= 414 ? 260 : 160; // Min 260px for iPhone XR+
+      centerWidth = window.innerWidth >= 414 ? 280 : 200;
       spacing = 16; // 16px mobile spacing
       containerPadding = 16;
     } else if (isSmTablet) {
@@ -193,7 +193,7 @@ export function Carousel3D({
     
     return {
       width: cardWidth,
-      height: isMobile ? (window.innerWidth < 414 ? 220 : Math.max(320, Math.min(350, cardWidth * 1.4))) : 320, // Mobile-responsive height with min 320px for larger phones
+      height: isMobile ? (window.innerWidth < 414 ? 220 : 320) : 320, // Mobile-responsive height: min 320px for iPhone XR+
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,

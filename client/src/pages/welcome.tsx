@@ -170,21 +170,22 @@ export default function Welcome() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
             opacity: 1, 
-            scale: 1
+            scale: isZooming ? 2.5 : 1,
+            x: isZooming ? '-50%' : 0,
+            y: isZooming ? '-50%' : 0
           }}
           transition={{ 
-            duration: isZooming ? 0.9 : 0.3,
-            ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
+            duration: 0.6,
+            ease: [0.25, 0.46, 0.45, 0.94]
           }}
           className="rounded-lg overflow-hidden shadow-2xl cursor-pointer"
           onClick={() => setIsZooming(!isZooming)}
           style={{
-            transformOrigin: 'center center', // Anchor scaling to center of container
+            transformOrigin: 'center center',
             zIndex: isZooming ? 9999 : 10,
             position: isZooming ? 'fixed' : 'relative',
             top: isZooming ? '50%' : 'auto',
             left: isZooming ? '50%' : 'auto',
-            transform: isZooming ? 'translate(-50%, -50%)' : 'none',
             // Base responsive dimensions with proper aspect ratio
             width: isZooming ? '95vw' : (
               screenWidth <= 640 ? 
