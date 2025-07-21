@@ -56,6 +56,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Unified bottom anchor spacing to 32px**: Both dock navigation and floating input bar now consistently positioned at 32px from bottom across all pages and personas for coherent layout anchoring
 - **Fixed image positioning with calculated spacing**: Replaced percentage-based image positioning with calc() values to ensure exactly 16px spacing from header container, preventing overlay issues across all screen sizes and personas
 - **Standardized header positioning to 80px**: Unified header top position to 80px across all breakpoints and personas in welcome page to match journey detail page, simplifying layout consistency and removing responsive complexity
+- **Converted to relative positioning layout**: Transformed both welcome and journey detail pages from absolute positioning to flex layout with relative positioning, implementing 64px top margin and 24px bottom margin for header sections, 32px bottom margin for dock/input elements
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization

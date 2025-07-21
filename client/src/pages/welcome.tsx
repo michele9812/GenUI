@@ -59,7 +59,7 @@ export default function Welcome() {
 
   return (
     <div 
-      className="h-viewport relative"
+      className="h-viewport flex flex-col"
       style={{ 
         background: `linear-gradient(135deg, ${selectedPersona.colors.primary}, ${selectedPersona.colors.secondary})`,
         fontFamily: selectedPersona.typography?.fontFamily || 'system-ui, -apple-system, sans-serif',
@@ -85,50 +85,41 @@ export default function Welcome() {
           <span className="text-sm font-medium">Back to profile selection</span>
         </motion.button>
       </div>
-      {/* Header Section - Responsive with proper spacing for text scaling */}
+      {/* Header Section - Relative positioning with proper margins */}
       <div 
-              className="absolute left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full pt-[8px] pb-[16px]"
-              style={{
-                top: '80px' // Consistent 80px top positioning for all personas and breakpoints
-              }}
-            >
-              <h1 
-                className="h1-responsive-small text-white"
-                style={{ 
-                  fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-                  fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
-                  lineHeight: selectedPersona.typography?.lineHeight || '1.2',
-                  color: 'white',
-                  marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-                    ? '24px' // More space for Senior persona
-                    : screenWidth <= 640 
-                      ? '8px' // Mobile: small spacing between title and subtitle
-                      : '16px' // Tablet/Desktop: component spacing
-                }}
-              >
-                Hello {userName || 'User'}
-              </h1>
-              <p 
-                className="text-white/80"
-                style={{
-                  fontSize: selectedPersona.typography?.scale ? `calc(18pt * ${selectedPersona.typography.scale})` : '18pt',
-                  lineHeight: selectedPersona.typography?.lineHeight || '1.4',
-                  fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
-                }}
-              >
-                Select your journey phase as {selectedPersona.title}
-              </p>
-            </div>
-      {/* Central Image - Positioned with proper spacing from header */}
-      <div 
-        className="absolute left-1/2 transform -translate-x-1/2 z-10"
+        className="text-center px-4 sm:px-6 lg:px-8 w-full"
         style={{
-          top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-            ? 'calc(80px + 16px + 120px + 16px)' // Senior: 80px + header height + spacing
-            : 'calc(80px + 16px + 110px + 16px)', // Standard: 80px + header height + spacing
-          transform: 'translateX(-50%)'
+          marginTop: '64px', // 64px top margin
+          marginBottom: '24px' // 24px bottom margin
         }}
       >
+        <h1 
+          className="h1-responsive-small text-white"
+          style={{ 
+            fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
+            fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
+            lineHeight: selectedPersona.typography?.lineHeight || '1.2',
+            color: 'white',
+            marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+              ? '24px' // More space for Senior persona
+              : '8px' // Standard spacing between title and subtitle
+          }}
+        >
+          Hello {userName || 'User'}
+        </h1>
+        <p 
+          className="text-white/80"
+          style={{
+            fontSize: selectedPersona.typography?.scale ? `calc(18pt * ${selectedPersona.typography.scale})` : '18pt',
+            lineHeight: selectedPersona.typography?.lineHeight || '1.4',
+            fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
+          }}
+        >
+          Select your journey phase as {selectedPersona.title}
+        </p>
+      </div>
+      {/* Central Image - Relative positioning with flex centering */}
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -170,11 +161,11 @@ export default function Welcome() {
           />
         </motion.div>
       </div>
-      {/* Interactive Dock Navigation - Responsive spacing for different text scales */}
+      {/* Interactive Dock Navigation - Bottom section with margin */}
       <div 
-        className="absolute left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full"
+        className="px-4 sm:px-6 lg:px-8 w-full"
         style={{
-          bottom: '32px' // Consistent 32px bottom spacing for dock
+          marginBottom: '32px' // 32px bottom margin for dock
         }}
       >
         <div className="flex justify-center w-full">
