@@ -563,7 +563,19 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
             {/* Left: Attachment Icon */}
             <button
               onClick={() => uploadInputRef.current?.click()}
-              className="flex-shrink-0 h-8 w-8 text-gray-500 cursor-pointer flex items-center justify-center rounded-full transition-colors hover:bg-gray-100 hover:text-gray-700"
+              className="flex-shrink-0 h-8 w-8 cursor-pointer flex items-center justify-center rounded-full transition-colors"
+              style={{
+                color: accentColor ? `${accentColor}80` : '#6B7280', // 50% opacity accent color or gray-500
+                backgroundColor: 'transparent'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}20` : '#F3F4F6'; // 20% accent or gray-100
+                e.currentTarget.style.color = accentColor || '#374151'; // accent or gray-700
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = accentColor ? `${accentColor}80` : '#6B7280';
+              }}
               disabled={isRecording}
             >
               <Paperclip className="h-5 w-5" />
@@ -619,17 +631,41 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
 
             {/* Right: Microphone/Send Button */}
             <button
-              className={cn(
-                "flex-shrink-0 h-8 w-8 rounded-full transition-all duration-200 flex items-center justify-center",
-                isRecording
-                  ? "bg-transparent hover:bg-gray-100 text-red-500 hover:text-red-400"
-                  : hasContent
-                  ? "hover:opacity-80 text-white"
-                  : "bg-transparent hover:bg-gray-100 text-gray-500 hover:text-gray-700"
-              )}
+              className="flex-shrink-0 h-8 w-8 rounded-full transition-all duration-200 flex items-center justify-center"
               style={{
-                backgroundColor: hasContent ? accentColor : undefined,
+                backgroundColor: isRecording
+                  ? 'transparent'
+                  : hasContent
+                  ? accentColor
+                  : 'transparent',
+                color: isRecording
+                  ? '#ef4444' // red-500
+                  : hasContent
+                  ? 'white'
+                  : accentColor ? `${accentColor}80` : '#6B7280', // 50% opacity accent color or gray-500
                 fontFamily: personaTypography?.fontFamily || 'inherit'
+              }}
+              onMouseEnter={(e) => {
+                if (!isRecording && !hasContent) {
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}20` : '#F3F4F6'; // 20% accent or gray-100
+                  e.currentTarget.style.color = accentColor || '#374151'; // accent or gray-700
+                } else if (hasContent) {
+                  e.currentTarget.style.opacity = '0.8';
+                } else if (isRecording) {
+                  e.currentTarget.style.backgroundColor = '#F3F4F6'; // gray-100
+                  e.currentTarget.style.color = '#f87171'; // red-400
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isRecording && !hasContent) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = accentColor ? `${accentColor}80` : '#6B7280';
+                } else if (hasContent) {
+                  e.currentTarget.style.opacity = '1';
+                } else if (isRecording) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#ef4444'; // red-500
+                }
               }}
               onClick={() => {
                 if (isRecording) setIsRecording(false);
@@ -639,13 +675,19 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
               disabled={isLoading && !hasContent}
             >
               {isLoading ? (
-                <Square className="h-4 w-4 fill-gray-600 animate-pulse" />
+                <Square 
+                  className="h-4 w-4 animate-pulse" 
+                  style={{ fill: hasContent ? 'white' : (accentColor || '#6B7280') }}
+                />
               ) : isRecording ? (
-                <StopCircle className="h-5 w-5 text-red-500" />
+                <StopCircle className="h-5 w-5" style={{ color: '#ef4444' }} />
               ) : hasContent ? (
-                <ArrowUp className="h-4 w-4 text-white" />
+                <ArrowUp className="h-4 w-4" style={{ color: 'white' }} />
               ) : (
-                <Mic className="h-5 w-5 text-gray-600 transition-colors" />
+                <Mic 
+                  className="h-5 w-5 transition-colors" 
+                  style={{ color: accentColor || '#6B7280' }}
+                />
               )}
             </button>
           </div>
