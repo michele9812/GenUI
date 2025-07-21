@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
+import MacOSDock from '@/components/ui/mac-os-dock';
 import { usePersona } from '@/hooks/use-persona';
 
 export default function Welcome() {
@@ -26,45 +26,6 @@ export default function Welcome() {
   };
 
   const defaultImage = selectedPersona.journeySteps[0]?.image || 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600';
-
-  // Create persona-specific dock colors with better contrast
-  const getDockColors = () => {
-    const persona = selectedPersona.name.toLowerCase();
-    switch (persona) {
-      case 'tech-savvy':
-        return {
-          background: 'bg-blue-900/90',
-          itemColors: ['bg-blue-500', 'bg-cyan-500', 'bg-indigo-500', 'bg-purple-500', 'bg-teal-500']
-        };
-      case 'family planner':
-        return {
-          background: 'bg-green-900/90',
-          itemColors: ['bg-green-500', 'bg-emerald-500', 'bg-lime-500', 'bg-teal-500', 'bg-cyan-500']
-        };
-      case 'senior prm':
-        return {
-          background: 'bg-orange-900/90',
-          itemColors: ['bg-orange-500', 'bg-amber-500', 'bg-yellow-500', 'bg-red-500', 'bg-pink-500']
-        };
-      case 'bleisure nomad':
-        return {
-          background: 'bg-purple-900/90',
-          itemColors: ['bg-purple-500', 'bg-violet-500', 'bg-fuchsia-500', 'bg-pink-500', 'bg-rose-500']
-        };
-      case 'first-time student':
-        return {
-          background: 'bg-rose-900/90',
-          itemColors: ['bg-rose-500', 'bg-pink-500', 'bg-red-500', 'bg-orange-500', 'bg-amber-500']
-        };
-      default:
-        return {
-          background: 'bg-gray-900/90',
-          itemColors: ['bg-gray-500', 'bg-slate-500', 'bg-zinc-500', 'bg-neutral-500', 'bg-stone-500']
-        };
-    }
-  };
-
-  const dockColors = getDockColors();
 
   return (
     <div 
@@ -103,28 +64,22 @@ export default function Welcome() {
       {/* Interactive Dock Navigation */}
       <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 lg:bottom-20 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-center w-full">
-          <Dock 
-            className="items-end pb-3" 
-            panelHeight={80}
-            backgroundColor={dockColors.background}
-            magnification={90}
-            distance={160}
-          >
-          {selectedPersona.journeySteps.map((step, idx) => (
-            <DockItem
-              key={idx}
-              className="aspect-square rounded-full cursor-pointer transition-all duration-200"
-              style={{ backgroundColor: dockColors.itemColors[idx % dockColors.itemColors.length] }}
-              onMouseEnter={() => handleStepHover(step.image)}
-              onClick={() => handleStepClick(step.id)}
-            >
-              <DockLabel>{step.name}</DockLabel>
-              <DockIcon>
-                <span className="material-icons text-white text-lg">{step.icon}</span>
-              </DockIcon>
-            </DockItem>
-          ))}
-          </Dock>
+          <MacOSDock 
+            apps={selectedPersona.journeySteps.map((step, idx) => ({
+              id: step.id,
+              name: step.name,
+              icon: step.icon
+            }))}
+            onAppClick={(appId) => {
+              const step = selectedPersona.journeySteps.find(s => s.id === appId);
+              if (step) {
+                handleStepHover(step.image);
+                handleStepClick(appId);
+              }
+            }}
+            openApps={[]}
+            className="mx-auto"
+          />
         </div>
       </div>
     </div>
