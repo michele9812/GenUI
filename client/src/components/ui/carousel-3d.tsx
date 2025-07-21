@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useDragControls, PanInfo } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -14,7 +14,7 @@ interface CarouselItem {
 interface Carousel3DProps {
   items: CarouselItem[];
   onItemSelect?: (item: CarouselItem) => void;
-  className?: string;
+
   accentColor?: string;
   secondaryColor?: string;
   personaTypography?: {
@@ -45,7 +45,6 @@ interface Carousel3DProps {
 export function Carousel3D({ 
   items, 
   onItemSelect, 
-  className, 
   accentColor = '#3B82F6',
   secondaryColor = '#10B981',
   personaTypography,
@@ -57,19 +56,19 @@ export function Carousel3D({
   const containerRef = useRef<HTMLDivElement>(null);
   const dragControls = useDragControls();
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     if (isAnimating || isDragging) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
     setTimeout(() => setIsAnimating(false), 400);
-  };
+  }, [isAnimating, isDragging, items.length]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (isAnimating || isDragging) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev + 1) % items.length);
     setTimeout(() => setIsAnimating(false), 400);
-  };
+  }, [isAnimating, isDragging, items.length]);
 
   const handleCardClick = (index: number) => {
     if (isAnimating || isDragging) return;
@@ -107,13 +106,13 @@ export function Carousel3D({
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, []);
+  }, [handlePrevious, handleNext]);
 
-  // Auto-scroll pause on hover
+  // Auto-scroll pause on hover (currently unused but kept for future features)
   const [isPaused, setIsPaused] = useState(false);
 
   // Get visible cards (center + 2 on each side) - responsive
-  const getVisibleCards = () => {
+  const getVisibleCards = useCallback(() => {
     const visibleCards = [];
     const totalCards = Math.min(5, items.length); // Show max 5 cards
     const startOffset = Math.floor(totalCards / 2);
@@ -125,9 +124,9 @@ export function Carousel3D({
     }
     
     return visibleCards;
-  };
+  }, [currentIndex, items]);
 
-  const getCardStyle = (position: number) => {
+  const getCardStyle = useCallback((position: number) => {
     const isCenter = position === 0;
     
     // Enhanced responsive breakpoints for better mobile experience
@@ -207,7 +206,7 @@ export function Carousel3D({
       contentBrightness: Math.max(0.6, 1 - (distanceFromCenter * 0.15)),
       containerPadding
     };
-  };
+  }, []); // Empty dependency array since this function doesn't depend on any props/state
 
   const visibleCards = getVisibleCards();
 
