@@ -119,7 +119,9 @@ export default function JourneyDetail() {
               }}
             >
               Ciao{' '}
-              <span style={{ color: selectedPersona.colors.secondary }}>
+              <span
+                style={{ color: selectedPersona.colors.secondary }}
+                className="text-[#111827]">
                 {userName || 'Utente'}
               </span>
               ,
