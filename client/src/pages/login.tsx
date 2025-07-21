@@ -9,6 +9,7 @@ import { personas } from '@/lib/personas';
 import cheerfulPilotImage from '@assets/Cheerful Pilot Character_1753105244175.png';
 import { usePersona } from '@/hooks/use-persona';
 import { Laptop, Users, Heart, Globe, GraduationCap } from 'lucide-react';
+import { MdComputer, MdFamilyRestroom, MdAccessible, MdTravelExplore, MdSchool } from 'react-icons/md';
 
 export default function Login() {
   const [selectedPersonaId, setSelectedPersonaId] = useState<string>('');
@@ -40,9 +41,20 @@ export default function Login() {
     return iconMap[personaId as keyof typeof iconMap];
   };
 
+  const getMaterialIcon = (personaId: string) => {
+    const materialIconMap = {
+      'marco': MdComputer,
+      'fatima': MdFamilyRestroom,
+      'jonas': MdAccessible,
+      'nikhil': MdTravelExplore,
+      'liwei': MdSchool
+    };
+    return materialIconMap[personaId as keyof typeof materialIconMap];
+  };
+
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md min-h-[480px] shadow-2xl">
+      <Card className="w-full max-w-md min-h-[480px] sm:min-h-[520px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
         <CardContent className="p-6 pt-8 pb-8 h-full flex flex-col">
           {/* Fixed Header Area */}
           <div className="flex-shrink-0">
@@ -107,14 +119,25 @@ export default function Login() {
                     >
                       {(() => {
                         const IconComponent = getPersonaIcon(selectedPersonaId);
-                        return IconComponent ? (
-                          <IconComponent 
-                            className="w-5 h-5" 
-                            style={{ color: selectedPersona.primaryColor }}
-                          />
-                        ) : (
-                          <span className="text-lg">{selectedPersona.icon}</span>
-                        );
+                        const MaterialIcon = getMaterialIcon(selectedPersonaId);
+                        
+                        if (IconComponent) {
+                          return (
+                            <IconComponent 
+                              className="w-5 h-5" 
+                              style={{ color: selectedPersona.primaryColor }}
+                            />
+                          );
+                        } else if (MaterialIcon) {
+                          return (
+                            <MaterialIcon 
+                              className="w-5 h-5" 
+                              style={{ color: selectedPersona.primaryColor }}
+                            />
+                          );
+                        }
+                        
+                        return null;
                       })()}
                     </div>
                     <div className="flex-1">
@@ -144,7 +167,7 @@ export default function Login() {
           </div>
 
           {/* Fixed Button Area */}
-          <div className="flex-shrink-0 mt-6">
+          <div className="flex-shrink-0 mt-auto pt-6">
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
