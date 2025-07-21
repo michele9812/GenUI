@@ -53,7 +53,6 @@ export function SeniorAccordion({
       <Accordion 
         className="flex w-full flex-col"
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        style={{ gap: '16px' }}
       >
         {items.map((item, index) => (
           <div 
@@ -61,7 +60,8 @@ export function SeniorAccordion({
             className="rounded-lg border-2 bg-white shadow-lg overflow-hidden"
             style={{
               borderColor: accentColor,
-              backgroundColor: selectedPersona.colors.bg || '#ffffff'
+              backgroundColor: selectedPersona.colors.bg || '#ffffff',
+              marginBottom: index === items.length - 1 ? '0' : '16px'
             }}
           >
             <AccordionItem 
