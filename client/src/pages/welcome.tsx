@@ -43,11 +43,40 @@ export default function Welcome() {
       setIsZooming(true);
       
       selectStep(stepId);
-      // Navigate after zoom animation completes with smoother timing
+      
+      // Add white fade overlay before navigation
       setTimeout(() => {
-        setIsZooming(false); // Reset zoom state
-        setLocation('/journey-detail');
-      }, 1200); // Increased duration for smoother transition
+        // Add white overlay for smooth transition
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.backgroundColor = 'white';
+        overlay.style.zIndex = '10000';
+        overlay.style.opacity = '0';
+        overlay.style.transition = 'opacity 0.3s ease-out';
+        overlay.style.pointerEvents = 'none';
+        document.body.appendChild(overlay);
+        
+        // Fade in white overlay
+        requestAnimationFrame(() => {
+          overlay.style.opacity = '1';
+        });
+        
+        // Navigate after brief white fade
+        setTimeout(() => {
+          setIsZooming(false); // Reset zoom state
+          setLocation('/journey-detail');
+          // Remove overlay after navigation
+          setTimeout(() => {
+            if (overlay.parentNode) {
+              overlay.parentNode.removeChild(overlay);
+            }
+          }, 100);
+        }, 300);
+      }, 900); // Start fade 300ms before zoom completes
     }
   };
 
@@ -220,7 +249,10 @@ export default function Welcome() {
               imageRendering: isZooming ? 'auto' : 'crisp-edges',
               borderRadius: isZooming ? '0' : '8px',
               // Anchor scaling to center of viewport
-              transformOrigin: 'center center'
+              transformOrigin: 'center center',
+              // Add subtle brightness increase during zoom for smoother transition
+              filter: isZooming ? 'brightness(1.1) contrast(0.95)' : 'none',
+              transition: isZooming ? 'filter 0.3s ease-out' : 'none'
             }}
           />
         </motion.div>
