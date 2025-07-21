@@ -259,7 +259,7 @@ export default function Welcome() {
             maxHeight: isZooming ? 'none' : 'calc(100vh - 200px)' // Leave space for header and fixed dock
           }}
         >
-          <img
+          <motion.img
             src={currentImage || defaultImage}
             alt="Journey step preview"
             className="w-full h-full object-cover pointer-events-none"
@@ -268,10 +268,23 @@ export default function Welcome() {
               imageRendering: isZooming ? 'auto' : 'crisp-edges',
               borderRadius: isZooming ? '0' : '8px',
               // Anchor scaling to center of viewport
-              transformOrigin: 'center center',
-              // Add subtle brightness increase during zoom for smoother transition
-              filter: isZooming ? 'brightness(1.1) contrast(0.95)' : 'none',
-              transition: isZooming ? 'filter 0.3s ease-out' : 'none'
+              transformOrigin: 'center center'
+            }}
+            animate={{
+              // Progressive blur and white fade during zoom
+              filter: isZooming ? [
+                'brightness(1.1) contrast(0.95) blur(0px)',  // Start: clear image
+                'brightness(1.1) contrast(0.95) blur(0px)',  // 0-50%: still clear  
+                'brightness(1.3) contrast(0.8) blur(2px)',   // 50-75%: start blur
+                'brightness(1.6) contrast(0.6) blur(6px)',   // 75-90%: more blur
+                'brightness(2.2) contrast(0.3) blur(12px)',  // 90-100%: heavy blur + white
+                'brightness(3.0) contrast(0.1) blur(20px)'   // 100%: almost white
+              ] : 'brightness(1.0) contrast(1.0) blur(0px)'
+            }}
+            transition={{
+              duration: isZooming ? 1.2 : 0.3,
+              ease: isZooming ? [0.16, 1, 0.3, 1] : 'easeOut',
+              times: isZooming ? [0, 0.4, 0.6, 0.75, 0.9, 1.0] : undefined
             }}
           />
         </motion.div>
