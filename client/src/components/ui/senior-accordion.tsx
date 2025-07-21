@@ -162,7 +162,7 @@ export function SeniorAccordion({
                   {/* Text content */}
                   <div className="flex-1 h-fit">
                     <p 
-                      className="text-xs sm:text-sm leading-relaxed mb-1 sm:mb-2 md:mb-0"
+                      className="text-xs sm:text-sm leading-relaxed mb-0 md:mb-0"
                       style={{
                         color: selectedPersona.colors.text || '#111827',
                         fontFamily: personaTypography?.fontFamily || 'inherit',

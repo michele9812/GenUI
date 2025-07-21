@@ -137,7 +137,7 @@ export default function FamilyTabs({
                 </div>
                 <div className="h-fit">
                   <p 
-                    className="text-xs uppercase tracking-wider font-medium mb-0.5 md:mb-1"
+                    className="text-xs uppercase tracking-wider font-medium mb-0 md:mb-1"
                     style={{
                       color: selectedPersona?.colors.secondary || secondaryColor,
                       fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
@@ -163,7 +163,7 @@ export default function FamilyTabs({
 
               {/* Description */}
               <p 
-                className="text-sm leading-relaxed mb-2 md:mb-6"
+                className="text-sm leading-relaxed mb-0 md:mb-6"
                 style={{
                   color: selectedPersona?.colors.text || '#111827',
                   fontFamily: personaTypography?.fontFamily || 'inherit',
