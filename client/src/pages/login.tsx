@@ -130,22 +130,22 @@ export default function LoginPage() {
                 </Select>
               </div>
 
-              {/* Fixed height container for preview */}
-              <div className="h-16 flex items-start">
+              {/* Fixed height container for preview - calculated for longest description with 125% scale */}
+              <div className="h-24 flex items-start">
                 {selectedPersona && (
                   <div 
-                    className="p-2 rounded-lg border h-16 flex items-center"
+                    className="p-3 rounded-lg border min-h-[96px] flex items-start w-full"
                     style={{ 
                       backgroundColor: `${selectedPersona.colors.primary}20`,
                       borderColor: `${selectedPersona.colors.primary}40`,
                       width: `${100 / (selectedPersona.typography.scale || 1)}%`,
                       transform: `scale(${selectedPersona.typography.scale || 1})`,
-                      transformOrigin: 'left center'
+                      transformOrigin: 'left top'
                     }}
                   >
-                    <div className="flex items-center space-x-2 w-full">
+                    <div className="flex items-start space-x-3 w-full">
                       <div 
-                        className="w-6 h-6 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0"
                         style={{ backgroundColor: `${selectedPersona.colors.primary}` }}
                       >
                         {(() => {
@@ -153,17 +153,17 @@ export default function LoginPage() {
                           const MaterialIconComponent = getMaterialIcon(selectedPersona.id);
                           
                           if (IconComponent) {
-                            return <IconComponent className="w-3 h-3" />;
+                            return <IconComponent className="w-4 h-4" />;
                           } else if (MaterialIconComponent) {
-                            return <MaterialIconComponent className="w-3 h-3" />;
+                            return <MaterialIconComponent className="w-4 h-4" />;
                           } else {
                             return selectedPersona.title.charAt(0);
                           }
                         })()}
                       </div>
-                      <div className="flex-1 min-w-0">
+                      <div className="flex-1 w-full">
                         <h3 
-                          className="font-semibold text-gray-900 text-sm leading-tight"
+                          className="font-semibold text-gray-900 text-sm mb-1 w-full"
                           style={{ 
                             fontFamily: selectedPersona.typography.headingFont
                           }}
@@ -171,9 +171,11 @@ export default function LoginPage() {
                           {selectedPersona.title}
                         </h3>
                         <p 
-                          className="text-xs text-gray-600 leading-tight truncate"
+                          className="text-xs text-gray-600 leading-relaxed w-full h-fit"
                           style={{ 
-                            fontFamily: selectedPersona.typography.fontFamily
+                            fontFamily: selectedPersona.typography.fontFamily,
+                            wordWrap: 'break-word',
+                            overflowWrap: 'break-word'
                           }}
                         >
                           {selectedPersona.description}
