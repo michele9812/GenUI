@@ -1,0 +1,390 @@
+You are tasked with designing and developing a comprehensive airport navigation WEB APP with advanced personalization features. Create a detailed technical specification and implementation plan for this system.
+
+PROJECT OVERVIEW:
+Design an intelligent airport navigation WEB APP that personalizes the user experience and user interface based on behavioral profiling and role identification, helping passengers navigate airport facilities efficiently.
+
+FUNZIONALITÀ CORE:
+Log in del passeggero (https://mui.com/material-ui/getting-started/templates/sign-in/)
+Input full name - diventa dropdown/select con 5 nomi: 
+Marco, “Frequent Flyer Tech-Savvy”, Fatima, “Family Planner” Jonas, “Senior Globetrotter PRM”, Nikhil, “Bleisure Nomad”, Li Wei, “First-Time Student”
+import Select from '@mui/material/Select'; 
+Piccola descrizione da inserire per ognuno degli account, variabile a seconda della scelta della drop down 
+card rappresentativa delle variazioni di testo, colore etc per la preview dell’esperienza:
+
+
+Button per scegliere 
+- Conferma & “Start”
+import Button from '@mui/material/Button';
+
+Atterraggio su una pagina con titolo h1 “Benvenuto “insert name”, scegli in che punto del journey ti trovi” (npx shadcn@latest add "https://21st.dev/r/aceternity/sparkles")
+e questo dock ancorato a 80 px dal bordo inferione on i button rappresentanti stip del journey differenti per ogni personas 
+npx shadcn@latest add "https://21st.dev/r/ibelick/dock"
+adattando pero i button con
+https://mui.com/material-ui/react-button/#icon-button
+inoltre all’hover predisponi una card fotografica con placeholder per il momento, corrispondente all button in hover
+
+
+“Frequent Flyer Tech-Savvy”, 
+Arrivo in aeroporto	App parcheggio, varco priority
+Sicurezza	e-Gate biometrico
+Lounge	Self-service barista, docce
+Imbarco	Gate self-scan NFC
+Post-volo	Mobile lost-&-found
+“Family Planner” 
+Parcheggio	Shuttle, call point PRM light
+Check-in	Counter famiglia, etichette bagagli colorate
+Sicurezza	Family lane, scanning passeggini
+Waiting	Playground, app story-telling
+Imbarco	Pre-boarding famiglie
+“Senior Globetrotter PRM”, 
+Arrivo Terminal	Call pillar PRM, Sala Amica
+Screening	Corsia dedicata + sedia
+Attesa volo	Gate seating con braccioli
+Sbarco & Transfer	Ambu-lift, golf-car
+“Bleisure Nomad”,
+Post-meeting	Smart locker bagagli
+Work	Coworking lounge, phone-booth
+Leisure	App “city-pass” in-terminal
+Rientro	Shower pod, yoga room
+“First-Time Student”
+Check-in origine	Kiosk multi-lang + staff
+Scalo	Wayfinding icone universali
+Immigrazione USA	APC kiosk + agent
+Uscita	Pick-up e-SIM, shuttle campus
+Output intelligente a seconda dell’azione contestuale/punto del journey scelto all’interno di un carosello
+{
+   "name": "embla-carousel-loop-react",
+   "version": "1.0.0",
+   "description": "Embla Carousel Loop React Example",
+   "main": "src/js/index.jsx",
+   "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "test": "react-scripts test --env=jsdom",
+       "eject": "react-scripts eject"
+   },
+   "dependencies": {
+       "react": "^18.1.0",
+       "react-dom": "^18.1.0",
+       "react-scripts": "4.0.0",
+       "embla-carousel-react": "8.6.0",
+       "embla-carousel": "8.6.0"
+   },
+   "devDependencies": {
+       "@babel/runtime": "7.13.8"
+   },
+   "browserslist": [
+       ">0.2%",
+       "not dead",
+       "not ie <= 11",
+       "not op_mini all"
+   ]
+contente delle card con questa struttura
+import { GlareCard } from "../ui/glare-card";
+
+export function GlareCardDemo() {
+  return (
+    <GlareCard className="flex flex-col items-center justify-center">
+      <svg
+        width="66"
+        height="65"
+        viewBox="0 0 66 65"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-7 w-7 text-white">
+        <path
+          d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+          stroke="currentColor"
+          strokeWidth="15"
+          strokeMiterlimit="3.86874"
+          strokeLinecap="round" />
+      </svg>
+      <p className="text-white font-bold text-xl mt-4">Aceternity</p>
+    </GlareCard>
+  );
+}
+
+Nota: servizi igenici, ricerca personale sicurezza o assistenza sono presenti in tutti gli output intellingenti/contestuali
+DESIGN REQUIREMENTS:
+Interfaccia moderna e professionale che mostri gli elementi con informazioni chiare e accessibili
+Le pagine devono avere grandezza massima di una viewport su tutti i breakpoint
+Colori personalizzati: Usa colori personalizzati in base alla personas 
+Animazioni fluide per transizioni e feedback visivo.
+Input dialogico ancorato alla fondo della pagina per interagire con azioni più complesse nella pagina di dettaglio delle azioni contestuali
+Mobile responsive, così che il tool funzioni perfettamente su dispositivi mobili e desktop.
+Cards colorate per diverse sezioni (rosso per avvisi, verde per conferme, giallo per punti da approfondire).
+Loading states visibili durante l'analisi, per mostrare che il sistema sta lavorando
+Icone emoji per rendere il tool più user-friendly e accessibile.
+Il tool dovrebbe assomigliare a un prodotto SaaS professionale, quindi ogni elemento visivo e funzionale deve essere impeccabile.
+Il design deve essere chiaro, con un buon equilibrio tra estetica e funzionalità, garantendo un’interfaccia che sia semplice, ma potente.
+Design foundations
+npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+import Grid from '@mui/material/Grid';
+
+
+
+LOGICA AVANZATA:
+Personalizzazione dell’interfaccia in termini di colori, grandezza e stile caratteri a seconda dell’utente scelto nel login
+“Frequent Flyer Tech-Savvy”, 
+Manrope, Lora
+primary - Midnight Navy #1C304A, secondary - Electric Blue #0C7BDC, Accent - Vivid Gold #FFC20A, background #f5f7fa
+Jason, “Family Planner” 
+Roboto, Robot serif
+primary - Charcoal #111827, Secondary - Fresh Lime #A7FF4D, accent - Sunset Orange #E66100, Background - #fafaf6 
+“Senior Globetrotter PRM”, 
+Titillium web
+Primary - Deep Teal #004166, Secondary - Soft Ivory #F5F5F5, Accent - Royal Violet #5D3A9B, Background - #f0f3f4
+“Bleisure Nomad”,
+Work sans, playfair display
+Primary - Jet Black #000000, secondary - Sky Cyan #40B0A6, accent - Sunshine #FFD44B, Background - #ffffff
+“First-Time Student”
+Montserrat, Nunito
+Primary Oxford Blue #002B5B, secondary - Lantern Yellow #FFB700, accent - Arctic White #FFFFFF, background - #f9fafb 
+
+TARGET:
+Passeggero che si deve orientare nell’aereoporto per prendere il proprio volo per le vacanze:
+Personas
+“Frequent Flyer Tech-Savvy”, 
+Profilo sintetico
+38 anni, consulente direzionale italiano basato a Milano.
+60 voli/anno, status élite, appassionato di gadget e soluzioni friction-less.
+Parla IT/EN/ES; tempo è la valuta principale.
+Motivazioni & obiettivi
+Ridurre ogni secondo di frizione dal curb-to-gate.
+Mantenere il controllo digitale di bagaglio, upgrade, lounge occupancy .
+Accumulare punti fedeltà e usufruire di fast track biometrici .
+Comportamenti chiave
+Check-in 24 h prima via mobile, viaggia spesso solo con bagaglio a mano.
+Usa wallet digitale per board pass e preferisce gate self-boarding.
+In lounge: call di lavoro, docce, quick snack salutari.
+Pain Points
+Mal tollera code impreviste ai varchi o malfunzionamenti QR/biometria.
+Wi-Fi lento o captive portal prolisso.
+Notifiche flight change poco tempestive.
+
+“Family Planner” 
+Profilo sintetico
+34 anni, insegnante marocchina che viaggia con marito e bimbi (4 e 7 anni).
+Frequenza 2 viaggi/anno; budget-sensitive ma orientata a servizi kids-friendly.
+Motivazioni & obiettivi
+Viaggiare serenamente, intrattenendo i figli e riducendo stress di attese .
+Risparmiare senza rinunciare a pasti adatti e comfort base.
+Comportamenti chiave
+Prenota parcheggio low-cost + shuttle.
+Porta snack bimbi, controlla regole liquidi e passeggino.
+Usa baby-care room e cerca aree gioco pre-imbarco.
+Pain Points
+Controlli sicurezza lenti, personale non avvezzo a famiglie.
+Distanze e push-chair policy confuse.
+Mancanza di menù infant in molti ristoranti.
+
+“Senior Globetrotter PRM”, 
+Profilo sintetico
+72 anni, pensionato tedesco, viaggia con moglie, ama tour culturali lunghi.
+Artrite alle ginocchia, usa bastone; sente bene ma vista ridotta.
+Motivazioni & obiettivi
+Mantenere autonomia ma con assistenza pronta .
+Minimizzare fatica fisica e ansia di coincidenze strette .
+Comportamenti chiave
+Prenota PRM 48 h prima; preferisce sedute vicine toilettes.
+Arriva 3 h prima, chiede buggie per gate distante.
+Porta medicine e stampa documenti in large font.
+Pain Points
+Font su display FIDS troppo piccoli.
+Percorsi labirintici, scarsità di panchine intermedie.
+Timore di “missing connection” se assistente in ritardo
+
+“Bleisure Nomad”,
+Profilo sintetico
+29 anni, ingegnere software indiano in full remote, vola ogni 2-3 mesi.
+Combina 3 giorni meeting con 4 giorni esplorazione locale .
+Motivazioni & obiettivi
+Massimizzare esperienza culturale senza perdere produttività.
+Networking, Wi-Fi affidabile, deposito bagagli flessibile .
+Comportamenti chiave
+Porta solo zaino smart + trolley cabina.
+Lavora in lounge o coworking in air-side.
+Prenota tour in city via app e-SIM airport pick-up.
+Pain Points
+Wi-Fi con captive portal che scade ogni 30 min.
+Locker costosi o non contactless.
+Offerta food-court ridondante, poca cucina locale.
+
+“First-Time Student”
+Profilo sintetico
+20 anni, matricola cinese diretta a un college statunitense.
+Primo volo intercontinentale sola; inglese intermedio; alto stress.
+Motivazioni & obiettivi
+Raggiungere campus in sicurezza, evitare errori dogana .
+Seguire step guidati, rimanere connessa ai genitori .
+Comportamenti chiave
+Consulta vlogger su Bilibili per tutorial aeroportuali.
+Fa foto a ogni segnaletica per conferma.
+Usa traduttore simultaneo sul telefono per annunci audio.
+Pain Points
+Moduli ESTA/immigrazione complessi, paura domande agenti CBP.
+Mancanza di segnaletica cinese in hub secondari.
+Roaming GSM costoso finché non acquista e-SIM.
+
+
+DESIGN CONSIDERATIONS:
+Visibilità dei punti d’interazione nella mappa: Ogni sezione con una un punto di interazione nella mappa deve essere immediatamente visibile con icona e colore distintivo (es. blue per attivo, grey per disabled).
+
+
+Usabilità: Il tool deve essere facile da usare, con una navigazione semplice per chi non ha esperienza tecnica.
+
+
+Data-driven: Le informazioni sui rischi e le stime devono essere basate su dati concreti (ovvero, l’analisi dei brief precedenti o database delle best practices).
+Accessibilità: contrast ratio ≥ 4.5:1, aria‑labels, keyboard navigation.
+Ricerca rapida su mappa: wc, sicurezza, cibo
+
+Flusso di Interazione (Wireflow Testuale) 
+Onboarding →
+
+
+
+selezione journey →
+
+
+Azioni contestuali
+Possibilità di tornare a selezione journey
+
+
+Ulteriori dettagli - elenco possibili azioni contestuali
+
+
+Frequent Flyer Tech‑Savvy
+Arrivo in aeroporto
+
+Scansione dell’app parcheggio per aprire il cancello automatico.
+
+Accesso al varco “Priority” tramite QR code nell’app della compagnia.
+
+Sicurezza
+
+Passaggio attraverso l’e‑Gate biometrico (face‑ID).
+
+Ricezione immediata di conferma “OK” sullo smartwatch.
+
+Lounge
+
+Ordinazione self‑service al barista automatico (es. bevanda proteica).
+
+Prenotazione della doccia tramite touch‑screen lounge e sblocco porta con NFC.
+
+Imbarco
+
+Self‑scan NFC al gate: basta avvicinare lo smartwatch o il telefono al lettore.
+
+Ricezione live di “Boarding complete” sull’app.
+
+Post‑volo
+
+Segnalazione di oggetti smarriti via modulo “Mobile lost‑&‑found” in-app.
+
+Tracking automatico dello stato di ritrovamento e delivery del bagaglio.
+
+Family Planner
+Parcheggio
+
+Prenotazione e chiamata automatica dello shuttle tramite “call point” PRM light.
+
+Caricamento di passeggino e bagagli sul veicolo family‐friendly.
+
+Check‑in
+
+Passaggio al counter dedicato “famiglia” con etichette bagagli colorate per ogni membro.
+
+Assegnazione prioritaria del posto in cabina via stampa immediata del tag.
+
+Sicurezza
+
+Utilizzo della “family lane” con corsia larga.
+
+Scanning del passeggino intero senza smontarlo.
+
+Waiting
+
+Accesso al playground pre‑gate con giochi interattivi.
+
+Consultazione “app story‑telling” che intrattiene i bimbi in attesa.
+
+Imbarco
+
+Pre‑boarding per famiglie: chiamata dedicata e accompagnamento da personale gate.
+
+Senior Globetrotter PRM
+Arrivo Terminal
+
+Utilizzo del “call pillar PRM” per richiedere assistenza immediata.
+
+Ingresso diretto alla “Sala Amica” con sedute ergonomiche e font leggibile.
+
+Screening
+
+Passaggio su corsia dedicata PRM con possibilità di sedersi sulla sedia mobile.
+
+Controllo bagagli a mano svolto in loco, senza spostare il viaggiatore.
+
+Attesa volo
+
+Occupazione di uno dei gate seating con braccioli rialzati e spazio per bastone.
+
+Richiesta di ristoro leggero direttamente dal personale lounge.
+
+Sbarco & Transfer
+
+Trasferimento con ambu‑lift fino all’area baggage claim.
+
+Salita su golf‑car elettrico che accompagna al punto shuttle per il terminal arrivi.
+
+Bleisure Nomad
+Post‑meeting
+
+Deposito zaino e trolley in smart locker contactless (apertura con app).
+
+Ricezione del PIN temporaneo via SMS per recupero bagagli.
+
+Work
+
+Accesso allo spazio coworking air‑side, autenticandosi con pass lounge.
+
+Utilizzo di phone‑booth insonorizzato per chiamate o videoconferenze.
+
+Leisure
+
+Attivazione dell’app “city‑pass” direttamente dal totem in‑terminal.
+
+Scansione QR code alle postazioni digitali per info su tour e sconti locali.
+
+Rientro
+
+Prenotazione e sblocco del shower pod tramite badge lounge.
+
+Accesso alla yoga room: autenticazione con codice temporaneo inviato via app.
+
+First‑Time Student
+Check‑in origine
+
+Uso del kiosk multilingue (Cinese/Inglese) con supporto staff dedicato.
+
+Verifica della documentazione e stampa boarding pass con indicazioni chiare.
+
+Scalo
+
+Wayfinding tramite icone universali sul pavimento e su display overhead.
+
+Ogni tot metri, mini‑totem con “Hai bisogno di aiuto?” e scelta lingua.
+
+Immigrazione USA
+
+Uso dell’APC kiosk per pre‑inserire dati e stampare ricevuta.
+
+Interazione con l’agent CBP, assistita da traduttore simultaneo su totem audio.
+
+Uscita
+
+Ritiro dell’e‑SIM al pick‑up point dedicato e attivazione immediata.
+
+Salita sullo shuttle campus, mostrando il biglietto mobile al driver.
+
