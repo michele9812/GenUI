@@ -57,10 +57,10 @@ export function SeniorAccordion({
         {items.map((item, index) => (
           <div 
             key={item.id}
-            className="rounded-lg border-2 bg-white shadow-lg overflow-hidden"
+            className="rounded-lg border-2 shadow-lg overflow-hidden"
             style={{
               borderColor: accentColor,
-              backgroundColor: selectedPersona.colors.bg || '#ffffff',
+              backgroundColor: `${accentColor}10`, // 10% opacity background
               marginBottom: index === items.length - 1 ? '0' : '16px'
             }}
           >
@@ -84,7 +84,7 @@ export function SeniorAccordion({
                   <div 
                     className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center"
                     style={{
-                      backgroundColor: secondaryColor
+                      backgroundColor: accentColor
                     }}
                   >
                     <span 
@@ -127,7 +127,11 @@ export function SeniorAccordion({
               </div>
               </AccordionTrigger>
             
-            <AccordionContent className="bg-white">
+            <AccordionContent 
+              style={{ 
+                backgroundColor: `${accentColor}05` // Even lighter background for content
+              }}
+            >
               <div className="px-4 py-1 sm:px-6 sm:py-1">
                 {/* Horizontal layout: text + button */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
@@ -150,7 +154,7 @@ export function SeniorAccordion({
                     <motion.button
                       className="w-full sm:w-auto py-3 px-6 font-medium rounded-lg transition-colors hover:opacity-90"
                       style={{ 
-                        backgroundColor: secondaryColor,
+                        backgroundColor: accentColor,
                         color: 'white',
                         fontFamily: personaTypography?.fontFamily || 'inherit',
                         fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
