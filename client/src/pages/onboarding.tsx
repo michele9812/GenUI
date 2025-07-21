@@ -37,11 +37,7 @@ export default function OnboardingPage() {
 
             <div className="space-y-4">
               <div className="text-center">
-                <p className="text-gray-600 leading-relaxed">
-                  AirBuddy provides personalized airport guidance tailored to your travel style. 
-                  Whether you're a tech-savvy frequent flyer, traveling with family, or exploring 
-                  airports for the first time, we'll guide you every step of the way.
-                </p>
+                <p className="text-gray-600 leading-relaxed">AirBuddy is a Generative UI prototype applied to airport and travel experience. By sensing who you are — whether you’re a frequent flyer, a family traveler — AirBuddy dynamically build and adapt interface and features to fit your context.</p>
               </div>
             </div>
 
