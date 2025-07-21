@@ -31,10 +31,10 @@ export default function Login() {
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
       <Card className="w-full max-w-md min-h-[480px] shadow-2xl">
-        <CardContent className="p-6 pt-8 pb-8 h-full flex flex-col justify-between">
-          <div className="space-y-6">
+        <CardContent className="p-6 pt-8 pb-8 h-full flex flex-col">
+          <div className="space-y-6 flex-1">
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full overflow-hidden bg-blue-50">
+              <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
                 <img 
                   src={cheerfulPilotImage} 
                   alt="AirBuddy Pilot" 
@@ -112,13 +112,15 @@ export default function Login() {
             )}
           </div>
 
-          <Button 
-            onClick={handleStart}
-            disabled={!selectedPersonaId || !userName.trim()}
-            className="w-full py-3 font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Start the journey
-          </Button>
+          <div className="mt-6">
+            <Button 
+              onClick={handleStart}
+              disabled={!selectedPersonaId || !userName.trim()}
+              className="w-full py-3 font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Start the journey
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>
