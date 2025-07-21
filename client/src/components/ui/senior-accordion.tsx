@@ -178,7 +178,7 @@ export function SeniorAccordion({
                   {/* Action Button */}
                   <div className="flex-shrink-0">
                     <motion.button
-                      className="w-full sm:w-auto py-2 px-4 sm:py-2.5 sm:px-5 md:py-3 md:px-6 font-medium rounded-lg transition-all duration-200 hover:opacity-90"
+                      className="w-full sm:w-auto py-2 px-4 sm:py-2.5 sm:px-5 md:py-3 md:px-6 font-medium rounded-lg transition-all duration-200 hover:opacity-90 max-h-[56px] md:max-h-none"
                       style={{ 
                         backgroundColor: accentColor,
                         color: 'white',
