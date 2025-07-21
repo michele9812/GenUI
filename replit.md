@@ -69,7 +69,6 @@ This is an intelligent airport navigation web application that provides personal
 - **Optimized accordion flexbox layout**: All divs now fit height with h-full, reduced spacing between title elements to 2px for compact design
 - **Code cleanup and design consistency**: Standardized spacing (8px/16px system), consistent rounded-lg radius, proper gap usage, simplified structure, optimized typography scaling for persona consistency
 - **Enhanced back button with AirBuddy branding**: Redesigned back button with square AirBuddy logo, responsive design - desktop shows logo + arrow + text, mobile shows compact logo with impressed arrow overlay, consistent 12px radius and grey 30% opacity elements
-- **Removed vertical padding from carousel elements**: Set py-0 for all carousel card elements (header, content, buttons) to create more compact card layout with tighter vertical spacing
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
