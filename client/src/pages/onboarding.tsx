@@ -53,15 +53,15 @@ export default function OnboardingPage() {
               </div>
             </div>
 
-          {/* Button */}
-          <div className="absolute bottom-6 left-6 right-6">
-            <Button 
-              onClick={handleContinue}
-              className="w-full py-3 font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
-            >
-              Continue
-            </Button>
-          </div>
+            {/* Button */}
+            <div className="absolute bottom-6 left-6 right-6">
+              <Button 
+                onClick={handleContinue}
+                className="w-full py-3 font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
+              >
+                Continue
+              </Button>
+            </div>
           </div>
         </CardContent>
       </Card>
