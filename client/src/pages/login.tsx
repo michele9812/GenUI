@@ -132,15 +132,16 @@ export default function LoginPage() {
                         >
                           {renderPersonaIcon(selectedPersona.id)}
                         </div>
-                        <span 
-                          className="text-xs font-medium"
+                        <h3 
+                          className="font-semibold text-xs"
                           style={{ 
                             color: selectedPersona.colors.text || selectedPersona.colors.primary,
-                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily
+                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily,
+                            fontSize: selectedPersona.typography.scale ? `${0.75 * selectedPersona.typography.scale}rem` : '0.75rem'
                           }}
                         >
-                          Preview Journey Experience
-                        </span>
+                          {selectedPersona.title}
+                        </h3>
                       </div>
                       <div 
                         className="text-xs px-2 py-1 rounded-full"
@@ -149,25 +150,12 @@ export default function LoginPage() {
                           color: selectedPersona.colors.primary
                         }}
                       >
-                        Test Mode
+                        Preview
                       </div>
                     </div>
 
                     {/* Journey Step Preview */}
                     <div className="p-3 space-y-2">
-                      {/* Step Title */}
-                      <div className="flex items-center justify-between">
-                        <h3 
-                          className="font-semibold text-sm"
-                          style={{ 
-                            color: selectedPersona.colors.text || '#1f2937',
-                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily,
-                            fontSize: selectedPersona.typography.scale ? `${0.875 * selectedPersona.typography.scale}rem` : '0.875rem'
-                          }}
-                        >
-                          {selectedPersona.title}
-                        </h3>
-                      </div>
 
                       {/* Mock Journey Content */}
                       <div 
