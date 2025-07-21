@@ -510,7 +510,8 @@ export default function JourneyDetail() {
       <div 
         className="text-center container-responsive-padding"
         style={{
-          marginTop: '16px', // Unified 16px margin across all breakpoints
+          marginTop: window.innerWidth < 768 ? '0px' : '16px', // Mobile: 0px, Desktop: 16px
+          paddingTop: window.innerWidth < 768 ? '2px' : '0px', // Mobile: 2px, Desktop: 0px
           marginBottom: window.innerWidth < 768 ? '8px' : '16px', // 8px mobile, 16px desktop
           paddingBottom: window.innerWidth < 768 ? '4px' : '8px' // 4px mobile, 8px desktop
         }}

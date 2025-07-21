@@ -169,7 +169,8 @@ export default function Welcome() {
       <div 
         className="text-center container-responsive-padding"
         style={{
-          marginTop: '16px', // Unified 16px margin across all breakpoints
+          marginTop: window.innerWidth < 768 ? '0px' : '16px', // Mobile: 0px, Desktop: 16px
+          paddingTop: window.innerWidth < 768 ? '2px' : '0px', // Mobile: 2px, Desktop: 0px
           marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
                         window.innerWidth < 768 ? '8px' : '16px', // Mobile: 8px, Desktop: 16px
           paddingBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px  
