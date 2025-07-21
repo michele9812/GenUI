@@ -138,11 +138,11 @@ export function Carousel3D({
     
     if (isMobile) {
       if (screenWidth < 375) {
-        // iPhone SE configuration
-        baseWidth = 140;
-        centerWidth = 180;
-        spacing = 16; // 16px mobile spacing
-        containerPadding = 12;
+        // iPhone SE configuration - much smaller dimensions
+        baseWidth = 120;
+        centerWidth = 140;
+        spacing = 12; // Reduced spacing for smaller screen
+        containerPadding = 8;
       } else {
         // iPhone 16+ unified mobile configuration
         baseWidth = 260;
@@ -179,7 +179,7 @@ export function Carousel3D({
     
     return {
       width: cardWidth,
-      height: isMobile ? (screenWidth < 375 ? 220 : 320) : 320, // iPhone SE: 220px, others: 320px
+      height: isMobile ? (screenWidth < 375 ? 180 : 320) : 320, // iPhone SE: 180px, others: 320px
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
