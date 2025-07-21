@@ -220,16 +220,16 @@ export function Carousel3D({
     >
       <div 
         ref={containerRef}
-        className="container-responsive relative w-full flex items-center justify-center"
+        className="container-responsive relative w-full flex justify-center"
         style={{
-          ...{
-            paddingLeft: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
-            paddingRight: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
-            overflow: window.innerWidth < 640 ? 'visible' : 'hidden',
-            // Add subtle gradient fade-out masks on sides - only on larger screens
-            maskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
-            WebkitMaskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
-          },
+          alignItems: window.innerWidth < 640 ? 'center' : 'flex-start',
+          paddingTop: window.innerWidth < 640 ? '0' : '16px',
+          paddingLeft: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
+          paddingRight: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
+          overflow: window.innerWidth < 640 ? 'visible' : 'hidden',
+          // Add subtle gradient fade-out masks on sides - only on larger screens
+          maskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
+          WebkitMaskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
           height: window.innerWidth < 640 ? 'calc(100% - 24px)' : '100%'
         }}
 
@@ -238,7 +238,10 @@ export function Carousel3D({
       >
         {/* Cards Container */}
         <motion.div 
-          className="relative flex items-center justify-center w-full h-full"
+          className="relative flex justify-center w-full h-full"
+          style={{
+            alignItems: window.innerWidth < 640 ? 'center' : 'flex-start'
+          }}
           drag="x"
           dragControls={dragControls}
           dragConstraints={{ left: 0, right: 0 }}
