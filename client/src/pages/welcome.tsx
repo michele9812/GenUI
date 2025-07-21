@@ -92,7 +92,6 @@ export default function Welcome() {
           Seleziona il punto del journey
         </p>
       </div>
-
       {/* Central Image */}
       <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 sm:px-6 lg:px-8 top-[180px] sm:top-[200px] lg:top-[220px]"> {/* Reduced top spacing for Senior persona */}
         <motion.div
@@ -115,11 +114,10 @@ export default function Welcome() {
           <img
             src={currentImage || defaultImage}
             alt="Journey step preview"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover mt-[40px] mb-[40px] pt-[0px] pb-[0px]"
           />
         </motion.div>
       </div>
-
       {/* Interactive Dock Navigation */}
       <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-12 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-center w-full">
