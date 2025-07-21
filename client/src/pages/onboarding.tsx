@@ -14,7 +14,7 @@ export default function OnboardingPage() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md min-h-[480px] shadow-2xl">
+      <Card className="w-full max-w-md min-h-[400px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[520px] shadow-2xl">
         <CardContent className="p-6 pt-8 pb-8 h-full flex flex-col">
           {/* Fixed Header Area */}
           <div className="flex-shrink-0">
@@ -49,7 +49,7 @@ export default function OnboardingPage() {
           </div>
 
           {/* Fixed Button Area */}
-          <div className="flex-shrink-0 mt-6">
+          <div className="flex-shrink-0 mt-auto pt-6">
             <Button
               onClick={handleContinue}
               className="w-full py-3 font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
