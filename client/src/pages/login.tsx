@@ -33,7 +33,7 @@ export default function Login() {
       <Card className="w-full max-w-md mx-4 shadow-2xl">
         <CardContent className="p-4 pt-6 pb-6">
           <div className="text-center mb-6">
-            <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full overflow-hidden bg-blue-50">
               <img 
                 src={cheerfulPilotImage} 
                 alt="AirBuddy Pilot" 
@@ -131,7 +131,7 @@ export default function Login() {
               className="w-full py-2 px-4 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Start the journey
-              <span className="material-icons ml-2 text-sm">arrow_forward</span>
+              →
             </Button>
           </div>
         </CardContent>
