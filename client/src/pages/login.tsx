@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Plane } from 'lucide-react';
+import cheerfulPilotImage from '@assets/Cheerful Pilot Character_1753105244175.png';
 import { personas } from '@/lib/personas';
 import { usePersona } from '@/hooks/use-persona';
 
@@ -33,8 +33,12 @@ export default function Login() {
       <Card className="w-full max-w-md mx-4 shadow-2xl">
         <CardContent className="p-4 pt-6 pb-6">
           <div className="text-center mb-6">
-            <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-3">
-              <Plane className="text-white text-3xl" size={24} />
+            <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+              <img 
+                src={cheerfulPilotImage} 
+                alt="AirBuddy Pilot" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <h1 
               className="h1-responsive-small text-gray-900 mb-2 text-[40px]"
