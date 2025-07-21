@@ -39,7 +39,7 @@ export default function Login() {
             <h1 
               className="h1-responsive-small text-gray-900 mb-2"
             >AirBuddy Assistant</h1>
-            <p className="text-gray-600">Personalized journey assistant</p>
+            <p className="text-gray-600">Personalising your trip</p>
           </div>
 
           <div className="space-y-4">
