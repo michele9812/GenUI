@@ -126,7 +126,7 @@ export default function JourneyDetail() {
         </motion.button>
       </div>
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-16 sm:pt-16 pb-8 sm:pb-8 h-full overflow-hidden">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-16 sm:pt-16 pb-24 h-full overflow-hidden">
           
           {/* Title */}
           <motion.div 
@@ -181,23 +181,28 @@ export default function JourneyDetail() {
             />
           </motion.div>
 
-          {/* AI Prompt Input */}
-          <motion.div 
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <PromptInputBox 
-              onSend={handleSendMessage}
-              placeholder="Ask me anything about your journey..."
-              className="w-full"
-              accentColor={buttonColor}
-              personaTypography={selectedPersona.typography}
-            />
-          </motion.div>
-
       </main>
+
+      {/* Floating AI Prompt Input - Fixed at bottom */}
+      <div 
+        className="absolute left-0 right-0 z-30 px-4 sm:px-6 lg:px-8"
+        style={{ bottom: '24px' }}
+      >
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <PromptInputBox 
+            onSend={handleSendMessage}
+            placeholder="Ask me anything about your journey..."
+            className="w-full"
+            accentColor={buttonColor}
+            personaTypography={selectedPersona.typography}
+          />
+        </motion.div>
+      </div>
     </div>
   );
 }
