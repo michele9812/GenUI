@@ -55,9 +55,9 @@ export default function Login() {
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
       <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
-        <CardContent className="p-6 pt-8 h-full flex flex-col">
+        <CardContent className="p-0 h-full flex flex-col relative">
           {/* Fixed Header Area */}
-          <div className="flex-shrink-0 space-y-6">
+          <div className="flex-shrink-0 space-y-6 px-6 pt-8">
             <div className="text-center">
               <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
                 <img 
@@ -82,7 +82,7 @@ export default function Login() {
           </div>
 
           {/* Flexible Content Area */}
-          <div className="flex-1 flex flex-col justify-center space-y-6">
+          <div className="flex-1 flex flex-col justify-center space-y-6 px-6 pb-20">
             <div>
               <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
                 Name
@@ -174,8 +174,8 @@ export default function Login() {
             </div>
           </div>
 
-          {/* Fixed Button Area */}
-          <div className="mt-auto pb-6">
+          {/* Fixed Button Area - Fixed to bottom with 24px spacing */}
+          <div className="absolute bottom-6 left-6 right-6">
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
