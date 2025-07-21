@@ -74,7 +74,7 @@ export default function Welcome() {
       <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
         {/* AirBuddy Logo Square - Separate button */}
         <motion.div
-          className="w-10 h-10 rounded-lg flex items-center justify-center backdrop-blur-sm shadow-md"
+          className="w-10 h-10 rounded-lg flex items-center justify-center backdrop-blur-sm shadow-md overflow-hidden"
           style={{
             backgroundColor: selectedPersona.colors.primary,
             color: 'white'
@@ -85,9 +85,11 @@ export default function Welcome() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L9 7V9C9 11.66 11.34 14 14 14V22H10V24H14H14.5C14.5 24 14.5 24 14.5 24H15V22H14V14C16.66 14 19 11.66 19 9H21Z"/>
-          </svg>
+          <img 
+            src="/attached_assets/Cheerful%20Pilot%20Character_1753110084108.png" 
+            alt="AirBuddy Pilot" 
+            className="w-8 h-8 object-contain"
+          />
         </motion.div>
 
         {/* Back Action Button */}
