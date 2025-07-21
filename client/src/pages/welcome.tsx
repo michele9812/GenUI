@@ -162,7 +162,7 @@ export default function Welcome() {
                 '320px' : // Tablet
                 '375px', // Desktop
             maxWidth: 'calc(100vw - 32px)',
-            maxHeight: 'calc(100vh - 240px)' // Leave space for header and dock with proper spacing
+            maxHeight: 'calc(100vh - 200px)' // Leave space for header and dock
           }}
         >
           <img
@@ -181,12 +181,12 @@ export default function Welcome() {
         className="absolute left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full"
         style={{
           bottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-            ? '40px' // More bottom space for Senior persona
+            ? '32px' // More bottom space for Senior persona
             : screenWidth <= 640 
-              ? '32px' // Mobile: minimum 32px
+              ? '24px' // Mobile: 24px
               : screenWidth <= 768
-                ? '40px' // Tablet: 40px
-                : '56px' // Desktop: more space
+                ? '32px' // Tablet: 32px
+                : '48px' // Desktop: 48px
         }}
       >
         <div className="flex justify-center w-full">
