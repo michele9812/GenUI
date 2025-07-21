@@ -73,24 +73,22 @@ export default function JourneyDetail() {
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header 
-        className="shadow-sm border-b"
+        className="shadow-sm border-b flex justify-between items-center h-16"
         style={{ backgroundColor: selectedPersona.colors.bg }}
       >
-        <div className="flex justify-between items-center h-16">
-          <Button 
-            variant="ghost" 
-            onClick={handleBack}
-            className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <ArrowLeft className="mr-2" size={20} />
-            Back to Journey
-          </Button>
-          <div className="w-20"></div>
-        </div>
+        <Button 
+          variant="ghost" 
+          onClick={handleBack}
+          className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          <ArrowLeft className="mr-2" size={20} />
+          Back to Journey
+        </Button>
+        <div className="w-20"></div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 bg-gray-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[120px]">
+      <main className="flex-1 bg-gray-50 w-full px-4 sm:px-6 lg:px-8 pt-[120px]">
           
           {/* Title */}
           <motion.div 
