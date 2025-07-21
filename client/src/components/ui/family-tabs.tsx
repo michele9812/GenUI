@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { usePersona } from '@/hooks/use-persona';
@@ -25,6 +25,8 @@ export default function FamilyTabs({
 }: FamilyTabsProps) {
   const { selectedPersona } = usePersona();
   const personaTypography = selectedPersona?.typography;
+  const [activeTab, setActiveTab] = useState(items[0]?.id);
+  const [expandedTab, setExpandedTab] = useState<string | null>(null);
 
   if (!items || items.length === 0) {
     return <div>No items available</div>;
@@ -32,50 +34,71 @@ export default function FamilyTabs({
 
   return (
     <div className={`w-full ${className}`}>
-      <Tabs defaultValue={items[0]?.id} className="w-full">
-        {/* Tab List */}
-        <TabsList 
-          className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1 p-1 mb-4"
+        {/* Horizontal Tab List - Icon Only with Expansion */}
+        <div 
+          className="flex items-center justify-center gap-2 p-2 mb-6 rounded-lg"
           style={{
-            backgroundColor: `${selectedPersona?.colors.primary}20` || '#f3f4f6',
-            border: `1px solid ${selectedPersona?.colors.primary}30` || '#e5e7eb'
+            backgroundColor: `${selectedPersona?.colors.primary}10` || '#f9fafb'
           }}
         >
           {items.map((item) => (
-            <TabsTrigger
+            <motion.button
               key={item.id}
-              value={item.id}
-              className="flex items-center gap-2 py-2 px-3 data-[state=active]:bg-white data-[state=active]:shadow-sm"
+              className="flex items-center gap-2 py-2 px-3 rounded-lg transition-all"
               style={{
-                fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
-                fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
+                backgroundColor: activeTab === item.id ? 
+                  (selectedPersona?.colors.primary || accentColor) : 
+                  'transparent',
+                color: activeTab === item.id ? 'white' : (selectedPersona?.colors.text || '#374151'),
+                fontFamily: personaTypography?.fontFamily || 'inherit'
               }}
+              onClick={() => {
+                setActiveTab(item.id);
+                setExpandedTab(expandedTab === item.id ? null : item.id);
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              layout
             >
-              {/* Icon */}
+              {/* Icon Always Visible */}
               <span 
-                className="material-icons text-base"
+                className="material-icons text-lg"
                 style={{
-                  color: selectedPersona?.colors.secondary || secondaryColor
+                  color: activeTab === item.id ? 'white' : (selectedPersona?.colors.secondary || secondaryColor)
                 }}
               >
                 {item.icon}
               </span>
-              {/* Tab Name */}
-              <span 
-                className="hidden sm:inline text-xs font-medium"
+              
+              {/* Label - Expands on Click */}
+              <motion.span 
+                className="text-sm font-medium whitespace-nowrap overflow-hidden"
+                initial={false}
+                animate={{
+                  width: expandedTab === item.id ? 'auto' : 0,
+                  opacity: expandedTab === item.id ? 1 : 0
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 style={{
-                  color: selectedPersona?.colors.text || '#111827'
+                  fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
                 }}
               >
-                {item.title}
-              </span>
-            </TabsTrigger>
+                {expandedTab === item.id && item.title}
+              </motion.span>
+            </motion.button>
           ))}
-        </TabsList>
+        </div>
 
         {/* Tab Content */}
-        {items.map((item) => (
-          <TabsContent key={item.id} value={item.id} className="w-full">
+        {items.map((item) => 
+          activeTab === item.id ? (
+          <motion.div 
+            key={item.id} 
+            className="w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
             <div 
               className="bg-white rounded-lg border shadow-sm p-6"
               style={{
@@ -155,9 +178,9 @@ export default function FamilyTabs({
                 Start Action
               </motion.button>
             </div>
-          </TabsContent>
-        ))}
-      </Tabs>
+          </motion.div>
+          ) : null
+        )}
     </div>
   );
 }
