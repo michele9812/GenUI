@@ -156,6 +156,8 @@ This is an intelligent airport navigation web application that provides personal
 - **Simplified onboarding content**: Removed preview card section from first step to streamline user experience and focus on essential welcome message before persona selection
 - **Standardized 24px vertical spacing**: Applied consistent `space-y-6` (24px) gaps between all major elements in both onboarding steps - header sections, content areas, form fields, and preview cards for uniform visual hierarchy
 - **Enhanced persona preview card with icon and typography**: Added persona icon in circular container and applied persona-specific typefaces (headingFont for title, fontFamily for description) with proper font scaling to preview card for consistent persona representation
+- **Fixed button spacing consistency**: Applied uniform 24px gap (`mt-6`) between content and button in both onboarding steps using flexbox layout with `flex-1` content area and separate button container for precise spacing control
+- **Standardized image container dimensions**: Updated pilot character container to 56px dimensions (`w-14 h-14`) with 24px border radius (`rounded-3xl`) in both onboarding steps for consistent visual design
 - **Separated navigation buttons design**: Split AirBuddy logo and back action into separate buttons - logo as standalone square (10x10), back button with icon+text on desktop and icon-only on mobile with responsive design and staggered animations
 - **Reduced carousel height by 64px**: Decreased carousel container height across all breakpoints (256px mobile, 356px tablet, 396px medium, 416px desktop) for optimized viewport space utilization
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
