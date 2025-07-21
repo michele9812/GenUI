@@ -131,7 +131,9 @@ export function Carousel3D({
     
     // Enhanced responsive breakpoints for better mobile experience
     const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
-    const isSmallPhone = screenWidth < 414; // Devices smaller than iPhone XR
+    const isIPhoneSE = screenWidth < 375; // iPhone SE and similar small devices
+    const isIPhoneXR = screenWidth >= 375 && screenWidth < 414; // iPhone XR range
+    const isIPhone16Plus = screenWidth >= 414; // iPhone 16 and larger devices
     const isMobile = screenWidth < 640;
     const isSmTablet = screenWidth < 768; 
     const isTablet = screenWidth < 1024;
@@ -140,15 +142,21 @@ export function Carousel3D({
     
     let baseWidth, centerWidth, spacing, containerPadding;
     
-    if (isSmallPhone) {
-      // Devices smaller than iPhone XR (< 414px)
+    if (isIPhoneSE) {
+      // iPhone SE and similar small devices (< 375px)
       baseWidth = 140;
       centerWidth = 180;
       spacing = 16; // 16px mobile spacing
       containerPadding = 12;
+    } else if (isIPhoneXR && isMobile) {
+      // iPhone XR range (375px - 414px)
+      baseWidth = 240; // min width 240
+      centerWidth = 260;
+      spacing = 16; // 16px mobile spacing
+      containerPadding = 16;
     } else if (isMobile) {
-      // iPhone XR to iPhone 16 and similar devices (414px - 640px)
-      baseWidth = 260; // Consistent min width for all iPhone XR+ devices
+      // iPhone 16 and larger mobile devices (414px - 640px)
+      baseWidth = 260; // min width 260
       centerWidth = 280;
       spacing = 16; // 16px mobile spacing
       containerPadding = 16;
@@ -195,7 +203,11 @@ export function Carousel3D({
     
     return {
       width: cardWidth,
-      height: isMobile ? (isSmallPhone ? 220 : 320) : 320, // Mobile-responsive height: min 320px for iPhone XR+
+      height: isMobile ? (
+        isIPhoneSE ? 220 : // iPhone SE: current version
+        isIPhoneXR ? 280 : // iPhone XR: min height 280
+        320 // iPhone 16+: min height 320
+      ) : 320, // Desktop: 320px
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
@@ -213,15 +225,16 @@ export function Carousel3D({
   const visibleCards = getVisibleCards();
 
   const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
-  const isSmallPhone = screenWidth < 414;
+  const isIPhoneSE = screenWidth < 375;
+  const isIPhoneXR = screenWidth >= 375 && screenWidth < 414;
   const isMobile = screenWidth < 640;
 
   return (
     <div 
       className="relative w-full"
       style={{
-        height: isSmallPhone ? '360px' : isMobile ? '400px' : '450px',
-        maxHeight: isSmallPhone ? '360px' : isMobile ? '400px' : '450px'
+        height: isIPhoneSE ? '360px' : isIPhoneXR && isMobile ? '380px' : isMobile ? '400px' : '450px',
+        maxHeight: isIPhoneSE ? '360px' : isIPhoneXR && isMobile ? '380px' : isMobile ? '400px' : '450px'
       }}
     >
       <div 
