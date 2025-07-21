@@ -298,11 +298,7 @@ const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
         >
           <div
             ref={ref}
-            className={cn(
-              "rounded-3xl border border-[#444444] bg-[#1F2023] p-2 shadow-[0_8px_30px_rgba(0,0,0,0.24)] transition-all duration-300",
-              isLoading && "border-red-500/70",
-              className
-            )}
+            className="rounded-3xl border p-2 border-[#444444] shadow-[0_8px_30px_rgba(0,0,0,0.24)] transition-all duration-300 ease-in-out w-full bg-[#ffffff] text-[#141414]"
             onDragOver={onDragOver}
             onDragLeave={onDragLeave}
             onDrop={onDrop}
