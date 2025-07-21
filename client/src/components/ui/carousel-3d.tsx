@@ -218,9 +218,9 @@ export function Carousel3D({
       style={{
         paddingLeft: `${getCardStyle(0).containerPadding}px`,
         paddingRight: `${getCardStyle(0).containerPadding}px`,
-        // Add subtle gradient fade-out masks on sides
-        maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)'
+        // Add subtle gradient fade-out masks on sides - only affects carousel content
+        maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
       }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -403,8 +403,11 @@ export function Carousel3D({
           })}
         </AnimatePresence>
       </motion.div>
-      {/* Navigation Controls */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-20">
+      {/* Navigation Controls - Outside mask area with explicit opacity */}
+      <div 
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30"
+        style={{ opacity: 1 }} // Force full opacity
+      >
         <motion.button
           onClick={handlePrevious}
           disabled={isAnimating}
@@ -412,7 +415,8 @@ export function Carousel3D({
           style={{
             backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
             color: selectedPersona?.colors?.secondary || accentColor,
-            border: 'none'
+            border: 'none',
+            opacity: isAnimating ? 0.5 : 1 // Only disabled state affects opacity
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -420,7 +424,10 @@ export function Carousel3D({
           <ChevronLeft className="w-5 h-5" />
         </motion.button>
       </div>
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 z-20">
+      <div 
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30"
+        style={{ opacity: 1 }} // Force full opacity
+      >
         <motion.button
           onClick={handleNext}
           disabled={isAnimating}
@@ -428,7 +435,8 @@ export function Carousel3D({
           style={{
             backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
             color: selectedPersona?.colors?.secondary || accentColor,
-            border: 'none'
+            border: 'none',
+            opacity: isAnimating ? 0.5 : 1 // Only disabled state affects opacity
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -436,8 +444,11 @@ export function Carousel3D({
           <ChevronRight className="w-5 h-5" />
         </motion.button>
       </div>
-      {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      {/* Indicators - Outside mask area with explicit opacity */}
+      <div 
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30"
+        style={{ opacity: 1 }} // Force full opacity
+      >
         {items.map((_, index) => (
           <button
             key={index}
