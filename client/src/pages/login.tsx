@@ -55,7 +55,7 @@ export default function Login() {
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
       <Card className="w-full max-w-md min-h-[460px] sm:min-h-[490px] md:min-h-[540px] lg:min-h-[570px] shadow-2xl">
-        <CardContent className="p-6 pt-8 pb-8 h-full flex flex-col">
+        <CardContent className="p-6 pt-8 pb-6 h-full flex flex-col">
           {/* Fixed Header Area */}
           <div className="flex-shrink-0">
             <div className="text-center">
@@ -167,7 +167,7 @@ export default function Login() {
           </div>
 
           {/* Fixed Button Area */}
-          <div className="flex-shrink-0 mt-auto pt-6">
+          <div className="mt-auto">
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
