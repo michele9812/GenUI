@@ -11,7 +11,7 @@ import cheerfulPilotImage from '@assets/Cheerful Pilot Character_1753105244175.p
 import { 
   Laptop, 
   Users, 
-  Heart, 
+  Accessibility, 
   Globe, 
   GraduationCap 
 } from 'lucide-react';
@@ -42,26 +42,26 @@ export default function LoginPage() {
 
   const selectedPersona = selectedPersonaId ? personas[selectedPersonaId] : null;
 
-  const getPersonaIcon = (personaId: string) => {
+  const renderPersonaIcon = (personaId: string) => {
     const iconMap = {
-      'tech': Laptop,
-      'family': Users,
-      'senior': Heart,
-      'bleisure': Globe,
-      'student': GraduationCap
+      'tech': <Laptop className="w-4 h-4" />,
+      'family': <Users className="w-4 h-4" />,
+      'senior': <Accessibility className="w-4 h-4" />,
+      'bleisure': <Globe className="w-4 h-4" />,
+      'student': <GraduationCap className="w-4 h-4" />
     };
-    return iconMap[personaId as keyof typeof iconMap];
-  };
 
-  const getMaterialIcon = (personaId: string) => {
     const materialIconMap = {
-      'tech': MdComputer,
-      'family': MdFamilyRestroom,
-      'senior': MdAccessible,
-      'bleisure': MdTravelExplore,
-      'student': MdSchool
+      'tech': <MdComputer className="w-4 h-4" />,
+      'family': <MdFamilyRestroom className="w-4 h-4" />,
+      'senior': <MdAccessible className="w-4 h-4" />,
+      'bleisure': <MdTravelExplore className="w-4 h-4" />,
+      'student': <MdSchool className="w-4 h-4" />
     };
-    return materialIconMap[personaId as keyof typeof materialIconMap];
+
+    return iconMap[personaId as keyof typeof iconMap] || 
+           materialIconMap[personaId as keyof typeof materialIconMap] || 
+           personaId.charAt(0).toUpperCase();
   };
 
   return (
@@ -70,9 +70,9 @@ export default function LoginPage() {
         <CardContent className="p-0 h-full relative">
           {/* Fixed positioning for all elements */}
           
-          {/* Image - Fixed at top */}
-          <div className="absolute top-8 left-0 right-0 text-center">
-            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
+          {/* Image - Fixed at top with responsive positioning */}
+          <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
               <img 
                 src={cheerfulPilotImage} 
                 alt="AirBuddy Pilot" 
@@ -81,23 +81,23 @@ export default function LoginPage() {
             </div>
           </div>
           
-          {/* Title - Fixed position */}
-          <div className="absolute top-28 left-6 right-6 text-center">
+          {/* Title - Fixed position responsive */}
+          <div className="absolute top-24 sm:top-28 md:top-28 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
             <h1 className="h1-responsive-small text-gray-900">
               AirBuddy Assistant
             </h1>
           </div>
           
-          {/* Subtitle - Fixed position */}
-          <div className="absolute top-44 left-6 right-6 text-center">
-            <p className="text-gray-600">
+          {/* Subtitle - Fixed position responsive */}
+          <div className="absolute top-36 sm:top-44 md:top-44 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
+            <p className="text-sm sm:text-base md:text-base text-gray-600">
               Select your profile to continue
             </p>
           </div>
           
-          {/* Content - Fixed position - optimized spacing */}
-          <div className="absolute top-56 left-6 right-6">
-            <div className="space-y-4">
+          {/* Content - Fixed position - responsive optimization */}
+          <div className="absolute top-48 sm:top-56 md:top-56 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
+            <div className="space-y-3 sm:space-y-4 md:space-y-4">
               <div>
                 <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-2">
                   Name
@@ -148,18 +148,7 @@ export default function LoginPage() {
                         className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0"
                         style={{ backgroundColor: `${selectedPersona.colors.primary}` }}
                       >
-                        {(() => {
-                          const IconComponent = getPersonaIcon(selectedPersona.id);
-                          const MaterialIconComponent = getMaterialIcon(selectedPersona.id);
-                          
-                          if (IconComponent) {
-                            return <IconComponent className="w-4 h-4" />;
-                          } else if (MaterialIconComponent) {
-                            return <MaterialIconComponent className="w-4 h-4" />;
-                          } else {
-                            return selectedPersona.title.charAt(0);
-                          }
-                        })()}
+                        {renderPersonaIcon(selectedPersona.id)}
                       </div>
                       <div className="flex-1 w-full">
                         <h3 
@@ -188,12 +177,12 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* Button - Fixed at bottom with extra margin for larger preview */}
-          <div className="absolute bottom-4 left-6 right-6">
+          {/* Button - Fixed at bottom responsive */}
+          <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
-              className="w-full py-3 font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Start the journey
             </Button>

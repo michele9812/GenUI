@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { useLocation } from 'wouter';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import cheerfulPilotPath from '@assets/Cheerful Pilot Character_1753105244175.png';
@@ -14,13 +12,13 @@ export default function OnboardingPage() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md h-[600px] shadow-2xl">
+      <Card className="w-full max-w-md h-[600px] sm:h-[600px] md:h-[600px] shadow-2xl">
         <CardContent className="p-0 h-full relative">
-          {/* Fixed positioning for all elements */}
+          {/* Fixed positioning for all elements - responsive positions */}
           
-          {/* Image - Fixed at top */}
-          <div className="absolute top-8 left-0 right-0 text-center">
-            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
+          {/* Image - Fixed at top with responsive positioning */}
+          <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
               <img 
                 src={cheerfulPilotPath} 
                 alt="AirBuddy Pilot" 
@@ -29,34 +27,34 @@ export default function OnboardingPage() {
             </div>
           </div>
           
-          {/* Title - Fixed position */}
-          <div className="absolute top-28 left-6 right-6 text-center">
+          {/* Title - Fixed position responsive */}
+          <div className="absolute top-24 sm:top-28 md:top-28 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
             <h1 className="h1-responsive-small text-gray-900">
               Welcome to AirBuddy
             </h1>
           </div>
           
-          {/* Subtitle - Fixed position */}
-          <div className="absolute top-44 left-6 right-6 text-center">
-            <p className="text-gray-600">
+          {/* Subtitle - Fixed position responsive */}
+          <div className="absolute top-36 sm:top-44 md:top-44 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
+            <p className="text-sm sm:text-base md:text-base text-gray-600">
               Your intelligent navigation companion
             </p>
           </div>
           
-          {/* Content - Fixed position */}
-          <div className="absolute top-64 left-6 right-6 text-center">
-            <p className="text-gray-600 leading-relaxed">
+          {/* Content - Fixed position responsive with mobile optimization */}
+          <div className="absolute top-44 sm:top-56 md:top-64 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-tight sm:leading-relaxed md:leading-relaxed">
               AirBuddy is a Generative UI prototype applied to airport and travel experience. 
               By sensing who you are — whether you're a frequent flyer, a family traveler — 
               AirBuddy dynamically build and adapt interface and features to fit your context.
             </p>
           </div>
 
-          {/* Button - Fixed at bottom */}
-          <div className="absolute bottom-4 left-6 right-6">
+          {/* Button - Fixed at bottom responsive */}
+          <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
             <Button 
               onClick={handleContinue}
-              className="w-full py-3 font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
+              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
             >
               Continue
             </Button>
