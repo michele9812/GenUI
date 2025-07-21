@@ -122,7 +122,7 @@ export default function FamilyTabs({
               }}
             >
               {/* Header with Icon and Title */}
-              <div className="flex items-center gap-2 md:gap-4 mb-2 md:mb-6">
+              <div className="flex items-center gap-2 md:gap-4 mb-2 md:mb-6 h-fit">
                 <div 
                   className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center"
                   style={{
