@@ -100,12 +100,7 @@ export default function Welcome() {
       className="flex flex-col"
     >
       {/* Navbar - Full width with horizontal layout */}
-      <div className="w-full px-2 py-2 flex items-center justify-start relative">
-        {/* Navbar content here */}
-      </div>
-
-      {/* Back Button - Top Left */}
-      <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
+      <div className="w-full px-2 py-2 flex items-center justify-start relative gap-2">
         {/* AirBuddy Logo Square - Separate button */}
         <motion.div
           className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden"
@@ -173,8 +168,8 @@ export default function Welcome() {
       <div 
         className="text-center container-responsive-padding"
         style={{
-          marginTop: window.innerWidth <= 320 ? '32px' : // iPhone SE: 32px
-                     window.innerWidth < 768 ? '40px' : '64px', // Mobile: 40px, Desktop: 64px
+          marginTop: window.innerWidth <= 320 ? '16px' : // iPhone SE: 16px (reduced from 32px)
+                     window.innerWidth < 768 ? '24px' : '32px', // Mobile: 24px (reduced from 40px), Desktop: 32px (reduced from 64px)
           marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
                         window.innerWidth < 768 ? '8px' : '16px', // Mobile: 8px, Desktop: 16px
           paddingBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px  
