@@ -186,14 +186,14 @@ export default function Welcome() {
             left: isZooming ? '50%' : 'auto',
             transform: isZooming ? 'translate(-50%, -50%)' : 'none',
             // Base responsive dimensions with proper aspect ratio
-            width: isZooming ? '100vw' : (
+            width: isZooming ? '95vw' : (
               screenWidth <= 640 ? 
                 'calc(100vw - 32px)' : // Mobile: full width minus responsive margins
                 screenWidth <= 768 ? 
                   'calc(100vw - 80px)' : // Tablet: 40px margins each side
                   'calc(100vw - 128px)' // Desktop: 64px margins each side
             ),
-            height: isZooming ? '100vh' : (
+            height: isZooming ? '95vh' : (
               screenWidth <= 640 ? 
                 'calc((100vw - 32px) * 0.6)' : // Mobile: maintain aspect ratio
                 screenWidth <= 768 ? 
@@ -218,7 +218,7 @@ export default function Welcome() {
               // Ensure image maintains quality during zoom and proper border radius
               imageRendering: isZooming ? 'auto' : 'crisp-edges',
               borderRadius: isZooming ? '0' : '8px',
-              // Anchor scaling to center of image element
+              // Anchor scaling to center of viewport
               transformOrigin: 'center center'
             }}
           />

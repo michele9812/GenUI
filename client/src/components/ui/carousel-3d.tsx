@@ -212,17 +212,17 @@ export function Carousel3D({
 
   return (
     <div 
-      className="relative w-full sm:h-[450px] md:h-[450px] lg:h-[450px]"
+      className="relative w-full"
       style={{
-        height: window.innerWidth < 640 ? '320px' : undefined,
-        maxHeight: window.innerWidth < 640 ? '320px' : undefined
+        height: window.innerWidth < 640 ? '360px' : '450px',
+        maxHeight: window.innerWidth < 640 ? '360px' : '450px'
       }}
     >
       <div 
         ref={containerRef}
         className="container-responsive relative w-full flex justify-center"
         style={{
-          alignItems: window.innerWidth < 640 ? 'center' : 'flex-start',
+          alignItems: 'center', // Center alignment for both mobile and desktop
           paddingTop: '16px',
           paddingLeft: window.innerWidth < 640 ? '16px' : '80px',
           paddingRight: window.innerWidth < 640 ? '16px' : '80px',
@@ -230,7 +230,7 @@ export function Carousel3D({
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: 'calc(100% - 16px)'
+          height: 'calc(100% - 48px)' // Reduced gap between cards and controls
         }}
 
         onMouseEnter={() => setIsPaused(true)}
@@ -240,7 +240,7 @@ export function Carousel3D({
         <motion.div 
           className="relative flex justify-center w-full h-full"
           style={{
-            alignItems: window.innerWidth < 640 ? 'center' : 'flex-start'
+            alignItems: 'center' // Center alignment for both mobile and desktop
           }}
           drag="x"
           dragControls={dragControls}
@@ -470,7 +470,7 @@ export function Carousel3D({
         className="absolute left-1/2 -translate-x-1/2 flex gap-2"
         style={{ 
           zIndex: 1000,
-          bottom: window.innerWidth < 640 ? '16px' : '32px'
+          bottom: window.innerWidth < 640 ? '16px' : '32px' // Gap: 16px mobile, 32px desktop
         }}
       >
         {items.map((_, index) => (
