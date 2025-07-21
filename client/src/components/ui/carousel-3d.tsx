@@ -217,19 +217,17 @@ export function Carousel3D({
       className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing"
       style={{
         paddingLeft: `${getCardStyle(0).containerPadding}px`,
-        paddingRight: `${getCardStyle(0).containerPadding}px`
+        paddingRight: `${getCardStyle(0).containerPadding}px`,
+        // Add subtle gradient fade-out masks on sides - only affects carousel content
+        maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
       }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Cards Container with mask for content fading only */}
+      {/* Cards Container */}
       <motion.div 
         className="relative flex items-center justify-center"
-        style={{
-          // Apply mask only to cards container, not to overall carousel
-          maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
-        }}
         drag="x"
         dragControls={dragControls}
         dragConstraints={{ left: 0, right: 0 }}
@@ -405,16 +403,20 @@ export function Carousel3D({
           })}
         </AnimatePresence>
       </motion.div>
-      {/* Navigation Controls - Completely outside masked area */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-30">
+      {/* Navigation Controls - Outside mask area with explicit opacity */}
+      <div 
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30"
+        style={{ opacity: 1 }} // Force full opacity
+      >
         <motion.button
           onClick={handlePrevious}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-lg"
+          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
           style={{
             backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
             color: selectedPersona?.colors?.secondary || accentColor,
-            border: 'none'
+            border: 'none',
+            opacity: isAnimating ? 0.5 : 1 // Only disabled state affects opacity
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -422,15 +424,19 @@ export function Carousel3D({
           <ChevronLeft className="w-5 h-5" />
         </motion.button>
       </div>
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 z-30">
+      <div 
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30"
+        style={{ opacity: 1 }} // Force full opacity
+      >
         <motion.button
           onClick={handleNext}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-lg"
+          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
           style={{
             backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
             color: selectedPersona?.colors?.secondary || accentColor,
-            border: 'none'
+            border: 'none',
+            opacity: isAnimating ? 0.5 : 1 // Only disabled state affects opacity
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -438,8 +444,11 @@ export function Carousel3D({
           <ChevronRight className="w-5 h-5" />
         </motion.button>
       </div>
-      {/* Indicators - Completely outside masked area */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+      {/* Indicators - Outside mask area with explicit opacity */}
+      <div 
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30"
+        style={{ opacity: 1 }} // Force full opacity
+      >
         {items.map((_, index) => (
           <button
             key={index}
