@@ -144,37 +144,37 @@ export function Carousel3D({
     if (isXsPhone) {
       baseWidth = 140;
       centerWidth = 180;
-      spacing = 8;
+      spacing = 16; // 16px mobile spacing
       containerPadding = 12;
     } else if (isMobile) {
       baseWidth = 160;
       centerWidth = 200;
-      spacing = 10;
+      spacing = 16; // 16px mobile spacing
       containerPadding = 16;
     } else if (isSmTablet) {
       baseWidth = 180;
       centerWidth = 220;
-      spacing = 12;
+      spacing = 24; // 24px tablet spacing
       containerPadding = 20;
     } else if (isTablet) {
       baseWidth = 200;
       centerWidth = 240;
-      spacing = 15;
+      spacing = 24; // 24px tablet spacing
       containerPadding = 24;
     } else if (isSmDesktop) {
       baseWidth = 220;
       centerWidth = 260;
-      spacing = 18;
+      spacing = 32; // 32px desktop spacing
       containerPadding = 32;
     } else if (isDesktop) {
       baseWidth = 240;
       centerWidth = 280;
-      spacing = 20;
+      spacing = 32; // 32px desktop spacing
       containerPadding = 40;
     } else {
       baseWidth = 260;
       centerWidth = 300;
-      spacing = 22;
+      spacing = 32; // 32px desktop spacing
       containerPadding = 48;
     }
     
