@@ -89,13 +89,7 @@ export default function Welcome() {
       <div 
               className="absolute left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full pt-[8px] pb-[16px]"
               style={{
-                top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-                  ? '80px' // More space for Senior persona with 125% scaling
-                  : screenWidth <= 640 
-                    ? '48px' // Mobile: top-12
-                    : screenWidth <= 1024 
-                      ? '80px' // Tablet: top-20
-                      : '96px' // Desktop: top-24
+                top: '80px' // Consistent 80px top positioning for all personas and breakpoints
               }}
             >
               <h1 
@@ -130,12 +124,8 @@ export default function Welcome() {
         className="absolute left-1/2 transform -translate-x-1/2 z-10"
         style={{
           top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-            ? 'calc(80px + 16px + 120px + 16px)' // Senior: header top + header height + 16px spacing
-            : screenWidth <= 640 
-              ? 'calc(48px + 16px + 100px + 16px)' // Mobile: header top + header height + 16px spacing
-              : screenWidth <= 1024 
-                ? 'calc(80px + 16px + 110px + 16px)' // Tablet
-                : 'calc(96px + 16px + 110px + 16px)', // Desktop
+            ? 'calc(80px + 16px + 120px + 16px)' // Senior: 80px + header height + spacing
+            : 'calc(80px + 16px + 110px + 16px)', // Standard: 80px + header height + spacing
           transform: 'translateX(-50%)'
         }}
       >
