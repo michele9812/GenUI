@@ -65,71 +65,71 @@ export default function JourneyDetail() {
         'parking': [
           {
             id: 'parking_app_scan',
-            title: 'Parking App Gate Scan',
-            description: 'Scan parking app to open automatic gate',
+            title: 'Parking App Scan',
+            description: 'Scan parking app to automatically open gate',
             icon: 'qr_code_scanner'
           },
           {
-            id: 'priority_access',
-            title: 'Priority Access QR',
-            description: 'Access Priority lane with airline app QR code',
-            icon: 'verified'
+            id: 'priority_lane_access',
+            title: 'Priority Lane Access',
+            description: 'Access Priority lane via QR code in airline app',
+            icon: 'fast_forward'
           }
         ],
         'security': [
           {
-            id: 'biometric_gate',
+            id: 'biometric_egate',
             title: 'Biometric e-Gate',
-            description: 'Pass through e-Gate using face-ID authentication',
+            description: 'Pass through e-Gate using face-ID',
             icon: 'face'
           },
           {
-            id: 'smartwatch_confirm',
-            title: 'Smartwatch Confirmation',
-            description: 'Receive instant OK confirmation on smartwatch',
+            id: 'smartwatch_confirmation',
+            title: 'Smartwatch OK',
+            description: 'Receive immediate OK confirmation on smartwatch',
             icon: 'watch'
           }
         ],
         'lounge': [
           {
-            id: 'auto_barista',
+            id: 'selfservice_barista',
             title: 'Self-Service Barista',
             description: 'Order protein drink from automatic barista',
             icon: 'local_cafe'
           },
           {
-            id: 'shower_nfc',
-            title: 'NFC Shower Booking',
-            description: 'Book shower via touchscreen, unlock with NFC',
+            id: 'shower_touchscreen_nfc',
+            title: 'Shower Booking NFC',
+            description: 'Book shower via touchscreen and unlock with NFC',
             icon: 'shower'
           }
         ],
         'boarding': [
           {
-            id: 'nfc_boarding',
+            id: 'nfc_selfscan_gate',
             title: 'NFC Self-Scan',
             description: 'Self-scan NFC at gate with smartwatch or phone',
             icon: 'nfc'
           },
           {
-            id: 'live_boarding_status',
-            title: 'Live Boarding Updates',
-            description: 'Receive live boarding completion in app',
-            icon: 'notifications_active'
+            id: 'live_boarding_complete',
+            title: 'Live Boarding Status',
+            description: 'Receive live "Boarding complete" notification in app',
+            icon: 'notifications'
           }
         ],
         'post_flight': [
           {
-            id: 'mobile_lost_found',
+            id: 'mobile_lost_found_form',
             title: 'Mobile Lost & Found',
-            description: 'Report lost items via in-app form',
-            icon: 'find_in_page'
+            description: 'Report lost items via in-app lost & found form',
+            icon: 'search'
           },
           {
-            id: 'baggage_tracking',
+            id: 'auto_baggage_tracking',
             title: 'Auto Baggage Tracking',
-            description: 'Automatic tracking and delivery status updates',
-            icon: 'track_changes'
+            description: 'Automatic tracking of recovery status and delivery',
+            icon: 'luggage'
           }
         ]
       },
@@ -138,66 +138,66 @@ export default function JourneyDetail() {
         // Family persona journey: parking -> checkin -> security -> waiting -> boarding
         'parking': [
           {
-            id: 'shuttle_call_point',
-            title: 'PRM Shuttle Call',
-            description: 'Book shuttle via call point for family assistance',
+            id: 'shuttle_call_point_prm',
+            title: 'PRM Light Call Point',
+            description: 'Book and automatically call shuttle via call point PRM light',
             icon: 'phone'
           },
           {
-            id: 'family_vehicle',
-            title: 'Family-Friendly Vehicle',
-            description: 'Load stroller and bags on family vehicle',
-            icon: 'family_restroom'
+            id: 'family_vehicle_loading',
+            title: 'Family Vehicle Loading',
+            description: 'Load stroller and luggage on family-friendly vehicle',
+            icon: 'luggage'
           }
         ],
         'checkin': [
           {
-            id: 'family_counter',
-            title: 'Dedicated Family Counter',
-            description: 'Check-in at family counter with colored bag tags',
-            icon: 'counter_1'
+            id: 'family_dedicated_counter',
+            title: 'Family Dedicated Counter',
+            description: 'Check-in at dedicated family counter with colored baggage tags for each member',
+            icon: 'color_lens'
           },
           {
-            id: 'priority_seating',
+            id: 'priority_cabin_assignment',
             title: 'Priority Cabin Assignment',
-            description: 'Get priority seat assignment with instant tag print',
+            description: 'Priority cabin seat assignment with immediate tag printing',
             icon: 'airline_seat_recline_normal'
           }
         ],
         'security': [
           {
-            id: 'family_lane',
-            title: 'Family Security Lane',
-            description: 'Use wide family lane for easier passage',
+            id: 'family_wide_lane',
+            title: 'Family Wide Lane',
+            description: 'Use family lane with wide corridor',
             icon: 'family_restroom'
           },
           {
-            id: 'stroller_scan',
+            id: 'stroller_complete_scan',
             title: 'Complete Stroller Scan',
-            description: 'Scan stroller without disassembly',
-            icon: 'baby_changing_station'
+            description: 'Scan complete stroller without disassembly',
+            icon: 'scanner'
           }
         ],
         'waiting': [
           {
-            id: 'playground_access',
+            id: 'pregate_playground',
             title: 'Pre-Gate Playground',
-            description: 'Access playground with interactive games',
-            icon: 'child_friendly'
+            description: 'Access playground with interactive games before gate',
+            icon: 'toys'
           },
           {
-            id: 'storytelling_app',
+            id: 'storytelling_app_kids',
             title: 'Story-Telling App',
-            description: 'Entertain children with interactive stories',
-            icon: 'auto_stories'
+            description: 'Consult story-telling app to entertain children while waiting',
+            icon: 'menu_book'
           }
         ],
         'boarding': [
           {
-            id: 'family_preboard',
+            id: 'family_preboarding_dedicated',
             title: 'Family Pre-Boarding',
-            description: 'Priority boarding call with staff assistance',
-            icon: 'escalator_warning'
+            description: 'Pre-boarding for families with dedicated call and gate staff assistance',
+            icon: 'family_restroom'
           }
         ]
       },
@@ -206,57 +206,57 @@ export default function JourneyDetail() {
         // Senior persona journey: terminal -> screening -> waiting -> transfer
         'terminal': [
           {
-            id: 'prm_call_pillar',
+            id: 'prm_call_pillar_assistance',
             title: 'PRM Call Pillar',
-            description: 'Request immediate assistance via call pillar',
+            description: 'Use call pillar PRM to request immediate assistance',
             icon: 'support_agent'
           },
           {
-            id: 'sala_amica',
-            title: 'Sala Amica Access',
-            description: 'Direct access to comfortable seating with large fonts',
+            id: 'sala_amica_direct_entry',
+            title: 'Sala Amica Direct Entry',
+            description: 'Direct entry to Sala Amica with ergonomic seating and readable fonts',
             icon: 'accessible'
           }
         ],
         'screening': [
           {
-            id: 'prm_security_lane',
-            title: 'PRM Security Lane',
-            description: 'Dedicated lane with mobile chair option',
-            icon: 'accessible'
+            id: 'prm_dedicated_lane_chair',
+            title: 'PRM Dedicated Lane',
+            description: 'Pass on dedicated PRM lane with option to sit on mobile chair',
+            icon: 'wheelchair_pickup'
           },
           {
-            id: 'onsite_bag_check',
-            title: 'On-Site Bag Check',
-            description: 'Hand baggage check without traveler movement',
-            icon: 'luggage'
+            id: 'onsite_handbag_control',
+            title: 'On-Site Hand Bag Control',
+            description: 'Hand baggage control performed on-site without moving the traveler',
+            icon: 'personal_injury'
           }
         ],
         'waiting': [
           {
-            id: 'ergonomic_seating',
+            id: 'gate_seating_ergonomic',
             title: 'Ergonomic Gate Seating',
-            description: 'Seating with raised armrests and cane space',
-            icon: 'chair'
+            description: 'Occupy gate seating with raised armrests and space for walking stick',
+            icon: 'event_seat'
           },
           {
-            id: 'lounge_refreshments',
-            title: 'Assisted Refreshments',
-            description: 'Request light refreshments from lounge staff',
+            id: 'light_refreshment_request',
+            title: 'Light Refreshment Request',
+            description: 'Request light refreshments directly from lounge personnel',
             icon: 'room_service'
           }
         ],
         'transfer': [
           {
-            id: 'ambu_lift',
+            id: 'ambulift_transfer_baggage',
             title: 'Ambu-Lift Transfer',
-            description: 'Transfer via ambu-lift to baggage claim',
-            icon: 'accessible'
+            description: 'Transfer with ambu-lift to baggage claim area',
+            icon: 'elevator'
           },
           {
-            id: 'golf_cart',
-            title: 'Golf Cart Service',
-            description: 'Electric golf cart to arrival terminal shuttle',
+            id: 'golf_car_electric_shuttle',
+            title: 'Electric Golf Car',
+            description: 'Board electric golf car to arrival terminal shuttle point',
             icon: 'directions_car'
           }
         ]
@@ -266,57 +266,57 @@ export default function JourneyDetail() {
         // Bleisure persona journey: post_meeting -> work -> leisure -> return
         'post_meeting': [
           {
-            id: 'smart_locker',
+            id: 'smart_locker_contactless',
             title: 'Contactless Smart Locker',
-            description: 'Store backpack and trolley in app-controlled locker',
+            description: 'Deposit backpack and trolley in contactless smart locker (app opening)',
             icon: 'lock'
           },
           {
-            id: 'sms_pin',
-            title: 'SMS Recovery PIN',
-            description: 'Receive temporary PIN via SMS for bag retrieval',
+            id: 'temporary_pin_sms',
+            title: 'Temporary PIN SMS',
+            description: 'Receive temporary PIN via SMS for baggage recovery',
             icon: 'sms'
           }
         ],
         'work': [
           {
-            id: 'coworking_space',
-            title: 'Air-Side Coworking',
-            description: 'Access coworking space with lounge pass authentication',
+            id: 'coworking_airside_lounge',
+            title: 'Air-Side Coworking Space',
+            description: 'Access coworking space air-side, authenticating with lounge pass',
             icon: 'work'
           },
           {
-            id: 'phone_booth',
+            id: 'phone_booth_soundproof',
             title: 'Soundproof Phone Booth',
-            description: 'Use soundproof booth for calls and video conferences',
-            icon: 'call'
+            description: 'Use soundproof phone booth for calls or video conferences',
+            icon: 'phone'
           }
         ],
         'leisure': [
           {
-            id: 'city_pass_app',
-            title: 'City-Pass Activation',
-            description: 'Activate city-pass app directly from terminal totem',
-            icon: 'location_city'
+            id: 'citypass_app_terminal_totem',
+            title: 'City-Pass App Activation',
+            description: 'Activate city-pass app directly from in-terminal totem',
+            icon: 'map'
           },
           {
-            id: 'local_tours_qr',
-            title: 'Local Tours QR Scan',
-            description: 'Scan QR codes for tour info and local discounts',
-            icon: 'tour'
+            id: 'qr_scan_digital_stations',
+            title: 'QR Code Tour Info',
+            description: 'Scan QR codes at digital stations for tour info and local discounts',
+            icon: 'museum'
           }
         ],
         'return': [
           {
-            id: 'shower_pod',
+            id: 'shower_pod_lounge_badge',
             title: 'Shower Pod Booking',
-            description: 'Book and unlock shower pod with lounge badge',
+            description: 'Book and unlock shower pod via lounge badge',
             icon: 'shower'
           },
           {
-            id: 'yoga_room',
+            id: 'yoga_room_temp_code',
             title: 'Yoga Room Access',
-            description: 'Access yoga room with temporary app code',
+            description: 'Access yoga room with temporary code sent via app',
             icon: 'self_improvement'
           }
         ]
@@ -326,58 +326,58 @@ export default function JourneyDetail() {
         // Student persona journey: checkin_origin -> layover -> immigration -> exit
         'checkin_origin': [
           {
-            id: 'multilingual_kiosk',
+            id: 'multilingual_kiosk_chinese_english',
             title: 'Multilingual Kiosk',
-            description: 'Use Chinese/English kiosk with dedicated staff support',
+            description: 'Use multilingual kiosk (Chinese/English) with dedicated staff support',
             icon: 'translate'
           },
           {
-            id: 'document_verification',
-            title: 'Document Verification',
-            description: 'Verify documentation and print boarding pass with clear instructions',
-            icon: 'verified'
+            id: 'documentation_verification_clear',
+            title: 'Documentation Verification',
+            description: 'Verify documentation and print boarding pass with clear indications',
+            icon: 'description'
           }
         ],
         'layover': [
           {
-            id: 'universal_wayfinding',
-            title: 'Universal Wayfinding',
-            description: 'Follow universal icons on floor and overhead displays',
-            icon: 'directions_walk'
+            id: 'wayfinding_universal_icons',
+            title: 'Universal Icon Wayfinding',
+            description: 'Wayfinding via universal icons on floor and overhead displays',
+            icon: 'place'
           },
           {
-            id: 'help_totems',
+            id: 'help_totems_multilingual',
             title: 'Multilingual Help Totems',
-            description: 'Access help totems with language selection every few meters',
-            icon: 'help'
+            description: 'Every few meters, mini-totems with "Need help?" and language choice',
+            icon: 'map'
           }
         ],
         'immigration': [
           {
-            id: 'apc_kiosk',
-            title: 'APC Immigration Kiosk',
-            description: 'Pre-enter data and print receipt at APC kiosk',
-            icon: 'print'
+            id: 'apc_kiosk_usa_predata',
+            title: 'APC Kiosk USA',
+            description: 'Use APC kiosk to pre-enter data and print receipt',
+            icon: 'computer'
           },
           {
-            id: 'translation_service',
-            title: 'CBP Translation Service',
-            description: 'Interact with CBP agent using simultaneous translator totem',
-            icon: 'hearing'
+            id: 'cbp_agent_simultaneous_translator',
+            title: 'CBP Agent Translation',
+            description: 'Interact with CBP agent assisted by simultaneous translator on audio totem',
+            icon: 'support_agent'
           }
         ],
         'exit': [
           {
-            id: 'esim_pickup',
-            title: 'e-SIM Pickup Point',
-            description: 'Collect and activate e-SIM at dedicated pickup point',
+            id: 'esim_pickup_dedicated_activation',
+            title: 'e-SIM Pickup',
+            description: 'Pick up e-SIM at dedicated pickup point and immediate activation',
             icon: 'sim_card'
           },
           {
-            id: 'campus_shuttle',
+            id: 'campus_shuttle_mobile_ticket',
             title: 'Campus Shuttle',
             description: 'Board campus shuttle showing mobile ticket to driver',
-            icon: 'directions_bus'
+            icon: 'school'
           }
         ]
       }
@@ -385,8 +385,9 @@ export default function JourneyDetail() {
 
     const currentPersonaActions = personaStepActions[selectedPersona?.id || ''] || {};
     const stepActions = currentPersonaActions[currentStep?.id || ''] || [];
+    const universalServices = getUniversalServices(currentStep?.id || '');
     
-    // Return only step-specific actions + universal services (security & restrooms)
+    // Return step-specific actions + context-aware universal services
     return [...stepActions, ...universalServices];
   };
 
