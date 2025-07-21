@@ -19,6 +19,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Increased carousel spacing**: Enhanced spacing between carousel elements to 32px desktop, 24px tablet, 16px mobile for better visual separation
 - **Updated all journey step images**: Replaced images with high-quality local airport photos that precisely match each journey point - service counters, boarding areas, terminal arrivals, kiosk interactions, and security scenes for better contextual accuracy
 - **Personalized page titles**: Changed journey selection header from generic "Seleziona il punto del journey" to display the specific persona title (e.g., "Family Planner", "Tech-Savvy", "Senior PRM")
+- **Updated boarding images**: Replaced all boarding area images with higher quality updated boarding gate photo showing numbered gate areas and seating
 - Disabled interactions for inactive carousel cards (only center card is clickable and hoverable)
 - Updated persona selection page to use neutral styling (gray colors) except for the persona preview card
 - Enhanced journey pages (welcome and detail) to use full persona-specific theming including colors, typography, and gradients
