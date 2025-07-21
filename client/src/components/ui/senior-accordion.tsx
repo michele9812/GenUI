@@ -98,8 +98,8 @@ export function SeniorAccordion({
                     color: accentColor
                   }}
                 >
-              <div className="flex items-center justify-between w-full px-4 py-1 sm:px-6 sm:py-1">
-                <div className="flex items-center space-x-3">
+              <div className="flex items-center justify-between w-full h-full px-4 py-1 sm:px-6 sm:py-1">
+                <div className="flex items-center h-full space-x-3">
                   {/* Icon */}
                   <div 
                     className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center"
@@ -118,10 +118,11 @@ export function SeniorAccordion({
                   </div>
                   
                   {/* Title */}
-                  <div>
+                  <div className="flex flex-col justify-center h-full">
                     <p 
-                      className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-1"
+                      className="text-xs sm:text-sm font-medium uppercase tracking-wider"
                       style={{
+                        marginBottom: '2px',
                         color: accentColor,
                         fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
                         fontSize: personaTypography?.scale && personaTypography.scale > 1.1 ? 
@@ -167,9 +168,9 @@ export function SeniorAccordion({
                 style={{ backgroundColor: '#ffffff' }}
               >
                 {/* Horizontal layout: text + button */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between h-full gap-3">
                   {/* Text content */}
-                  <div className="flex-1">
+                  <div className="flex-1 flex items-center h-full">
                     <p 
                       className="text-sm leading-relaxed"
                       style={{
@@ -183,7 +184,7 @@ export function SeniorAccordion({
                   </div>
                   
                   {/* Action Button */}
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 flex items-center h-full">
                     <motion.button
                       className="w-full sm:w-auto py-3 px-6 font-medium rounded-lg transition-colors hover:opacity-90"
                       style={{ 
