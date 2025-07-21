@@ -12,7 +12,10 @@ export default function JourneyDetail() {
   const { selectedPersona, currentStep, userName } = usePersona();
   const [, setLocation] = useLocation();
 
-  if (!selectedPersona || !currentStep) {
+  // Find the current step object from the persona's journey steps
+  const currentStepObj = selectedPersona?.journeySteps.find(step => step.id === currentStep);
+
+  if (!selectedPersona || !currentStep || !currentStepObj) {
     setLocation('/welcome');
     return null;
   }
@@ -384,15 +387,10 @@ export default function JourneyDetail() {
     };
 
     const currentPersonaActions = personaStepActions[selectedPersona?.id || ''] || {};
-    const stepActions = currentPersonaActions[currentStep?.id || ''] || [];
-    const universalServices = getUniversalServices(currentStep?.id || '');
+    const stepActions = currentPersonaActions[currentStep || ''] || [];
+    const universalServices = getUniversalServices(currentStep || '');
     
-    // Debug logging to check what's being loaded
-    console.log('DEBUG - Selected Persona ID:', selectedPersona?.id);
-    console.log('DEBUG - Current Step ID:', currentStep?.id);
-    console.log('DEBUG - Persona Actions for this persona:', currentPersonaActions);
-    console.log('DEBUG - Step Actions for this step:', stepActions);
-    console.log('DEBUG - Universal Services:', universalServices);
+
     
     // Return step-specific actions + context-aware universal services
     return [...stepActions, ...universalServices];
@@ -506,7 +504,7 @@ export default function JourneyDetail() {
                 lineHeight: selectedPersona.typography?.lineHeight || '1.4'
               }}
             >
-              You are "{currentStep?.name || 'Journey Point'}" phase
+              You are in "{currentStepObj?.name || 'Journey Point'}" phase
             </p>
           </motion.div>
 
