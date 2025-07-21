@@ -97,6 +97,9 @@ This is an intelligent airport navigation web application that provides personal
 - **Reduced accordion vertical spacing**: Decreased accordion trigger padding to py-1 md:py-2 and standardized gap to 16px (gap-4) for more compact layout while maintaining readability
 - **Fixed accordion horizontal alignment**: Updated Senior accordion to use md:items-center for proper horizontal alignment between text content and action buttons on desktop, maintaining vertical stacking on mobile
 - **Mobile carousel full viewport optimization**: Updated mobile carousel to use calc(100vh - 120px) height with 24px top padding for proper viewport alignment, removed height constraints to enable full fill behavior, positioned content 24px from top edge
+- **Added mobile carousel max height constraint**: Set maxHeight to 500px on mobile to prevent excessive stretching while maintaining responsive fill behavior
+- **Ensured full width text containers**: Added w-full class to all title and paragraph elements in welcome page to ensure text containers fill their parent containers on mobile instead of hugging content
+- **Reduced accordion gap to 16px on mobile**: Updated Senior accordion component to use 16px gap on mobile screens (<768px) while maintaining 24px gap on desktop for optimal spacing hierarchy
 - **Separated navigation buttons design**: Split AirBuddy logo and back action into separate buttons - logo as standalone square (10x10), back button with icon+text on desktop and icon-only on mobile with responsive design and staggered animations
 - **Reduced carousel height by 64px**: Decreased carousel container height across all breakpoints (256px mobile, 356px tablet, 396px medium, 416px desktop) for optimized viewport space utilization
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
