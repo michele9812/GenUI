@@ -26,6 +26,8 @@ This is an intelligent airport navigation web application that provides personal
 - **Completed English translation**: Translated all persona descriptions from Italian to English in the onboarding dropdown selection
 - **Mobile viewport optimization**: Reduced carousel height to 320px on mobile (from 420px), decreased card height to 260px on mobile, reduced header spacing to top-12 on mobile for better single-viewport fit
 - **Consistent H1 sizing for mobile**: Applied h1-responsive-small class to welcome page for consistent mobile typography across onboarding and journey pages
+- **Code cleanup and bug fixes**: Fixed carousel control visibility by moving navigation elements outside masked container with z-index 1000, optimized performance with useCallback hooks, removed unused className prop, and fixed all syntax errors
+- **Enhanced carousel navigation isolation**: Navigation controls (arrows and indicators) now completely independent from content fading effects, ensuring 100% visibility and functionality
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
