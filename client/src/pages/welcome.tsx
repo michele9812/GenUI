@@ -160,11 +160,12 @@ export default function Welcome() {
       <div 
         className="text-center container-responsive-padding"
         style={{
-          marginTop: window.innerWidth <= 320 ? '48px' : '64px', // iPhone SE: 48px, others: 64px
+          marginTop: window.innerWidth <= 320 ? '32px' : // iPhone SE: 32px
+                     window.innerWidth < 768 ? '40px' : '64px', // Mobile: 40px, Desktop: 64px
           marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                        window.innerWidth < 768 ? '8px' : '24px', // Mobile: 8px, Desktop: 24px
+                        window.innerWidth < 768 ? '8px' : '16px', // Mobile: 8px, Desktop: 16px
           paddingBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px  
-                         window.innerWidth < 768 ? '8px' : '8px' // Mobile/Desktop: 8px
+                         window.innerWidth < 768 ? '4px' : '8px' // Mobile: 4px, Desktop: 8px
         }}
       >
         <h1 
@@ -180,11 +181,7 @@ export default function Welcome() {
             display: 'block',
             boxSizing: 'border-box',
             marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                          window.innerWidth < 768 ? '8px' : (
-              selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-              ? '24px' // More space for Senior persona on desktop
-              : '8px' // Standard spacing between title and subtitle
-            )
+                          window.innerWidth < 768 ? '8px' : '8px' // 8px consistent spacing
           }}
         >
           Hello {userName || 'User'}
