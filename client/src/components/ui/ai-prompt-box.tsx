@@ -435,6 +435,17 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
   const [showCanvas, setShowCanvas] = React.useState(false);
   const uploadInputRef = React.useRef<HTMLInputElement>(null);
   const promptBoxRef = React.useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  // Mobile detection
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleToggleChange = (value: string) => {
     if (value === "search") {
@@ -535,6 +546,117 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
 
   const hasContent = input.trim() !== "" || files.length > 0;
 
+  // Mobile version with 56px max height
+  if (isMobile) {
+    return (
+      <>
+        <div 
+          className={cn(
+            "w-full bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-300 ease-in-out",
+            isRecording && "border-red-500/70",
+            className
+          )}
+          style={{ maxHeight: '56px' }}
+          ref={ref || promptBoxRef}
+        >
+          <div className="flex items-center justify-between h-full px-3 py-2 gap-2">
+            {/* Left: Attachment Icon */}
+            <button
+              onClick={() => uploadInputRef.current?.click()}
+              className="flex-shrink-0 h-8 w-8 text-gray-500 cursor-pointer flex items-center justify-center rounded-full transition-colors hover:bg-gray-100 hover:text-gray-700"
+              disabled={isRecording}
+            >
+              <Paperclip className="h-5 w-5" />
+              <input
+                ref={uploadInputRef}
+                type="file"
+                className="hidden"
+                onChange={(e) => {
+                  if (e.target.files && e.target.files.length > 0) processFile(e.target.files[0]);
+                  if (e.target) e.target.value = "";
+                }}
+                accept="image/*"
+              />
+            </button>
+
+            {/* Center: Input Text */}
+            <div className="flex-1 min-w-0">
+              {isRecording ? (
+                <VoiceRecorder
+                  isRecording={isRecording}
+                  onStartRecording={handleStartRecording}
+                  onStopRecording={handleStopRecording}
+                />
+              ) : (
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      e.preventDefault();
+                      handleSubmit();
+                    }
+                  }}
+                  placeholder={
+                    showSearch
+                      ? "Search the web..."
+                      : showThink
+                      ? "Think deeply..."
+                      : showCanvas
+                      ? "Create on canvas..."
+                      : placeholder
+                  }
+                  className="w-full h-full border-none outline-none bg-transparent text-gray-900 placeholder-gray-500 text-base"
+                  style={{
+                    fontFamily: personaTypography?.fontFamily || 'inherit',
+                    fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined
+                  }}
+                  disabled={isLoading || isRecording}
+                />
+              )}
+            </div>
+
+            {/* Right: Microphone/Send Button */}
+            <button
+              className={cn(
+                "flex-shrink-0 h-8 w-8 rounded-full transition-all duration-200 flex items-center justify-center",
+                isRecording
+                  ? "bg-transparent hover:bg-gray-100 text-red-500 hover:text-red-400"
+                  : hasContent
+                  ? "hover:opacity-80 text-white"
+                  : "bg-transparent hover:bg-gray-100 text-gray-500 hover:text-gray-700"
+              )}
+              style={{
+                backgroundColor: hasContent ? accentColor : undefined,
+                fontFamily: personaTypography?.fontFamily || 'inherit'
+              }}
+              onClick={() => {
+                if (isRecording) setIsRecording(false);
+                else if (hasContent) handleSubmit();
+                else setIsRecording(true);
+              }}
+              disabled={isLoading && !hasContent}
+            >
+              {isLoading ? (
+                <Square className="h-4 w-4 fill-gray-600 animate-pulse" />
+              ) : isRecording ? (
+                <StopCircle className="h-5 w-5 text-red-500" />
+              ) : hasContent ? (
+                <ArrowUp className="h-4 w-4 text-white" />
+              ) : (
+                <Mic className="h-5 w-5 text-gray-600 transition-colors" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        <ImageViewDialog imageUrl={selectedImage} onClose={() => setSelectedImage(null)} />
+      </>
+    );
+  }
+
+  // Desktop version (original)
   return (
     <>
       <PromptInput
