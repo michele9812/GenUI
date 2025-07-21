@@ -202,9 +202,9 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
               <motion.div
                 key={`${item.id}-${originalIndex}`}
                 className={cn(
-                  "absolute rounded-2xl cursor-pointer bg-white shadow-lg select-none",
-                  isCenter ? "shadow-2xl border-2" : "shadow-md",
-                  isDragging ? "pointer-events-none" : "pointer-events-auto",
+                  "absolute rounded-2xl bg-white shadow-lg select-none",
+                  isCenter ? "shadow-2xl border-2 cursor-pointer" : "shadow-md cursor-default",
+                  isDragging ? "pointer-events-none" : (isCenter ? "pointer-events-auto" : "pointer-events-none"),
                   // Disable glare for non-active cards
                   !isCenter && "backdrop-blur-none"
                 )}
@@ -239,13 +239,13 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                   damping: 30,
                   mass: 0.8
                 }}
-                onClick={() => handleCardClick(originalIndex)}
-                whileHover={!isDragging ? { 
+                onClick={isCenter ? () => handleCardClick(originalIndex) : undefined}
+                whileHover={!isDragging && isCenter ? { 
                   scale: style.scale * 1.02,
                   y: -5,
                   transition: { duration: 0.2 }
                 } : {}}
-                whileTap={!isDragging ? { scale: style.scale * 0.98 } : {}}
+                whileTap={!isDragging && isCenter ? { scale: style.scale * 0.98 } : {}}
               >
                 {/* Card Content */}
                 <div className={cn(
@@ -306,11 +306,8 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                         </motion.button>
                       ) : (
                         <button 
-                          className="w-full py-3 border border-gray-300 text-gray-600 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleCardClick(originalIndex);
-                          }}
+                          disabled
+                          className="w-full py-3 border border-gray-300 text-gray-400 font-medium rounded-lg bg-gray-100 cursor-not-allowed opacity-60"
                         >
                           View Details
                         </button>
