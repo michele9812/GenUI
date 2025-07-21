@@ -454,67 +454,78 @@ export default function JourneyDetail() {
           <span className="text-sm font-medium">Back to journey selection</span>
         </motion.button>
       </div>
-      {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-16 sm:pt-16 pb-24 h-full overflow-hidden">
+      {/* Header Section - Consistent with welcome page positioning */}
+      <div 
+        className="absolute left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full pt-[8px] pb-[8px]"
+        style={{
+          top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+            ? '80px' // More space for Senior persona with 125% scaling
+            : '48px' // Mobile: top-12, tablet/desktop consistent
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 
+            className="h1-responsive-small"
+            style={{
+              fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
+              fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
+              color: primaryColor,
+              lineHeight: selectedPersona.typography?.lineHeight || '1.2',
+              marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+                ? '24px' // More space for Senior persona
+                : '16px' // Standard spacing
+            }}
+          >
+            Hello{' '}
+            <span style={{ color: nameColor }}>
+              {userName || 'User'}
+            </span>
+            ,
+          </h1>
+          <p 
+            style={{
+              fontSize: selectedPersona.typography?.scale ? `calc(18pt * ${selectedPersona.typography.scale})` : '18pt',
+              lineHeight: selectedPersona.typography?.lineHeight || '1.4',
+              fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+              color: isStudentPersona ? 'rgba(255, 255, 255, 0.8)' : selectedPersona.colors.secondary,
+              marginBottom: '16px' // Spacing before next element
+            }}
+          >
+            I am your AirBuddy and I am here to assist you!
+          </p>
           
-          {/* Title */}
-          <motion.div 
-            className="text-center mb-8 sm:mb-8 md:mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          {/* Current Journey Phase */}
+          <p 
+            className="font-medium"
+            style={{
+              fontSize: selectedPersona.typography?.scale 
+                ? `calc(18pt * ${selectedPersona.typography.scale})` 
+                : '18pt', // Max 18pt on all breakpoints
+              fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+              color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
+              lineHeight: selectedPersona.typography?.lineHeight || '1.4',
+              marginBottom: '16px' // Ensure 16px spacing with content below
+            }}
           >
-            <h1 
-              className="h1-responsive"
-              style={{
-                fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-                fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
-                color: primaryColor,
-                lineHeight: selectedPersona.typography?.lineHeight || '1.2'
-              }}
-            >
-              Hello{' '}
-              <span
-                style={{ color: nameColor }}>
-                {userName || 'User'}
-              </span>
-              ,
-            </h1>
-            <p 
-              className="text-lg md:text-xl lg:text-2xl font-semibold mt-1"
-              style={{
-                fontSize: selectedPersona.typography?.scale ? `calc(1.25rem * ${selectedPersona.typography.scale})` : undefined,
-                fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
-                color: isStudentPersona ? '#FFFFFF' : selectedPersona.colors.secondary,
-                lineHeight: selectedPersona.typography?.lineHeight || '1.4'
-              }}
-            >
-              I am your AirBuddy and I am here to assist you!
-            </p>
-            
-            {/* Current Journey Phase */}
-            <p 
-              className="mt-4 font-medium"
-              style={{
-                fontSize: selectedPersona.typography?.scale 
-                  ? `calc(18pt * ${selectedPersona.typography.scale})` 
-                  : '18pt', // Max 18pt on all breakpoints
-                fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
-                color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
-                lineHeight: selectedPersona.typography?.lineHeight || '1.4'
-              }}
-            >
-              You are in "{currentStepObj?.name || 'Journey Point'}" phase
-            </p>
-          </motion.div>
+            You are in "{currentStepObj?.name || 'Journey Point'}" phase
+          </p>
+        </motion.div>
+      </div>
 
-          {/* 3D Carousel, Senior Accordion, or Family Tabs */}
-          <motion.div 
-            className="mb-8 sm:mb-8 md:mb-8"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+      {/* Main Content */}
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 h-full overflow-hidden" style={{ paddingTop: '160px', paddingBottom: '24px' }}>
+
+        {/* 3D Carousel, Senior Accordion, or Family Tabs */}
+        <motion.div 
+          className="mb-8 sm:mb-8 md:mb-8"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
             {selectedPersona.id === 'senior' ? (
               <SeniorAccordion 
                 items={carouselItems}
@@ -540,9 +551,8 @@ export default function JourneyDetail() {
                 personaTypography={selectedPersona.typography}
                 selectedPersona={selectedPersona}
               />
-            )}
-          </motion.div>
-
+          )}
+        </motion.div>
       </main>
 
       {/* Floating AI Prompt Input - Fixed at bottom */}
