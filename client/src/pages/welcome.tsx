@@ -166,7 +166,7 @@ export default function Welcome() {
         }}
       >
         <h1 
-          className="h1-responsive-small text-white w-full"
+          className="h1-responsive text-white w-full"
           style={{ 
             fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
             transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,

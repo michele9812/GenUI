@@ -525,7 +525,7 @@ export default function JourneyDetail() {
           }}
         >
           <h1 
-            className="h1-responsive-small w-full"
+            className="h1-responsive w-full"
             style={{
               fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
@@ -562,7 +562,7 @@ export default function JourneyDetail() {
           <p 
             className="font-medium w-full"
             style={{
-              fontSize: '18pt', // Fixed 18pt size for all breakpoints
+              fontSize: window.innerWidth < 768 ? '16pt' : '18pt', // 16pt mobile, 18pt desktop
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
