@@ -132,8 +132,8 @@ export default function Welcome() {
         className="text-center container-responsive-padding"
         style={{
           marginTop: '64px', // 64px top margin
-          marginBottom: window.innerWidth < 768 ? '8px' : '32px', // 8px mobile, 32px desktop
-          paddingBottom: window.innerWidth < 768 ? '8px' : '32px' // 8px mobile, 32px desktop
+          marginBottom: window.innerWidth < 768 ? '8px' : '24px', // 8px mobile, 24px desktop
+          paddingBottom: window.innerWidth < 768 ? '8px' : '8px' // 8px mobile, 8px desktop
         }}
       >
         <h1 
