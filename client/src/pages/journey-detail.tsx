@@ -616,8 +616,7 @@ export default function JourneyDetail() {
       </main>
       {/* Floating AI Prompt Input - Full width with responsive padding */}
       <div 
-        className="container-responsive-padding"
-        style={{ marginBottom: '32px' }}
+        className="fixed bottom-8 left-0 right-0 z-40 container-responsive-padding"
       >
         <motion.div 
           className="max-w-4xl mx-auto"
