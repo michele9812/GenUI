@@ -55,35 +55,37 @@ export default function Login() {
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
       <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
-        <CardContent className="p-0 h-full flex flex-col relative">
-          {/* Fixed Header Area */}
-          <div className="flex-shrink-0 space-y-6 px-6 pt-8">
-            <div className="text-center">
-              <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
-                <img 
-                  src={cheerfulPilotImage} 
-                  alt="AirBuddy Pilot" 
-                  className="w-full h-full object-contain"
-                />
+        <CardContent className="p-0 h-full relative">
+          {/* Content Area */}
+          <div className="h-full flex flex-col px-6 pt-8 pb-20">
+            {/* Fixed Header Area */}
+            <div className="flex-shrink-0 space-y-6">
+              <div className="text-center">
+                <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-blue-50">
+                  <img 
+                    src={cheerfulPilotImage} 
+                    alt="AirBuddy Pilot" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <h1 className="h1-responsive-small text-gray-900">
+                  AirBuddy Assistant
+                </h1>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-gray-600">
+                  Select your profile to continue
+                </p>
               </div>
             </div>
-            
-            <div className="text-center">
-              <h1 className="h1-responsive-small text-gray-900">
-                AirBuddy Assistant
-              </h1>
-            </div>
-            
-            <div className="text-center">
-              <p className="text-gray-600">
-                Select your profile to continue
-              </p>
-            </div>
-          </div>
 
-          {/* Flexible Content Area */}
-          <div className="flex-1 flex flex-col justify-center space-y-6 px-6 pb-20">
-            <div>
+            {/* Flexible Content Area */}
+            <div className="flex-1 flex flex-col justify-center space-y-6">
+              <div>
               <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
                 Name
               </Label>
@@ -172,6 +174,7 @@ export default function Login() {
                 </div>
               )}
             </div>
+          </div>
           </div>
 
           {/* Fixed Button Area - Fixed to bottom with 24px spacing */}
