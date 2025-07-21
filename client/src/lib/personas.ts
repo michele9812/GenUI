@@ -33,7 +33,7 @@ export const JOURNEY_IMAGES = {
   
   // Corridors and Navigation
   CORRIDOR: '/attached_assets/Modern%20Airport%20Terminal%20%281%29_1753100792152.png',
-  LAYOVER: '/attached_assets/Modern%20Airport%20Terminal%20%281%29_1753100792152.png',
+  LAYOVER: '/attached_assets/Modern%20Waiting%20Area_1753101085541.png',
   IMMIGRATION: '/attached_assets/immigration_1753100792151.png'
 } as const;
 
