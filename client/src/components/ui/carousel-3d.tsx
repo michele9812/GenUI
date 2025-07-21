@@ -224,8 +224,8 @@ export function Carousel3D({
         style={{
           alignItems: window.innerWidth < 640 ? 'center' : 'flex-start',
           paddingTop: window.innerWidth < 640 ? '0' : '16px',
-          paddingLeft: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
-          paddingRight: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
+          paddingLeft: window.innerWidth < 640 ? '16px' : '80px',
+          paddingRight: window.innerWidth < 640 ? '16px' : '80px',
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
