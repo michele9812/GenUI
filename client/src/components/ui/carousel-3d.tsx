@@ -129,62 +129,30 @@ export function Carousel3D({
   const getCardStyle = useCallback((position: number) => {
     const isCenter = position === 0;
     
-    // Enhanced responsive breakpoints for better mobile experience
+    // Simplified responsive breakpoints
     const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
-    const isIPhoneSE = screenWidth < 375; // iPhone SE and similar small devices
-    const isIPhoneXR = screenWidth >= 375 && screenWidth < 414; // iPhone XR range
-    const isIPhone16Plus = screenWidth >= 414; // iPhone 16 and larger devices
     const isMobile = screenWidth < 640;
-    const isSmTablet = screenWidth < 768; 
     const isTablet = screenWidth < 1024;
-    const isSmDesktop = screenWidth < 1280;
-    const isDesktop = screenWidth < 1536;
     
     let baseWidth, centerWidth, spacing, containerPadding;
     
-    if (isIPhoneSE) {
-      // iPhone SE and similar small devices (< 375px)
-      baseWidth = 140;
-      centerWidth = 180;
-      spacing = 16; // 16px mobile spacing
-      containerPadding = 12;
-    } else if (isIPhoneXR && isMobile) {
-      // iPhone XR range (375px - 414px)
-      baseWidth = 240; // min width 240
-      centerWidth = 260;
-      spacing = 16; // 16px mobile spacing
-      containerPadding = 16;
-    } else if (isMobile) {
-      // iPhone 16 and larger mobile devices (414px - 640px)
-      baseWidth = 260; // min width 260
+    if (isMobile) {
+      // iPhone 16+ unified mobile configuration
+      baseWidth = 260;
       centerWidth = 280;
       spacing = 16; // 16px mobile spacing
       containerPadding = 16;
-    } else if (isSmTablet) {
-      baseWidth = 180;
-      centerWidth = 220;
-      spacing = 24; // 24px tablet spacing
-      containerPadding = 20;
     } else if (isTablet) {
       baseWidth = 200;
       centerWidth = 240;
       spacing = 24; // 24px tablet spacing
       containerPadding = 24;
-    } else if (isSmDesktop) {
-      baseWidth = 220;
-      centerWidth = 260;
-      spacing = 32; // 32px desktop spacing
-      containerPadding = 32;
-    } else if (isDesktop) {
+    } else {
+      // Desktop configuration
       baseWidth = 240;
       centerWidth = 280;
       spacing = 32; // 32px desktop spacing
       containerPadding = 40;
-    } else {
-      baseWidth = 260;
-      centerWidth = 300;
-      spacing = 32; // 32px desktop spacing
-      containerPadding = 48;
     }
     
     // Enhanced positioning with responsive adjustments
@@ -203,11 +171,7 @@ export function Carousel3D({
     
     return {
       width: cardWidth,
-      height: isMobile ? (
-        isIPhoneSE ? 220 : // iPhone SE: current version
-        isIPhoneXR ? 280 : // iPhone XR: min height 280
-        320 // iPhone 16+: min height 320
-      ) : 320, // Desktop: 320px
+      height: isMobile ? 320 : 320, // Unified 320px for all devices
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
@@ -225,16 +189,14 @@ export function Carousel3D({
   const visibleCards = getVisibleCards();
 
   const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
-  const isIPhoneSE = screenWidth < 375;
-  const isIPhoneXR = screenWidth >= 375 && screenWidth < 414;
   const isMobile = screenWidth < 640;
 
   return (
     <div 
       className="relative w-full"
       style={{
-        height: isMobile ? '400px' : '418px', // Unified 400px for all mobile, 418px desktop
-        maxHeight: isMobile ? '400px' : '418px'
+        height: isMobile ? '480px' : '418px', // Unified 480px for all mobile, 418px desktop
+        maxHeight: isMobile ? '480px' : '418px'
       }}
     >
       <div 
