@@ -3,6 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 
 import { usePersona } from '@/hooks/use-persona';
 import { Carousel3D } from '@/components/ui/carousel-3d';
+import { SeniorAccordion } from '@/components/ui/senior-accordion';
 import { PromptInputBox } from '@/components/ui/ai-prompt-box';
 import { motion } from 'framer-motion';
 
@@ -164,21 +165,32 @@ export default function JourneyDetail() {
             </p>
           </motion.div>
 
-          {/* 3D Carousel */}
+          {/* 3D Carousel or Senior Accordion */}
           <motion.div 
             className="mb-8 sm:mb-8 md:mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Carousel3D 
-              items={carouselItems}
-              onItemSelect={handleCarouselItemSelect}
-              accentColor={buttonColor}
-              secondaryColor={isStudentPersona ? '#1D4ED8' : selectedPersona.colors.secondary}
-              personaTypography={selectedPersona.typography}
-              selectedPersona={selectedPersona}
-            />
+            {selectedPersona.id === 'senior' ? (
+              <SeniorAccordion 
+                items={carouselItems}
+                onItemSelect={handleCarouselItemSelect}
+                accentColor={buttonColor}
+                secondaryColor={isStudentPersona ? '#1D4ED8' : selectedPersona.colors.secondary}
+                personaTypography={selectedPersona.typography}
+                selectedPersona={selectedPersona}
+              />
+            ) : (
+              <Carousel3D 
+                items={carouselItems}
+                onItemSelect={handleCarouselItemSelect}
+                accentColor={buttonColor}
+                secondaryColor={isStudentPersona ? '#1D4ED8' : selectedPersona.colors.secondary}
+                personaTypography={selectedPersona.typography}
+                selectedPersona={selectedPersona}
+              />
+            )}
           </motion.div>
 
       </main>
