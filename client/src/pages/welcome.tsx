@@ -74,7 +74,7 @@ export default function Welcome() {
       }}
     >
       {/* Header Section */}
-      <div className="absolute top-[120px] left-1/2 transform -translate-x-1/2 text-center z-10 px-4 max-w-5xl">
+      <div className="absolute top-[120px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
           Ciao {userName}
         </h1>
@@ -84,7 +84,7 @@ export default function Welcome() {
       </div>
 
       {/* Central Image */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 top-[220px] sm:top-[244px] lg:top-[260px]"> {/* 120+40+60=220 mobile, 120+64+60=244 tablet, 120+80+60=260 desktop */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 sm:px-6 lg:px-8 top-[220px] sm:top-[244px] lg:top-[260px]"> {/* 120+40+60=220 mobile, 120+64+60=244 tablet, 120+80+60=260 desktop */}
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -101,14 +101,15 @@ export default function Welcome() {
       </div>
 
       {/* Interactive Dock Navigation */}
-      <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 lg:bottom-20 left-1/2 transform -translate-x-1/2 z-20 px-4 w-full max-w-7xl">
-        <Dock 
-          className="items-end pb-3" 
-          panelHeight={80}
-          backgroundColor={dockColors.background}
-          magnification={90}
-          distance={160}
-        >
+      <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 lg:bottom-20 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex justify-center w-full">
+          <Dock 
+            className="items-end pb-3" 
+            panelHeight={80}
+            backgroundColor={dockColors.background}
+            magnification={90}
+            distance={160}
+          >
           {selectedPersona.journeySteps.map((step, idx) => (
             <DockItem
               key={idx}
@@ -123,7 +124,8 @@ export default function Welcome() {
               </DockIcon>
             </DockItem>
           ))}
-        </Dock>
+          </Dock>
+        </div>
       </div>
     </div>
   );
