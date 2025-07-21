@@ -129,36 +129,45 @@ export function SeniorAccordion({
             
             <AccordionContent className="bg-white">
               <div className="px-4 py-1 sm:px-6 sm:py-1">
-                <p 
-                  className="text-sm leading-relaxed mb-2"
-                  style={{
-                    color: selectedPersona.colors.text || '#111827',
-                    fontFamily: personaTypography?.fontFamily || 'inherit',
-                    fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
-                  }}
-                >
-                  {item.description}
-                </p>
-                
-                {/* Action Button */}
-                <motion.button
-                  className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90"
-                  style={{ 
-                    backgroundColor: secondaryColor,
-                    color: 'white',
-                    fontFamily: personaTypography?.fontFamily || 'inherit',
-                    fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
-                    border: 'none'
-                  }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onItemSelect?.(item);
-                  }}
-                >
-                  Start Action
-                </motion.button>
+                {/* Horizontal layout: text + button */}
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                  {/* Text content */}
+                  <div className="flex-1">
+                    <p 
+                      className="text-sm leading-relaxed"
+                      style={{
+                        color: selectedPersona.colors.text || '#111827',
+                        fontFamily: personaTypography?.fontFamily || 'inherit',
+                        fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
+                      }}
+                    >
+                      {item.description}
+                    </p>
+                  </div>
+                  
+                  {/* Action Button */}
+                  <div className="flex-shrink-0">
+                    <motion.button
+                      className="w-full sm:w-auto py-3 px-6 font-medium rounded-lg transition-colors hover:opacity-90"
+                      style={{ 
+                        backgroundColor: secondaryColor,
+                        color: 'white',
+                        fontFamily: personaTypography?.fontFamily || 'inherit',
+                        fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
+                        border: 'none',
+                        maxWidth: '320px'
+                      }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onItemSelect?.(item);
+                      }}
+                    >
+                      Start Action
+                    </motion.button>
+                  </div>
+                </div>
               </div>
             </AccordionContent>
             </AccordionItem>
