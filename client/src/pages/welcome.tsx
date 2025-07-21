@@ -125,14 +125,18 @@ export default function Welcome() {
                 Select your journey phase as {selectedPersona.title}
               </p>
             </div>
-      {/* Central Image - Adjusted for responsive header spacing */}
+      {/* Central Image - Positioned with proper spacing from header */}
       <div 
         className="absolute left-1/2 transform -translate-x-1/2 z-10"
         style={{
           top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-            ? '52%' // Adjusted for Senior persona to ensure 16px spacing from header
-            : '48%', // Adjusted to ensure 16px spacing from header
-          transform: 'translateX(-50%) translateY(-50%)'
+            ? 'calc(80px + 16px + 120px + 16px)' // Senior: header top + header height + 16px spacing
+            : screenWidth <= 640 
+              ? 'calc(48px + 16px + 100px + 16px)' // Mobile: header top + header height + 16px spacing
+              : screenWidth <= 1024 
+                ? 'calc(80px + 16px + 110px + 16px)' // Tablet
+                : 'calc(96px + 16px + 110px + 16px)', // Desktop
+          transform: 'translateX(-50%)'
         }}
       >
         <motion.div
@@ -162,7 +166,7 @@ export default function Welcome() {
                 '320px' : // Tablet
                 '375px', // Desktop
             maxWidth: 'calc(100vw - 32px)',
-            maxHeight: 'calc(100vh - 200px)' // Leave space for header and dock
+            maxHeight: 'calc(100vh - 280px)' // Leave space for header, spacing and dock
           }}
         >
           <img
