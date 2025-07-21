@@ -70,12 +70,24 @@ export default function JourneyDetail() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div 
+      className="min-h-screen flex flex-col"
+      style={{ 
+        fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+        background: `linear-gradient(135deg, ${selectedPersona.colors.primary}10, ${selectedPersona.colors.secondary}10)` 
+      }}
+    >
       {/* Back Button - Top Left */}
       <div className="absolute top-4 left-4 z-50">
         <motion.button
           onClick={handleBack}
-          className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-200 text-gray-700 hover:text-gray-900"
+          className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-200"
+          style={{
+            borderColor: selectedPersona.colors.primary,
+            color: selectedPersona.colors.primary,
+            borderWidth: '1px',
+            borderStyle: 'solid'
+          }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           initial={{ opacity: 0, x: -20 }}
@@ -88,7 +100,7 @@ export default function JourneyDetail() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 bg-gray-50 w-full px-4 sm:px-6 lg:px-8 pt-[40px] pb-[40px]">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[40px] pb-[40px]">
           
           {/* Title */}
           <motion.div 

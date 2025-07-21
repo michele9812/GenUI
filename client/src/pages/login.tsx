@@ -29,11 +29,11 @@ export default function Login() {
   const selectedPersona = selectedPersonaId ? personas[selectedPersonaId] : null;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-slate-100">
       <Card className="w-full max-w-md mx-4 shadow-2xl">
         <CardContent className="pt-8 sm:pt-12 lg:pt-16">
           <div className="text-center mb-10 sm:mb-16 lg:mb-20">
-            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Plane className="text-white text-3xl" size={24} />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Smart Airport Navigation</h1>
@@ -101,7 +101,7 @@ export default function Login() {
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
-              className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 px-4 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Start the journey
               <span className="material-icons ml-2 text-sm">arrow_forward</span>
