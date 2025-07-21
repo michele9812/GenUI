@@ -47,7 +47,7 @@ export default function FamilyTabs({
     <div className={`w-full ${className}`}>
         {/* Horizontal Tab List - Hug Content with Active Label */}
         <div 
-          className="flex items-stretch w-full gap-1 p-2 mb-4 md:mb-6 rounded-lg"
+          className="flex items-stretch w-full gap-1 p-2 mb-2 md:mb-8 rounded-lg"
           style={{
             backgroundColor: `${selectedPersona?.colors.primary}10` || '#f9fafb'
           }}
@@ -122,7 +122,7 @@ export default function FamilyTabs({
               }}
             >
               {/* Header with Icon and Title */}
-              <div className="flex items-center gap-2 md:gap-4 mb-3 md:mb-4">
+              <div className="flex items-center gap-2 md:gap-4 mb-2 md:mb-8">
                 <div 
                   className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center"
                   style={{
@@ -163,7 +163,7 @@ export default function FamilyTabs({
 
               {/* Description */}
               <p 
-                className="text-sm leading-relaxed mb-4 md:mb-6"
+                className="text-sm leading-relaxed mb-2 md:mb-8"
                 style={{
                   color: selectedPersona?.colors.text || '#111827',
                   fontFamily: personaTypography?.fontFamily || 'inherit',
