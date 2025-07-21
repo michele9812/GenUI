@@ -114,7 +114,7 @@ export default function Welcome() {
           <img
             src={currentImage || defaultImage}
             alt="Journey step preview"
-            className="w-full h-full object-cover mt-[40px] mb-[40px] pt-[0px] pb-[0px]"
+            className="w-full h-full object-cover rounded-lg"
           />
         </motion.div>
       </div>

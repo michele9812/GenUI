@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useDragControls, PanInfo } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -201,7 +201,7 @@ export function Carousel3D({
   return (
     <div 
       ref={containerRef}
-      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[420px] sm:h-[440px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing pt-[0px] pb-[0px]"
+      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[420px] sm:h-[440px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing"
       style={{
         paddingLeft: `${getCardStyle(0).containerPadding}px`,
         paddingRight: `${getCardStyle(0).containerPadding}px`
@@ -224,11 +224,6 @@ export function Carousel3D({
           {visibleCards.map(({ item, originalIndex, position }) => {
             const style = getCardStyle(position);
             const isCenter = position === 0;
-            const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
-            const isXsPhone = screenWidth < 375;
-            const isMobile = screenWidth < 640;
-            const isSmTablet = screenWidth < 768; 
-            const isTablet = screenWidth < 1024;
             
             return (
               <motion.div
@@ -237,16 +232,15 @@ export function Carousel3D({
                   "absolute rounded-lg bg-white shadow-lg select-none",
                   isCenter ? "shadow-2xl border-2 cursor-pointer" : "shadow-md cursor-default",
                   isDragging ? "pointer-events-none" : (isCenter ? "pointer-events-auto" : "pointer-events-none"),
-                  // Disable glare for non-active cards
                   !isCenter && "backdrop-blur-none"
                 )}
                 style={{
                   width: style.width,
-                  height: 320, // Altezza fissa di 320px per tutte le card come pattuito
+                  height: 320, // Fixed height of 320px for all cards
                   zIndex: style.zIndex,
                   borderColor: isCenter ? accentColor : 'transparent',
                   filter: style.blur,
-                  // Use persona colors for card backgrounds
+
                   background: isCenter ? (selectedPersona?.colors?.bg || '#ffffff') : '#f8fafc',
                   borderWidth: '2px',
                   borderStyle: 'solid'
@@ -281,13 +275,11 @@ export function Carousel3D({
                 } : {}}
                 whileTap={!isDragging && isCenter ? { scale: style.scale * 0.98 } : {}}
               >
-                {/* Card Content */}
                 <div className={cn(
                   "w-full h-full rounded-lg overflow-hidden flex flex-col",
-                  // Remove glare effect from non-active cards
                   isCenter ? "glare-card" : ""
                 )}>
-                  {/* Header */}
+
                   <div 
                     className="px-4 py-2 sm:px-6 sm:py-3 text-center"
                     style={{
@@ -312,8 +304,7 @@ export function Carousel3D({
                     <div 
                       className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg mx-auto mb-2 sm:mb-3 flex items-center justify-center"
                       style={{
-                        backgroundColor: isCenter ? (selectedPersona?.colors?.secondary || secondaryColor) : '#e5e7eb',
-                        border: isCenter ? `2px solid ${selectedPersona?.colors?.accent || accentColor}` : '1px solid #d1d5db'
+                        backgroundColor: isCenter ? (selectedPersona?.colors?.secondary || secondaryColor) : '#e5e7eb'
                       }}
                     >
                       <span 

@@ -1,6 +1,6 @@
 import { useLocation } from 'wouter';
 import { ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+
 import { usePersona } from '@/hooks/use-persona';
 import { Carousel3D } from '@/components/ui/carousel-3d';
 import { PromptInputBox } from '@/components/ui/ai-prompt-box';
