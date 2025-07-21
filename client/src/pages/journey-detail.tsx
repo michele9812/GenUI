@@ -440,7 +440,7 @@ export default function JourneyDetail() {
       }}
     >
       {/* Navbar - Full width with horizontal layout */}
-      <div className="w-full px-2 py-2 flex items-center justify-start relative gap-2">
+      <div className="w-full px-2 py-2 flex items-center justify-between relative">
         {/* AirBuddy Logo Square - Separate button */}
         <motion.div
           className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden cursor-pointer"
