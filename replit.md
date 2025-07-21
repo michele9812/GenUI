@@ -72,6 +72,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Removed carousel vertical padding**: Eliminated padding top and bottom from carousel container div for cleaner layout integration without spacing conflicts
 - **Separated navigation buttons design**: Split AirBuddy logo and back action into separate buttons - logo as standalone square (10x10), back button with icon+text on desktop and icon-only on mobile with responsive design and staggered animations
 - **Reduced carousel height by 64px**: Decreased carousel container height across all breakpoints (256px mobile, 356px tablet, 396px medium, 416px desktop) for optimized viewport space utilization
+- **Aligned carousel content to top**: Changed container and cards alignment from items-center to items-start for top-aligned layout positioning
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
