@@ -42,6 +42,8 @@ This is an intelligent airport navigation web application that provides personal
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
 - **Enhanced welcome page spacing for Senior persona**: Applied responsive spacing that accounts for 125% text scaling - increased header top position, adjusted central image positioning, and optimized dock bottom spacing to prevent element overlapping across all breakpoints
+- **Fixed contextual actions to be persona and journey-step specific**: Updated journey-detail page to properly map persona IDs to their actual journey step IDs, ensuring each persona shows only relevant actions for their current step plus universal services like security assistance and restrooms
+- **Implemented Family Planner tabs component**: Created FamilyTabs component using Radix UI tabs to replace carousel for Family Planner persona, featuring icons next to tab names, persona-specific styling, and action buttons positioned after descriptions as requested
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
