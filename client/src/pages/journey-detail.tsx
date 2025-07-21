@@ -92,7 +92,7 @@ export default function JourneyDetail() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 bg-gray-50">
+      <main className="flex-1 bg-gray-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[120px]">
           
           {/* Title */}
           <motion.div 
