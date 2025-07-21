@@ -98,8 +98,8 @@ export function SeniorAccordion({
                     color: accentColor
                   }}
                 >
-              <div className="flex items-center justify-between w-full px-4 py-1 sm:px-6 sm:py-1">
-                <div className="flex items-center space-x-3">
+              <div className="flex items-center justify-between w-full px-4 py-0.5 sm:px-6 sm:py-0.5">
+                <div className="flex items-center space-x-2">
                   {/* Icon */}
                   <div 
                     className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center"
@@ -120,7 +120,7 @@ export function SeniorAccordion({
                   {/* Title */}
                   <div>
                     <p 
-                      className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-1"
+                      className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-0"
                       style={{
                         color: accentColor,
                         fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
@@ -163,11 +163,11 @@ export function SeniorAccordion({
             
             <AccordionContent className="bg-white">
               <div 
-                className="px-4 py-1 sm:px-6 sm:py-1"
+                className="px-4 py-0.5 sm:px-6 sm:py-0.5"
                 style={{ backgroundColor: '#ffffff' }}
               >
                 {/* Horizontal layout: text + button */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                   {/* Text content */}
                   <div className="flex-1">
                     <p 
