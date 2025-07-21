@@ -54,7 +54,7 @@ export default function Login() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
-      <Card className="w-full max-w-md min-h-[480px] sm:min-h-[520px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
+      <Card className="w-full max-w-md min-h-[460px] sm:min-h-[490px] md:min-h-[540px] lg:min-h-[570px] shadow-2xl">
         <CardContent className="p-6 pt-8 pb-8 h-full flex flex-col">
           {/* Fixed Header Area */}
           <div className="flex-shrink-0">
@@ -109,8 +109,8 @@ export default function Login() {
               </div>
 
               {selectedPersona && (
-                <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
-                  <div className="flex items-start gap-3">
+                <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 min-h-[100px] sm:min-h-[110px] md:min-h-[120px] lg:min-h-[130px]">
+                  <div className="flex items-start gap-3 h-full">
                     <div 
                       className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full border-2 border-blue-200"
                       style={{ 
