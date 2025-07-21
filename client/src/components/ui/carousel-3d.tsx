@@ -246,7 +246,7 @@ export function Carousel3D({
                 key={`${item.id}-${originalIndex}`}
                 className={cn(
                   "absolute rounded-lg bg-white shadow-lg select-none",
-                  isCenter ? "shadow-2xl border-2 cursor-pointer" : "shadow-md cursor-default",
+                  isCenter ? "shadow-2xl cursor-pointer" : "shadow-md cursor-default",
                   isDragging ? "pointer-events-none" : (isCenter ? "pointer-events-auto" : "pointer-events-none"),
                   !isCenter && "backdrop-blur-none"
                 )}
@@ -254,10 +254,10 @@ export function Carousel3D({
                   width: style.width,
                   height: style.height, // Responsive height from style
                   zIndex: style.zIndex,
-                  borderColor: isCenter ? accentColor : 'transparent',
-
+                  borderColor: isCenter ? 
+                    (selectedPersona?.id === 'student' ? '#1D4ED8' : accentColor) : 'transparent',
                   background: isCenter ? (selectedPersona?.colors?.bg || '#ffffff') : '#f8fafc',
-                  borderWidth: '2px',
+                  borderWidth: isCenter ? '1px' : '0px',
                   borderStyle: 'solid'
                 }}
                 initial={{
@@ -474,7 +474,9 @@ export function Carousel3D({
               : "hover:opacity-70"
           )}
           style={{
-            backgroundColor: index === currentIndex ? (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
+            backgroundColor: index === currentIndex ? 
+              (selectedPersona?.id === 'student' ? '#F59E0B' : (selectedPersona?.colors?.primary || accentColor)) : 
+              (selectedPersona?.id === 'student' ? '#64748B' : '#d1d5db')
           }}
         />
       ))}
