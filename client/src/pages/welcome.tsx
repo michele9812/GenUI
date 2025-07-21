@@ -171,8 +171,9 @@ export default function Welcome() {
           animate={{ 
             opacity: 1, 
             scale: isZooming ? 2.5 : 1,
-            x: isZooming ? '-50%' : 0,
-            y: isZooming ? '-50%' : 0
+            // Center-anchored positioning for zoom animation
+            x: isZooming ? 'calc(50vw - 50%)' : 0,
+            y: isZooming ? 'calc(50vh - 50%)' : 0
           }}
           transition={{ 
             duration: 0.6,
@@ -183,8 +184,8 @@ export default function Welcome() {
             transformOrigin: 'center center',
             zIndex: isZooming ? 9999 : 10,
             position: isZooming ? 'fixed' : 'relative',
-            top: isZooming ? '50%' : 'auto',
-            left: isZooming ? '50%' : 'auto',
+            top: isZooming ? 0 : 'auto',
+            left: isZooming ? 0 : 'auto',
             // Base responsive dimensions with proper aspect ratio
             width: isZooming ? '95vw' : (
               screenWidth <= 640 ? 
