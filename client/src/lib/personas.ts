@@ -93,11 +93,11 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '20px'
     },
     journeySteps: [
-      { id: 'arrival', name: 'Arrivo', icon: 'local_parking', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'arrival', name: 'Arrivo', icon: 'local_parking', image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
       { id: 'security', name: 'Sicurezza', icon: 'security', image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
       { id: 'lounge', name: 'Lounge', icon: 'airline_seat_recline_normal', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'post_flight', name: 'Post-volo', icon: 'flight_land', image: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'post_flight', name: 'Post-volo', icon: 'flight_land', image: 'https://images.unsplash.com/photo-1569354303650-d0b652a1b5f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
     ],
     actions: {
       arrival: [
@@ -161,8 +161,8 @@ export const personas: Record<string, Persona> = {
       { id: 'parking', name: 'Parcheggio', icon: 'local_parking', image: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
       { id: 'checkin', name: 'Check-in', icon: 'how_to_reg', image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
       { id: 'security', name: 'Sicurezza', icon: 'security', image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'waiting', name: 'Attesa', icon: 'schedule', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+      { id: 'waiting', name: 'Attesa', icon: 'schedule', image: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
     ],
     actions: {
       parking: [
@@ -223,10 +223,10 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '28px'
     },
     journeySteps: [
-      { id: 'terminal', name: 'Terminal', icon: 'domain', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'terminal', name: 'Terminal', icon: 'domain', image: 'https://images.unsplash.com/photo-1585948431259-1d5a4e8b64ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
       { id: 'screening', name: 'Screening', icon: 'security', image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'waiting', name: 'Attesa', icon: 'event_seat', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'transfer', name: 'Transfer', icon: 'transfer_within_a_station', image: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+      { id: 'waiting', name: 'Attesa', icon: 'event_seat', image: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'transfer', name: 'Transfer', icon: 'transfer_within_a_station', image: 'https://images.unsplash.com/photo-1559205463-6dce3ecaeba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
     ],
     actions: {
       terminal: [
@@ -284,9 +284,9 @@ export const personas: Record<string, Persona> = {
     },
     journeySteps: [
       { id: 'post_meeting', name: 'Post-meeting', icon: 'business_center', image: 'https://images.unsplash.com/photo-1524749292158-7540c2494485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'work', name: 'Work', icon: 'laptop', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'work', name: 'Work', icon: 'laptop', image: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
       { id: 'leisure', name: 'Leisure', icon: 'explore', image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'return', name: 'Rientro', icon: 'flight_takeoff', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+      { id: 'return', name: 'Rientro', icon: 'flight_takeoff', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
     ],
     actions: {
       post_meeting: [
@@ -344,9 +344,9 @@ export const personas: Record<string, Persona> = {
     },
     journeySteps: [
       { id: 'checkin_origin', name: 'Check-in', icon: 'how_to_reg', image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'layover', name: 'Scalo', icon: 'transfer_within_a_station', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
+      { id: 'layover', name: 'Scalo', icon: 'transfer_within_a_station', image: 'https://images.unsplash.com/photo-1559205463-6dce3ecaeba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
       { id: 'immigration', name: 'Immigrazione', icon: 'badge', image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' },
-      { id: 'exit', name: 'Uscita', icon: 'exit_to_app', image: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
+      { id: 'exit', name: 'Uscita', icon: 'exit_to_app', image: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600' }
     ],
     actions: {
       checkin_origin: [
