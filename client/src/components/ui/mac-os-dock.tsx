@@ -45,38 +45,38 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
   // Responsive size calculations based on viewport
   const getResponsiveConfig = useCallback(() => {
     if (typeof window === 'undefined') {
-      return { baseIconSize: 64, maxScale: 1.6, effectWidth: 240 };
+      return { baseIconSize: Math.max(24, 64), maxScale: 1.6, effectWidth: 240 };
     }
 
     // Base calculations on smaller dimension for better mobile experience
     const smallerDimension = Math.min(window.innerWidth, window.innerHeight);
     
-    // Scale icon size based on screen size
+    // Scale icon size based on screen size with minimum 24px guarantee
     if (smallerDimension < 480) {
-      // Mobile phones
+      // Mobile phones - ensure minimum 24px button size
       return {
-        baseIconSize: Math.max(40, smallerDimension * 0.08),
+        baseIconSize: Math.max(24, Math.max(40, smallerDimension * 0.08)),
         maxScale: 1.4,
         effectWidth: smallerDimension * 0.4
       };
     } else if (smallerDimension < 768) {
-      // Tablets
+      // Tablets - ensure minimum 24px button size
       return {
-        baseIconSize: Math.max(48, smallerDimension * 0.07),
+        baseIconSize: Math.max(24, Math.max(48, smallerDimension * 0.07)),
         maxScale: 1.5,
         effectWidth: smallerDimension * 0.35
       };
     } else if (smallerDimension < 1024) {
-      // Small laptops
+      // Small laptops - ensure minimum 24px button size
       return {
-        baseIconSize: Math.max(56, smallerDimension * 0.06),
+        baseIconSize: Math.max(24, Math.max(56, smallerDimension * 0.06)),
         maxScale: 1.6,
         effectWidth: smallerDimension * 0.3
       };
     } else {
-      // Desktop and large screens
+      // Desktop and large screens - ensure minimum 24px button size
       return {
-        baseIconSize: Math.max(64, Math.min(80, smallerDimension * 0.05)),
+        baseIconSize: Math.max(24, Math.max(64, Math.min(80, smallerDimension * 0.05))),
         maxScale: 1.8,
         effectWidth: 300
       };
@@ -279,7 +279,8 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
         {apps.map((app, index) => {
           const scale = currentScales[index];
           const position = currentPositions[index] || 0;
-          const scaledSize = baseIconSize * scale;
+          // Ensure minimum 24x24px button size even when scaled down
+          const scaledSize = Math.max(24, baseIconSize * scale);
           const isHovered = scale > 1.1;
           
           return (
