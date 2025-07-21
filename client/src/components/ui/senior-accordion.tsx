@@ -98,7 +98,7 @@ export function SeniorAccordion({
                     color: accentColor
                   }}
                 >
-              <div className="flex items-center justify-between w-full h-full px-4 py-1 sm:px-6 sm:py-1">
+              <div className="flex items-center justify-between w-full h-full px-4 py-1 sm:px-6 sm:py-1 pt-[6px] pb-[6px]">
                 <div className="flex items-center h-full space-x-3">
                   {/* Icon */}
                   <div 
