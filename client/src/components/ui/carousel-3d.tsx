@@ -242,7 +242,7 @@ export function Carousel3D({
                 )}
                 style={{
                   width: style.width,
-                  height: selectedPersona?.typography?.scale && selectedPersona.typography.scale > 1.1 ? 280 : 320, // Reduced height for Senior persona
+                  height: 320, // Altezza fissa di 320px per tutte le card come pattuito
                   zIndex: style.zIndex,
                   borderColor: isCenter ? accentColor : 'transparent',
                   filter: style.blur,
