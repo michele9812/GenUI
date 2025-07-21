@@ -4,6 +4,14 @@
 
 This is an intelligent airport navigation web application that provides personalized user experiences based on traveler personas. The app helps passengers navigate airport facilities through customized journey mapping and role-based interfaces.
 
+## Recent Changes
+
+**July 21, 2025:**
+- Disabled interactions for inactive carousel cards (only center card is clickable and hoverable)
+- Updated persona selection page to use neutral styling (gray colors) except for the persona preview card
+- Enhanced journey pages (welcome and detail) to use full persona-specific theming including colors, typography, and gradients
+- Applied persona-specific styling to buttons and navigation elements throughout journey flow
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

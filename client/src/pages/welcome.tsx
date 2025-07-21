@@ -46,7 +46,8 @@ export default function Welcome() {
     <div 
       className="min-h-screen relative overflow-hidden"
       style={{ 
-        background: `linear-gradient(135deg, ${selectedPersona.colors.primary}, ${selectedPersona.colors.secondary})` 
+        background: `linear-gradient(135deg, ${selectedPersona.colors.primary}, ${selectedPersona.colors.secondary})`,
+        fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
       }}
     >
       {/* Back Button - Top Left */}
