@@ -100,7 +100,7 @@ export const personas: Record<string, Persona> = {
     id: 'tech',
     name: 'Marco',
     title: 'Frequent Flyer Tech-Savvy',
-    description: '38 years old, Italian management consultant based in Milan. 60 flights per year, elite status, passionate about gadgets and friction-less solutions.',
+    description: '38-year-old Italian consultant from Milan. Elite flyer (60 trips/year) who loves tech and seamless experiences.',
     icon: 'laptop',
     theme: 'persona-theme-tech',
     colors: {
@@ -165,7 +165,7 @@ export const personas: Record<string, Persona> = {
     id: 'family',
     name: 'Fatima',
     title: 'Family Planner',
-    description: '34 years old, Moroccan teacher traveling with husband and children (ages 4 and 7). 2 trips per year; budget-conscious but focused on kid-friendly services.',
+    description: '34-year-old Moroccan teacher traveling with husband and kids (4 & 7). Values budget-friendly, family-focused services.',
     icon: 'family_restroom',
     theme: 'persona-theme-family',
     colors: {
@@ -230,7 +230,7 @@ export const personas: Record<string, Persona> = {
     id: 'senior',
     name: 'Jonas',
     title: 'Senior Globetrotter PRM',
-    description: '72 years old, retired German, travels with wife, loves long cultural tours. Knee arthritis, uses walking stick; good hearing but reduced vision.',
+    description: '72-year-old retired German traveler with wife. Enjoys cultural tours. Uses walking stick, has reduced vision.',
     icon: 'accessible',
     theme: 'persona-theme-senior',
     colors: {
@@ -290,7 +290,7 @@ export const personas: Record<string, Persona> = {
     id: 'bleisure',
     name: 'Nikhil',
     title: 'Bleisure Nomad',
-    description: '29 years old, Indian software engineer working fully remote, flies every 2-3 months. Combines 3 days of meetings with 4 days of local exploration.',
+    description: '29-year-old remote Indian engineer. Flies every 2-3 months, combining work meetings with local exploration.',
     icon: 'work',
     theme: 'persona-theme-bleisure',
     colors: {
@@ -350,7 +350,7 @@ export const personas: Record<string, Persona> = {
     id: 'student',
     name: 'Li Wei',
     title: 'First-Time Student',
-    description: '20 years old, Chinese freshman heading to an American college. First solo intercontinental flight; intermediate English; high stress levels.',
+    description: '20-year-old Chinese freshman flying solo to American college. First intercontinental trip, stressed, intermediate English.',
     icon: 'school',
     theme: 'persona-theme-student',
     colors: {
