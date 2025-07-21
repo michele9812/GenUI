@@ -160,9 +160,11 @@ export default function Welcome() {
       <div 
         className="text-center container-responsive-padding"
         style={{
-          marginTop: '64px', // 64px top margin
-          marginBottom: window.innerWidth < 768 ? '8px' : '24px', // 8px mobile, 24px desktop
-          paddingBottom: window.innerWidth < 768 ? '8px' : '8px' // 8px mobile, 8px desktop
+          marginTop: window.innerWidth <= 320 ? '48px' : '64px', // iPhone SE: 48px, others: 64px
+          marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
+                        window.innerWidth < 768 ? '8px' : '24px', // Mobile: 8px, Desktop: 24px
+          paddingBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px  
+                         window.innerWidth < 768 ? '8px' : '8px' // Mobile/Desktop: 8px
         }}
       >
         <h1 
@@ -172,7 +174,8 @@ export default function Welcome() {
             transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
             lineHeight: selectedPersona.typography?.lineHeight || '1.2',
             color: 'white',
-            marginBottom: window.innerWidth < 768 ? '8px' : (
+            marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
+                          window.innerWidth < 768 ? '8px' : (
               selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
               ? '24px' // More space for Senior persona on desktop
               : '8px' // Standard spacing between title and subtitle

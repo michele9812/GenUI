@@ -217,11 +217,11 @@ export function Carousel3D({
     <div 
       className="relative w-full"
       style={{
-        height: screenWidth <= 320 ? '280px' : // iPhone SE: 280px container
-                screenWidth <= 375 ? '360px' : // Small mobile: 360px
+        height: screenWidth <= 320 ? '240px' : // iPhone SE: 240px container (reduced from 280px)
+                screenWidth <= 375 ? '320px' : // Small mobile: 320px (reduced from 360px)
                 (isMobile ? '480px' : '418px'), // Large mobile/desktop
-        maxHeight: screenWidth <= 320 ? '280px' : 
-                   screenWidth <= 375 ? '360px' : 
+        maxHeight: screenWidth <= 320 ? '240px' : 
+                   screenWidth <= 375 ? '320px' : 
                    (isMobile ? '480px' : '418px')
       }}
     >
@@ -230,7 +230,7 @@ export function Carousel3D({
         className="container-responsive relative w-full flex justify-center"
         style={{
           alignItems: 'center', // Center alignment for both mobile and desktop
-          paddingTop: '16px',
+          paddingTop: window.innerWidth <= 320 ? '8px' : '16px', // iPhone SE: 8px, others: 16px
           paddingLeft: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
                        window.innerWidth < 640 ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingRight: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
@@ -239,7 +239,8 @@ export function Carousel3D({
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: window.innerWidth < 640 ? 'calc(100% - 72px)' : 'calc(100% - 48px)' // 24px gap mobile (72px total), 24px gap desktop (48px total)
+          height: window.innerWidth <= 320 ? 'calc(100% - 48px)' : // iPhone SE: reduced gap (48px total)
+                  window.innerWidth < 640 ? 'calc(100% - 72px)' : 'calc(100% - 48px)' // Mobile: 72px total, Desktop: 48px total
         }}
 
         onMouseEnter={() => setIsPaused(true)}
