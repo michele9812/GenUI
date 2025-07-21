@@ -52,7 +52,6 @@ export default function OnboardingPage() {
                 </p>
               </div>
             </div>
-          </div>
 
           {/* Button */}
           <div className="absolute bottom-6 left-6 right-6">
@@ -62,6 +61,7 @@ export default function OnboardingPage() {
             >
               Continue
             </Button>
+          </div>
           </div>
         </CardContent>
       </Card>
