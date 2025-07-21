@@ -71,6 +71,22 @@ export default function JourneyDetail() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Back Button - Top Left */}
+      <div className="absolute top-4 left-4 z-50">
+        <motion.button
+          onClick={handleBack}
+          className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-200 text-gray-700 hover:text-gray-900"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span className="text-sm font-medium">Back to journey selection</span>
+        </motion.button>
+      </div>
+
       {/* Main Content */}
       <main className="flex-1 bg-gray-50 w-full px-4 sm:px-6 lg:px-8 pt-[40px] pb-[40px]">
           
