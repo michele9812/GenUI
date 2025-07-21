@@ -164,7 +164,7 @@ export function SeniorAccordion({
             
             <AccordionContent className="bg-white">
               <div 
-                className="px-4 py-1 sm:px-6 sm:py-1"
+                className="px-4 py-1 sm:px-6 sm:py-1 mt-[4px] mb-[4px]"
                 style={{ backgroundColor: '#ffffff' }}
               >
                 {/* Horizontal layout: text + button */}
