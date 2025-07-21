@@ -70,9 +70,9 @@ export default function Welcome() {
         </motion.button>
       </div>
       {/* Header Section */}
-      <div className="absolute top-16 sm:top-20 lg:top-24 left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
+<div className="absolute top-12 sm:top-20 lg:top-24 left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
         <h1 
-          className="h1-responsive text-white mb-2 sm:mb-4"
+          className="h1-responsive-small text-white mb-2 sm:mb-4"
           style={{ 
             fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
             fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
@@ -94,7 +94,7 @@ export default function Welcome() {
         </p>
       </div>
       {/* Central Image */}
-      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 px-4 sm:px-6 lg:px-8">
+      <div className="absolute left-1/2 top-[45%] sm:top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}

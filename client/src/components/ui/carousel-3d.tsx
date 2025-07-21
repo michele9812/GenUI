@@ -194,6 +194,7 @@ export function Carousel3D({
     
     return {
       width: cardWidth,
+      height: isMobile ? 260 : 320, // Mobile-responsive height
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
@@ -213,7 +214,7 @@ export function Carousel3D({
   return (
     <div 
       ref={containerRef}
-      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[420px] sm:h-[440px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing"
+      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing"
       style={{
         paddingLeft: `${getCardStyle(0).containerPadding}px`,
         paddingRight: `${getCardStyle(0).containerPadding}px`,
@@ -251,7 +252,7 @@ export function Carousel3D({
                 )}
                 style={{
                   width: style.width,
-                  height: 320, // Fixed height of 320px for all cards
+                  height: style.height, // Responsive height from style
                   zIndex: style.zIndex,
                   borderColor: isCenter ? accentColor : 'transparent',
 

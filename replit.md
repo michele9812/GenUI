@@ -24,6 +24,8 @@ This is an intelligent airport navigation web application that provides personal
 - **Enhanced carousel card spacing and fading**: Fixed inconsistent spacing between center and outer cards using uniform gap calculation, implemented smooth gradient fading for outer cards instead of abrupt opacity cutoff, added subtle mask gradient overlay for seamless edge transitions
 - **Optimized carousel content fading**: Applied fading effects exclusively to card content while keeping navigation controls (arrows, indicators) fully visible and distinguishable with z-index 20
 - **Completed English translation**: Translated all persona descriptions from Italian to English in the onboarding dropdown selection
+- **Mobile viewport optimization**: Reduced carousel height to 320px on mobile (from 420px), decreased card height to 260px on mobile, reduced header spacing to top-12 on mobile for better single-viewport fit
+- **Consistent H1 sizing for mobile**: Applied h1-responsive-small class to welcome page for consistent mobile typography across onboarding and journey pages
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
