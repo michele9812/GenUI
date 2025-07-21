@@ -168,12 +168,17 @@ export default function Welcome() {
         }}
       >
         <h1 
-          className="h1-responsive text-white w-full"
+          className="h1-responsive text-white w-full block"
           style={{ 
             fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-            transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
+            transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
+              `scale(${Math.min(selectedPersona.typography.scale, 1.1)})` : undefined, // Cap scale at 1.1 to prevent overflow
+            transformOrigin: 'center top',
             lineHeight: selectedPersona.typography?.lineHeight || '1.2',
             color: 'white',
+            width: '100%',
+            display: 'block',
+            boxSizing: 'border-box',
             marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
                           window.innerWidth < 768 ? '8px' : (
               selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
@@ -185,11 +190,16 @@ export default function Welcome() {
           Hello {userName || 'User'}
         </h1>
         <p 
-          className="text-white/80 text-responsive w-full"
+          className="text-white/80 text-responsive w-full block"
           style={{
-            transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
+            transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
+              `scale(${Math.min(selectedPersona.typography.scale, 1.1)})` : undefined, // Cap scale at 1.1 to prevent overflow
+            transformOrigin: 'center top',
             lineHeight: selectedPersona.typography?.lineHeight || '1.4',
-            fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
+            fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+            width: '100%',
+            display: 'block',
+            boxSizing: 'border-box'
           }}
         >
           Select your journey phase as {selectedPersona.title}

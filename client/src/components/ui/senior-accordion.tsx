@@ -117,7 +117,7 @@ export function SeniorAccordion({
                         color: accentColor,
                         fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
                         fontSize: personaTypography?.scale ? 
-                          `calc(${window.innerWidth < 640 ? '0.65rem' : '0.75rem'} * ${personaTypography.scale})` : 
+                          `calc(${window.innerWidth < 640 ? '0.65rem' : '0.75rem'} * ${Math.min(personaTypography.scale, 1.15)})` : 
                           window.innerWidth < 640 ? '0.65rem' : undefined
                       }}
                     >
@@ -129,7 +129,7 @@ export function SeniorAccordion({
                         color: accentColor,
                         fontFamily: personaTypography?.headingFont || personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
                         fontSize: personaTypography?.scale ? 
-                          `calc(${window.innerWidth < 640 ? '0.8rem' : '0.9rem'} * ${personaTypography.scale})` : 
+                          `calc(${window.innerWidth < 640 ? '0.8rem' : '0.9rem'} * ${Math.min(personaTypography.scale, 1.15)})` : 
                           window.innerWidth < 640 ? '0.8rem' : undefined,
                         lineHeight: personaTypography?.lineHeight || '1.5'
                       }}
@@ -167,7 +167,7 @@ export function SeniorAccordion({
                         color: selectedPersona.colors.text || '#111827',
                         fontFamily: personaTypography?.fontFamily || 'inherit',
                         fontSize: personaTypography?.scale ? 
-                          `calc(${window.innerWidth < 640 ? '0.75rem' : '0.875rem'} * ${personaTypography.scale})` : 
+                          `calc(${window.innerWidth < 640 ? '0.75rem' : '0.875rem'} * ${Math.min(personaTypography.scale, 1.15)})` : 
                           window.innerWidth < 640 ? '0.75rem' : undefined
                       }}
                     >
@@ -184,7 +184,7 @@ export function SeniorAccordion({
                         color: 'white',
                         fontFamily: personaTypography?.fontFamily || 'inherit',
                         fontSize: personaTypography?.scale ? 
-                          `calc(${window.innerWidth < 640 ? '0.875rem' : '1rem'} * ${personaTypography.scale})` : 
+                          `calc(${window.innerWidth < 640 ? '0.875rem' : '1rem'} * ${Math.min(personaTypography.scale, 1.15)})` : 
                           window.innerWidth < 640 ? '0.875rem' : undefined,
                         border: 'none',
                         maxWidth: window.innerWidth < 640 ? '100%' : '320px',
