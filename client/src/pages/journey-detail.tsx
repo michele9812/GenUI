@@ -71,10 +71,8 @@ export default function JourneyDetail() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      
-
       {/* Main Content */}
-      <main className="flex-1 bg-gray-50 w-full px-4 sm:px-6 lg:px-8 pt-[120px]">
+      <main className="flex-1 bg-gray-50 w-full px-4 sm:px-6 lg:px-8 pt-[80px] pb-[80px]">
           
           {/* Title */}
           <motion.div 
