@@ -387,6 +387,13 @@ export default function JourneyDetail() {
     const stepActions = currentPersonaActions[currentStep?.id || ''] || [];
     const universalServices = getUniversalServices(currentStep?.id || '');
     
+    // Debug logging to check what's being loaded
+    console.log('DEBUG - Selected Persona ID:', selectedPersona?.id);
+    console.log('DEBUG - Current Step ID:', currentStep?.id);
+    console.log('DEBUG - Persona Actions for this persona:', currentPersonaActions);
+    console.log('DEBUG - Step Actions for this step:', stepActions);
+    console.log('DEBUG - Universal Services:', universalServices);
+    
     // Return step-specific actions + context-aware universal services
     return [...stepActions, ...universalServices];
   };
