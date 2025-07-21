@@ -292,7 +292,7 @@ export function Carousel3D({
                       }}
                     >
                       <span 
-                        className="material-icons text-lg sm:text-xl"
+                        className="material-icons text-lg sm:text-xl text-[#101827]"
                         style={{
                           color: isCenter ? 'white' : '#6b7280'
                         }}
