@@ -545,8 +545,9 @@ export default function JourneyDetail() {
             ,
           </h1>
           <p 
-            className="text-responsive w-full"
+            className="w-full"
             style={{
+              fontSize: window.innerWidth < 768 ? '16pt' : '18pt', // 16pt mobile, 18pt desktop
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
