@@ -22,6 +22,23 @@ interface Carousel3DProps {
     headingFont: string;
     fontSize: string;
     scale?: number;
+    lineHeight?: string;
+  };
+  selectedPersona?: {
+    colors: {
+      primary: string;
+      secondary: string;
+      accent: string;
+      bg: string;
+      text?: string;
+    };
+    typography?: {
+      fontFamily: string;
+      headingFont: string;
+      fontSize: string;
+      lineHeight?: string;
+      scale?: number;
+    };
   };
 }
 
@@ -31,7 +48,8 @@ export function Carousel3D({
   className, 
   accentColor = '#3B82F6',
   secondaryColor = '#10B981',
-  personaTypography
+  personaTypography,
+  selectedPersona
 }: Carousel3DProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -228,8 +246,10 @@ export function Carousel3D({
                   zIndex: style.zIndex,
                   borderColor: isCenter ? accentColor : 'transparent',
                   filter: style.blur,
-                  // Remove any glare effects from non-center cards
-                  background: isCenter ? 'white' : '#fafafa'
+                  // Use persona colors for card backgrounds
+                  background: isCenter ? (selectedPersona?.colors?.bg || '#ffffff') : '#f8fafc',
+                  borderWidth: '2px',
+                  borderStyle: 'solid'
                 }}
                 initial={{
                   x: style.translateX,
@@ -269,16 +289,18 @@ export function Carousel3D({
                 )}>
                   {/* Header */}
                   <div 
-                    className="px-4 py-3 sm:px-6 sm:py-4 text-center bg-[#a7ff4d17]"
+                    className="px-4 py-3 sm:px-6 sm:py-4 text-center"
                     style={{
-                      backgroundColor: isCenter ? `${accentColor}15` : '#f9fafb'
+                      backgroundColor: isCenter ? (selectedPersona?.colors?.primary || accentColor) : '#f9fafb',
+                      borderBottom: isCenter ? `2px solid ${selectedPersona?.colors?.secondary || secondaryColor}` : '1px solid #e5e7eb'
                     }}
                   >
                     <p 
                       className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-2"
                       style={{
-                        color: isCenter ? accentColor : '#6b7280',
-                        fontFamily: personaTypography?.fontFamily || 'inherit'
+                        color: isCenter ? 'white' : '#6b7280',
+                        fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
+                        fontWeight: '600'
                       }}
                     >
                       NAVIGATION
@@ -286,13 +308,14 @@ export function Carousel3D({
                     
                     {/* Icon */}
                     <div 
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center bg-[#a7ff4d]"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center"
                       style={{
-                        backgroundColor: isCenter ? accentColor : '#e5e7eb'
+                        backgroundColor: isCenter ? (selectedPersona?.colors?.secondary || secondaryColor) : '#e5e7eb',
+                        border: isCenter ? `2px solid ${selectedPersona?.colors?.accent || accentColor}` : '1px solid #d1d5db'
                       }}
                     >
                       <span 
-                        className="material-icons text-lg sm:text-xl text-[#101827]"
+                        className="material-icons text-lg sm:text-xl"
                         style={{
                           color: isCenter ? 'white' : '#6b7280'
                         }}
@@ -308,9 +331,10 @@ export function Carousel3D({
                       <h3 
                         className="text-base sm:text-lg font-semibold mb-2 sm:mb-3"
                         style={{
-                          color: isCenter ? accentColor : '#111827',
-                          fontFamily: personaTypography?.headingFont || personaTypography?.fontFamily || 'inherit',
-                          fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined
+                          color: isCenter ? (selectedPersona?.colors?.primary || accentColor) : '#111827',
+                          fontFamily: personaTypography?.headingFont || personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
+                          fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
+                          lineHeight: personaTypography?.lineHeight || '1.5'
                         }}
                       >
                         {item.title}

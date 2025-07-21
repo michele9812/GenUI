@@ -47,8 +47,10 @@ export default function Welcome() {
       className="min-h-screen relative overflow-hidden"
       style={{ 
         background: `linear-gradient(135deg, ${selectedPersona.colors.primary}, ${selectedPersona.colors.secondary})`,
-        fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+        fontFamily: selectedPersona.typography?.fontFamily || 'system-ui, -apple-system, sans-serif',
         fontSize: selectedPersona.typography?.fontSize || '16px',
+        lineHeight: selectedPersona.typography?.lineHeight || '1.5',
+        letterSpacing: selectedPersona.typography?.letterSpacing || 'normal',
         backgroundColor: selectedPersona.colors.bg
       }}
     >

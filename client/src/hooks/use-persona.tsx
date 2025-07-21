@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { personas, type Persona } from '@/lib/personas';
+import { validatePersonaAccessibility } from '@/lib/accessibility';
 
 export function usePersona() {
   const [selectedPersona, setSelectedPersona] = useState<Persona | null>(() => {
@@ -36,9 +37,30 @@ export function usePersona() {
   useEffect(() => {
     // Apply theme class to body when persona changes
     if (selectedPersona) {
+      // Validate accessibility compliance
+      const validation = validatePersonaAccessibility(selectedPersona.colors);
+      if (!validation.isValid) {
+        console.warn('Accessibility issues detected for persona:', selectedPersona.name, validation.issues);
+      }
+      
       document.body.className = `min-h-screen bg-background text-foreground ${selectedPersona.theme}`;
+      
+      // Apply persona colors as CSS custom properties for better inheritance
+      document.documentElement.style.setProperty('--persona-primary', selectedPersona.colors.primary);
+      document.documentElement.style.setProperty('--persona-secondary', selectedPersona.colors.secondary);
+      document.documentElement.style.setProperty('--persona-accent', selectedPersona.colors.accent);
+      document.documentElement.style.setProperty('--persona-bg', selectedPersona.colors.bg);
+      document.documentElement.style.setProperty('--persona-text', selectedPersona.colors.text || '#111827');
+      document.documentElement.style.setProperty('--persona-focus', selectedPersona.colors.focus || '#3B82F6');
     } else {
       document.body.className = 'min-h-screen bg-background text-foreground';
+      // Reset custom properties
+      document.documentElement.style.removeProperty('--persona-primary');
+      document.documentElement.style.removeProperty('--persona-secondary');
+      document.documentElement.style.removeProperty('--persona-accent');
+      document.documentElement.style.removeProperty('--persona-bg');
+      document.documentElement.style.removeProperty('--persona-text');
+      document.documentElement.style.removeProperty('--persona-focus');
     }
   }, [selectedPersona]);
 

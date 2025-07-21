@@ -73,10 +73,13 @@ export default function JourneyDetail() {
     <div 
       className="min-h-screen flex flex-col"
       style={{ 
-        fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+        fontFamily: selectedPersona.typography?.fontFamily || 'system-ui, -apple-system, sans-serif',
         fontSize: selectedPersona.typography?.fontSize || '16px',
+        lineHeight: selectedPersona.typography?.lineHeight || '1.5',
+        letterSpacing: selectedPersona.typography?.letterSpacing || 'normal',
         background: `linear-gradient(135deg, ${selectedPersona.colors.primary}10, ${selectedPersona.colors.secondary}10)`,
-        backgroundColor: selectedPersona.colors.bg
+        backgroundColor: selectedPersona.colors.bg,
+        color: selectedPersona.colors.text || '#111827'
       }}
     >
       {/* Back Button - Top Left */}
@@ -151,6 +154,7 @@ export default function JourneyDetail() {
               accentColor={selectedPersona.colors.primary}
               secondaryColor={selectedPersona.colors.secondary}
               personaTypography={selectedPersona.typography}
+              selectedPersona={selectedPersona}
               className="h-[400px] sm:h-[450px] lg:h-[500px]"
             />
           </motion.div>

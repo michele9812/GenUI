@@ -24,6 +24,23 @@ This is an intelligent airport navigation web application that provides personal
   * PromptInputBox component applies persona colors to send button and typography to input field
   * Fixed console errors "Dock is not defined" and undefined fontFamily properties
   * All interactive states (hover, active, disabled) now reflect persona-specific color schemes
+- **Enhanced WCAG 2.1 AA/AAA accessibility compliance:**
+  * Created comprehensive accessibility utilities library with contrast ratio validation
+  * Implemented automatic accessibility validation for all personas with console warnings
+  * Updated all persona colors to meet WCAG AA contrast requirements (4.5:1 minimum)
+  * Enhanced typography with proper line-height (1.5+), letter-spacing, and minimum font sizes
+  * Added focus ring management and screen reader support (aria-labels)
+  * Senior persona optimized with 125% font scaling and enhanced contrast for reduced vision
+  * Family persona updated with accessible green colors instead of bright lime
+  * All personas now include fallback system fonts for better compatibility
+  * CSS custom properties applied for consistent theming across all components
+- **Complete card theming with accessibility compliance:**
+  * Enhanced Card component with persona-specific backgrounds, borders, and text colors
+  * Active cards use primary colors for backgrounds and borders with white text for optimal contrast
+  * Inactive cards maintain neutral styling to focus attention on active elements
+  * All card interactions respect WCAG AA color contrast requirements (4.5:1 minimum)
+  * Carousel3D component fully synchronized with persona colors for headers, icons, and content
+  * Added proper border styling and hover states with persona accent colors
 
 ## User Preferences
 
