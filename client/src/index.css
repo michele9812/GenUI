@@ -12,9 +12,18 @@
   font-weight: bold;
 }
 
+.h1-responsive-small {
+  font-size: 24pt; /* Smaller H1 for onboarding */
+  line-height: 1.2;
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
   .h1-responsive {
     font-size: 38pt; /* Tablet */
+  }
+  .h1-responsive-small {
+    font-size: 28pt; /* Tablet */
   }
 }
 
@@ -22,7 +31,23 @@
   .h1-responsive {
     font-size: 48pt; /* Desktop */
   }
+  .h1-responsive-small {
+    font-size: 32pt; /* Desktop */
+  }
 }
+
+/* Viewport Height Utilities - 8px multiples */
+.h-viewport {
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.spacing-8 { margin: 8px; }
+.spacing-16 { margin: 16px; }
+.spacing-24 { margin: 24px; }
+.spacing-32 { margin: 32px; }
+.spacing-40 { margin: 40px; }
+.spacing-48 { margin: 48px; }
 
 :root {
   --background: hsl(0, 0%, 100%);

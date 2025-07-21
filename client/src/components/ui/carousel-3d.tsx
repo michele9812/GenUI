@@ -183,10 +183,14 @@ export function Carousel3D({
     const responsiveScale = isCenter ? (isMobile ? 1.05 : 1.1) : (isMobile ? 0.9 : 0.85);
     const verticalOffset = isCenter ? (isMobile ? -5 : -10) : Math.abs(position) * (isMobile ? 3 : 5);
     
+    // Fixed spacing calculation - use consistent gaps between cards
+    const cardGap = spacing * 1.5; // Increase gap between cards for better spacing
+    const baseTranslateX = position * (isCenter ? centerWidth : baseWidth) + (position * cardGap);
+    
     return {
       width: isCenter ? centerWidth : baseWidth,
       scale: responsiveScale,
-      translateX: position * (baseWidth + spacing) + offsetMultiplier * (isMobile ? 15 : 20),
+      translateX: baseTranslateX + offsetMultiplier * (isMobile ? 8 : 16),
       translateY: verticalOffset,
       opacity: Math.abs(position) <= 1 ? 1 : (isMobile ? 0.2 : 0.4),
       zIndex: isCenter ? 10 : 5 - Math.abs(position),
