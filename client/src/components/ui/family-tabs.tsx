@@ -114,7 +114,7 @@ export default function FamilyTabs({
             transition={{ duration: 0.3 }}
           >
             <div 
-              className="bg-white rounded-lg border shadow-sm p-3 md:p-6"
+              className="bg-white rounded-lg border shadow-sm px-4 py-2 md:px-6 md:py-2 lg:px-8"
               style={{
                 borderColor: selectedPersona?.colors.primary || accentColor,
                 borderWidth: '1px'
