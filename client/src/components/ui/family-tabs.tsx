@@ -45,9 +45,9 @@ export default function FamilyTabs({
 
   return (
     <div className={`w-full ${className}`}>
-        {/* Horizontal Tab List - Full Width with Active Label */}
+        {/* Horizontal Tab List - Hug Content with Active Label */}
         <div 
-          className="flex items-stretch w-full gap-1 p-2 mb-6 rounded-lg"
+          className="flex items-stretch justify-center w-full gap-1 p-2 mb-6 rounded-lg"
           style={{
             backgroundColor: `${selectedPersona?.colors.primary}10` || '#f9fafb'
           }}
@@ -55,7 +55,7 @@ export default function FamilyTabs({
           {items.map((item) => (
             <motion.button
               key={item.id}
-              className="flex-1 flex items-center justify-center gap-2 py-2 px-2 rounded-lg transition-all min-w-0"
+              className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg transition-all min-w-0"
               style={{
                 backgroundColor: activeTab === item.id ? 
                   (selectedPersona?.colors.primary || accentColor) : 
@@ -84,21 +84,21 @@ export default function FamilyTabs({
                 {item.icon}
               </span>
               
-              {/* Label - Responsive visibility */}
-              <motion.span 
-                className="text-sm font-medium whitespace-nowrap overflow-hidden"
-                initial={false}
-                animate={{
-                  width: isMobile ? (activeTab === item.id ? 'auto' : 0) : 'auto',
-                  opacity: isMobile ? (activeTab === item.id ? 1 : 0) : 1
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                style={{
-                  fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
-                }}
-              >
-                {isMobile ? (activeTab === item.id && item.title) : item.title}
-              </motion.span>
+              {/* Label - Responsive visibility with full content */}
+              {(isMobile ? activeTab === item.id : true) && (
+                <motion.span 
+                  className="text-sm font-medium whitespace-nowrap"
+                  initial={isMobile ? { width: 0, opacity: 0 } : false}
+                  animate={isMobile ? { width: 'auto', opacity: 1 } : {}}
+                  exit={isMobile ? { width: 0, opacity: 0 } : {}}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  style={{
+                    fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
+                  }}
+                >
+                  {item.title}
+                </motion.span>
+              )}
             </motion.button>
           ))}
         </div>
