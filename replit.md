@@ -33,6 +33,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Enhanced First-Time Student persona styling**: Updated text hierarchy with white H1 and paragraph text, yellow accent for user name display, yellow active pagination indicators, and replaced double card borders with single electric blue borders for better visual clarity
 - **Fixed journey point selection image animation**: Simplified zoom animation with proper responsive scaling, consistent 16px viewport margins, centered positioning, and smooth transition effects across all breakpoints for full-frame appearance
 - **Anchored floating input to viewport bottom**: Positioned AI prompt input box exactly 24px from bottom of viewport using absolute positioning with proper z-index layering and responsive padding
+- **Enhanced persona preview card typography**: Applied persona-specific typefaces to title (headingFont) and name (fontFamily) in login preview card, updated background to use primary color at 20% opacity for better visual consistency
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization

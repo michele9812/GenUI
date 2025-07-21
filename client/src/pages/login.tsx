@@ -79,7 +79,7 @@ export default function Login() {
               <div 
                 className="p-4 rounded-lg border-2 transition-all duration-300"
                 style={{
-                  background: `linear-gradient(135deg, ${selectedPersona.colors.primary}15, ${selectedPersona.colors.secondary}15)`,
+                  backgroundColor: `${selectedPersona.colors.primary}33`, // 20% opacity (33 in hex)
                   borderColor: selectedPersona.colors.primary,
                   color: selectedPersona.colors.primary
                 }}
@@ -92,11 +92,32 @@ export default function Login() {
                     <span className="material-icons text-xl text-white">{selectedPersona.icon}</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold">{selectedPersona.title}</h3>
-                    <p className="text-sm opacity-75">{userName || 'Enter your name'}</p>
+                    <h3 
+                      className="font-semibold"
+                      style={{
+                        fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit'
+                      }}
+                    >
+                      {selectedPersona.title}
+                    </h3>
+                    <p 
+                      className="text-sm opacity-75"
+                      style={{
+                        fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
+                      }}
+                    >
+                      {userName || 'Enter your name'}
+                    </p>
                   </div>
                 </div>
-                <p className="text-sm">{selectedPersona.description}</p>
+                <p 
+                  className="text-sm"
+                  style={{
+                    fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
+                  }}
+                >
+                  {selectedPersona.description}
+                </p>
               </div>
             )}
 
