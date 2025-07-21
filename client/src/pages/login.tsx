@@ -131,7 +131,7 @@ export default function LoginPage() {
               <div className="h-24 flex items-start">
                 {selectedPersona && (
                   <div 
-                    className="p-3 border min-h-[96px] flex items-start w-full transition-fluid animation-fade-in-up"
+                    className="p-3 border radius-responsive-small min-h-[96px] flex items-start w-full transition-fluid animation-fade-in-up"
                     style={{ 
                       backgroundColor: `${selectedPersona.colors.primary}20`,
                       borderColor: `${selectedPersona.colors.primary}40`,
