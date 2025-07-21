@@ -211,7 +211,7 @@ export function Carousel3D({
   const visibleCards = getVisibleCards();
 
   return (
-    <div className="relative w-full h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px]">
+    <div className="relative w-full h-[256px] sm:h-[356px] md:h-[396px] lg:h-[416px]">
       <div 
         ref={containerRef}
         className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-full"
