@@ -234,7 +234,7 @@ export function Carousel3D({
               <motion.div
                 key={`${item.id}-${originalIndex}`}
                 className={cn(
-                  "absolute rounded-2xl bg-white shadow-lg select-none",
+                  "absolute rounded-lg bg-white shadow-lg select-none",
                   isCenter ? "shadow-2xl border-2 cursor-pointer" : "shadow-md cursor-default",
                   isDragging ? "pointer-events-none" : (isCenter ? "pointer-events-auto" : "pointer-events-none"),
                   // Disable glare for non-active cards
@@ -310,7 +310,7 @@ export function Carousel3D({
                     
                     {/* Icon */}
                     <div 
-                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full mx-auto mb-2 sm:mb-3 flex items-center justify-center"
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg mx-auto mb-2 sm:mb-3 flex items-center justify-center"
                       style={{
                         backgroundColor: isCenter ? (selectedPersona?.colors?.secondary || secondaryColor) : '#e5e7eb',
                         border: isCenter ? `2px solid ${selectedPersona?.colors?.accent || accentColor}` : '1px solid #d1d5db'
@@ -396,7 +396,7 @@ export function Carousel3D({
         <motion.button
           onClick={handlePrevious}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
           style={{
             backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
             color: selectedPersona?.colors?.secondary || accentColor,
@@ -412,7 +412,7 @@ export function Carousel3D({
         <motion.button
           onClick={handleNext}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
           style={{
             backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
             color: selectedPersona?.colors?.secondary || accentColor,

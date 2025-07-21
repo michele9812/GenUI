@@ -105,7 +105,7 @@ export default function Welcome() {
             duration: isZooming ? 1.2 : 0.3,
             ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
           }}
-          className="w-60 h-40 sm:w-64 sm:h-44 md:w-72 md:h-52 lg:w-80 lg:h-60 rounded-2xl overflow-hidden shadow-2xl"
+          className="w-60 h-40 sm:w-64 sm:h-44 md:w-72 md:h-52 lg:w-80 lg:h-60 rounded-lg overflow-hidden shadow-2xl"
           style={{
             transformOrigin: 'center center',
             zIndex: isZooming ? 9999 : 10
