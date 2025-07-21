@@ -110,40 +110,40 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
     let baseWidth, centerWidth, spacing, containerPadding;
     
     if (isXsPhone) {
+      baseWidth = 140;
+      centerWidth = 180;
+      spacing = 8;
+      containerPadding = 12;
+    } else if (isMobile) {
       baseWidth = 160;
       centerWidth = 200;
-      spacing = 8;
-      containerPadding = 16;
-    } else if (isMobile) {
-      baseWidth = 180;
-      centerWidth = 230;
       spacing = 10;
-      containerPadding = 20;
+      containerPadding = 16;
     } else if (isSmTablet) {
-      baseWidth = 200;
-      centerWidth = 260;
+      baseWidth = 180;
+      centerWidth = 220;
       spacing = 12;
-      containerPadding = 24;
+      containerPadding = 20;
     } else if (isTablet) {
-      baseWidth = 240;
-      centerWidth = 300;
+      baseWidth = 200;
+      centerWidth = 240;
       spacing = 15;
-      containerPadding = 32;
+      containerPadding = 24;
     } else if (isSmDesktop) {
-      baseWidth = 280;
-      centerWidth = 340;
+      baseWidth = 220;
+      centerWidth = 260;
+      spacing = 18;
+      containerPadding = 32;
+    } else if (isDesktop) {
+      baseWidth = 240;
+      centerWidth = 280;
       spacing = 20;
       containerPadding = 40;
-    } else if (isDesktop) {
-      baseWidth = 320;
-      centerWidth = 380;
-      spacing = 24;
-      containerPadding = 48;
     } else {
-      baseWidth = 360;
-      centerWidth = 420;
-      spacing = 28;
-      containerPadding = 56;
+      baseWidth = 260;
+      centerWidth = 300;
+      spacing = 22;
+      containerPadding = 48;
     }
     
     // Enhanced positioning with responsive adjustments
@@ -169,7 +169,7 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
   return (
     <div 
       ref={containerRef}
-      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[350px] sm:h-[420px] md:h-[450px] lg:h-[500px] xl:h-[550px] portrait-spacing landscape-spacing"
+      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[420px] sm:h-[440px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing"
       style={{
         paddingLeft: `${getCardStyle(0).containerPadding}px`,
         paddingRight: `${getCardStyle(0).containerPadding}px`
@@ -210,7 +210,7 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                 )}
                 style={{
                   width: style.width,
-                  height: isXsPhone ? 320 : isMobile ? 360 : isSmTablet ? 380 : isTablet ? 400 : 420,
+                  height: 320, // Altezza fissa di 320px per tutte le card
                   zIndex: style.zIndex,
                   borderColor: isCenter ? '#F59E0B' : 'transparent',
                   filter: style.blur,

@@ -72,11 +72,11 @@ export default function JourneyDetail() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Main Content */}
-      <main className="flex-1 bg-gray-50 w-full px-4 sm:px-6 lg:px-8 pt-[80px] pb-[80px]">
+      <main className="flex-1 bg-gray-50 w-full px-4 sm:px-6 lg:px-8 pt-[40px] pb-[40px]">
           
           {/* Title */}
           <motion.div 
-            className="text-center mb-10 md:mb-16 lg:mb-20"
+            className="text-center mb-6 md:mb-8 lg:mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -95,7 +95,7 @@ export default function JourneyDetail() {
 
           {/* 3D Carousel */}
           <motion.div 
-            className="mb-10 md:mb-16 lg:mb-20"
+            className="mb-6 md:mb-8 lg:mb-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -110,7 +110,7 @@ export default function JourneyDetail() {
 
           {/* AI Prompt Input */}
           <motion.div 
-            className="max-w-4xl mx-auto mb-10 md:mb-16 lg:mb-20"
+            className="max-w-4xl mx-auto mb-6 md:mb-8 lg:mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
