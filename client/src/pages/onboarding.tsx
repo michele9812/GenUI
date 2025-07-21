@@ -11,11 +11,11 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
+    <div className="h-viewport flex items-center justify-center bg-gray-200 container-responsive-padding">
       <Card className="w-full max-w-md h-[600px] sm:h-[600px] md:h-[600px] shadow-2xl animation-scale-in">
         <CardContent className="p-0 h-full relative">
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-blue-50">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-gray-50">
               <img 
                 src={cheerfulPilotPath} 
                 alt="AirBuddy Pilot" 
@@ -49,7 +49,7 @@ export default function OnboardingPage() {
           <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
             <Button 
               onClick={handleContinue}
-              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105"
+              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium bg-gray-600 text-white hover:bg-gray-700 transform hover:scale-105"
             >
               Continue
             </Button>
