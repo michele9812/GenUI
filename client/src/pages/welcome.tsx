@@ -84,10 +84,7 @@ export default function Welcome() {
       </div>
 
       {/* Central Image */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4" 
-           style={{ 
-             top: 'calc(120px + 120px + 60px)', // header + spacing + text height
-           }}>
+      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 top-[220px] sm:top-[244px] lg:top-[260px]"> {/* 120+40+60=220 mobile, 120+64+60=244 tablet, 120+80+60=260 desktop */}
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
