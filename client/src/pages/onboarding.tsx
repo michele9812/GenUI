@@ -43,7 +43,7 @@ export default function OnboardingPage() {
             </div>
 
             {/* Content */}
-            <div className="flex-1 flex flex-col justify-center space-y-6">
+            <div className="flex-1 flex flex-col space-y-6">
               <div className="text-center">
                 <p className="text-gray-600 leading-relaxed">
                   AirBuddy is a Generative UI prototype applied to airport and travel experience. 
