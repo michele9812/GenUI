@@ -83,7 +83,7 @@ export default function Login() {
             </div>
 
             {/* Content */}
-            <div className="flex-1 flex flex-col justify-center space-y-6">
+            <div className="flex-1 flex flex-col space-y-6">
               <div>
                 <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
                   Name
