@@ -516,7 +516,7 @@ export default function JourneyDetail() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 h-full overflow-hidden" style={{ paddingTop: '16px' }}>
+      <main className="flex-1 w-full h-full overflow-hidden" style={{ paddingLeft: '64px', paddingRight: '64px' }}>
 
         {/* 3D Carousel, Senior Accordion, or Family Tabs */}
         <motion.div 

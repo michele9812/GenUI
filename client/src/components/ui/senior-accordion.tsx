@@ -49,7 +49,7 @@ export function SeniorAccordion({
 }: SeniorAccordionProps) {
   
   return (
-    <div className="w-full max-w-4xl mx-auto h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px]">
+    <div className="w-full max-w-4xl mx-auto h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px]" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
       <Accordion 
         className="flex w-full flex-col gap-4"
         transition={{ duration: 0.3, ease: "easeInOut" }}
