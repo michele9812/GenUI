@@ -66,7 +66,6 @@ This is an intelligent airport navigation web application that provides personal
 - **Updated accordion to primary colors scheme**: Background uses neutral white, while text, icons and buttons use primary accent color for clean visual hierarchy
 - **Refined accordion icon styling**: Icon background uses 10% opacity primary color, icon itself uses 40% opacity primary color for subtle contrast
 - **Added accordion separator line**: Grey separator line (40% opacity) between header and content when accordion is expanded for visual division
-- **Reduced accordion internal spacing**: Decreased vertical spacing between elements - icon spacing to 8px, removed margin between navigation label and title, reduced gap between text and button to 8px, and reduced padding to 2px for more compact layout
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
