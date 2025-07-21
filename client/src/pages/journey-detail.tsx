@@ -457,10 +457,10 @@ export default function JourneyDetail() {
           }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -24, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ 
-            duration: 0.6,
+            duration: 0.4,
             ease: [0.16, 1, 0.3, 1],
             delay: 0.1
           }}
@@ -478,12 +478,12 @@ export default function JourneyDetail() {
           }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -24, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ 
-            duration: 0.6,
+            duration: 0.4,
             ease: [0.16, 1, 0.3, 1],
-            delay: 0.15
+            delay: 0.2
           }}
         >
           {/* Desktop Version - Icon + Text */}

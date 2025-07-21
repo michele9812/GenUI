@@ -117,9 +117,13 @@ export default function Welcome() {
           }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, x: -24, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ 
+            duration: 0.4,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.1
+          }}
         />
 
         {/* Back Action Button */}
@@ -133,9 +137,13 @@ export default function Welcome() {
           }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
+          initial={{ opacity: 0, x: -24, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ 
+            duration: 0.4,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.2
+          }}
         >
           {/* Desktop Version - Icon + Text */}
           <div className="hidden sm:flex items-center gap-2 px-4 py-3">
