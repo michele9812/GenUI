@@ -137,11 +137,19 @@ export function Carousel3D({
     let baseWidth, centerWidth, spacing, containerPadding;
     
     if (isMobile) {
-      // iPhone 16+ unified mobile configuration
-      baseWidth = 260;
-      centerWidth = 280;
-      spacing = 16; // 16px mobile spacing
-      containerPadding = 16;
+      if (screenWidth < 375) {
+        // iPhone SE configuration
+        baseWidth = 140;
+        centerWidth = 180;
+        spacing = 16; // 16px mobile spacing
+        containerPadding = 12;
+      } else {
+        // iPhone 16+ unified mobile configuration
+        baseWidth = 260;
+        centerWidth = 280;
+        spacing = 16; // 16px mobile spacing
+        containerPadding = 16;
+      }
     } else if (isTablet) {
       baseWidth = 200;
       centerWidth = 240;
@@ -171,7 +179,7 @@ export function Carousel3D({
     
     return {
       width: cardWidth,
-      height: isMobile ? (screenWidth < 375 ? 260 : 320) : 320, // iPhone SE: 260px, others: 320px
+      height: isMobile ? (screenWidth < 375 ? 220 : 320) : 320, // iPhone SE: 220px, others: 320px
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
