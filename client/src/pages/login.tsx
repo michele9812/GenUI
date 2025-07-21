@@ -131,7 +131,7 @@ export default function LoginPage() {
 
             {selectedPersona && (
               <div 
-                className="p-3 rounded-lg border overflow-hidden"
+                className="p-3 rounded-lg border"
                 style={{ 
                   backgroundColor: `${selectedPersona.colors.primary}20`,
                   borderColor: `${selectedPersona.colors.primary}40`
@@ -155,23 +155,19 @@ export default function LoginPage() {
                       }
                     })()}
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 overflow-hidden">
                     <h3 
-                      className="font-semibold text-gray-900 text-sm mb-1 transform-gpu"
+                      className={`font-semibold text-gray-900 mb-1 ${selectedPersona.typography.scale > 1 ? 'text-xs' : 'text-sm'}`}
                       style={{ 
-                        fontFamily: selectedPersona.typography.headingFont,
-                        transform: `scale(${selectedPersona.typography.scale || 1})`,
-                        transformOrigin: 'left center'
+                        fontFamily: selectedPersona.typography.headingFont
                       }}
                     >
                       {selectedPersona.title}
                     </h3>
                     <p 
-                      className="text-xs text-gray-600 transform-gpu"
+                      className={`text-gray-600 leading-tight ${selectedPersona.typography.scale > 1 ? 'text-[10px]' : 'text-xs'}`}
                       style={{ 
-                        fontFamily: selectedPersona.typography.fontFamily,
-                        transform: `scale(${selectedPersona.typography.scale || 1})`,
-                        transformOrigin: 'left center'
+                        fontFamily: selectedPersona.typography.fontFamily
                       }}
                     >
                       {selectedPersona.description}
