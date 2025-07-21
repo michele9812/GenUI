@@ -60,6 +60,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Fixed tab/accordion spacing overlap**: Added 16px padding-top to main content section to prevent Family Planner tabs and Senior Globetrotter accordion from overlapping with header text, ensuring minimum 16px vertical spacing between header and interactive components
 - **Updated main content padding**: Removed top padding from main content, implemented 64px lateral padding for better content centering and accordion container optimization
 - **Optimized accordion spacing**: Reduced vertical spacing between accordion items to 16px for better visual density in Senior Globetrotter persona
+- **Reduced accordion internal spacing**: Updated internal accordion padding to 8px (py-1) for header and content sections, reduced description margin to 8px for consistent micro-spacing
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
