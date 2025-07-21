@@ -104,21 +104,22 @@ export default function JourneyDetail() {
         </motion.button>
       </div>
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[40px] pb-[40px]">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-[60px] pb-[20px] max-h-screen overflow-y-auto">
           
           {/* Title */}
           <motion.div 
-            className="text-center mb-6 md:mb-8 lg:mb-10"
+            className="text-center mb-4 md:mb-6 lg:mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <h1 
-              className="text-3xl md:text-4xl lg:text-5xl font-bold"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold"
               style={{
                 fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-                fontSize: selectedPersona.typography?.scale ? `calc(3rem * ${selectedPersona.typography.scale})` : undefined,
-                color: selectedPersona.colors.primary
+                fontSize: selectedPersona.typography?.scale ? `calc(2rem * ${selectedPersona.typography.scale})` : undefined,
+                color: selectedPersona.colors.primary,
+                lineHeight: selectedPersona.typography?.lineHeight || '1.2'
               }}
             >
               Ciao{' '}
@@ -130,11 +131,12 @@ export default function JourneyDetail() {
               ,
             </h1>
             <p 
-              className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-2 text-[#111827]"
+              className="text-lg md:text-xl lg:text-2xl font-semibold mt-1 text-[#111827]"
               style={{
-                fontSize: selectedPersona.typography?.scale ? `calc(2rem * ${selectedPersona.typography.scale})` : undefined,
+                fontSize: selectedPersona.typography?.scale ? `calc(1.25rem * ${selectedPersona.typography.scale})` : undefined,
                 fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
-                color: selectedPersona.colors.secondary
+                color: selectedPersona.colors.secondary,
+                lineHeight: selectedPersona.typography?.lineHeight || '1.4'
               }}
             >
               I am your AirBuddy and I am here to assist you!
@@ -143,7 +145,7 @@ export default function JourneyDetail() {
 
           {/* 3D Carousel */}
           <motion.div 
-            className="mb-6 md:mb-8 lg:mb-10"
+            className="mb-4 md:mb-6 lg:mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -155,13 +157,13 @@ export default function JourneyDetail() {
               secondaryColor={selectedPersona.colors.secondary}
               personaTypography={selectedPersona.typography}
               selectedPersona={selectedPersona}
-              className="h-[400px] sm:h-[450px] lg:h-[500px]"
+              className="h-[300px] sm:h-[350px] lg:h-[400px]"
             />
           </motion.div>
 
           {/* AI Prompt Input */}
           <motion.div 
-            className="max-w-4xl mx-auto mb-6 md:mb-8 lg:mb-10"
+            className="max-w-4xl mx-auto mb-4 md:mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
