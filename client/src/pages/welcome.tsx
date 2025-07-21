@@ -208,7 +208,7 @@ export default function Welcome() {
             duration: isZooming ? 1.2 : 0.6,
             ease: isZooming ? [0.16, 1, 0.3, 1] : [0.25, 0.46, 0.45, 0.94]
           }}
-          className="rounded-lg overflow-hidden shadow-2xl"
+          className="radius-responsive-small overflow-hidden shadow-2xl"
           style={{
             transformOrigin: 'center center',
             zIndex: isZooming ? 9999 : 10,
