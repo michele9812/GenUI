@@ -34,7 +34,7 @@ export default function Welcome() {
       // Navigate after zoom animation completes
       setTimeout(() => {
         setLocation('/journey-detail');
-      }, 1200);
+      }, 900);
     }
   };
 
@@ -101,10 +101,10 @@ export default function Welcome() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
             opacity: 1, 
-            scale: isZooming ? 15 : 1
+            scale: isZooming ? 3 : 1
           }}
           transition={{ 
-            duration: isZooming ? 1.2 : 0.3,
+            duration: isZooming ? 0.9 : 0.3,
             ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
           }}
           className="w-60 h-40 sm:w-64 sm:h-44 md:w-72 md:h-52 lg:w-80 lg:h-60 rounded-lg overflow-hidden shadow-2xl"

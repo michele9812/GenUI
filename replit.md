@@ -22,6 +22,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Updated boarding images**: Replaced all boarding area images with higher quality updated boarding gate photo showing numbered gate areas and seating
 - **Created image constants**: Organized all journey step images into centralized JOURNEY_IMAGES constants mapped to specific dock button labels for better maintainability
 - **Updated Post-volo image**: Associated the arrivals terminal image showing "Arrival" signage with the "Post-volo" journey step for better contextual accuracy
+- **Modified zoom animation**: Reduced animation speed to 900ms and limited maximum scale to 3x to ensure image fits within viewport
 - Disabled interactions for inactive carousel cards (only center card is clickable and hoverable)
 - Updated persona selection page to use neutral styling (gray colors) except for the persona preview card
 - Enhanced journey pages (welcome and detail) to use full persona-specific theming including colors, typography, and gradients
