@@ -51,9 +51,9 @@ export default function JourneyDetail() {
 
       {/* Main Content */}
       <main className="flex-1 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[120px]">
           {/* Contextual Actions */}
-          <div className="mb-8">
+          <div className="mb-10 sm:mb-16 lg:mb-20">
             <h2 
               className="text-2xl font-bold mb-6"
               style={{ color: selectedPersona.colors.primary }}
@@ -102,7 +102,7 @@ export default function JourneyDetail() {
           </div>
 
           {/* Always Available Services */}
-          <div>
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10">
             <h2 
               className="text-2xl font-bold mb-6"
               style={{ color: selectedPersona.colors.primary }}

@@ -31,8 +31,8 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
       <Card className="w-full max-w-md mx-4 shadow-2xl">
-        <CardContent className="pt-8">
-          <div className="text-center mb-8">
+        <CardContent className="pt-8 sm:pt-12 lg:pt-16">
+          <div className="text-center mb-10 sm:mb-16 lg:mb-20">
             <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Plane className="text-white text-3xl" size={24} />
             </div>
@@ -40,7 +40,7 @@ export default function Login() {
             <p className="text-gray-600">Personalized journey assistant</p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10">
             <div>
               <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-2">
                 Name
