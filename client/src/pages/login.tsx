@@ -65,11 +65,11 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
+    <div className="h-viewport flex items-center justify-center bg-gray-200 container-responsive-padding">
       <Card className="w-full max-w-md h-[600px] shadow-2xl animation-scale-in">
         <CardContent className="p-0 h-full relative">
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-blue-50">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-gray-50">
               <img 
                 src={cheerfulPilotImage} 
                 alt="AirBuddy Pilot" 
@@ -183,7 +183,7 @@ export default function LoginPage() {
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
-              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium bg-gray-600 text-white hover:bg-gray-700 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               Start the journey
             </Button>
