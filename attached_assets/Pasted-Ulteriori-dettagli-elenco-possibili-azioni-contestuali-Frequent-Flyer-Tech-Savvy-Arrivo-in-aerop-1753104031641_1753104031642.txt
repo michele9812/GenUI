@@ -1,0 +1,137 @@
+Ulteriori dettagli - elenco possibili azioni contestuali
+
+
+Frequent Flyer Tech‑Savvy
+Arrivo in aeroporto
+
+Scansione dell’app parcheggio per aprire il cancello automatico.
+
+Accesso al varco “Priority” tramite QR code nell’app della compagnia.
+
+Sicurezza
+
+Passaggio attraverso l’e‑Gate biometrico (face‑ID).
+
+Ricezione immediata di conferma “OK” sullo smartwatch.
+
+Lounge
+
+Ordinazione self‑service al barista automatico (es. bevanda proteica).
+
+Prenotazione della doccia tramite touch‑screen lounge e sblocco porta con NFC.
+
+Imbarco
+
+Self‑scan NFC al gate: basta avvicinare lo smartwatch o il telefono al lettore.
+
+Ricezione live di “Boarding complete” sull’app.
+
+Post‑volo
+
+Segnalazione di oggetti smarriti via modulo “Mobile lost‑&‑found” in-app.
+
+Tracking automatico dello stato di ritrovamento e delivery del bagaglio.
+
+Family Planner
+Parcheggio
+
+Prenotazione e chiamata automatica dello shuttle tramite “call point” PRM light.
+
+Caricamento di passeggino e bagagli sul veicolo family‐friendly.
+
+Check‑in
+
+Passaggio al counter dedicato “famiglia” con etichette bagagli colorate per ogni membro.
+
+Assegnazione prioritaria del posto in cabina via stampa immediata del tag.
+
+Sicurezza
+
+Utilizzo della “family lane” con corsia larga.
+
+Scanning del passeggino intero senza smontarlo.
+
+Waiting
+
+Accesso al playground pre‑gate con giochi interattivi.
+
+Consultazione “app story‑telling” che intrattiene i bimbi in attesa.
+
+Imbarco
+
+Pre‑boarding per famiglie: chiamata dedicata e accompagnamento da personale gate.
+
+Senior Globetrotter PRM
+Arrivo Terminal
+
+Utilizzo del “call pillar PRM” per richiedere assistenza immediata.
+
+Ingresso diretto alla “Sala Amica” con sedute ergonomiche e font leggibile.
+
+Screening
+
+Passaggio su corsia dedicata PRM con possibilità di sedersi sulla sedia mobile.
+
+Controllo bagagli a mano svolto in loco, senza spostare il viaggiatore.
+
+Attesa volo
+
+Occupazione di uno dei gate seating con braccioli rialzati e spazio per bastone.
+
+Richiesta di ristoro leggero direttamente dal personale lounge.
+
+Sbarco & Transfer
+
+Trasferimento con ambu‑lift fino all’area baggage claim.
+
+Salita su golf‑car elettrico che accompagna al punto shuttle per il terminal arrivi.
+
+Bleisure Nomad
+Post‑meeting
+
+Deposito zaino e trolley in smart locker contactless (apertura con app).
+
+Ricezione del PIN temporaneo via SMS per recupero bagagli.
+
+Work
+
+Accesso allo spazio coworking air‑side, autenticandosi con pass lounge.
+
+Utilizzo di phone‑booth insonorizzato per chiamate o videoconferenze.
+
+Leisure
+
+Attivazione dell’app “city‑pass” direttamente dal totem in‑terminal.
+
+Scansione QR code alle postazioni digitali per info su tour e sconti locali.
+
+Rientro
+
+Prenotazione e sblocco del shower pod tramite badge lounge.
+
+Accesso alla yoga room: autenticazione con codice temporaneo inviato via app.
+
+First‑Time Student
+Check‑in origine
+
+Uso del kiosk multilingue (Cinese/Inglese) con supporto staff dedicato.
+
+Verifica della documentazione e stampa boarding pass con indicazioni chiare.
+
+Scalo
+
+Wayfinding tramite icone universali sul pavimento e su display overhead.
+
+Ogni tot metri, mini‑totem con “Hai bisogno di aiuto?” e scelta lingua.
+
+Immigrazione USA
+
+Uso dell’APC kiosk per pre‑inserire dati e stampare ricevuta.
+
+Interazione con l’agent CBP, assistita da traduttore simultaneo su totem audio.
+
+Uscita
+
+Ritiro dell’e‑SIM al pick‑up point dedicato e attivazione immediata.
+
+Salita sullo shuttle campus, mostrando il biglietto mobile al driver.

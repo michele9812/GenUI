@@ -85,15 +85,31 @@ export default function Welcome() {
           <span className="text-sm font-medium">Back to profile selection</span>
         </motion.button>
       </div>
-      {/* Header Section */}
-<div className="absolute top-12 sm:top-20 lg:top-24 left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
+      {/* Header Section - Responsive with proper spacing for text scaling */}
+<div 
+        className="absolute left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full"
+        style={{
+          top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+            ? '80px' // More space for Senior persona with 125% scaling
+            : screenWidth <= 640 
+              ? '48px' // Mobile: top-12
+              : screenWidth <= 1024 
+                ? '80px' // Tablet: top-20
+                : '96px' // Desktop: top-24
+        }}
+      >
         <h1 
-          className="h1-responsive-small text-white mb-2 sm:mb-4"
+          className="h1-responsive-small text-white"
           style={{ 
             fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
             fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
             lineHeight: selectedPersona.typography?.lineHeight || '1.2',
-            color: 'white'
+            color: 'white',
+            marginBottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+              ? '24px' // More space for Senior persona
+              : screenWidth <= 640 
+                ? '8px' // Mobile: mb-2
+                : '16px' // Tablet/Desktop: mb-4
           }}
         >
           Hello {userName || 'User'}
@@ -109,8 +125,16 @@ export default function Welcome() {
           Select your journey phase as {selectedPersona.title}
         </p>
       </div>
-      {/* Central Image */}
-      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+      {/* Central Image - Adjusted for responsive header spacing */}
+      <div 
+        className="absolute left-1/2 transform -translate-x-1/2 z-10"
+        style={{
+          top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+            ? '55%' // Slightly lower for Senior persona to avoid header overlap
+            : '50%',
+          transform: 'translateX(-50%) translateY(-50%)'
+        }}
+      >
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -152,8 +176,19 @@ export default function Welcome() {
           />
         </motion.div>
       </div>
-      {/* Interactive Dock Navigation */}
-      <div className="absolute bottom-6 sm:bottom-8 md:bottom-8 lg:bottom-12 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
+      {/* Interactive Dock Navigation - Responsive spacing for different text scales */}
+      <div 
+        className="absolute left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full"
+        style={{
+          bottom: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
+            ? '32px' // More bottom space for Senior persona
+            : screenWidth <= 640 
+              ? '24px' // Mobile: bottom-6
+              : screenWidth <= 768
+                ? '32px' // Tablet: bottom-8
+                : '48px' // Desktop: bottom-12
+        }}
+      >
         <div className="flex justify-center w-full">
           <MacOSDock 
             apps={selectedPersona.journeySteps.map((step, idx) => ({

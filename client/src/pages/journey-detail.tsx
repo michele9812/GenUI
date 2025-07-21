@@ -31,11 +31,11 @@ export default function JourneyDetail() {
     // Here you would handle item selection action
   };
 
-  // Generate contextual actions based on current journey step
+  // Generate contextual actions based on current journey step and persona
   const getContextualActions = () => {
     const generalServices = [
       {
-        id: 'security',
+        id: 'security_assistance',
         title: 'Security & Assistance',
         description: 'Find security personnel, police, or emergency assistance',
         icon: 'security'
@@ -48,141 +48,325 @@ export default function JourneyDetail() {
       }
     ];
 
-    const stepSpecificActions: { [key: string]: any[] } = {
-      // Parking/Arrival actions
-      'parking': [
-        {
-          id: 'parking_info',
-          title: 'Parking Information',
-          description: 'Find your parking location and shuttle services',
-          icon: 'local_parking'
-        },
-        {
-          id: 'terminal_directions',
-          title: 'Terminal Directions',
-          description: 'Get directions to your terminal and check-in area',
-          icon: 'directions'
-        },
-        {
-          id: 'shuttle_info',
-          title: 'Shuttle Services',
-          description: 'View shuttle schedules and pickup locations',
-          icon: 'airport_shuttle'
-        }
-      ],
+    // Persona-specific actions by journey step
+    const personaStepActions: { [personaId: string]: { [stepId: string]: any[] } } = {
+      'tech': {
+        'parking': [
+          {
+            id: 'parking_app_scan',
+            title: 'Parking App Gate Scan',
+            description: 'Scan parking app to open automatic gate',
+            icon: 'qr_code_scanner'
+          },
+          {
+            id: 'priority_access',
+            title: 'Priority Access QR',
+            description: 'Access Priority lane with airline app QR code',
+            icon: 'verified'
+          }
+        ],
+        'security': [
+          {
+            id: 'biometric_gate',
+            title: 'Biometric e-Gate',
+            description: 'Pass through e-Gate using face-ID authentication',
+            icon: 'face'
+          },
+          {
+            id: 'smartwatch_confirm',
+            title: 'Smartwatch Confirmation',
+            description: 'Receive instant OK confirmation on smartwatch',
+            icon: 'watch'
+          }
+        ],
+        'layover': [
+          {
+            id: 'auto_barista',
+            title: 'Self-Service Barista',
+            description: 'Order protein drink from automatic barista',
+            icon: 'local_cafe'
+          },
+          {
+            id: 'shower_nfc',
+            title: 'NFC Shower Booking',
+            description: 'Book shower via touchscreen, unlock with NFC',
+            icon: 'shower'
+          }
+        ],
+        'boarding': [
+          {
+            id: 'nfc_boarding',
+            title: 'NFC Self-Scan',
+            description: 'Self-scan NFC at gate with smartwatch or phone',
+            icon: 'nfc'
+          },
+          {
+            id: 'live_boarding_status',
+            title: 'Live Boarding Updates',
+            description: 'Receive live boarding completion in app',
+            icon: 'notifications_active'
+          }
+        ],
+        'arrival': [
+          {
+            id: 'mobile_lost_found',
+            title: 'Mobile Lost & Found',
+            description: 'Report lost items via in-app form',
+            icon: 'find_in_page'
+          },
+          {
+            id: 'baggage_tracking',
+            title: 'Auto Baggage Tracking',
+            description: 'Automatic tracking and delivery status updates',
+            icon: 'track_changes'
+          }
+        ]
+      },
       
-      // Check-in actions
-      'checkin': [
-        {
-          id: 'online_checkin',
-          title: 'Mobile Check-in',
-          description: 'Complete check-in and get boarding pass on your phone',
-          icon: 'smartphone'
-        },
-        {
-          id: 'baggage_drop',
-          title: 'Baggage Drop',
-          description: 'Find baggage drop counters and weight limits',
-          icon: 'luggage'
-        },
-        {
-          id: 'seat_selection',
-          title: 'Seat Selection',
-          description: 'Change or upgrade your seat assignment',
-          icon: 'airline_seat_recline_normal'
-        }
-      ],
+      'family': {
+        'parking': [
+          {
+            id: 'shuttle_call_point',
+            title: 'PRM Shuttle Call',
+            description: 'Book shuttle via call point for family assistance',
+            icon: 'phone'
+          },
+          {
+            id: 'family_vehicle',
+            title: 'Family-Friendly Vehicle',
+            description: 'Load stroller and bags on family vehicle',
+            icon: 'family_restroom'
+          }
+        ],
+        'checkin': [
+          {
+            id: 'family_counter',
+            title: 'Dedicated Family Counter',
+            description: 'Check-in at family counter with colored bag tags',
+            icon: 'counter_1'
+          },
+          {
+            id: 'priority_seating',
+            title: 'Priority Cabin Assignment',
+            description: 'Get priority seat assignment with instant tag print',
+            icon: 'airline_seat_recline_normal'
+          }
+        ],
+        'security': [
+          {
+            id: 'family_lane',
+            title: 'Family Security Lane',
+            description: 'Use wide family lane for easier passage',
+            icon: 'family_restroom'
+          },
+          {
+            id: 'stroller_scan',
+            title: 'Complete Stroller Scan',
+            description: 'Scan stroller without disassembly',
+            icon: 'baby_changing_station'
+          }
+        ],
+        'layover': [
+          {
+            id: 'playground_access',
+            title: 'Pre-Gate Playground',
+            description: 'Access playground with interactive games',
+            icon: 'child_friendly'
+          },
+          {
+            id: 'storytelling_app',
+            title: 'Story-Telling App',
+            description: 'Entertain children with interactive stories',
+            icon: 'auto_stories'
+          }
+        ],
+        'boarding': [
+          {
+            id: 'family_preboard',
+            title: 'Family Pre-Boarding',
+            description: 'Priority boarding call with staff assistance',
+            icon: 'escalator_warning'
+          }
+        ]
+      },
 
-      // Security screening actions
-      'security': [
-        {
-          id: 'security_wait',
-          title: 'Wait Times',
-          description: 'Check current security line wait times',
-          icon: 'schedule'
-        },
-        {
-          id: 'security_rules',
-          title: 'Security Guidelines',
-          description: 'Review what you can and cannot bring through security',
-          icon: 'rule'
-        },
-        {
-          id: 'fast_track',
-          title: 'Fast Track Options',
-          description: 'Find premium security lanes and eligibility',
-          icon: 'fast_forward'
-        }
-      ],
+      'senior': {
+        'parking': [
+          {
+            id: 'prm_call_pillar',
+            title: 'PRM Call Pillar',
+            description: 'Request immediate assistance via call pillar',
+            icon: 'support_agent'
+          },
+          {
+            id: 'sala_amica',
+            title: 'Sala Amica Access',
+            description: 'Direct access to comfortable seating with large fonts',
+            icon: 'accessible'
+          }
+        ],
+        'security': [
+          {
+            id: 'prm_security_lane',
+            title: 'PRM Security Lane',
+            description: 'Dedicated lane with mobile chair option',
+            icon: 'accessible'
+          },
+          {
+            id: 'onsite_bag_check',
+            title: 'On-Site Bag Check',
+            description: 'Hand baggage check without traveler movement',
+            icon: 'luggage'
+          }
+        ],
+        'layover': [
+          {
+            id: 'ergonomic_seating',
+            title: 'Ergonomic Gate Seating',
+            description: 'Seating with raised armrests and cane space',
+            icon: 'chair'
+          },
+          {
+            id: 'lounge_refreshments',
+            title: 'Assisted Refreshments',
+            description: 'Request light refreshments from lounge staff',
+            icon: 'room_service'
+          }
+        ],
+        'arrival': [
+          {
+            id: 'ambu_lift',
+            title: 'Ambu-Lift Transfer',
+            description: 'Transfer via ambu-lift to baggage claim',
+            icon: 'accessible'
+          },
+          {
+            id: 'golf_cart',
+            title: 'Golf Cart Service',
+            description: 'Electric golf cart to arrival terminal shuttle',
+            icon: 'directions_car'
+          }
+        ]
+      },
 
-      // Boarding/Gate actions
-      'boarding': [
-        {
-          id: 'gate_info',
-          title: 'Gate Information',
-          description: 'Get real-time gate updates and boarding status',
-          icon: 'flight_takeoff'
-        },
-        {
-          id: 'flight_status',
-          title: 'Flight Status',
-          description: 'Check delays, cancellations, and departure times',
-          icon: 'flight'
-        },
-        {
-          id: 'boarding_pass',
-          title: 'Boarding Pass',
-          description: 'Access your mobile boarding pass and seat info',
-          icon: 'confirmation_number'
-        }
-      ],
+      'nomad': {
+        'arrival': [
+          {
+            id: 'smart_locker',
+            title: 'Contactless Smart Locker',
+            description: 'Store backpack and trolley in app-controlled locker',
+            icon: 'lock'
+          },
+          {
+            id: 'sms_pin',
+            title: 'SMS Recovery PIN',
+            description: 'Receive temporary PIN via SMS for bag retrieval',
+            icon: 'sms'
+          }
+        ],
+        'layover': [
+          {
+            id: 'coworking_space',
+            title: 'Air-Side Coworking',
+            description: 'Access coworking space with lounge pass authentication',
+            icon: 'work'
+          },
+          {
+            id: 'phone_booth',
+            title: 'Soundproof Phone Booth',
+            description: 'Use soundproof booth for calls and video conferences',
+            icon: 'call'
+          },
+          {
+            id: 'city_pass_app',
+            title: 'City-Pass Activation',
+            description: 'Activate city-pass app directly from terminal totem',
+            icon: 'location_city'
+          },
+          {
+            id: 'local_tours_qr',
+            title: 'Local Tours QR Scan',
+            description: 'Scan QR codes for tour info and local discounts',
+            icon: 'tour'
+          }
+        ],
+        'boarding': [
+          {
+            id: 'shower_pod',
+            title: 'Shower Pod Booking',
+            description: 'Book and unlock shower pod with lounge badge',
+            icon: 'shower'
+          },
+          {
+            id: 'yoga_room',
+            title: 'Yoga Room Access',
+            description: 'Access yoga room with temporary app code',
+            icon: 'self_improvement'
+          }
+        ]
+      },
 
-      // Layover/Transfer actions
-      'layover': [
-        {
-          id: 'transfer_info',
-          title: 'Transfer Information',
-          description: 'Get directions to your connecting flight gate',
-          icon: 'transfer_within_a_station'
-        },
-        {
-          id: 'lounge_access',
-          title: 'Lounge Access',
-          description: 'Find lounges you can access during your layover',
-          icon: 'star'
-        },
-        {
-          id: 'duty_free',
-          title: 'Duty Free Shopping',
-          description: 'Browse duty-free shops and special offers',
-          icon: 'shopping_bag'
-        }
-      ],
-
-      // Post-flight/Arrival actions
-      'arrival': [
-        {
-          id: 'baggage_claim',
-          title: 'Baggage Claim',
-          description: 'Find your baggage carousel and claim area',
-          icon: 'luggage'
-        },
-        {
-          id: 'ground_transport',
-          title: 'Ground Transportation',
-          description: 'Find taxis, buses, trains, and ride-sharing options',
-          icon: 'directions_car'
-        },
-        {
-          id: 'customs_info',
-          title: 'Customs & Immigration',
-          description: 'Get information about customs and immigration procedures',
-          icon: 'passport'
-        }
-      ]
+      'student': {
+        'checkin': [
+          {
+            id: 'multilingual_kiosk',
+            title: 'Multilingual Kiosk',
+            description: 'Use Chinese/English kiosk with dedicated staff support',
+            icon: 'translate'
+          },
+          {
+            id: 'document_verification',
+            title: 'Document Verification',
+            description: 'Verify documentation and print boarding pass with clear instructions',
+            icon: 'verified'
+          }
+        ],
+        'layover': [
+          {
+            id: 'universal_wayfinding',
+            title: 'Universal Wayfinding',
+            description: 'Follow universal icons on floor and overhead displays',
+            icon: 'directions_walk'
+          },
+          {
+            id: 'help_totems',
+            title: 'Multilingual Help Totems',
+            description: 'Access help totems with language selection every few meters',
+            icon: 'help'
+          }
+        ],
+        'arrival': [
+          {
+            id: 'apc_kiosk',
+            title: 'APC Immigration Kiosk',
+            description: 'Pre-enter data and print receipt at APC kiosk',
+            icon: 'print'
+          },
+          {
+            id: 'translation_service',
+            title: 'CBP Translation Service',
+            description: 'Interact with CBP agent using simultaneous translator totem',
+            icon: 'hearing'
+          },
+          {
+            id: 'esim_pickup',
+            title: 'e-SIM Pickup Point',
+            description: 'Collect and activate e-SIM at dedicated pickup point',
+            icon: 'sim_card'
+          },
+          {
+            id: 'campus_shuttle',
+            title: 'Campus Shuttle',
+            description: 'Board campus shuttle showing mobile ticket to driver',
+            icon: 'directions_bus'
+          }
+        ]
+      }
     };
 
-    const stepActions = stepSpecificActions[currentStep?.id || ''] || [];
+    const currentPersonaActions = personaStepActions[selectedPersona?.id || ''] || {};
+    const stepActions = currentPersonaActions[currentStep?.id || ''] || [];
+    
     return [...stepActions, ...generalServices];
   };
 
