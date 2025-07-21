@@ -107,14 +107,7 @@ export default function Welcome() {
         >
           {/* Desktop Version - Icon + Text */}
           <div className="hidden sm:flex items-center gap-2 px-4 py-3">
-            <div 
-              className="w-6 h-6 rounded flex items-center justify-center"
-              style={{
-                backgroundColor: 'rgba(107, 114, 128, 0.3)'
-              }}
-            >
-              <ArrowLeft className="w-4 h-4 text-gray-600" />
-            </div>
+            <ArrowLeft className="w-4 h-4 text-gray-600" />
             <span 
               className="text-sm font-medium text-gray-700 hover:text-gray-900"
               style={{

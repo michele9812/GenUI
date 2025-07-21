@@ -47,7 +47,7 @@ export default function FamilyTabs({
     <div className={`w-full ${className}`}>
         {/* Horizontal Tab List - Hug Content with Active Label */}
         <div 
-          className="flex items-stretch justify-center w-full gap-1 p-2 mb-6 rounded-lg"
+          className="flex items-stretch justify-center w-full gap-1 p-2 mb-4 md:mb-6 rounded-lg"
           style={{
             backgroundColor: `${selectedPersona?.colors.primary}10` || '#f9fafb'
           }}
@@ -55,7 +55,7 @@ export default function FamilyTabs({
           {items.map((item) => (
             <motion.button
               key={item.id}
-              className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg transition-all min-w-0"
+              className="flex items-center justify-center gap-1 md:gap-2 py-1.5 md:py-2 px-2 md:px-3 rounded-lg transition-all min-w-0"
               style={{
                 backgroundColor: activeTab === item.id ? 
                   (selectedPersona?.colors.primary || accentColor) : 
@@ -114,29 +114,29 @@ export default function FamilyTabs({
             transition={{ duration: 0.3 }}
           >
             <div 
-              className="bg-white rounded-lg border shadow-sm p-6"
+              className="bg-white rounded-lg border shadow-sm p-3 md:p-6"
               style={{
                 borderColor: selectedPersona?.colors.primary || accentColor,
                 borderWidth: '1px'
               }}
             >
               {/* Header with Icon and Title */}
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center gap-2 md:gap-4 mb-3 md:mb-4">
                 <div 
-                  className="w-12 h-12 rounded-lg flex items-center justify-center"
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center"
                   style={{
                     backgroundColor: selectedPersona?.colors.primary || accentColor
                   }}
                 >
                   <span 
-                    className="material-icons text-xl text-white"
+                    className="material-icons text-lg md:text-xl text-white"
                   >
                     {item.icon}
                   </span>
                 </div>
                 <div>
                   <p 
-                    className="text-xs uppercase tracking-wider font-medium mb-1"
+                    className="text-xs uppercase tracking-wider font-medium mb-0.5 md:mb-1"
                     style={{
                       color: selectedPersona?.colors.secondary || secondaryColor,
                       fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
@@ -162,7 +162,7 @@ export default function FamilyTabs({
 
               {/* Description */}
               <p 
-                className="text-sm leading-relaxed mb-6"
+                className="text-sm leading-relaxed mb-4 md:mb-6"
                 style={{
                   color: selectedPersona?.colors.text || '#111827',
                   fontFamily: personaTypography?.fontFamily || 'inherit',
@@ -174,7 +174,7 @@ export default function FamilyTabs({
 
               {/* Action Button */}
               <motion.button
-                className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90"
+                className="w-full py-2.5 md:py-3 font-medium rounded-lg transition-colors hover:opacity-90"
                 style={{ 
                   backgroundColor: selectedPersona?.colors.secondary || secondaryColor,
                   color: 'white',

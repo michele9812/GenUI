@@ -71,7 +71,7 @@ export function SeniorAccordion({
   return (
     <div className="w-full max-w-4xl mx-auto h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px]">
       <Accordion 
-        className="flex w-full flex-col gap-4"
+        className="flex w-full flex-col gap-2 md:gap-4"
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {items.map((item, index) => (
@@ -89,11 +89,11 @@ export function SeniorAccordion({
               <AccordionTrigger 
                 className="w-full text-left transition-all duration-200 hover:bg-gray-50 bg-white"
               >
-                <div className="flex items-center justify-between w-full h-full px-4 py-2 sm:px-6 sm:py-2">
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center justify-between w-full h-full px-3 py-1.5 md:px-6 md:py-2">
+                <div className="flex items-center space-x-2 md:space-x-3">
                   {/* Icon */}
                   <div 
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center"
+                    className="w-7 h-7 md:w-10 md:h-10 rounded-lg flex items-center justify-center"
                     style={{
                       backgroundColor: iconBackgroundColor
                     }}
@@ -153,13 +153,13 @@ export function SeniorAccordion({
             />
             
             <AccordionContent className="bg-white">
-              <div className="px-4 py-2 sm:px-6 sm:py-2">
+              <div className="px-3 py-1.5 md:px-6 md:py-2">
                 {/* Horizontal layout: text + button */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
                   {/* Text content */}
                   <div className="flex-1">
                     <p 
-                      className="text-sm leading-relaxed"
+                      className="text-sm leading-relaxed mb-2 md:mb-0"
                       style={{
                         color: selectedPersona.colors.text || '#111827',
                         fontFamily: personaTypography?.fontFamily || 'inherit',
