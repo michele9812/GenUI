@@ -257,15 +257,11 @@ export default function Welcome() {
           />
         </motion.div>
       </div>
-      {/* Interactive Dock Navigation - Full width with responsive padding */}
+      {/* Interactive Dock Navigation - Fixed at bottom with 32px spacing */}
       <div 
-        className="container-responsive-padding"
-        style={{
-          marginBottom: '32px' // 32px bottom margin for dock
-        }}
+        className="fixed bottom-8 left-0 right-0 z-40 flex justify-center w-full container-responsive-padding"
       >
-        <div className="flex justify-center w-full">
-          <MacOSDock 
+        <MacOSDock 
             apps={selectedPersona.journeySteps.map((step, idx) => ({
               id: step.id,
               name: step.name,
@@ -285,7 +281,6 @@ export default function Welcome() {
             accentColor={selectedPersona.colors.primary}
             personaTypography={selectedPersona.typography}
           />
-        </div>
       </div>
     </BackgroundGradientAnimation>
   );
