@@ -526,7 +526,7 @@ export default function JourneyDetail() {
           }}
         >
           <h1 
-            className="h1-responsive w-full text-center"
+            className="h1-responsive w-full text-center block"
             style={{
               fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
@@ -536,7 +536,9 @@ export default function JourneyDetail() {
                 (selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? // More space for Senior persona on desktop
                 '16px' : '8px') // Standard spacing between title elements
               ),
-              width: '100%'
+              width: '100%',
+              display: 'block',
+              boxSizing: 'border-box'
             }}
           >
             Hello{' '}
@@ -546,7 +548,7 @@ export default function JourneyDetail() {
             ,
           </h1>
           <p 
-            className="w-full text-center"
+            className="w-full text-center block"
             style={{
               fontSize: window.innerWidth < 768 ? '16pt' : '18pt', // 16pt mobile, 18pt desktop
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
@@ -554,7 +556,9 @@ export default function JourneyDetail() {
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? 'rgba(255, 255, 255, 0.8)' : selectedPersona.colors.secondary,
               marginBottom: window.innerWidth < 768 ? '8px' : '8px', // 8px spacing mobile and desktop
-              width: '100%'
+              width: '100%',
+              display: 'block',
+              boxSizing: 'border-box'
             }}
           >
             I am your AirBuddy and I am here to assist you!
@@ -562,7 +566,7 @@ export default function JourneyDetail() {
           
           {/* Current Journey Phase */}
           <p 
-            className="w-full font-thin text-center"
+            className="w-full font-thin text-center block"
             style={{
               fontSize: '18px', // Fixed 18px size for all breakpoints
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
@@ -570,7 +574,9 @@ export default function JourneyDetail() {
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
               marginBottom: window.innerWidth < 768 ? '8px' : '16px', // 8px mobile, 16px desktop
-              width: '100%'
+              width: '100%',
+              display: 'block',
+              boxSizing: 'border-box'
             }}
           >
             You are in {currentStepObj?.name || 'Journey Point'} phase
