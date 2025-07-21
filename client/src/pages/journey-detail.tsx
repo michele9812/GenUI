@@ -36,35 +36,35 @@ export default function JourneyDetail() {
       id: '1',
       title: 'Find My Gate',
       description: 'Get directions to your departure gate with real-time updates',
-      image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1544885935-98dd03b09034?w=400&h=300&fit=crop',
       icon: 'flight_takeoff'
     },
     {
       id: '2', 
       title: 'Security Checkpoint',
       description: 'Find the fastest security line and estimated wait times',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1542296332-2e4473faf563?w=400&h=300&fit=crop',
       icon: 'security'
     },
     {
       id: '3',
       title: 'Dining Options',
       description: 'Discover restaurants and cafes near your gate or terminal',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop', 
+      image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop', 
       icon: 'restaurant'
     },
     {
       id: '4',
       title: 'Shopping',
       description: 'Browse duty-free shops and retail stores in your area',
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=400&h=300&fit=crop',
       icon: 'shopping_bag'
     },
     {
       id: '5',
       title: 'Wi-Fi & Charging',
       description: 'Find free Wi-Fi zones and charging stations nearby',
-      image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=300&fit=crop',
       icon: 'wifi'
     }
   ];
