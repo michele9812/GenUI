@@ -70,7 +70,7 @@ export default function Welcome() {
         </motion.button>
       </div>
       {/* Header Section */}
-      <div className="absolute top-[80px] sm:top-[80px] lg:top-[88px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="absolute top-16 sm:top-20 lg:top-24 left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
         <h1 
           className="h1-responsive text-white mb-2 sm:mb-4"
           style={{ 
@@ -120,7 +120,7 @@ export default function Welcome() {
         </motion.div>
       </div>
       {/* Interactive Dock Navigation */}
-      <div className="absolute bottom-8 sm:bottom-8 md:bottom-8 lg:bottom-16 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="absolute bottom-6 sm:bottom-8 md:bottom-8 lg:bottom-12 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-center w-full">
           <MacOSDock 
             apps={selectedPersona.journeySteps.map((step, idx) => ({
