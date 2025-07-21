@@ -1,7 +1,8 @@
 // Journey Step Image Constants - All paths verified and tested
 export const JOURNEY_IMAGES = {
-  // Terminal and Arrival Areas
+  // Terminal and Parking Areas
   TERMINAL: '/attached_assets/Modern%20Airport%20Terminal%20%281%29_1753100792152.png',
+  PARKING: '/attached_assets/Modern%20Airport%20Terminal%20%282%29_1753100970301.png',
   ARRIVAL: '/attached_assets/Modern%20Baggage%20Claim_1753100330466.png', 
   
   // Security and Screening  
@@ -131,14 +132,14 @@ export const personas: Record<string, Persona> = {
       maxFontSize: '20px'
     },
     journeySteps: [
-      { id: 'arrival', name: 'Arrivo', icon: 'local_parking', image: JOURNEY_IMAGES.ARRIVAL },
+      { id: 'parking', name: 'Parcheggio', icon: 'local_parking', image: JOURNEY_IMAGES.PARKING },
       { id: 'security', name: 'Sicurezza', icon: 'security', image: JOURNEY_IMAGES.SECURITY },
       { id: 'lounge', name: 'Lounge', icon: 'airline_seat_recline_normal', image: JOURNEY_IMAGES.LOUNGE },
       { id: 'boarding', name: 'Imbarco', icon: 'flight_takeoff', image: JOURNEY_IMAGES.IMBARCO },
       { id: 'post_flight', name: 'Post-volo', icon: 'flight_land', image: JOURNEY_IMAGES.POST_FLIGHT }
     ],
     actions: {
-      arrival: [
+      parking: [
         { title: 'App Parcheggio', description: 'Scansione QR per apertura automatica', icon: 'qr_code_scanner' },
         { title: 'Varco Priority', description: 'Accesso veloce tramite app compagnia', icon: 'fast_forward' }
       ],
