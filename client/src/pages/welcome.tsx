@@ -177,7 +177,7 @@ export default function Welcome() {
             ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
           }}
           className="rounded-lg overflow-hidden shadow-2xl cursor-pointer"
-          onClick={handleImageClick}
+          onClick={() => setIsZooming(!isZooming)}
           style={{
             transformOrigin: 'center center', // Anchor scaling to viewport center
             zIndex: isZooming ? 9999 : 10,

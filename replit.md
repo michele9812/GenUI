@@ -105,6 +105,9 @@ This is an intelligent airport navigation web application that provides personal
 - **Reduced accordion button padding to 0px on mobile**: Updated accordion trigger button vertical padding from py-1 (4px) to py-0 (0px) on mobile while maintaining py-2 (8px) on desktop for tighter spacing
 - **Optimized header container spacing desktop**: Reduced desktop header container margins from 32px to 24px and padding from 32px to 8px while maintaining 8px mobile values for consistent compact design across all breakpoints
 - **Enhanced image zoom animation with viewport centering**: Updated image zoom animation to anchor scaling transformation to viewport center using fixed positioning and translate(-50%, -50%) for consistent behavior across all breakpoints, ensuring image scales from and to viewport center regardless of screen size
+- **Restored accordion button padding to 4px mobile**: Changed accordion trigger button vertical padding back from py-0 to py-1 (4px) on mobile for better usability while maintaining py-2 (8px) on desktop
+- **Reduced accordion gap to 12px mobile**: Updated Senior accordion component gap from 16px to 12px on mobile screens for tighter spacing while maintaining 24px gap on desktop
+- **Reduced header-to-content spacing to 12px mobile**: Updated margin between header/title container and accordion content from default spacing to 12px on mobile for more compact layout
 - **Separated navigation buttons design**: Split AirBuddy logo and back action into separate buttons - logo as standalone square (10x10), back button with icon+text on desktop and icon-only on mobile with responsive design and staggered animations
 - **Reduced carousel height by 64px**: Decreased carousel container height across all breakpoints (256px mobile, 356px tablet, 396px medium, 416px desktop) for optimized viewport space utilization
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
