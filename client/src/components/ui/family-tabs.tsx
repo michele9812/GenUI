@@ -55,14 +55,14 @@ export default function FamilyTabs({
           {items.map((item) => (
             <motion.button
               key={item.id}
-              className="flex items-center justify-center gap-1 md:gap-2 py-1.5 md:py-2 px-2 md:px-3 rounded-lg transition-all min-w-0"
+              className="flex items-center justify-center gap-1 md:gap-2 py-1.5 md:py-2 px-2 md:px-3 rounded-lg transition-all min-w-0 max-h-[56px] md:max-h-none"
               style={{
                 backgroundColor: activeTab === item.id ? 
                   (selectedPersona?.colors.primary || accentColor) : 
                   'transparent',
                 color: activeTab === item.id ? 'white' : (selectedPersona?.colors.text || '#374151'),
                 fontFamily: personaTypography?.fontFamily || 'inherit',
-                flex: !isMobile ? '1' : (activeTab === item.id ? '1' : 'auto')
+                flex: !isMobile ? '1' : (activeTab === item.id ? 'auto' : '1')
               }}
               onClick={() => {
                 setActiveTab(item.id);
@@ -175,7 +175,7 @@ export default function FamilyTabs({
 
               {/* Action Button */}
               <motion.button
-                className="w-full py-2.5 md:py-3 font-medium rounded-lg transition-colors hover:opacity-90"
+                className="w-full py-2.5 md:py-3 font-medium rounded-lg transition-colors hover:opacity-90 max-h-[56px] md:max-h-none"
                 style={{ 
                   backgroundColor: selectedPersona?.colors.secondary || secondaryColor,
                   color: 'white',

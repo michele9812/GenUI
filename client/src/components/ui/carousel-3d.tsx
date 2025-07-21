@@ -379,7 +379,7 @@ export function Carousel3D({
                       <div className="mt-2 sm:mt-4">
                         {isCenter ? (
                           <motion.button
-                            className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90"
+                            className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90 max-h-[56px] md:max-h-none"
                             style={{ 
                               backgroundColor: selectedPersona?.colors?.secondary || accentColor,
                               color: 'white', // Always white text for better contrast on colored backgrounds
@@ -399,7 +399,7 @@ export function Carousel3D({
                         ) : (
                           <button 
                             disabled
-                            className="w-full py-3 font-medium rounded-lg cursor-not-allowed opacity-60"
+                            className="w-full py-3 font-medium rounded-lg cursor-not-allowed opacity-60 max-h-[56px] md:max-h-none"
                             style={{ 
                               border: 'none',
                               backgroundColor: selectedPersona?.id === 'student' ? '#374151' : '#f3f4f6',
