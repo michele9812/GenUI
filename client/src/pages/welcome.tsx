@@ -127,20 +127,13 @@ export default function Welcome() {
 
           {/* Mobile Version - Icon Only */}
           <div className="flex sm:hidden items-center justify-center p-3">
-            <div 
-              className="w-6 h-6 rounded flex items-center justify-center"
-              style={{
-                backgroundColor: 'rgba(107, 114, 128, 0.3)'
-              }}
-            >
-              <ArrowLeft className="w-4 h-4 text-gray-600" />
-            </div>
+            <ArrowLeft className="w-6 h-6 text-gray-600" />
           </div>
         </motion.button>
       </div>
-      {/* Header Section - Relative positioning with proper margins */}
+      {/* Header Section - Full width with responsive padding */}
       <div 
-        className="text-center px-4 sm:px-6 lg:px-8 w-full"
+        className="text-center container-responsive-padding"
         style={{
           marginTop: '64px', // 64px top margin
           marginBottom: '16px' // 16px bottom margin
@@ -171,8 +164,8 @@ export default function Welcome() {
           Select your journey phase as {selectedPersona.title}
         </p>
       </div>
-      {/* Central Image - Relative positioning with flex centering */}
-      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      {/* Central Image - Full width with responsive padding */}
+      <div className="flex-1 flex items-center justify-center container-responsive-padding">
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -190,16 +183,20 @@ export default function Welcome() {
             zIndex: isZooming ? 9999 : 10,
             // Base responsive dimensions with proper aspect ratio
             width: screenWidth <= 640 ? 
-              'calc(100vw - 32px)' : // Mobile: full width minus 16px margins
+              'calc(100vw - 32px)' : // Mobile: full width minus responsive margins
               screenWidth <= 768 ? 
-                '480px' : // Tablet
-                '560px', // Desktop
+                'calc(100vw - 80px)' : // Tablet: 40px margins each side
+                'calc(100vw - 128px)', // Desktop: 64px margins each side
             height: screenWidth <= 640 ? 
               'calc((100vw - 32px) * 0.6)' : // Mobile: maintain aspect ratio
               screenWidth <= 768 ? 
                 '320px' : // Tablet
                 '375px', // Desktop
-            maxWidth: 'calc(100vw - 32px)',
+            maxWidth: screenWidth <= 640 ? 
+              'calc(100vw - 32px)' : 
+              screenWidth <= 768 ? 
+                'calc(100vw - 80px)' : 
+                'calc(100vw - 128px)',
             maxHeight: 'calc(100vh - 280px)' // Leave space for header, spacing and dock
           }}
         >
@@ -214,9 +211,9 @@ export default function Welcome() {
           />
         </motion.div>
       </div>
-      {/* Interactive Dock Navigation - Bottom section with margin */}
+      {/* Interactive Dock Navigation - Full width with responsive padding */}
       <div 
-        className="px-4 sm:px-6 lg:px-8 w-full"
+        className="container-responsive-padding"
         style={{
           marginBottom: '32px' // 32px bottom margin for dock
         }}

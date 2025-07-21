@@ -490,20 +490,13 @@ export default function JourneyDetail() {
 
           {/* Mobile Version - Icon Only */}
           <div className="flex sm:hidden items-center justify-center p-3">
-            <div 
-              className="w-6 h-6 rounded flex items-center justify-center"
-              style={{
-                backgroundColor: 'rgba(107, 114, 128, 0.3)'
-              }}
-            >
-              <ArrowLeft className="w-4 h-4 text-gray-600" />
-            </div>
+            <ArrowLeft className="w-6 h-6 text-gray-600" />
           </div>
         </motion.button>
       </div>
-      {/* Header Section - Relative positioning with proper margins */}
+      {/* Header Section - Full width with responsive padding */}
       <div 
-        className="text-center px-4 sm:px-6 lg:px-8 w-full"
+        className="text-center container-responsive-padding"
         style={{
           marginTop: '64px', // 64px top margin
           marginBottom: '16px' // 16px bottom margin
@@ -561,8 +554,8 @@ export default function JourneyDetail() {
         </motion.div>
       </div>
 
-      {/* Main Content */}
-      <main className="flex-1 w-full h-full overflow-hidden" style={{ paddingLeft: '64px', paddingRight: '64px' }}>
+      {/* Main Content - Full width with responsive padding */}
+      <main className="flex-1 w-full h-full overflow-hidden container-responsive-padding">
 
         {/* 3D Carousel, Senior Accordion, or Family Tabs */}
         <motion.div 
@@ -600,9 +593,9 @@ export default function JourneyDetail() {
         </motion.div>
       </main>
 
-      {/* Floating AI Prompt Input - Bottom section with margin */}
+      {/* Floating AI Prompt Input - Full width with responsive padding */}
       <div 
-        className="px-4 sm:px-6 lg:px-8 w-full"
+        className="container-responsive-padding"
         style={{ marginBottom: '32px' }}
       >
         <motion.div 

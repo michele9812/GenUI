@@ -29,8 +29,8 @@ export default function Login() {
   const selectedPersona = selectedPersonaId ? personas[selectedPersonaId] : null;
 
   return (
-    <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-gray-50 to-slate-100">
-      <Card className="w-full max-w-md mx-4 shadow-2xl">
+    <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-gray-50 to-slate-100 container-responsive-padding">
+      <Card className="w-full max-w-md shadow-2xl">
         <CardContent className="p-6 pt-8 pb-8">
           <div className="text-center mb-6">
             <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full overflow-hidden bg-blue-50">

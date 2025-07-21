@@ -55,6 +55,27 @@
   }
 }
 
+/* Responsive padding classes for full width containers */
+.container-responsive-padding {
+  padding-left: 16px; /* Mobile: 16px margins */
+  padding-right: 16px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container-responsive-padding {
+    padding-left: 40px; /* Tablet: 40px margins */
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive-padding {
+    padding-left: 64px; /* Desktop: 64px margins */
+    padding-right: 64px;
+  }
+}
+
 /* Viewport Height Utilities - 8px multiples */
 .h-viewport {
   height: 100vh;
