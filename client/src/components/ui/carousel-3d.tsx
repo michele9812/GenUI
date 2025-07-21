@@ -283,7 +283,7 @@ export function Carousel3D({
               >
                 {/* Card Content */}
                 <div className={cn(
-                  "w-full h-full rounded-2xl overflow-hidden flex flex-col",
+                  "w-full h-full rounded-lg overflow-hidden flex flex-col",
                   // Remove glare effect from non-active cards
                   isCenter ? "glare-card" : ""
                 )}>
