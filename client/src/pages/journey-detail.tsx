@@ -506,7 +506,7 @@ export default function JourneyDetail() {
         className="text-center px-4 sm:px-6 lg:px-8 w-full"
         style={{
           marginTop: '64px', // 64px top margin
-          marginBottom: '24px' // 24px bottom margin
+          marginBottom: '16px' // 16px bottom margin
         }}
       >
         <motion.div
