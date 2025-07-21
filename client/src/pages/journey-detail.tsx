@@ -436,13 +436,11 @@ export default function JourneyDetail() {
       <div className="absolute top-4 left-4 z-50">
         <motion.button
           onClick={handleBack}
-          className="flex items-center gap-2 px-4 py-2 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+          className="group relative overflow-hidden backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200"
           style={{
             backgroundColor: isStudentPersona ? 'rgba(245, 158, 11, 0.1)' : 'rgba(255, 255, 255, 0.9)',
-            borderColor: buttonColor,
-            color: buttonColor,
-            borderWidth: '1px',
-            borderStyle: 'solid'
+            borderRadius: '12px',
+            border: '1px solid rgba(107, 114, 128, 0.3)'
           }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -450,8 +448,66 @@ export default function JourneyDetail() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ArrowLeft className="w-4 h-4" />
-          <span className="text-sm font-medium">Back to journey selection</span>
+          {/* Desktop Version */}
+          <div className="hidden sm:flex items-center gap-3 px-4 py-3">
+            {/* AirBuddy Logo Square */}
+            <div 
+              className="w-8 h-8 rounded-lg flex items-center justify-center"
+              style={{
+                backgroundColor: selectedPersona.colors.primary,
+                color: 'white'
+              }}
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L9 7V9C9 11.66 11.34 14 14 14V22H10V24H14H14.5C14.5 24 14.5 24 14.5 24H15V22H14V14C16.66 14 19 11.66 19 9H21Z"/>
+              </svg>
+            </div>
+            {/* Arrow and Text */}
+            <div className="flex items-center gap-2">
+              <div 
+                className="w-6 h-6 rounded flex items-center justify-center"
+                style={{
+                  backgroundColor: 'rgba(107, 114, 128, 0.3)'
+                }}
+              >
+                <ArrowLeft className="w-4 h-4 text-gray-600" />
+              </div>
+              <span 
+                className="text-sm font-medium"
+                style={{
+                  color: isStudentPersona ? '#f59e0b' : buttonColor,
+                  fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
+                }}
+              >
+                Back to journey selection
+              </span>
+            </div>
+          </div>
+
+          {/* Mobile Version - Logo Only */}
+          <div className="flex sm:hidden items-center justify-center p-3">
+            <div 
+              className="w-8 h-8 rounded-lg flex items-center justify-center relative"
+              style={{
+                backgroundColor: selectedPersona.colors.primary,
+                color: 'white'
+              }}
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L9 7V9C9 11.66 11.34 14 14 14V22H10V24H14H14.5C14.5 24 14.5 24 14.5 24H15V22H14V14C16.66 14 19 11.66 19 9H21Z"/>
+              </svg>
+              {/* Impressed Arrow */}
+              <div 
+                className="absolute -bottom-1 -right-1 w-4 h-4 rounded flex items-center justify-center"
+                style={{
+                  backgroundColor: 'rgba(107, 114, 128, 0.3)',
+                  border: '1px solid rgba(255, 255, 255, 0.8)'
+                }}
+              >
+                <ArrowLeft className="w-2.5 h-2.5 text-gray-600" />
+              </div>
+            </div>
+          </div>
         </motion.button>
       </div>
       {/* Header Section - Relative positioning with proper margins */}
