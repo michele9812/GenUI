@@ -495,7 +495,8 @@ export default function JourneyDetail() {
         className="text-center container-responsive-padding"
         style={{
           marginTop: '64px', // 64px top margin
-          marginBottom: window.innerWidth < 768 ? '8px' : '16px' // 8px mobile, 16px desktop
+          marginBottom: window.innerWidth < 768 ? '8px' : '16px', // 8px mobile, 16px desktop
+          paddingBottom: window.innerWidth < 768 ? '8px' : '16px' // 8px mobile, 16px desktop
         }}
       >
         <motion.div
