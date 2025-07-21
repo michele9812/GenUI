@@ -249,7 +249,7 @@ export function Carousel3D({
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: 'calc(100% - 48px)' // Reduced gap between cards and controls
+          height: window.innerWidth < 640 ? 'calc(100% - 72px)' : 'calc(100% - 48px)' // 24px gap mobile (72px total), 24px gap desktop (48px total)
         }}
 
         onMouseEnter={() => setIsPaused(true)}
@@ -447,7 +447,7 @@ export function Carousel3D({
       </div>
       {/* Navigation Controls - Mobile: horizontal flexbox, Desktop: positioned */}
       {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
-      <div className="md:hidden absolute inset-x-0 bottom-4 px-4 z-[1000]">
+      <div className="md:hidden absolute inset-x-0 px-4 z-[1000]" style={{ bottom: '24px' }}>
         <div className="flex justify-between items-center">
           {/* Pagination Indicators - Left side on mobile */}
           <div className="flex gap-2">
@@ -550,8 +550,8 @@ export function Carousel3D({
 
         {/* Centered Indicators */}
         <div 
-          className="absolute left-1/2 -translate-x-1/2 flex gap-2 bottom-8"
-          style={{ zIndex: 1000 }}
+          className="absolute left-1/2 -translate-x-1/2 flex gap-2"
+          style={{ zIndex: 1000, bottom: '24px' }}
         >
           {items.map((_, index) => (
             <button
