@@ -233,8 +233,8 @@ export function Carousel3D({
     <div 
       className="relative w-full"
       style={{
-        height: isIPhoneSE ? '360px' : isIPhoneXR && isMobile ? '380px' : isMobile ? '400px' : '450px',
-        maxHeight: isIPhoneSE ? '360px' : isIPhoneXR && isMobile ? '380px' : isMobile ? '400px' : '450px'
+        height: isIPhoneSE ? '360px' : isIPhoneXR && isMobile ? '380px' : isMobile ? '400px' : '418px', // Reduced desktop from 450px to 418px (-32px)
+        maxHeight: isIPhoneSE ? '360px' : isIPhoneXR && isMobile ? '380px' : isMobile ? '400px' : '418px'
       }}
     >
       <div 
@@ -243,8 +243,8 @@ export function Carousel3D({
         style={{
           alignItems: 'center', // Center alignment for both mobile and desktop
           paddingTop: '16px',
-          paddingLeft: window.innerWidth < 640 ? '16px' : '80px',
-          paddingRight: window.innerWidth < 640 ? '16px' : '80px',
+          paddingLeft: window.innerWidth < 640 ? '8px' : '80px', // Reduced mobile padding from 16px to 8px
+          paddingRight: window.innerWidth < 640 ? '8px' : '80px', // Reduced mobile padding from 16px to 8px
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
