@@ -137,17 +137,23 @@ export function Carousel3D({
     let baseWidth, centerWidth, spacing, containerPadding;
     
     if (isMobile) {
-      if (screenWidth <= 375) {
-        // iPhone SE configuration (≤375px) - increased width to 240px minimum
-        baseWidth = 200;
-        centerWidth = 240;
-        spacing = 24; // Updated spacing to 24px
+      if (screenWidth <= 320) {
+        // iPhone SE configuration (≤320px) - optimized for 320px screen
+        baseWidth = 160;
+        centerWidth = 200;
+        spacing = 16; // Reduced spacing for tighter fit
+        containerPadding = 4;
+      } else if (screenWidth <= 375) {
+        // Small mobile devices (321px-375px)
+        baseWidth = 180;
+        centerWidth = 220;
+        spacing = 20; 
         containerPadding = 6;
       } else {
-        // iPhone 16+ unified mobile configuration
+        // Larger mobile devices (376px+)
         baseWidth = 260;
         centerWidth = 280;
-        spacing = 24; // Updated spacing to 24px
+        spacing = 24; 
         containerPadding = 16;
       }
     } else if (isTablet) {
@@ -177,8 +183,11 @@ export function Carousel3D({
     const distanceFromCenter = Math.abs(position);
     const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3)); // Gradual fade instead of sharp cutoff
     
-    // iPhone SE height calculation - FIXED 240px (≤375px)
-    const cardHeight = isMobile ? (screenWidth <= 375 ? 240 : 320) : 320;
+    // iPhone SE height calculation - optimized for small screens
+    const cardHeight = isMobile ? 
+      (screenWidth <= 320 ? 200 : // iPhone SE: 200px
+       screenWidth <= 375 ? 240 : // Small mobile: 240px
+       320) : 320; // Large mobile/desktop: 320px
     
     return {
       width: cardWidth,
@@ -202,14 +211,18 @@ export function Carousel3D({
   // Current screen dimensions for responsive container
   const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
   const isMobile = screenWidth < 640;
-  const isIPhoneSE = screenWidth < 375;
+  const isIPhoneSE = screenWidth <= 320;
 
   return (
     <div 
       className="relative w-full"
       style={{
-        height: screenWidth <= 375 ? '320px' : (isMobile ? '480px' : '418px'), // iPhone SE: 320px direct override (≤375px)
-        maxHeight: screenWidth <= 375 ? '320px' : (isMobile ? '480px' : '418px')
+        height: screenWidth <= 320 ? '280px' : // iPhone SE: 280px container
+                screenWidth <= 375 ? '360px' : // Small mobile: 360px
+                (isMobile ? '480px' : '418px'), // Large mobile/desktop
+        maxHeight: screenWidth <= 320 ? '280px' : 
+                   screenWidth <= 375 ? '360px' : 
+                   (isMobile ? '480px' : '418px')
       }}
     >
       <div 
@@ -218,8 +231,10 @@ export function Carousel3D({
         style={{
           alignItems: 'center', // Center alignment for both mobile and desktop
           paddingTop: '16px',
-          paddingLeft: window.innerWidth < 640 ? '8px' : '80px', // Reduced mobile padding from 16px to 8px
-          paddingRight: window.innerWidth < 640 ? '8px' : '80px', // Reduced mobile padding from 16px to 8px
+          paddingLeft: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
+                       window.innerWidth < 640 ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
+          paddingRight: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
+                        window.innerWidth < 640 ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
@@ -259,8 +274,12 @@ export function Carousel3D({
                     !isCenter && "backdrop-blur-none"
                   )}
                   style={{
-                    width: screenWidth <= 375 ? Math.max(240, style.width) : style.width, // iPhone SE: minimum 240px width
-                    height: screenWidth <= 375 ? 240 : style.height, // FORCE iPhone SE: 240px override (≤375px)
+                    width: screenWidth <= 320 ? Math.max(200, style.width) : // iPhone SE: min 200px
+                           screenWidth <= 375 ? Math.max(220, style.width) : // Small mobile: min 220px
+                           style.width,
+                    height: screenWidth <= 320 ? 200 : // iPhone SE: 200px
+                            screenWidth <= 375 ? 240 : // Small mobile: 240px
+                            style.height,
                     zIndex: style.zIndex,
                     borderColor: isCenter ? accentColor : 'transparent',
                     background: isCenter ? (selectedPersona?.colors?.bg || '#ffffff') : '#f8fafc',
