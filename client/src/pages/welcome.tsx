@@ -237,7 +237,7 @@ export default function Welcome() {
                   'calc(100vw - 80px)' : 
                   'calc(100vw - 128px)'
             ),
-            maxHeight: isZooming ? 'none' : 'calc(100vh - 280px)' // Leave space for header, spacing and dock
+            maxHeight: isZooming ? 'none' : 'calc(100vh - 200px)' // Leave space for header and fixed dock
           }}
         >
           <img
@@ -259,8 +259,9 @@ export default function Welcome() {
       </div>
       {/* Interactive Dock Navigation - Fixed at bottom with 32px spacing */}
       <div 
-        className="fixed bottom-8 left-0 right-0 z-40 flex justify-center w-full container-responsive-padding"
+        className="fixed bottom-8 left-0 right-0 z-40 container-responsive-padding"
       >
+        <div className="flex justify-center w-full">
         <MacOSDock 
             apps={selectedPersona.journeySteps.map((step, idx) => ({
               id: step.id,
@@ -281,6 +282,7 @@ export default function Welcome() {
             accentColor={selectedPersona.colors.primary}
             personaTypography={selectedPersona.typography}
           />
+        </div>
       </div>
     </BackgroundGradientAnimation>
   );
