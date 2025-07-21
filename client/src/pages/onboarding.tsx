@@ -45,14 +45,7 @@ export default function OnboardingPage() {
             Welcome to AirBuddy
           </motion.h1>
           
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="text-gray-600 text-base leading-relaxed"
-          >
-            Your intelligent airport navigation companion
-          </motion.p>
+          
         </div>
 
         {/* Welcome content */}
@@ -63,9 +56,7 @@ export default function OnboardingPage() {
           className="space-y-6 mb-8"
         >
           <div className="text-center space-y-4">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">
-              Ready to Navigate?
-            </h2>
+            
             
             <p className="text-gray-600 leading-relaxed">
               AirBuddy provides personalized airport guidance tailored to your travel style. 
