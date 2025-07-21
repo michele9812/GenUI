@@ -203,8 +203,8 @@
   --primary-foreground: hsl(0, 0%, 98%);
   --secondary: hsl(60, 4.8%, 95.9%);
   --secondary-foreground: hsl(24, 9.8%, 10%);
-  --accent: hsl(60, 4.8%, 95.9%);
-  --accent-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(0, 0%, 96%);
+  --accent-foreground: hsl(0, 0%, 15%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
   --ring: hsl(0, 0%, 60%);
@@ -225,7 +225,7 @@
   /* Senior Globetrotter PRM */
   --senior-primary: hsl(201, 100%, 20%);
   --senior-secondary: hsl(0, 0%, 96%);
-  --senior-accent: hsl(258, 42%, 42%);
+  --senior-accent: hsl(258, 42%, 42%); /* Keep for persona-specific use */
   --senior-bg: hsl(189, 14%, 95%);
 
   /* Bleisure Nomad */
@@ -256,7 +256,7 @@
   --primary-foreground: hsl(0, 0%, 98%);
   --secondary: hsl(240, 3.7%, 15.9%);
   --secondary-foreground: hsl(0, 0%, 98%);
-  --accent: hsl(240, 3.7%, 15.9%);
+  --accent: hsl(0, 0%, 16%);
   --accent-foreground: hsl(0, 0%, 98%);
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: hsl(0, 0%, 98%);
