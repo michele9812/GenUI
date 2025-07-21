@@ -95,9 +95,9 @@ export default function LoginPage() {
             </p>
           </div>
           
-          {/* Content - Fixed position */}
-          <div className="absolute top-64 left-6 right-6">
-            <div className="space-y-6">
+          {/* Content - Fixed position - optimized spacing */}
+          <div className="absolute top-56 left-6 right-6">
+            <div className="space-y-4">
               <div>
                 <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-2">
                   Name
@@ -188,8 +188,8 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* Button - Fixed at bottom */}
-          <div className="absolute bottom-6 left-6 right-6">
+          {/* Button - Fixed at bottom with extra margin for larger preview */}
+          <div className="absolute bottom-4 left-6 right-6">
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
