@@ -89,7 +89,7 @@ export default function Welcome() {
             lineHeight: selectedPersona.typography?.lineHeight || '1.4'
           }}
         >
-          Seleziona il punto del journey
+          {selectedPersona.title}
         </p>
       </div>
       {/* Central Image */}
