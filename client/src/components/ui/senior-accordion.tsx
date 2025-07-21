@@ -65,6 +65,9 @@ export function SeniorAccordion({
   const iconBackgroundColor = createColorWithOpacity(accentColor, 0.1);
   const iconColor = createColorWithOpacity(accentColor, 0.4);
   
+  // Create grey separator line (40% opacity)
+  const separatorColor = 'rgba(107, 114, 128, 0.4)'; // gray-500 with 40% opacity
+  
   return (
     <div className="w-full max-w-4xl mx-auto h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px]" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
       <Accordion 
@@ -151,6 +154,12 @@ export function SeniorAccordion({
                 </div>
               </div>
               </AccordionTrigger>
+            
+            {/* Separator line when expanded */}
+            <div 
+              className="w-full h-px"
+              style={{ backgroundColor: separatorColor }}
+            />
             
             <AccordionContent className="bg-white">
               <div 
