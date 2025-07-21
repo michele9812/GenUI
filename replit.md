@@ -16,6 +16,11 @@ This is an intelligent airport navigation web application that provides personal
 - **Updated layover/scalo image**: Associated Modern Waiting Area image with COMFORT ZONE seating to the LAYOVER journey step for better contextual accuracy during connection flights
 - **Standardized H1 typography with responsive design tokens**: Implemented consistent H1 sizing using 48pt for desktop, 38pt for tablet, and 32pt for mobile with proper persona font scaling - replaced inconsistent rem-based classes with centralized CSS tokens
 - **Updated journey selection subtitle**: Changed welcome page subtitle from generic persona title to "Seleziona la fase del journey come [Persona Title]" for better contextual guidance
+- **Implemented comprehensive English translation**: Converted all interface text, labels, journey steps, and action descriptions from Italian to English for international accessibility
+- **Applied viewport height constraints with 8px spacing multiples**: Updated all pages to use h-viewport class and standardized spacing using 16px, 24px, 32px intervals for consistent layout within single viewport height
+- **Reduced onboarding H1 size**: Added h1-responsive-small class (24pt mobile, 28pt tablet, 32pt desktop) for login page to optimize space usage
+- **Fixed carousel card spacing issue**: Corrected translateX calculation with proper card gap multipliers to ensure consistent spacing between center cards and outer cards
+- **Optimized login panel spacing**: Reduced vertical spacing from large increments to 4px between elements, smaller icon sizes, and compact padding for better viewport fit
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization

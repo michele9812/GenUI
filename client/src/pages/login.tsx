@@ -31,9 +31,9 @@ export default function Login() {
   return (
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-gray-50 to-slate-100">
       <Card className="w-full max-w-md mx-4 shadow-2xl">
-        <CardContent className="p-6 sm:pt-12 lg:pt-16 pt-[24px] pb-[24px]">
-          <div className="text-center mb-10 sm:mb-16 lg:mb-20">
-            <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
+        <CardContent className="p-4 pt-6 pb-6">
+          <div className="text-center mb-6">
+            <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-3">
               <Plane className="text-white text-3xl" size={24} />
             </div>
             <h1 
@@ -44,9 +44,9 @@ export default function Login() {
             <p className="text-gray-600">Personalized journey assistant</p>
           </div>
 
-          <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+          <div className="space-y-4">
             <div>
-              <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
                 Name
               </Label>
               <Input
@@ -60,7 +60,7 @@ export default function Login() {
             </div>
 
             <div>
-              <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="personaSelect" className="block text-sm font-medium text-gray-700 mb-1">
                 Select Your Profile
               </Label>
               <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
@@ -86,7 +86,7 @@ export default function Login() {
                   color: selectedPersona.colors.primary
                 }}
               >
-                <div className="flex items-center space-x-3 mb-3">
+                <div className="flex items-center space-x-3 mb-2">
                   <div 
                     className="w-10 h-10 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: selectedPersona.colors.primary }}
@@ -105,7 +105,7 @@ export default function Login() {
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
-              className="w-full py-3 px-4 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-2 px-4 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Start the journey
               <span className="material-icons ml-2 text-sm">arrow_forward</span>
