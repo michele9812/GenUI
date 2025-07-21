@@ -33,6 +33,7 @@ type DockProps = {
   panelHeight?: number;
   magnification?: number;
   spring?: SpringOptions;
+  backgroundColor?: string;
 };
 type DockItemProps = {
   className?: string;
@@ -82,6 +83,7 @@ function Dock({
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
   panelHeight = DEFAULT_PANEL_HEIGHT,
+  backgroundColor,
 }: DockProps) {
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
@@ -111,7 +113,8 @@ function Dock({
           mouseX.set(Infinity);
         }}
         className={cn(
-          'mx-auto flex w-fit gap-4 rounded-2xl bg-gray-50 px-4 dark:bg-neutral-900',
+          'mx-auto flex w-fit gap-4 rounded-2xl px-4 backdrop-blur-md',
+          backgroundColor || 'bg-gray-50/80 dark:bg-neutral-900/80',
           className
         )}
         style={{ height: panelHeight }}
