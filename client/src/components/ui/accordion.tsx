@@ -118,7 +118,7 @@ function AccordionItem({ value, children, className }: AccordionItemProps) {
             ...child.props,
             value,
             expanded: isExpanded,
-          });
+          } as any);
         }
         return child;
       })}
@@ -135,7 +135,7 @@ function AccordionTrigger({
   children,
   className,
   ...props
-}: AccordionTriggerProps) {
+}: AccordionTriggerProps & { value?: React.Key; expanded?: boolean }) {
   const { toggleItem, expandedValue } = useAccordion();
   const value = (props as { value?: React.Key }).value;
   const isExpanded = value === expandedValue;
@@ -162,7 +162,7 @@ function AccordionContent({
   children,
   className,
   ...props
-}: AccordionContentProps) {
+}: AccordionContentProps & { value?: React.Key; expanded?: boolean }) {
   const { expandedValue, variants } = useAccordion();
   const value = (props as { value?: React.Key }).value;
   const isExpanded = value === expandedValue;
