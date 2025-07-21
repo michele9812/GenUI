@@ -467,8 +467,11 @@ export function Carousel3D({
       </div>
       {/* Indicators - Outside masked container */}
       <div 
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"
-        style={{ zIndex: 1000 }}
+        className="absolute left-1/2 -translate-x-1/2 flex gap-2"
+        style={{ 
+          zIndex: 1000,
+          bottom: window.innerWidth < 640 ? '16px' : '32px'
+        }}
       >
         {items.map((_, index) => (
           <button
