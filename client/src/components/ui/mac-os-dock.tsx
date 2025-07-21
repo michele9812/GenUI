@@ -36,6 +36,7 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
   const [mouseX, setMouseX] = useState<number | null>(null);
   const [currentScales, setCurrentScales] = useState<number[]>(apps.map(() => 1));
   const [currentPositions, setCurrentPositions] = useState<number[]>([]);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const dockRef = useRef<HTMLDivElement>(null);
   const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
   const animationFrameRef = useRef<number | undefined>(undefined);
@@ -287,7 +288,15 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
               ref={(el) => { iconRefs.current[index] = el; }}
               className="absolute cursor-pointer flex flex-col items-center justify-end"
               onClick={() => handleAppClick(app.id, index)}
-              onMouseEnter={() => onAppHover?.(app.id)}
+              onMouseEnter={() => {
+                setHoveredIndex(index);
+                onAppHover?.(app.id);
+              }}
+              onMouseLeave={() => {
+                if (hoveredIndex === index) {
+                  setHoveredIndex(null);
+                }
+              }}
               style={{
                 left: `${position - scaledSize / 2}px`,
                 bottom: '0px',
@@ -298,7 +307,7 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
               }}
             >
               {/* Hover Label */}
-              {isHovered && (
+              {hoveredIndex === index && (
                 <div
                   className="absolute mb-2 px-2 py-1 bg-black bg-opacity-80 text-white text-xs rounded-lg whitespace-nowrap"
                   style={{
