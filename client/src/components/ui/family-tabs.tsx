@@ -27,6 +27,17 @@ export default function FamilyTabs({
   const personaTypography = selectedPersona?.typography;
   const [activeTab, setActiveTab] = useState(items[0]?.id);
   const [expandedTab, setExpandedTab] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   if (!items || items.length === 0) {
     return <div>No items available</div>;
@@ -54,8 +65,10 @@ export default function FamilyTabs({
               }}
               onClick={() => {
                 setActiveTab(item.id);
-                // Auto expand active tab and collapse others
-                setExpandedTab(item.id);
+                // Mobile: Auto expand active tab, Desktop: always expanded
+                if (isMobile) {
+                  setExpandedTab(item.id);
+                }
               }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -71,20 +84,20 @@ export default function FamilyTabs({
                 {item.icon}
               </span>
               
-              {/* Label - Always visible for active tab, hidden for others */}
+              {/* Label - Responsive visibility */}
               <motion.span 
                 className="text-sm font-medium whitespace-nowrap overflow-hidden"
                 initial={false}
                 animate={{
-                  width: activeTab === item.id ? 'auto' : 0,
-                  opacity: activeTab === item.id ? 1 : 0
+                  width: isMobile ? (activeTab === item.id ? 'auto' : 0) : 'auto',
+                  opacity: isMobile ? (activeTab === item.id ? 1 : 0) : 1
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 style={{
                   fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
                 }}
               >
-                {activeTab === item.id && item.title}
+                {isMobile ? (activeTab === item.id && item.title) : item.title}
               </motion.span>
             </motion.button>
           ))}
