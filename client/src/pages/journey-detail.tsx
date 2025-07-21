@@ -31,44 +31,162 @@ export default function JourneyDetail() {
     // Here you would handle item selection action
   };
 
-  // Sample carousel items (these would come from your data)
-  const carouselItems = [
-    {
-      id: '1',
-      title: 'Find My Gate',
-      description: 'Get directions to your departure gate with real-time updates',
-      image: 'https://images.unsplash.com/photo-1544885935-98dd03b09034?w=400&h=300&fit=crop',
-      icon: 'flight_takeoff'
-    },
-    {
-      id: '2', 
-      title: 'Security Checkpoint',
-      description: 'Find the fastest security line and estimated wait times',
-      image: 'https://images.unsplash.com/photo-1542296332-2e4473faf563?w=400&h=300&fit=crop',
-      icon: 'security'
-    },
-    {
-      id: '3',
-      title: 'Dining Options',
-      description: 'Discover restaurants and cafes near your gate or terminal',
-      image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop', 
-      icon: 'restaurant'
-    },
-    {
-      id: '4',
-      title: 'Shopping',
-      description: 'Browse duty-free shops and retail stores in your area',
-      image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=400&h=300&fit=crop',
-      icon: 'shopping_bag'
-    },
-    {
-      id: '5',
-      title: 'Wi-Fi & Charging',
-      description: 'Find free Wi-Fi zones and charging stations nearby',
-      image: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=300&fit=crop',
-      icon: 'wifi'
-    }
-  ];
+  // Generate contextual actions based on current journey step
+  const getContextualActions = () => {
+    const generalServices = [
+      {
+        id: 'security',
+        title: 'Security & Assistance',
+        description: 'Find security personnel, police, or emergency assistance',
+        icon: 'security'
+      },
+      {
+        id: 'restrooms',
+        title: 'Restrooms',
+        description: 'Locate nearest restrooms and accessibility facilities',
+        icon: 'wc'
+      }
+    ];
+
+    const stepSpecificActions: { [key: string]: any[] } = {
+      // Parking/Arrival actions
+      'parking': [
+        {
+          id: 'parking_info',
+          title: 'Parking Information',
+          description: 'Find your parking location and shuttle services',
+          icon: 'local_parking'
+        },
+        {
+          id: 'terminal_directions',
+          title: 'Terminal Directions',
+          description: 'Get directions to your terminal and check-in area',
+          icon: 'directions'
+        },
+        {
+          id: 'shuttle_info',
+          title: 'Shuttle Services',
+          description: 'View shuttle schedules and pickup locations',
+          icon: 'airport_shuttle'
+        }
+      ],
+      
+      // Check-in actions
+      'checkin': [
+        {
+          id: 'online_checkin',
+          title: 'Mobile Check-in',
+          description: 'Complete check-in and get boarding pass on your phone',
+          icon: 'smartphone'
+        },
+        {
+          id: 'baggage_drop',
+          title: 'Baggage Drop',
+          description: 'Find baggage drop counters and weight limits',
+          icon: 'luggage'
+        },
+        {
+          id: 'seat_selection',
+          title: 'Seat Selection',
+          description: 'Change or upgrade your seat assignment',
+          icon: 'airline_seat_recline_normal'
+        }
+      ],
+
+      // Security screening actions
+      'security': [
+        {
+          id: 'security_wait',
+          title: 'Wait Times',
+          description: 'Check current security line wait times',
+          icon: 'schedule'
+        },
+        {
+          id: 'security_rules',
+          title: 'Security Guidelines',
+          description: 'Review what you can and cannot bring through security',
+          icon: 'rule'
+        },
+        {
+          id: 'fast_track',
+          title: 'Fast Track Options',
+          description: 'Find premium security lanes and eligibility',
+          icon: 'fast_forward'
+        }
+      ],
+
+      // Boarding/Gate actions
+      'boarding': [
+        {
+          id: 'gate_info',
+          title: 'Gate Information',
+          description: 'Get real-time gate updates and boarding status',
+          icon: 'flight_takeoff'
+        },
+        {
+          id: 'flight_status',
+          title: 'Flight Status',
+          description: 'Check delays, cancellations, and departure times',
+          icon: 'flight'
+        },
+        {
+          id: 'boarding_pass',
+          title: 'Boarding Pass',
+          description: 'Access your mobile boarding pass and seat info',
+          icon: 'confirmation_number'
+        }
+      ],
+
+      // Layover/Transfer actions
+      'layover': [
+        {
+          id: 'transfer_info',
+          title: 'Transfer Information',
+          description: 'Get directions to your connecting flight gate',
+          icon: 'transfer_within_a_station'
+        },
+        {
+          id: 'lounge_access',
+          title: 'Lounge Access',
+          description: 'Find lounges you can access during your layover',
+          icon: 'star'
+        },
+        {
+          id: 'duty_free',
+          title: 'Duty Free Shopping',
+          description: 'Browse duty-free shops and special offers',
+          icon: 'shopping_bag'
+        }
+      ],
+
+      // Post-flight/Arrival actions
+      'arrival': [
+        {
+          id: 'baggage_claim',
+          title: 'Baggage Claim',
+          description: 'Find your baggage carousel and claim area',
+          icon: 'luggage'
+        },
+        {
+          id: 'ground_transport',
+          title: 'Ground Transportation',
+          description: 'Find taxis, buses, trains, and ride-sharing options',
+          icon: 'directions_car'
+        },
+        {
+          id: 'customs_info',
+          title: 'Customs & Immigration',
+          description: 'Get information about customs and immigration procedures',
+          icon: 'passport'
+        }
+      ]
+    };
+
+    const stepActions = stepSpecificActions[currentStep?.id || ''] || [];
+    return [...stepActions, ...generalServices];
+  };
+
+  const carouselItems = getContextualActions();
 
   // Special dark navy background for First-Time Student persona
   const isStudentPersona = selectedPersona.id === 'student';

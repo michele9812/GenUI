@@ -36,6 +36,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Enhanced persona preview card typography**: Applied persona-specific typefaces to title (headingFont) and name (fontFamily) in login preview card, updated background to use primary color at 20% opacity for better visual consistency
 - **Implemented Senior Globetrotter accordion component**: Created specialized accordion interface to replace carousel for Senior persona, maintaining current content structure with expandable sections, integrated action buttons within accordion content, preserved persona-specific styling and typography guidelines
 - **Optimized accordion spacing**: Reduced vertical padding to 8px (py-2) for both accordion trigger headers and content areas to create more compact layout
+- **Implemented contextual journey actions**: Created dynamic action system that shows step-specific actions (parking info, check-in services, security guidelines, gate information, transfer assistance, baggage claim) plus universal services (security assistance, restrooms) based on current journey point for all personas
 - **Maintained carousel card dimensions**: Fixed height of 320px for all carousel cards as per original specifications
 - **Fixed journey detail page spacing**: Restored proper vertical spacing between elements across all breakpoints to prevent overlapping
 - **Standardized H1 text sizing**: Unified H1 font size across all pages (1.75rem base) with consistent persona scaling for viewport optimization
