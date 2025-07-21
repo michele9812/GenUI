@@ -176,36 +176,48 @@ export default function Welcome() {
             duration: isZooming ? 0.9 : 0.3,
             ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
           }}
-          className="rounded-lg overflow-hidden shadow-2xl"
+          className="rounded-lg overflow-hidden shadow-2xl cursor-pointer"
+          onClick={handleImageClick}
           style={{
-            transformOrigin: 'center center',
+            transformOrigin: 'center center', // Anchor scaling to viewport center
             zIndex: isZooming ? 9999 : 10,
+            position: isZooming ? 'fixed' : 'relative',
+            top: isZooming ? '50%' : 'auto',
+            left: isZooming ? '50%' : 'auto',
+            transform: isZooming ? 'translate(-50%, -50%)' : 'none',
             // Base responsive dimensions with proper aspect ratio
-            width: screenWidth <= 640 ? 
-              'calc(100vw - 32px)' : // Mobile: full width minus responsive margins
-              screenWidth <= 768 ? 
-                'calc(100vw - 80px)' : // Tablet: 40px margins each side
-                'calc(100vw - 128px)', // Desktop: 64px margins each side
-            height: screenWidth <= 640 ? 
-              'calc((100vw - 32px) * 0.6)' : // Mobile: maintain aspect ratio
-              screenWidth <= 768 ? 
-                '320px' : // Tablet
-                '375px', // Desktop
-            maxWidth: screenWidth <= 640 ? 
-              'calc(100vw - 32px)' : 
-              screenWidth <= 768 ? 
-                'calc(100vw - 80px)' : 
-                'calc(100vw - 128px)',
-            maxHeight: 'calc(100vh - 280px)' // Leave space for header, spacing and dock
+            width: isZooming ? '100vw' : (
+              screenWidth <= 640 ? 
+                'calc(100vw - 32px)' : // Mobile: full width minus responsive margins
+                screenWidth <= 768 ? 
+                  'calc(100vw - 80px)' : // Tablet: 40px margins each side
+                  'calc(100vw - 128px)' // Desktop: 64px margins each side
+            ),
+            height: isZooming ? '100vh' : (
+              screenWidth <= 640 ? 
+                'calc((100vw - 32px) * 0.6)' : // Mobile: maintain aspect ratio
+                screenWidth <= 768 ? 
+                  '320px' : // Tablet
+                  '375px' // Desktop
+            ),
+            maxWidth: isZooming ? 'none' : (
+              screenWidth <= 640 ? 
+                'calc(100vw - 32px)' : 
+                screenWidth <= 768 ? 
+                  'calc(100vw - 80px)' : 
+                  'calc(100vw - 128px)'
+            ),
+            maxHeight: isZooming ? 'none' : 'calc(100vh - 280px)' // Leave space for header, spacing and dock
           }}
         >
           <img
             src={currentImage || defaultImage}
             alt="Journey step preview"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover"
             style={{
-              // Ensure image maintains quality during zoom
-              imageRendering: isZooming ? 'auto' : 'crisp-edges'
+              // Ensure image maintains quality during zoom and proper border radius
+              imageRendering: isZooming ? 'auto' : 'crisp-edges',
+              borderRadius: isZooming ? '0' : '8px'
             }}
           />
         </motion.div>
