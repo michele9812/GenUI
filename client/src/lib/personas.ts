@@ -17,7 +17,7 @@ export const JOURNEY_IMAGES = {
   SERVICE_COUNTER: '/attached_assets/Airport Service Counter_1753098968198.png',
   HELP_DESK: '/attached_assets/Airport Service Counter_1753098968198.png',
   TRANSFER: '/attached_assets/Airport Service Counter_1753098968198.png',
-  POST_FLIGHT: '/attached_assets/Airport Service Counter_1753098968198.png',
+  POST_FLIGHT: '/attached_assets/Modern Airport Terminal (1)_1753099307704.png',
   
   // Kiosk Interactions
   KIOSK: '/attached_assets/Airport Kiosk Interaction_1753098968200.png',
