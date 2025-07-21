@@ -74,16 +74,20 @@ export default function Welcome() {
       <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
         {/* AirBuddy Logo Square - Separate button */}
         <motion.div
-          className="w-10 h-10 rounded-lg backdrop-blur-sm shadow-md"
+          className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden"
           style={{
-            backgroundColor: selectedPersona.colors.primary,
-            backgroundImage: "url('/attached_assets/Cheerful%20Pilot%20Character_1753110084108.png')",
-            backgroundSize: '80%',
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '12px',
+            border: '1px solid rgba(107, 114, 128, 0.3)',
+            width: '48px',
+            height: '48px',
+            backgroundImage: "url('/attached_assets/Cheerful%20Pilot%20Character_1753110261655.png')",
+            backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
           }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
