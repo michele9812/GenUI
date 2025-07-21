@@ -34,9 +34,9 @@ export default function FamilyTabs({
 
   return (
     <div className={`w-full ${className}`}>
-        {/* Horizontal Tab List - Icon Only with Expansion */}
+        {/* Horizontal Tab List - Full Width with Active Label */}
         <div 
-          className="flex items-center justify-center gap-2 p-2 mb-6 rounded-lg"
+          className="flex items-stretch w-full gap-1 p-2 mb-6 rounded-lg"
           style={{
             backgroundColor: `${selectedPersona?.colors.primary}10` || '#f9fafb'
           }}
@@ -44,7 +44,7 @@ export default function FamilyTabs({
           {items.map((item) => (
             <motion.button
               key={item.id}
-              className="flex items-center gap-2 py-2 px-3 rounded-lg transition-all"
+              className="flex-1 flex items-center justify-center gap-2 py-2 px-2 rounded-lg transition-all min-w-0"
               style={{
                 backgroundColor: activeTab === item.id ? 
                   (selectedPersona?.colors.primary || accentColor) : 
@@ -54,15 +54,16 @@ export default function FamilyTabs({
               }}
               onClick={() => {
                 setActiveTab(item.id);
-                setExpandedTab(expandedTab === item.id ? null : item.id);
+                // Auto expand active tab and collapse others
+                setExpandedTab(item.id);
               }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               layout
             >
               {/* Icon Always Visible */}
               <span 
-                className="material-icons text-lg"
+                className="material-icons text-lg flex-shrink-0"
                 style={{
                   color: activeTab === item.id ? 'white' : (selectedPersona?.colors.secondary || secondaryColor)
                 }}
@@ -70,20 +71,20 @@ export default function FamilyTabs({
                 {item.icon}
               </span>
               
-              {/* Label - Expands on Click */}
+              {/* Label - Always visible for active tab, hidden for others */}
               <motion.span 
                 className="text-sm font-medium whitespace-nowrap overflow-hidden"
                 initial={false}
                 animate={{
-                  width: expandedTab === item.id ? 'auto' : 0,
-                  opacity: expandedTab === item.id ? 1 : 0
+                  width: activeTab === item.id ? 'auto' : 0,
+                  opacity: activeTab === item.id ? 1 : 0
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 style={{
                   fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
                 }}
               >
-                {expandedTab === item.id && item.title}
+                {activeTab === item.id && item.title}
               </motion.span>
             </motion.button>
           ))}
