@@ -170,7 +170,7 @@ export default function Welcome() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
             opacity: 1, 
-            scale: isZooming ? 3 : 1
+            scale: 1
           }}
           transition={{ 
             duration: isZooming ? 0.9 : 0.3,
@@ -184,7 +184,7 @@ export default function Welcome() {
             position: isZooming ? 'fixed' : 'relative',
             top: isZooming ? '50%' : 'auto',
             left: isZooming ? '50%' : 'auto',
-            transform: isZooming ? 'translate(-50%, -50%) scale(1)' : 'scale(1)',
+            transform: isZooming ? 'translate(-50%, -50%)' : 'none',
             // Base responsive dimensions with proper aspect ratio
             width: isZooming ? '100vw' : (
               screenWidth <= 640 ? 
