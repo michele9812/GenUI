@@ -454,13 +454,12 @@ export default function JourneyDetail() {
           <span className="text-sm font-medium">Back to journey selection</span>
         </motion.button>
       </div>
-      {/* Header Section - Consistent with welcome page positioning */}
+      {/* Header Section - Relative positioning with proper margins */}
       <div 
-        className="absolute left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full pt-[8px] pb-[16px]"
+        className="text-center px-4 sm:px-6 lg:px-8 w-full"
         style={{
-          top: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 
-            ? '80px' // More space for Senior persona with 125% scaling
-            : '48px' // Mobile: top-12, tablet/desktop consistent
+          marginTop: '64px', // 64px top margin
+          marginBottom: '24px' // 24px bottom margin
         }}
       >
         <motion.div
@@ -517,7 +516,7 @@ export default function JourneyDetail() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 h-full overflow-hidden" style={{ paddingTop: '180px', paddingBottom: '80px' }}>
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 h-full overflow-hidden">
 
         {/* 3D Carousel, Senior Accordion, or Family Tabs */}
         <motion.div 
@@ -555,10 +554,10 @@ export default function JourneyDetail() {
         </motion.div>
       </main>
 
-      {/* Floating AI Prompt Input - Fixed at bottom */}
+      {/* Floating AI Prompt Input - Bottom section with margin */}
       <div 
-        className="absolute left-0 right-0 z-30 px-4 sm:px-6 lg:px-8"
-        style={{ bottom: '32px' }}
+        className="px-4 sm:px-6 lg:px-8 w-full"
+        style={{ marginBottom: '32px' }}
       >
         <motion.div 
           className="max-w-4xl mx-auto"
