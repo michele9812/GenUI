@@ -445,69 +445,131 @@ export function Carousel3D({
           </AnimatePresence>
         </motion.div>
       </div>
-      {/* Navigation Controls - Outside masked container */}
-      <div 
-        className="absolute left-4 top-1/2 -translate-y-1/2"
-        style={{ zIndex: 1000 }}
-      >
-        <motion.button
-          onClick={handlePrevious}
-          disabled={isAnimating}
-          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-          style={{
-            backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-            color: selectedPersona?.colors?.secondary || accentColor,
-            border: 'none'
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </motion.button>
+      {/* Navigation Controls - Mobile: horizontal flexbox, Desktop: positioned */}
+      {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
+      <div className="md:hidden absolute inset-x-0 bottom-4 px-4 z-[1000]">
+        <div className="flex justify-between items-center">
+          {/* Pagination Indicators - Left side on mobile */}
+          <div className="flex gap-2">
+            {items.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleCardClick(index)}
+                className={cn(
+                  "w-2 h-2 rounded-full transition-all duration-300",
+                  index === currentIndex 
+                    ? "w-6" 
+                    : "hover:opacity-70"
+                )}
+                style={{
+                  backgroundColor: index === currentIndex ? 
+                    (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Arrow Controls - Right side on mobile */}
+          <div className="flex gap-2">
+            <motion.button
+              onClick={handlePrevious}
+              disabled={isAnimating}
+              className="w-8 h-8 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+              style={{
+                backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+                color: selectedPersona?.colors?.secondary || accentColor,
+                border: 'none'
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </motion.button>
+
+            <motion.button
+              onClick={handleNext}
+              disabled={isAnimating}
+              className="w-8 h-8 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+              style={{
+                backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+                color: selectedPersona?.colors?.secondary || accentColor,
+                border: 'none'
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ChevronRight className="w-4 h-4" />
+            </motion.button>
+          </div>
+        </div>
       </div>
-      <div 
-        className="absolute right-4 top-1/2 -translate-y-1/2"
-        style={{ zIndex: 1000 }}
-      >
-        <motion.button
-          onClick={handleNext}
-          disabled={isAnimating}
-          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-          style={{
-            backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-            color: selectedPersona?.colors?.secondary || accentColor,
-            border: 'none'
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
+
+      {/* Desktop Layout: Side arrows and centered indicators */}
+      <div className="hidden md:block">
+        {/* Left Arrow */}
+        <div 
+          className="absolute left-4 top-1/2 -translate-y-1/2"
+          style={{ zIndex: 1000 }}
         >
-          <ChevronRight className="w-5 h-5" />
-        </motion.button>
-      </div>
-      {/* Indicators - Outside masked container */}
-      <div 
-        className="absolute left-1/2 -translate-x-1/2 flex gap-2"
-        style={{ 
-          zIndex: 1000,
-          bottom: window.innerWidth < 640 ? '16px' : '32px' // Gap: 16px mobile, 32px desktop
-        }}
-      >
-        {items.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleCardClick(index)}
-            className={cn(
-              "w-2 h-2 rounded-full transition-all duration-300",
-              index === currentIndex 
-                ? "w-6" 
-                : "hover:opacity-70"
-            )}
+          <motion.button
+            onClick={handlePrevious}
+            disabled={isAnimating}
+            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
             style={{
-              backgroundColor: index === currentIndex ? 
-                (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
+              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+              color: selectedPersona?.colors?.secondary || accentColor,
+              border: 'none'
             }}
-          />
-        ))}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </motion.button>
+        </div>
+
+        {/* Right Arrow */}
+        <div 
+          className="absolute right-4 top-1/2 -translate-y-1/2"
+          style={{ zIndex: 1000 }}
+        >
+          <motion.button
+            onClick={handleNext}
+            disabled={isAnimating}
+            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+            style={{
+              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+              color: selectedPersona?.colors?.secondary || accentColor,
+              border: 'none'
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </motion.button>
+        </div>
+
+        {/* Centered Indicators */}
+        <div 
+          className="absolute left-1/2 -translate-x-1/2 flex gap-2 bottom-8"
+          style={{ zIndex: 1000 }}
+        >
+          {items.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleCardClick(index)}
+              className={cn(
+                "w-2 h-2 rounded-full transition-all duration-300",
+                index === currentIndex 
+                  ? "w-6" 
+                  : "hover:opacity-70"
+              )}
+              style={{
+                backgroundColor: index === currentIndex ? 
+                  (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
+              }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
