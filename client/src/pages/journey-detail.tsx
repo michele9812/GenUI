@@ -76,18 +76,16 @@ export default function JourneyDetail() {
         className="shadow-sm border-b"
         style={{ backgroundColor: selectedPersona.colors.bg }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Button 
-              variant="ghost" 
-              onClick={handleBack}
-              className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeft className="mr-2" size={20} />
-              Back to Journey
-            </Button>
-            <div className="w-20"></div>
-          </div>
+        <div className="flex justify-between items-center h-16">
+          <Button 
+            variant="ghost" 
+            onClick={handleBack}
+            className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            <ArrowLeft className="mr-2" size={20} />
+            Back to Journey
+          </Button>
+          <div className="w-20"></div>
         </div>
       </header>
 
@@ -96,7 +94,7 @@ export default function JourneyDetail() {
           
           {/* Title */}
           <motion.div 
-            className="text-center mb-10 sm:mb-16 lg:mb-20"
+            className="text-center mb-10 md:mb-16 lg:mb-20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -115,7 +113,7 @@ export default function JourneyDetail() {
 
           {/* 3D Carousel */}
           <motion.div 
-            className="mb-10 sm:mb-16 lg:mb-20"
+            className="mb-10 md:mb-16 lg:mb-20"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -130,7 +128,7 @@ export default function JourneyDetail() {
 
           {/* AI Prompt Input */}
           <motion.div 
-            className="max-w-4xl mx-auto mb-10 sm:mb-16 lg:mb-20"
+            className="max-w-4xl mx-auto mb-10 md:mb-16 lg:mb-20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
