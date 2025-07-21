@@ -486,6 +486,21 @@ export default function JourneyDetail() {
             >
               I am your AirBuddy and I am here to assist you!
             </p>
+            
+            {/* Current Journey Step */}
+            <p 
+              className="mt-4 font-medium"
+              style={{
+                fontSize: selectedPersona.typography?.scale 
+                  ? `calc(24pt * ${selectedPersona.typography.scale})` 
+                  : 'clamp(18pt, 2.5vw, 24pt)', // 24pt desktop, 18pt tablet/mobile
+                fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+                color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
+                lineHeight: selectedPersona.typography?.lineHeight || '1.4'
+              }}
+            >
+              Current Step: {currentStep?.name || 'Journey Point'}
+            </p>
           </motion.div>
 
           {/* 3D Carousel, Senior Accordion, or Family Tabs */}
