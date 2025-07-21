@@ -72,24 +72,25 @@ export default function Welcome() {
       {/* Header Section */}
       <div className="absolute top-[100px] sm:top-[80px] lg:top-[90px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
         <h1 
-          className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-bold text-white mb-2 sm:mb-4 leading-tight"
+          className="h1-responsive text-white mb-2 sm:mb-4"
           style={{ 
             fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
-            fontSize: selectedPersona.typography?.scale ? `calc(1.75rem * ${selectedPersona.typography.scale})` : '1.75rem',
-            color: 'white',
-            lineHeight: selectedPersona.typography?.lineHeight || '1.2'
+            fontSize: selectedPersona.typography?.scale ? `calc(32pt * ${selectedPersona.typography.scale})` : undefined,
+            lineHeight: selectedPersona.typography?.lineHeight || '1.2',
+            color: 'white'
           }}
         >
           Ciao {userName || 'Utente'}
         </h1>
         <p 
-          className="text-base sm:text-lg md:text-xl text-white/80"
+          className="text-white/80"
           style={{
-            fontSize: selectedPersona.typography?.scale ? `calc(1rem * ${selectedPersona.typography.scale})` : undefined,
-            lineHeight: selectedPersona.typography?.lineHeight || '1.4'
+            fontSize: selectedPersona.typography?.scale ? `calc(18pt * ${selectedPersona.typography.scale})` : '18pt',
+            lineHeight: selectedPersona.typography?.lineHeight || '1.4',
+            fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
           }}
         >
-          {selectedPersona.title}
+          Seleziona la fase del journey come {selectedPersona.title}
         </p>
       </div>
       {/* Central Image */}
