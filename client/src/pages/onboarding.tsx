@@ -16,7 +16,7 @@ export default function OnboardingPage() {
     <div className="h-viewport flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700 container-responsive-padding">
       <Card className="w-full max-w-md min-h-[500px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl">
         <CardContent className="p-0 h-full relative">
-          <div className="h-full flex flex-col px-6 pt-8 pb-20">
+          <div className="h-full flex flex-col px-6 pt-8">
             {/* Header */}
             <div className="flex-shrink-0 space-y-6">
               <div className="text-center">
@@ -43,7 +43,7 @@ export default function OnboardingPage() {
             </div>
 
             {/* Content */}
-            <div className="flex-1 flex flex-col space-y-6">
+            <div className="flex-1 flex flex-col space-y-6 pb-20">
               <div className="text-center">
                 <p className="text-gray-600 leading-relaxed">
                   AirBuddy is a Generative UI prototype applied to airport and travel experience. 
