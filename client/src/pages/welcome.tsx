@@ -5,6 +5,8 @@ import { ArrowLeft } from 'lucide-react';
 import MacOSDock from '@/components/ui/mac-os-dock';
 import { usePersona } from '@/hooks/use-persona';
 
+import Airport_Boarding_Area from "@assets/Airport Boarding Area.png";
+
 export default function Welcome() {
   const { selectedPersona, selectStep, userName } = usePersona();
   const [currentImage, setCurrentImage] = useState<string>('');
@@ -112,7 +114,7 @@ export default function Welcome() {
           }}
         >
           <img
-            src={currentImage || defaultImage}
+            src={Airport_Boarding_Area}
             alt="Journey step preview"
             className="w-full h-full object-cover rounded-lg"
           />
