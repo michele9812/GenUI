@@ -47,7 +47,9 @@ export default function Welcome() {
       className="min-h-screen relative overflow-hidden"
       style={{ 
         background: `linear-gradient(135deg, ${selectedPersona.colors.primary}, ${selectedPersona.colors.secondary})`,
-        fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
+        fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+        fontSize: selectedPersona.typography?.fontSize || '16px',
+        backgroundColor: selectedPersona.colors.bg
       }}
     >
       {/* Back Button - Top Left */}
@@ -67,7 +69,13 @@ export default function Welcome() {
       </div>
       {/* Header Section */}
       <div className="absolute top-[120px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+        <h1 
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight"
+          style={{ 
+            fontFamily: selectedPersona.typography?.headingFont || 'inherit',
+            fontSize: selectedPersona.typography?.scale ? `calc(3rem * ${selectedPersona.typography.scale})` : undefined
+          }}
+        >
           Ciao {userName}
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl text-white/80">
