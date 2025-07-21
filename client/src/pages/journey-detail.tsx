@@ -499,12 +499,13 @@ export default function JourneyDetail() {
         }}
       >
         <motion.div
+          className="w-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h1 
-            className="h1-responsive-small"
+            className="h1-responsive-small w-full"
             style={{
               fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
@@ -522,7 +523,7 @@ export default function JourneyDetail() {
             ,
           </h1>
           <p 
-            className="text-responsive"
+            className="text-responsive w-full"
             style={{
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
@@ -536,7 +537,7 @@ export default function JourneyDetail() {
           
           {/* Current Journey Phase */}
           <p 
-            className="font-medium text-responsive"
+            className="font-medium text-responsive w-full"
             style={{
               transform: selectedPersona.typography?.scale ? `scale(${selectedPersona.typography.scale})` : undefined,
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',

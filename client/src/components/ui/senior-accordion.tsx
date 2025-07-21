@@ -89,17 +89,17 @@ export function SeniorAccordion({
               <AccordionTrigger 
                 className="w-full text-left transition-all duration-200 hover:bg-gray-50 bg-white"
               >
-                <div className="flex items-center justify-between w-full h-full px-3 py-1.5 md:px-6 md:py-2 pt-[0px] pb-[0px]">
-                <div className="flex items-center space-x-2 md:space-x-3">
+                <div className="flex items-center justify-between w-full h-full px-0 py-0">
+                <div className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-3">
                   {/* Icon */}
                   <div 
-                    className="w-7 h-7 md:w-10 md:h-10 rounded-lg flex items-center justify-center"
+                    className="w-6 h-6 sm:w-7 sm:h-7 md:w-10 md:h-10 rounded-lg flex items-center justify-center"
                     style={{
                       backgroundColor: iconBackgroundColor
                     }}
                   >
                     <span 
-                      className="material-icons text-base sm:text-lg"
+                      className="material-icons text-sm sm:text-base md:text-lg"
                       style={{
                         color: iconColor
                       }}
@@ -111,23 +111,26 @@ export function SeniorAccordion({
                   {/* Title */}
                   <div className="flex flex-col justify-center">
                     <p 
-                      className="text-xs sm:text-sm font-medium uppercase tracking-wider"
+                      className="text-xs font-medium uppercase tracking-wider"
                       style={{
-                        marginBottom: '2px',
+                        marginBottom: '1px',
                         color: accentColor,
                         fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
-                        fontSize: personaTypography?.scale && personaTypography.scale > 1.1 ? 
-                          `calc(0.75rem * ${personaTypography.scale})` : undefined
+                        fontSize: personaTypography?.scale ? 
+                          `calc(${window.innerWidth < 640 ? '0.65rem' : '0.75rem'} * ${personaTypography.scale})` : 
+                          window.innerWidth < 640 ? '0.65rem' : undefined
                       }}
                     >
                       NAVIGATION
                     </p>
                     <h3 
-                      className="text-sm sm:text-base font-semibold"
+                      className="text-xs sm:text-sm md:text-base font-semibold"
                       style={{
                         color: accentColor,
                         fontFamily: personaTypography?.headingFont || personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
-                        fontSize: personaTypography?.scale ? `calc(0.9rem * ${personaTypography.scale})` : undefined,
+                        fontSize: personaTypography?.scale ? 
+                          `calc(${window.innerWidth < 640 ? '0.8rem' : '0.9rem'} * ${personaTypography.scale})` : 
+                          window.innerWidth < 640 ? '0.8rem' : undefined,
                         lineHeight: personaTypography?.lineHeight || '1.5'
                       }}
                     >
@@ -138,7 +141,7 @@ export function SeniorAccordion({
                 
                 {/* Chevron Icon */}
                 <ChevronDown 
-                  className="h-5 w-5 transition-transform duration-200 group-data-[expanded]:rotate-180"
+                  className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-200 group-data-[expanded]:rotate-180"
                   style={{
                     color: accentColor
                   }}
@@ -153,17 +156,19 @@ export function SeniorAccordion({
             />
             
             <AccordionContent className="bg-white">
-              <div className="px-3 py-1.5 md:px-6 md:py-2">
+              <div className="px-0 py-0">
                 {/* Horizontal layout: text + button */}
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 sm:gap-3 md:gap-4">
                   {/* Text content */}
                   <div className="flex-1">
                     <p 
-                      className="text-sm leading-relaxed mb-2 md:mb-0"
+                      className="text-xs sm:text-sm leading-relaxed mb-1 sm:mb-2 md:mb-0"
                       style={{
                         color: selectedPersona.colors.text || '#111827',
                         fontFamily: personaTypography?.fontFamily || 'inherit',
-                        fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
+                        fontSize: personaTypography?.scale ? 
+                          `calc(${window.innerWidth < 640 ? '0.75rem' : '0.875rem'} * ${personaTypography.scale})` : 
+                          window.innerWidth < 640 ? '0.75rem' : undefined
                       }}
                     >
                       {item.description}
@@ -173,15 +178,17 @@ export function SeniorAccordion({
                   {/* Action Button */}
                   <div className="flex-shrink-0">
                     <motion.button
-                      className="w-full sm:w-auto py-3 px-6 font-medium rounded-lg transition-all duration-200 hover:opacity-90"
+                      className="w-full sm:w-auto py-2 px-4 sm:py-2.5 sm:px-5 md:py-3 md:px-6 font-medium rounded-lg transition-all duration-200 hover:opacity-90"
                       style={{ 
                         backgroundColor: accentColor,
                         color: 'white',
                         fontFamily: personaTypography?.fontFamily || 'inherit',
-                        fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
+                        fontSize: personaTypography?.scale ? 
+                          `calc(${window.innerWidth < 640 ? '0.875rem' : '1rem'} * ${personaTypography.scale})` : 
+                          window.innerWidth < 640 ? '0.875rem' : undefined,
                         border: 'none',
-                        maxWidth: '320px',
-                        minWidth: '140px'
+                        maxWidth: window.innerWidth < 640 ? '100%' : '320px',
+                        minWidth: window.innerWidth < 640 ? 'auto' : '140px'
                       }}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
