@@ -171,7 +171,7 @@ export function Carousel3D({
     
     return {
       width: cardWidth,
-      height: isMobile ? 320 : 320, // Unified 320px for all devices
+      height: isMobile ? (screenWidth < 375 ? 260 : 320) : 320, // iPhone SE: 260px, others: 320px
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
@@ -190,13 +190,14 @@ export function Carousel3D({
 
   const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
   const isMobile = screenWidth < 640;
+  const isIPhoneSE = screenWidth < 375;
 
   return (
     <div 
       className="relative w-full"
       style={{
-        height: isMobile ? '480px' : '418px', // Unified 480px for all mobile, 418px desktop
-        maxHeight: isMobile ? '480px' : '418px'
+        height: isMobile ? (screenWidth < 375 ? '360px' : '480px') : '418px', // iPhone SE: 360px, other mobile: 480px, desktop: 418px
+        maxHeight: isMobile ? (screenWidth < 375 ? '360px' : '480px') : '418px'
       }}
     >
       <div 
