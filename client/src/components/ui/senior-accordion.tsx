@@ -77,7 +77,7 @@ export function SeniorAccordion({
                     color: 'white'
                   }}
                 >
-              <div className="flex items-center justify-between w-full px-4 py-3 sm:px-6 sm:py-4 pt-[8px] pb-[8px]">
+              <div className="flex items-center justify-between w-full px-4 py-2 sm:px-6 sm:py-2">
                 <div className="flex items-center space-x-3">
                   {/* Icon */}
                   <div 
@@ -127,7 +127,7 @@ export function SeniorAccordion({
               </AccordionTrigger>
             
             <AccordionContent className="bg-white">
-              <div className="px-4 py-3 sm:px-6 sm:py-4">
+              <div className="px-4 py-2 sm:px-6 sm:py-2">
                 <p 
                   className="text-sm leading-relaxed mb-4"
                   style={{
