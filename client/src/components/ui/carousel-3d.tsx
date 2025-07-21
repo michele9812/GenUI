@@ -131,7 +131,7 @@ export function Carousel3D({
     
     // Enhanced responsive breakpoints for better mobile experience
     const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
-    const isXsPhone = screenWidth < 375;
+    const isSmallPhone = screenWidth < 414; // Devices smaller than iPhone XR
     const isMobile = screenWidth < 640;
     const isSmTablet = screenWidth < 768; 
     const isTablet = screenWidth < 1024;
@@ -140,14 +140,16 @@ export function Carousel3D({
     
     let baseWidth, centerWidth, spacing, containerPadding;
     
-    if (isXsPhone) {
+    if (isSmallPhone) {
+      // Devices smaller than iPhone XR (< 414px)
       baseWidth = 140;
       centerWidth = 180;
       spacing = 16; // 16px mobile spacing
       containerPadding = 12;
     } else if (isMobile) {
-      baseWidth = window.innerWidth >= 414 ? 260 : 160; // Min 260px for iPhone XR+
-      centerWidth = window.innerWidth >= 414 ? 280 : 200;
+      // iPhone XR to iPhone 16 and similar devices (414px - 640px)
+      baseWidth = 260; // Consistent min width for all iPhone XR+ devices
+      centerWidth = 280;
       spacing = 16; // 16px mobile spacing
       containerPadding = 16;
     } else if (isSmTablet) {
@@ -193,7 +195,7 @@ export function Carousel3D({
     
     return {
       width: cardWidth,
-      height: isMobile ? (window.innerWidth < 414 ? 220 : 320) : 320, // Mobile-responsive height: min 320px for iPhone XR+
+      height: isMobile ? (isSmallPhone ? 220 : 320) : 320, // Mobile-responsive height: min 320px for iPhone XR+
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
@@ -210,12 +212,16 @@ export function Carousel3D({
 
   const visibleCards = getVisibleCards();
 
+  const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
+  const isSmallPhone = screenWidth < 414;
+  const isMobile = screenWidth < 640;
+
   return (
     <div 
       className="relative w-full"
       style={{
-        height: window.innerWidth < 414 ? '360px' : window.innerWidth < 640 ? '400px' : '450px',
-        maxHeight: window.innerWidth < 414 ? '360px' : window.innerWidth < 640 ? '400px' : '450px'
+        height: isSmallPhone ? '360px' : isMobile ? '400px' : '450px',
+        maxHeight: isSmallPhone ? '360px' : isMobile ? '400px' : '450px'
       }}
     >
       <div 
