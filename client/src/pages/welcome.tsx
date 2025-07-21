@@ -45,6 +45,7 @@ export default function Welcome() {
       selectStep(stepId);
       // Navigate after zoom animation completes
       setTimeout(() => {
+        setIsZooming(false); // Reset zoom state
         setLocation('/journey-detail');
       }, 900);
     }
@@ -58,14 +59,15 @@ export default function Welcome() {
 
   return (
     <div 
-      className="h-viewport relative overflow-hidden"
+      className="h-viewport relative"
       style={{ 
         background: `linear-gradient(135deg, ${selectedPersona.colors.primary}, ${selectedPersona.colors.secondary})`,
         fontFamily: selectedPersona.typography?.fontFamily || 'system-ui, -apple-system, sans-serif',
         fontSize: selectedPersona.typography?.fontSize || '16px',
         lineHeight: selectedPersona.typography?.lineHeight || '1.5',
         letterSpacing: selectedPersona.typography?.letterSpacing || 'normal',
-        backgroundColor: selectedPersona.colors.bg
+        backgroundColor: selectedPersona.colors.bg,
+        overflow: isZooming ? 'hidden' : 'visible'
       }}
     >
       {/* Back Button - Top Left */}
@@ -108,52 +110,45 @@ export default function Welcome() {
         </p>
       </div>
       {/* Central Image */}
-      <div className="absolute inset-4 flex items-center justify-center z-10">
+      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
             opacity: 1, 
-            scale: isZooming ? [1, 1.5, 4] : 1
+            scale: isZooming ? 3 : 1
           }}
           transition={{ 
             duration: isZooming ? 0.9 : 0.3,
-            ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut",
-            times: isZooming ? [0, 0.3, 1] : undefined
+            ease: isZooming ? [0.25, 0.46, 0.45, 0.94] : "easeOut"
           }}
           className="rounded-lg overflow-hidden shadow-2xl"
           style={{
             transformOrigin: 'center center',
             zIndex: isZooming ? 9999 : 10,
-            // Responsive dimensions with 16px margins from viewport edges
-            // Calculate dimensions to maintain aspect ratio while fitting viewport with margins
+            // Base responsive dimensions with proper aspect ratio
             width: screenWidth <= 640 ? 
               'calc(100vw - 32px)' : // Mobile: full width minus 16px margins
               screenWidth <= 768 ? 
-                'min(480px, calc(100vw - 32px))' : // Tablet: max 480px or viewport minus margins
-                'min(560px, calc(100vw - 32px))', // Desktop: max 560px or viewport minus margins
+                '480px' : // Tablet
+                '560px', // Desktop
             height: screenWidth <= 640 ? 
               'calc((100vw - 32px) * 0.6)' : // Mobile: maintain aspect ratio
               screenWidth <= 768 ? 
-                'min(320px, calc((100vw - 32px) * 0.67))' : // Tablet: maintain aspect ratio
-                'min(375px, calc((100vw - 32px) * 0.67))', // Desktop: maintain aspect ratio
-            // Ensure zoom animation fills viewport with 16px margins
-            ...(isZooming && {
-              position: 'fixed',
-              top: '16px',
-              left: '16px',
-              right: '16px',
-              bottom: '16px',
-              width: 'calc(100vw - 32px)',
-              height: 'calc(100vh - 32px)',
-              objectFit: 'cover'
-            })
+                '320px' : // Tablet
+                '375px', // Desktop
+            maxWidth: 'calc(100vw - 32px)',
+            maxHeight: 'calc(100vh - 200px)' // Leave space for header and dock
           }}
         >
           <img
             src={currentImage || defaultImage}
             alt="Journey step preview"
             className="w-full h-full object-cover rounded-lg"
+            style={{
+              // Ensure image maintains quality during zoom
+              imageRendering: isZooming ? 'auto' : 'crisp-edges'
+            }}
           />
         </motion.div>
       </div>
