@@ -178,8 +178,7 @@ export default function Welcome() {
             duration: 0.6,
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
-          className="rounded-lg overflow-hidden shadow-2xl cursor-pointer"
-          onClick={() => setIsZooming(!isZooming)}
+          className="rounded-lg overflow-hidden shadow-2xl"
           style={{
             transformOrigin: 'center center',
             zIndex: isZooming ? 9999 : 10,
@@ -214,7 +213,7 @@ export default function Welcome() {
           <img
             src={currentImage || defaultImage}
             alt="Journey step preview"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover pointer-events-none"
             style={{
               // Ensure image maintains quality during zoom and proper border radius
               imageRendering: isZooming ? 'auto' : 'crisp-edges',
