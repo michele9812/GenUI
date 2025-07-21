@@ -331,7 +331,7 @@ export function Carousel3D({
                       <h3 
                         className="text-base sm:text-lg font-semibold mb-2 sm:mb-3"
                         style={{
-                          color: isCenter ? (selectedPersona?.colors?.primary || accentColor) : '#111827',
+                          color: isCenter ? (selectedPersona?.colors?.text || '#111827') : '#111827',
                           fontFamily: personaTypography?.headingFont || personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
                           fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
                           lineHeight: personaTypography?.lineHeight || '1.5'
@@ -342,7 +342,7 @@ export function Carousel3D({
                       <p 
                         className="text-xs sm:text-sm leading-relaxed line-clamp-2 overflow-hidden"
                         style={{
-                          color: isCenter ? '#374151' : '#6b7280',
+                          color: isCenter ? (selectedPersona?.colors?.text || '#111827') : '#6b7280',
                           fontFamily: personaTypography?.fontFamily || 'inherit',
                           fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
                         }}
@@ -355,11 +355,13 @@ export function Carousel3D({
                     <div className="mt-4 sm:mt-6">
                       {isCenter ? (
                         <motion.button
-                          className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90 text-[#111827] bg-[#a7ff4d]"
+                          className="w-full py-3 font-medium rounded-lg transition-colors hover:opacity-90"
                           style={{ 
-                            backgroundColor: accentColor,
+                            backgroundColor: selectedPersona?.colors?.secondary || accentColor,
+                            color: 'white', // Always white text for better contrast on colored backgrounds
                             fontFamily: personaTypography?.fontFamily || 'inherit',
-                            fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined
+                            fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
+                            border: `2px solid ${selectedPersona?.colors?.accent || accentColor}`
                           }}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
@@ -391,10 +393,12 @@ export function Carousel3D({
         <motion.button
           onClick={handlePrevious}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border flex items-center justify-center transition-all disabled:opacity-50 shadow-md hover:bg-white"
+          className="w-10 h-10 rounded-full backdrop-blur-sm border flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
           style={{
-            borderColor: accentColor,
-            color: accentColor
+            backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+            borderColor: selectedPersona?.colors?.secondary || accentColor,
+            color: selectedPersona?.colors?.secondary || accentColor,
+            borderWidth: '2px'
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -406,10 +410,12 @@ export function Carousel3D({
         <motion.button
           onClick={handleNext}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border flex items-center justify-center transition-all disabled:opacity-50 shadow-md hover:bg-white"
+          className="w-10 h-10 rounded-full backdrop-blur-sm border flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
           style={{
-            borderColor: accentColor,
-            color: accentColor
+            backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+            borderColor: selectedPersona?.colors?.secondary || accentColor,
+            color: selectedPersona?.colors?.secondary || accentColor,
+            borderWidth: '2px'
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -430,7 +436,7 @@ export function Carousel3D({
                 : "hover:opacity-70"
             )}
             style={{
-              backgroundColor: index === currentIndex ? accentColor : '#d1d5db'
+              backgroundColor: index === currentIndex ? (selectedPersona?.colors?.accent || accentColor) : '#d1d5db'
             }}
           />
         ))}
