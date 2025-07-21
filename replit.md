@@ -17,7 +17,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Enhanced dock navigation**: Added hover labels to dock icons showing clear journey detail titles with persona-specific typography
 - **Centered image positioning**: Anchored journey point selection image to the center of the viewport for better visual balance
 - **Increased carousel spacing**: Enhanced spacing between carousel elements to 32px desktop, 24px tablet, 16px mobile for better visual separation
-- **Updated all journey step images**: Replaced images with high-quality Lummi.ai airport-specific photos that precisely match each journey point (gates, immigration, help desk, boarding, arrival, security checkpoints, and kiosk interactions)
+- **Updated all journey step images**: Replaced images with high-quality local airport photos that precisely match each journey point - service counters, boarding areas, terminal arrivals, kiosk interactions, and security scenes for better contextual accuracy
 - Disabled interactions for inactive carousel cards (only center card is clickable and hoverable)
 - Updated persona selection page to use neutral styling (gray colors) except for the persona preview card
 - Enhanced journey pages (welcome and detail) to use full persona-specific theming including colors, typography, and gradients
