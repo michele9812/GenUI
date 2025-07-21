@@ -131,15 +131,18 @@ export default function LoginPage() {
 
             {selectedPersona && (
               <div 
-                className="p-3 rounded-lg border overflow-hidden"
+                className="p-2 rounded-lg border"
                 style={{ 
                   backgroundColor: `${selectedPersona.colors.primary}20`,
-                  borderColor: `${selectedPersona.colors.primary}40`
+                  borderColor: `${selectedPersona.colors.primary}40`,
+                  width: `${100 / (selectedPersona.typography.scale || 1)}%`,
+                  transform: `scale(${selectedPersona.typography.scale || 1})`,
+                  transformOrigin: 'left center'
                 }}
               >
-                <div className="flex items-start space-x-3">
+                <div className="flex items-start space-x-2">
                   <div 
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                    className="w-6 h-6 rounded-full flex items-center justify-center text-white flex-shrink-0"
                     style={{ backgroundColor: `${selectedPersona.colors.primary}` }}
                   >
                     {(() => {
@@ -147,9 +150,9 @@ export default function LoginPage() {
                       const MaterialIconComponent = getMaterialIcon(selectedPersona.id);
                       
                       if (IconComponent) {
-                        return <IconComponent className="w-4 h-4" />;
+                        return <IconComponent className="w-3 h-3" />;
                       } else if (MaterialIconComponent) {
-                        return <MaterialIconComponent className="w-4 h-4" />;
+                        return <MaterialIconComponent className="w-3 h-3" />;
                       } else {
                         return selectedPersona.title.charAt(0);
                       }
@@ -157,21 +160,17 @@ export default function LoginPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 
-                      className="font-semibold text-gray-900 text-sm mb-1 transform-gpu"
+                      className="font-semibold text-gray-900 text-sm mb-1"
                       style={{ 
-                        fontFamily: selectedPersona.typography.headingFont,
-                        transform: `scale(${selectedPersona.typography.scale || 1})`,
-                        transformOrigin: 'left center'
+                        fontFamily: selectedPersona.typography.headingFont
                       }}
                     >
                       {selectedPersona.title}
                     </h3>
                     <p 
-                      className="text-xs text-gray-600 transform-gpu"
+                      className="text-xs text-gray-600 leading-tight"
                       style={{ 
-                        fontFamily: selectedPersona.typography.fontFamily,
-                        transform: `scale(${selectedPersona.typography.scale || 1})`,
-                        transformOrigin: 'left center'
+                        fontFamily: selectedPersona.typography.fontFamily
                       }}
                     >
                       {selectedPersona.description}
