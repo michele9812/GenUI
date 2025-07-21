@@ -214,22 +214,26 @@ export function Carousel3D({
     <div 
       className="relative w-full sm:h-[356px] md:h-[396px] lg:h-[416px]"
       style={{
-        height: window.innerWidth < 640 ? 'calc(100vh - 200px)' : undefined,
-        minHeight: window.innerWidth < 640 ? '300px' : undefined,
-        maxHeight: window.innerWidth < 640 ? '500px' : undefined
+        height: window.innerWidth < 640 ? 'calc(100vh - 120px)' : undefined,
+        minHeight: window.innerWidth < 640 ? '400px' : undefined,
+        paddingTop: window.innerWidth < 640 ? '24px' : undefined
       }}
     >
       <div 
         ref={containerRef}
-        className="container-responsive relative w-full flex items-center justify-center h-full"
+        className="container-responsive relative w-full flex items-center justify-center"
         style={{
-          paddingLeft: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
-          paddingRight: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
-          overflow: window.innerWidth < 640 ? 'visible' : 'hidden',
-          // Add subtle gradient fade-out masks on sides - only on larger screens
-          maskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
-          WebkitMaskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
+          ...{
+            paddingLeft: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
+            paddingRight: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
+            overflow: window.innerWidth < 640 ? 'visible' : 'hidden',
+            // Add subtle gradient fade-out masks on sides - only on larger screens
+            maskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
+            WebkitMaskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
+          },
+          height: window.innerWidth < 640 ? 'calc(100% - 24px)' : '100%'
         }}
+
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
