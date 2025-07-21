@@ -43,11 +43,11 @@ export default function Welcome() {
       setIsZooming(true);
       
       selectStep(stepId);
-      // Navigate after zoom animation completes
+      // Navigate after zoom animation completes with smoother timing
       setTimeout(() => {
         setIsZooming(false); // Reset zoom state
         setLocation('/journey-detail');
-      }, 900);
+      }, 1200); // Increased duration for smoother transition
     }
   };
 
@@ -176,8 +176,8 @@ export default function Welcome() {
             y: isZooming ? 'calc(50vh - 50%)' : 0
           }}
           transition={{ 
-            duration: 0.6,
-            ease: [0.25, 0.46, 0.45, 0.94]
+            duration: isZooming ? 1.2 : 0.6,
+            ease: isZooming ? [0.16, 1, 0.3, 1] : [0.25, 0.46, 0.45, 0.94]
           }}
           className="rounded-lg overflow-hidden shadow-2xl"
           style={{

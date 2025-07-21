@@ -420,7 +420,7 @@ export default function JourneyDetail() {
     : selectedPersona.colors.primary;
 
   return (
-    <div 
+    <motion.div 
       className="h-viewport flex flex-col"
       style={{ 
         fontFamily: selectedPersona.typography?.fontFamily || 'system-ui, -apple-system, sans-serif',
@@ -430,6 +430,13 @@ export default function JourneyDetail() {
         background: backgroundGradient,
         backgroundColor: backgroundColor,
         color: textColor
+      }}
+      initial={{ opacity: 0, scale: 1.05 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ 
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+        delay: 0.2
       }}
     >
       {/* Back Button - Top Left */}
@@ -450,9 +457,13 @@ export default function JourneyDetail() {
           }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.1
+          }}
         />
 
         {/* Back Action Button */}
@@ -466,9 +477,13 @@ export default function JourneyDetail() {
           }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.15
+          }}
         >
           {/* Desktop Version - Icon + Text */}
           <div className="hidden sm:flex items-center gap-2 px-4 py-3">
@@ -501,9 +516,13 @@ export default function JourneyDetail() {
       >
         <motion.div
           className="w-full"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.4
+          }}
         >
           <h1 
             className="h1-responsive-small w-full"
@@ -616,6 +635,6 @@ export default function JourneyDetail() {
           />
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
