@@ -115,7 +115,7 @@ export default function FamilyTabs({
             transition={{ duration: 0.3 }}
           >
             <div 
-              className="bg-white rounded-lg border shadow-sm px-4 py-2 md:px-6 md:py-2 lg:px-8"
+              className="bg-white rounded-lg border shadow-sm px-4 py-2 md:px-6 md:py-2 lg:px-8 h-fit"
               style={{
                 borderColor: selectedPersona?.colors.primary || accentColor,
                 borderWidth: '1px'
@@ -135,7 +135,7 @@ export default function FamilyTabs({
                     {item.icon}
                   </span>
                 </div>
-                <div>
+                <div className="h-fit">
                   <p 
                     className="text-xs uppercase tracking-wider font-medium mb-0.5 md:mb-1"
                     style={{
