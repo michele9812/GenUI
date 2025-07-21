@@ -13,7 +13,8 @@ import {
   Users, 
   Accessibility, 
   Globe, 
-  GraduationCap 
+  GraduationCap,
+  ArrowLeft 
 } from 'lucide-react';
 
 export default function LoginPage() {
@@ -48,9 +49,53 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="h-viewport flex items-center justify-center bg-gray-200 container-responsive-padding">
-      <Card className="w-full max-w-md h-[600px] shadow-2xl animation-scale-in">
-        <CardContent className="p-0 h-full relative">
+    <div className="h-viewport flex flex-col bg-gray-200">
+      {/* Navbar - Full width with horizontal layout */}
+      <div className="w-full px-2 py-2 flex items-center justify-start relative gap-2">
+        {/* AirBuddy Logo Square */}
+        <div
+          className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden"
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '12px',
+            border: '1px solid rgba(107, 114, 128, 0.3)',
+            width: '48px',
+            height: '48px',
+            backgroundImage: "url('/attached_assets/Cheerful%20Pilot%20Character_1753110261655.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+
+        {/* Back Action Button */}
+        <button
+          onClick={() => navigate('/')}
+          className="backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200"
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '12px',
+            border: '1px solid rgba(107, 114, 128, 0.3)'
+          }}
+        >
+          {/* Desktop Version - Icon + Text */}
+          <div className="hidden sm:flex items-center gap-2 px-4 py-3">
+            <ArrowLeft className="w-4 h-4 text-gray-600" />
+            <span className="text-sm font-medium text-gray-700 hover:text-gray-900">
+              Back to welcome
+            </span>
+          </div>
+
+          {/* Mobile Version - Icon Only */}
+          <div className="flex sm:hidden items-center justify-center p-3">
+            <ArrowLeft className="w-6 h-6 text-gray-600" />
+          </div>
+        </button>
+      </div>
+
+      <div className="flex-1 flex items-center justify-center container-responsive-padding">
+        <Card className="w-full max-w-md h-[600px] shadow-2xl animation-scale-in">
+          <CardContent className="p-0 h-full relative">
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
             <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-gray-50">
               <img 
@@ -163,8 +208,9 @@ export default function LoginPage() {
               Start the journey
             </Button>
           </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
