@@ -183,19 +183,27 @@ export function Carousel3D({
     const responsiveScale = isCenter ? (isMobile ? 1.05 : 1.1) : (isMobile ? 0.9 : 0.85);
     const verticalOffset = isCenter ? (isMobile ? -5 : -10) : Math.abs(position) * (isMobile ? 3 : 5);
     
-    // Fixed spacing calculation - use consistent gaps between cards
-    const cardGap = spacing * 1.5; // Increase gap between cards for better spacing
-    const baseTranslateX = position * (isCenter ? centerWidth : baseWidth) + (position * cardGap);
+    // Improved spacing calculation - consistent gaps for all positions
+    const cardWidth = isCenter ? centerWidth : baseWidth;
+    const uniformGap = spacing; // Base gap between cards
+    const baseTranslateX = position * (centerWidth + uniformGap); // Use center width as reference for consistent spacing
+    
+    // Smooth fading based on distance from center
+    const distanceFromCenter = Math.abs(position);
+    const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3)); // Gradual fade instead of sharp cutoff
     
     return {
-      width: isCenter ? centerWidth : baseWidth,
+      width: cardWidth,
       scale: responsiveScale,
-      translateX: baseTranslateX + offsetMultiplier * (isMobile ? 8 : 16),
+      translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
-      opacity: Math.abs(position) <= 1 ? 1 : (isMobile ? 0.2 : 0.4),
-      zIndex: isCenter ? 10 : 5 - Math.abs(position),
-      blur: Math.abs(position) > 1 ? (isMobile ? 'blur(2px)' : 'blur(3px)') : 'blur(0px)',
-      brightness: isCenter ? 1 : (isMobile ? 0.85 : 0.8),
+      opacity: 1, // Keep card container fully opaque
+      zIndex: isCenter ? 10 : Math.max(1, 8 - distanceFromCenter),
+      blur: 'blur(0px)', // No blur on card container
+      brightness: 1, // Full brightness for card container
+      contentOpacity: fadeOpacity, // Opacity for content only
+      contentBlur: distanceFromCenter > 1 ? `blur(${Math.min(4, distanceFromCenter)}px)` : 'blur(0px)',
+      contentBrightness: Math.max(0.6, 1 - (distanceFromCenter * 0.15)),
       containerPadding
     };
   };
@@ -208,7 +216,10 @@ export function Carousel3D({
       className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[420px] sm:h-[440px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing"
       style={{
         paddingLeft: `${getCardStyle(0).containerPadding}px`,
-        paddingRight: `${getCardStyle(0).containerPadding}px`
+        paddingRight: `${getCardStyle(0).containerPadding}px`,
+        // Add subtle gradient fade-out masks on sides
+        maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)'
       }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -243,7 +254,6 @@ export function Carousel3D({
                   height: 320, // Fixed height of 320px for all cards
                   zIndex: style.zIndex,
                   borderColor: isCenter ? accentColor : 'transparent',
-                  filter: style.blur,
 
                   background: isCenter ? (selectedPersona?.colors?.bg || '#ffffff') : '#f8fafc',
                   borderWidth: '2px',
@@ -279,10 +289,16 @@ export function Carousel3D({
                 } : {}}
                 whileTap={!isDragging && isCenter ? { scale: style.scale * 0.98 } : {}}
               >
-                <div className={cn(
-                  "w-full h-full rounded-lg overflow-hidden flex flex-col",
-                  isCenter ? "glare-card" : ""
-                )}>
+                <div 
+                  className={cn(
+                    "w-full h-full rounded-lg overflow-hidden flex flex-col",
+                    isCenter ? "glare-card" : ""
+                  )}
+                  style={{
+                    opacity: style.contentOpacity,
+                    filter: `${style.contentBlur} brightness(${style.contentBrightness})`
+                  }}
+                >
 
                   <div 
                     className="px-4 py-2 sm:px-6 sm:py-3 text-center"
