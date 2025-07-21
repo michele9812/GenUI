@@ -226,11 +226,11 @@ export function Carousel3D({
           paddingTop: window.innerWidth < 640 ? '0' : '16px',
           paddingLeft: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
           paddingRight: window.innerWidth < 640 ? '16px' : `${getCardStyle(0).containerPadding}px`,
-          overflow: window.innerWidth < 640 ? 'visible' : 'hidden',
-          // Add subtle gradient fade-out masks on sides - only on larger screens
-          maskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
-          WebkitMaskImage: window.innerWidth < 640 ? 'none' : 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
-          height: window.innerWidth < 640 ? 'calc(100% - 24px)' : '100%'
+          overflow: 'visible',
+          // Remove gradient masks to prevent content clipping
+          maskImage: 'none',
+          WebkitMaskImage: 'none',
+          height: window.innerWidth < 640 ? 'calc(100% - 24px)' : 'calc(100% - 16px)'
         }}
 
         onMouseEnter={() => setIsPaused(true)}
