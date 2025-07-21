@@ -1,0 +1,721 @@
+Implement the following design in React. Use the following files generated from a Figma design as a specification and guide:
+
+```src/styles/DetailJourneyContextualActions.module.css
+.DetailJourneyContextualActions_382_6795 {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.CiaoSiamoEnerTechEQuestaÈLaNostraIdeaDiEnergia_382_6848 {
+  color: #8a8a8a;
+  text-align: center;
+  width: 1120px;
+  font-family: SF Pro;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: 120%;
+  display: inline-block;
+}
+.Frame_1000015474_382_6849 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 1120px;
+  display: flex;
+}
+.Frame_1000015472_382_6850 {
+  align-items: center;
+  gap: -88px;
+  width: 100%;
+  display: flex;
+}
+.LuceFissaFocus_382_6851 {
+  padding: var(--Global-Spacing-SM, 16px);
+  border-radius: var(--Global-Corners-XL, 24px);
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #ccc;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 380px;
+  height: 258px;
+  display: flex;
+  overflow: hidden;
+}
+.CardContent_382_6852 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-SM, 16px);
+  flex-direction: column;
+  flex: 1 0 0;
+  width: 100%;
+  display: flex;
+}
+.TopCard_382_6853 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-MD, 24px);
+  width: 100%;
+  display: flex;
+}
+.IconTitle_382_6854 {
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--Global-Spacing-XXS, 4px);
+  flex-direction: column;
+  flex: 1 0 0;
+  width: 100%;
+  display: flex;
+}
+.Icon_382_6855 {
+  color: #000;
+  text-transform: uppercase;
+  font-family: SF Pro;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: inline-block;
+}
+.Title_382_6981 {
+  color: #000;
+  font-family: SF Pro;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 120%;
+  display: inline-block;
+}
+.Expand_382_6857 {
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-XS, 8px);
+  border-radius: var(--Global-Corners-LG, 16px);
+  background: color/brand/core/white;
+  width: 48px;
+  height: 48px;
+  display: flex;
+}
+.PanZoom_24dp_5F6368Fill0Wght400Grad0Opsz24_2_382_6858 {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.BottomCard_382_6860 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-SM, 16px);
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+}
+.OfferInfo_382_6861 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  display: flex;
+}
+.Description_382_6862 {
+  color: #061a32;
+  font-family: SF Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: inline-block;
+}
+.Details_382_6863 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-LG, 32px);
+  flex-direction: column;
+  display: flex;
+}
+.Actions_382_6882 {
+  padding: 0px var(--Global-Spacing-SM, 16px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-XS, 8px);
+  border-radius: var(--Global-Corners-MD, 12px);
+  background: #fff;
+  flex-shrink: 0;
+  width: 100%;
+  height: 48px;
+  display: flex;
+}
+.DiscoverLoremIpsum_382_6883 {
+  color: #000;
+  font-family: SF Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 120%;
+  display: inline-block;
+}
+.Frame_1000015473_382_6884 {
+  align-items: center;
+  gap: -88px;
+  display: flex;
+}
+.LuceFissaFocus_382_6885 {
+  padding: var(--Global-Spacing-SM, 16px);
+  border-radius: var(--Global-Corners-XL, 24px);
+  background: #a3cfff;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 488px;
+  height: 332px;
+  display: flex;
+  overflow: hidden;
+  box-shadow:
+    0 336px 94px #0000,
+    0 215px 86px #00000003,
+    0 121px 72px #0000000d,
+    0 54px 54px #00000017,
+    0 13px 30px #0000001a;
+}
+.CardContent_382_6886 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-SM, 16px);
+  flex-direction: column;
+  flex: 1 0 0;
+  width: 100%;
+  display: flex;
+}
+.TopCard_382_6887 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-MD, 24px);
+  width: 100%;
+  display: flex;
+}
+.IconTitle_382_6888 {
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--Global-Spacing-XXS, 4px);
+  flex-direction: column;
+  flex: 1 0 0;
+  width: 100%;
+  display: flex;
+}
+.Icon_382_6889 {
+  color: #000;
+  text-transform: uppercase;
+  font-family: SF Pro;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: inline-block;
+}
+.Title_382_6890 {
+  color: #000;
+  font-family: SF Pro;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 120%;
+  display: inline-block;
+}
+.Expand_382_6891 {
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-XS, 8px);
+  border-radius: var(--Global-Corners-LG, 16px);
+  background: color/brand/core/white;
+  width: 48px;
+  height: 48px;
+  display: flex;
+}
+.PanZoom_24dp_5F6368Fill0Wght400Grad0Opsz24_2_382_6892 {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.BottomCard_382_6894 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-SM, 16px);
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+}
+.OfferInfo_382_6895 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  display: flex;
+}
+.Description_382_6896 {
+  color: #061a32;
+  font-family: SF Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: inline-block;
+}
+.Details_382_6897 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-LG, 32px);
+  flex-direction: column;
+  display: flex;
+}
+.Actions_382_6916 {
+  padding: 0px var(--Global-Spacing-SM, 16px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-XS, 8px);
+  border-radius: var(--Global-Corners-MD, 12px);
+  background: #fff;
+  flex-shrink: 0;
+  width: 100%;
+  height: 48px;
+  display: flex;
+}
+.DiscoverLoremIpsum_382_6917 {
+  color: #000;
+  font-family: SF Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 120%;
+  display: inline-block;
+}
+.LuceFissaFocus_382_6918 {
+  padding: var(--Global-Spacing-SM, 16px);
+  border-radius: var(--Global-Corners-XL, 24px);
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #ccc;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 380px;
+  height: 258px;
+  display: flex;
+  overflow: hidden;
+}
+.CardContent_382_6919 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-SM, 16px);
+  flex-direction: column;
+  flex: 1 0 0;
+  width: 100%;
+  display: flex;
+}
+.TopCard_382_6920 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-MD, 24px);
+  width: 100%;
+  display: flex;
+}
+.IconTitle_382_6921 {
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--Global-Spacing-XXS, 4px);
+  flex-direction: column;
+  flex: 1 0 0;
+  width: 100%;
+  display: flex;
+}
+.Icon_382_6922 {
+  color: #000;
+  text-transform: uppercase;
+  font-family: SF Pro;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: inline-block;
+}
+.Title_382_6923 {
+  color: #000;
+  font-family: SF Pro;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 120%;
+  display: inline-block;
+}
+.Expand_382_6924 {
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-XS, 8px);
+  border-radius: var(--Global-Corners-LG, 16px);
+  background: color/brand/core/white;
+  width: 48px;
+  height: 48px;
+  display: flex;
+}
+.PanZoom_24dp_5F6368Fill0Wght400Grad0Opsz24_2_382_6925 {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.BottomCard_382_6927 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-SM, 16px);
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+}
+.OfferInfo_382_6928 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  display: flex;
+}
+.Description_382_6929 {
+  color: #061a32;
+  font-family: SF Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: inline-block;
+}
+.Details_382_6930 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-LG, 32px);
+  flex-direction: column;
+  display: flex;
+}
+.Actions_382_6949 {
+  padding: 0px var(--Global-Spacing-SM, 16px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-XS, 8px);
+  border-radius: var(--Global-Corners-MD, 12px);
+  background: #fff;
+  flex-shrink: 0;
+  width: 100%;
+  height: 48px;
+  display: flex;
+}
+.DiscoverLoremIpsum_382_6950 {
+  color: #000;
+  font-family: SF Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 120%;
+  display: inline-block;
+}
+.Carousel_382_6951 {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.CarouselIndicator_186_431 {
+  border-radius: var(--Global-Corners-XL, 24px);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  display: flex;
+}
+.CarouselNavigation_186_439 {
+  align-items: center;
+  gap: 8px;
+  display: flex;
+}
+.Step_1_186_440 {
+  background: color/brand/core/black;
+  border-radius: 40px;
+  width: 40px;
+  height: 8px;
+}
+.Step_2_186_441,
+.Step_3_186_442,
+.Step_4_186_443 {
+  background: color/neutral/light-300;
+  border-radius: 40px;
+  width: 8px;
+  height: 8px;
+}
+.Frame_37559_186_432 {
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--Global-Spacing-XS, 8px);
+  width: 176.5px;
+  display: flex;
+}
+.Frame_37543_186_433 {
+  border-radius: var(--Global-Corners-XL, 24px);
+  background: var(--Test-neutral, #eff4f6);
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+}
+.MaterialChevron_186_434 {
+  fill: color/transparent;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+.Frame_37546_186_435 {
+  border-radius: var(--Global-Corners-XL, 24px);
+  background: var(--Test-neutral, #eff4f6);
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+}
+.MaterialChevron_186_436 {
+  fill: color/transparent;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+.WelcomeMessage_382_6952 {
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 1120px;
+  display: flex;
+}
+.CiaoSiamoEnerTechEQuestaÈLaNostraIdeaDiEnergia_382_6953 {
+  color: color/brand/core/black;
+  text-align: center;
+  font-family: SF Pro;
+  font-size: 48px;
+  font-style: italic;
+  font-weight: 508;
+  line-height: 120%;
+  display: inline-block;
+}
+.AiArea_382_6954 {
+  padding: 16px var(--Global-Spacing-SM, 16px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-XXS, 4px);
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 28px;
+  flex-direction: column;
+  width: 1120px;
+  height: 80px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 -4px 64px #0000001a;
+}
+.DrawerContent_382_6955 {
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-SM, 16px);
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+}
+.SectionContent_382_6956 {
+  align-items: flex-start;
+  gap: var(--Global-Spacing-SM, 16px);
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+}
+.Frame_37510_382_6957 {
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  height: 48px;
+  display: flex;
+}
+.Actions_382_6958 {
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-XS, 8px);
+  border-radius: var(--Global-Corners-MD, 12px);
+  box-sizing: border-box;
+  border: 1px solid #000;
+  width: 48px;
+  height: 48px;
+  display: flex;
+}
+.Add_2_382_6959 {
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+.Frame_37508_382_6962 {
+  padding: var(--Global-Spacing-XS, 8px) var(--Global-Spacing-SM, 16px);
+  border-radius: var(--Global-Corners-MD, 12px);
+  box-sizing: border-box;
+  background: #eff4f6;
+  flex: 1 0 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.ComePossiamoAiutarti_382_6963 {
+  color: color/brand/core/black;
+  opacity: 0.4;
+  font-family: SF Pro;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 120%;
+  display: inline-block;
+  position: absolute;
+  top: 9.5px;
+  left: 32.5px;
+}
+.Actions_382_6964 {
+  justify-content: center;
+  align-items: center;
+  gap: var(--Global-Spacing-XS, 8px);
+  border-radius: var(--Global-Corners-MD, 12px);
+  background: #22272a;
+  width: 48px;
+  height: 48px;
+  display: flex;
+}
+.MaterialMicVoice_382_6965 {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+```
+
+---
+
+```src/components/DetailJourneyContextualActions.tsx
+import React from 'react';
+import styles from '../styles/DetailJourneyContextualActions.module.css';
+
+
+export default function DetailJourneyContextualActions() {
+  return (
+    <div className={styles.DetailJourneyContextualActions_382_6795}><span className={styles.CiaoSiamoEnerTechEQuestaÈLaNostraIdeaDiEnergia_382_6848}>You are in the XXX area.</span>
+      <div className={styles.Frame_1000015474_382_6849}>
+        <div className={styles.Frame_1000015472_382_6850}>
+          <div className={styles.LuceFissaFocus_382_6851}>
+            <div className={styles.CardContent_382_6852}>
+              <div className={styles.TopCard_382_6853}>
+                <div className={styles.IconTitle_382_6854}><span className={styles.Icon_382_6855}>&#x1F3E1;</span><span className={styles.Title_382_6981}>Contextual action </span></div>
+                <div className={styles.Expand_382_6857}>
+                  <div className={styles.PanZoom_24dp_5F6368Fill0Wght400Grad0Opsz24_2_382_6858}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 21V15H5V17.6L8.1 14.5L9.5 15.9L6.4 19H9V21H3ZM15.9 9.5L14.5 8.1L17.6 5H15V3H21V9H19V6.4L15.9 9.5Z" fill="black" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.BottomCard_382_6860}>
+                <div className={styles.OfferInfo_382_6861}><span className={styles.Description_382_6862}>Lorem Ipsum</span></div>
+              </div>
+            </div>
+            <div className={styles.Actions_382_6882}><span className={styles.DiscoverLoremIpsum_382_6883}>Discover Lorem Ipsum</span></div>
+          </div>
+          <div className={styles.Frame_1000015473_382_6884}>
+            <div className={styles.LuceFissaFocus_382_6885}>
+              <div className={styles.CardContent_382_6886}>
+                <div className={styles.TopCard_382_6887}>
+                  <div className={styles.IconTitle_382_6888}><span className={styles.Icon_382_6889}>&#x1F3E1;</span><span className={styles.Title_382_6890}>Contextual action 1</span></div>
+                  <div className={styles.Expand_382_6891}>
+                    <div className={styles.PanZoom_24dp_5F6368Fill0Wght400Grad0Opsz24_2_382_6892}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 21V15H5V17.6L8.1 14.5L9.5 15.9L6.4 19H9V21H3ZM15.9 9.5L14.5 8.1L17.6 5H15V3H21V9H19V6.4L15.9 9.5Z" fill="black" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.BottomCard_382_6894}>
+                  <div className={styles.OfferInfo_382_6895}><span className={styles.Description_382_6896}>Lorem Ipsum</span></div>
+                </div>
+              </div>
+              <div className={styles.Actions_382_6916}><span className={styles.DiscoverLoremIpsum_382_6917}>Discover Lorem Ipsum</span></div>
+            </div>
+            <div className={styles.LuceFissaFocus_382_6918}>
+              <div className={styles.CardContent_382_6919}>
+                <div className={styles.TopCard_382_6920}>
+                  <div className={styles.IconTitle_382_6921}><span className={styles.Icon_382_6922}>&#x1F3E1;</span><span className={styles.Title_382_6923}>Contextual action </span></div>
+                  <div className={styles.Expand_382_6924}>
+                    <div className={styles.PanZoom_24dp_5F6368Fill0Wght400Grad0Opsz24_2_382_6925}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 21V15H5V17.6L8.1 14.5L9.5 15.9L6.4 19H9V21H3ZM15.9 9.5L14.5 8.1L17.6 5H15V3H21V9H19V6.4L15.9 9.5Z" fill="black" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.BottomCard_382_6927}>
+                  <div className={styles.OfferInfo_382_6928}><span className={styles.Description_382_6929}>Lorem Ipsum</span></div>
+                </div>
+              </div>
+              <div className={styles.Actions_382_6949}><span className={styles.DiscoverLoremIpsum_382_6950}>Discover Lorem Ipsum</span></div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.Carousel_382_6951}>
+          <div className={styles.CarouselIndicator_186_431}>
+            <div className={styles.CarouselNavigation_186_439}>
+              <div className={styles.Step_1_186_440}></div>
+              <div className={styles.Step_2_186_441}></div>
+              <div className={styles.Step_3_186_442}></div>
+              <div className={styles.Step_4_186_443}></div>
+            </div>
+          </div>
+          <div className={styles.Frame_37559_186_432}>
+            <div className={styles.Frame_37543_186_433}>
+              <div className={styles.MaterialChevron_186_434}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.4102 7.41L9.83016 12L14.4102 16.59L13.0002 18L7.00016 12L13.0002 6L14.4102 7.41Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+            <div className={styles.Frame_37546_186_435}>
+              <div className={styles.MaterialChevron_186_436}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 7.41L13.58 12L9 16.59L10.41 18L16.41 12L10.41 6L9 7.41Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.WelcomeMessage_382_6952}><span className={styles.CiaoSiamoEnerTechEQuestaÈLaNostraIdeaDiEnergia_382_6953}>Ciao Name,
+          I am your AirBuddy and I am here to assist you!</span></div>
+      <div className={styles.AiArea_382_6954}>
+        <div className={styles.DrawerContent_382_6955}>
+          <div className={styles.SectionContent_382_6956}>
+            <div className={styles.Frame_37510_382_6957}>
+              <div className={styles.Actions_382_6958}>
+                <div className={styles.Add_2_382_6959}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_382_6959" style={{"maskType":"alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                      <rect width="24" height="24" fill="#D9D9D9" />
+                    </mask>
+                    <g mask="url(#mask0_382_6959)">
+                      <path d="M11 21V13H3V11H11V3H13V11H21V13H13V21H11Z" fill="#1C1B1F" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div className={styles.Frame_37508_382_6962}><span className={styles.ComePossiamoAiutarti_382_6963}>How can I help you?</span></div>
+              <div className={styles.Actions_382_6964}>
+                <div className={styles.MaterialMicVoice_382_6965}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.999 14C13.659 14 14.999 12.66 14.999 11V5C14.999 3.34 13.659 2 11.999 2C10.339 2 8.99901 3.34 8.99901 5V11C8.99901 12.66 10.339 14 11.999 14ZM17.909 11C17.419 11 17.009 11.36 16.929 11.85C16.519 14.2 14.469 16 11.999 16C9.52901 16 7.47901 14.2 7.06901 11.85C6.98901 11.36 6.57901 11 6.08901 11C5.47901 11 4.99901 11.54 5.08901 12.14C5.57901 15.14 7.97901 17.49 10.999 17.92V20C10.999 20.55 11.449 21 11.999 21C12.549 21 12.999 20.55 12.999 20V17.92C16.019 17.49 18.419 15.14 18.909 12.14C19.009 11.54 18.519 11 17.909 11Z" fill="white" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
