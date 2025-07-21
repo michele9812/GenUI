@@ -137,10 +137,10 @@ export function Carousel3D({
     let baseWidth, centerWidth, spacing, containerPadding;
     
     if (isMobile) {
-      if (screenWidth < 375) {
-        // iPhone SE configuration - ultra compact dimensions
-        baseWidth = 100;
-        centerWidth = 120;
+      if (screenWidth <= 375) {
+        // iPhone SE configuration (≤375px) - increased width to 240px minimum
+        baseWidth = 200;
+        centerWidth = 240;
         spacing = 10; // Reduced spacing for smaller screen
         containerPadding = 6;
       } else {
@@ -177,9 +177,12 @@ export function Carousel3D({
     const distanceFromCenter = Math.abs(position);
     const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3)); // Gradual fade instead of sharp cutoff
     
+    // iPhone SE height calculation - FIXED 240px (≤375px)
+    const cardHeight = isMobile ? (screenWidth <= 375 ? 240 : 320) : 320;
+    
     return {
       width: cardWidth,
-      height: isMobile ? (screenWidth < 375 ? 240 : 320) : 320, // FORCE REFRESH: iPhone SE: 240px, others: 320px
+      height: cardHeight, // iPhone SE: 240px, others: 320px
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
@@ -205,8 +208,8 @@ export function Carousel3D({
     <div 
       className="relative w-full"
       style={{
-        height: isMobile ? (screenWidth < 375 ? '320px' : '480px') : '418px', // FORCE REFRESH: iPhone SE: 320px container
-        maxHeight: isMobile ? (screenWidth < 375 ? '320px' : '480px') : '418px'
+        height: screenWidth <= 375 ? '320px' : (isMobile ? '480px' : '418px'), // iPhone SE: 320px direct override (≤375px)
+        maxHeight: screenWidth <= 375 ? '320px' : (isMobile ? '480px' : '418px')
       }}
     >
       <div 
@@ -256,8 +259,8 @@ export function Carousel3D({
                     !isCenter && "backdrop-blur-none"
                   )}
                   style={{
-                    width: style.width,
-                    height: style.height, // Responsive height from style
+                    width: screenWidth <= 375 ? Math.max(240, style.width) : style.width, // iPhone SE: minimum 240px width
+                    height: screenWidth <= 375 ? 240 : style.height, // FORCE iPhone SE: 240px override (≤375px)
                     zIndex: style.zIndex,
                     borderColor: isCenter ? accentColor : 'transparent',
                     background: isCenter ? (selectedPersona?.colors?.bg || '#ffffff') : '#f8fafc',
