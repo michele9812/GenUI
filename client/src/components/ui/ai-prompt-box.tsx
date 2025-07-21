@@ -835,13 +835,19 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
               disabled={isLoading && !hasContent}
             >
               {isLoading ? (
-                <Square className="h-4 w-4 fill-[#1F2023] animate-pulse" />
+                <Square 
+                  className="h-4 w-4 animate-pulse" 
+                  style={{ fill: hasContent ? 'white' : (accentColor || '#1F2023') }}
+                />
               ) : isRecording ? (
-                <StopCircle className="h-5 w-5 text-red-500" />
+                <StopCircle className="h-5 w-5" style={{ color: '#ef4444' }} />
               ) : hasContent ? (
-                <ArrowUp className="h-4 w-4 text-[#1F2023]" />
+                <ArrowUp className="h-4 w-4" style={{ color: 'white' }} />
               ) : (
-                <Mic className="h-5 w-5 text-[#1F2023] transition-colors" />
+                <Mic 
+                  className="h-5 w-5 transition-colors" 
+                  style={{ color: accentColor || '#1F2023' }}
+                />
               )}
             </Button>
           </PromptInputAction>
