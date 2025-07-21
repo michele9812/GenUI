@@ -361,7 +361,7 @@ export function Carousel3D({
                             color: 'white', // Always white text for better contrast on colored backgrounds
                             fontFamily: personaTypography?.fontFamily || 'inherit',
                             fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
-                            border: `2px solid ${selectedPersona?.colors?.accent || accentColor}`
+                            border: 'none'
                           }}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
@@ -375,7 +375,8 @@ export function Carousel3D({
                       ) : (
                         <button 
                           disabled
-                          className="w-full py-3 border border-gray-300 text-gray-400 font-medium rounded-lg bg-gray-100 cursor-not-allowed opacity-60"
+                          className="w-full py-3 text-gray-400 font-medium rounded-lg bg-gray-100 cursor-not-allowed opacity-60"
+                          style={{ border: 'none' }}
                         >
                           View Details
                         </button>
@@ -393,12 +394,11 @@ export function Carousel3D({
         <motion.button
           onClick={handlePrevious}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-full backdrop-blur-sm border flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+          className="w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
           style={{
             backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-            borderColor: selectedPersona?.colors?.secondary || accentColor,
             color: selectedPersona?.colors?.secondary || accentColor,
-            borderWidth: '2px'
+            border: 'none'
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -410,12 +410,11 @@ export function Carousel3D({
         <motion.button
           onClick={handleNext}
           disabled={isAnimating}
-          className="w-10 h-10 rounded-full backdrop-blur-sm border flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+          className="w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
           style={{
             backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-            borderColor: selectedPersona?.colors?.secondary || accentColor,
             color: selectedPersona?.colors?.secondary || accentColor,
-            borderWidth: '2px'
+            border: 'none'
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
