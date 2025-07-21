@@ -35,7 +35,7 @@ export default function FamilyTabs({
       <Tabs defaultValue={items[0]?.id} className="w-full">
         {/* Tab List */}
         <TabsList 
-          className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1 p-1 mb-6"
+          className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1 p-1 mb-4"
           style={{
             backgroundColor: `${selectedPersona?.colors.primary}20` || '#f3f4f6',
             border: `1px solid ${selectedPersona?.colors.primary}30` || '#e5e7eb'
