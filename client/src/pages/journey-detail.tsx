@@ -34,21 +34,29 @@ export default function JourneyDetail() {
 
   // Generate contextual actions based on current journey step and persona
   const getContextualActions = () => {
-    // Universal services available everywhere in the airport
-    const universalServices = [
-      {
-        id: 'security_assistance',
-        title: 'Security & Assistance',
-        description: 'Find security personnel, police, or emergency assistance',
-        icon: 'security'
-      },
-      {
-        id: 'accessible_restrooms',
-        title: 'Accessible Restrooms',
-        description: 'Locate nearby restrooms and accessible facilities',
-        icon: 'wc'
+    // Context-aware universal services
+    const getUniversalServices = (stepId: string) => {
+      const baseServices = [
+        {
+          id: 'security_assistance',
+          title: 'Security & Assistance',
+          description: 'Find security personnel, police, or emergency assistance',
+          icon: 'security'
+        }
+      ];
+
+      // Restrooms not available in parking areas (outdoor)
+      if (stepId !== 'parking') {
+        baseServices.push({
+          id: 'accessible_restrooms',
+          title: 'Accessible Restrooms',
+          description: 'Locate nearby restrooms and accessible facilities',
+          icon: 'wc'
+        });
       }
-    ];
+
+      return baseServices;
+    };
 
     // Persona-specific actions by journey step - mapped to actual persona journey step IDs
     const personaStepActions: { [personaId: string]: { [stepId: string]: any[] } } = {
