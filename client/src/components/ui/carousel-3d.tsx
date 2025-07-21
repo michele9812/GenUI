@@ -214,9 +214,7 @@ export function Carousel3D({
     <div 
       className="relative w-full sm:h-[356px] md:h-[396px] lg:h-[416px]"
       style={{
-        height: window.innerWidth < 640 ? 'calc(100vh - 120px)' : undefined,
-        minHeight: window.innerWidth < 640 ? '400px' : undefined,
-        maxHeight: window.innerWidth < 640 ? '500px' : undefined,
+        height: window.innerWidth < 640 ? '400px' : undefined,
         paddingTop: window.innerWidth < 640 ? '24px' : undefined
       }}
     >
