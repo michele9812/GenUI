@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
+import { ArrowLeft } from 'lucide-react';
 import MacOSDock from '@/components/ui/mac-os-dock';
 import { usePersona } from '@/hooks/use-persona';
 
@@ -37,6 +38,10 @@ export default function Welcome() {
 
   const defaultImage = selectedPersona.journeySteps[0]?.image || 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600';
 
+  const handleBackToPersonaSelection = () => {
+    setLocation('/');
+  };
+
   return (
     <div 
       className="min-h-screen relative overflow-hidden"
@@ -44,6 +49,21 @@ export default function Welcome() {
         background: `linear-gradient(135deg, ${selectedPersona.colors.primary}, ${selectedPersona.colors.secondary})` 
       }}
     >
+      {/* Back Button - Top Left */}
+      <div className="absolute top-4 left-4 z-50">
+        <motion.button
+          onClick={handleBackToPersonaSelection}
+          className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-200 text-gray-700 hover:text-gray-900"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span className="text-sm font-medium">Back to behaviour selection</span>
+        </motion.button>
+      </div>
       {/* Header Section */}
       <div className="absolute top-[120px] left-0 right-0 text-center z-10 px-4 sm:px-6 lg:px-8 w-full">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
