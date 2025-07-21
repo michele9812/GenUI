@@ -15,6 +15,13 @@ interface MacOSDockProps {
   onAppHover?: (appId: string) => void;
   openApps?: string[];
   className?: string;
+  accentColor?: string;
+  personaTypography?: {
+    fontFamily: string;
+    headingFont: string;
+    fontSize: string;
+    scale?: number;
+  };
 }
 
 const MacOSDock: React.FC<MacOSDockProps> = ({ 
@@ -22,7 +29,9 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
   onAppClick, 
   onAppHover,
   openApps = [],
-  className = ''
+  className = '',
+  accentColor = '#3B82F6',
+  personaTypography
 }) => {
   const [mouseX, setMouseX] = useState<number | null>(null);
   const [currentScales, setCurrentScales] = useState<number[]>(apps.map(() => 1));
@@ -291,7 +300,7 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
               <div
                 className="w-full h-full rounded-2xl flex items-center justify-center text-white shadow-lg"
                 style={{
-                  backgroundColor: '#3B82F6',
+                  backgroundColor: accentColor,
                   filter: `drop-shadow(0 ${scale > 1.2 ? Math.max(2, baseIconSize * 0.05) : Math.max(1, baseIconSize * 0.03)}px ${scale > 1.2 ? Math.max(4, baseIconSize * 0.1) : Math.max(2, baseIconSize * 0.06)}px rgba(0,0,0,${0.2 + (scale - 1) * 0.15}))`
                 }}
               >

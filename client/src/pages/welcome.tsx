@@ -72,11 +72,12 @@ export default function Welcome() {
         <h1 
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight"
           style={{ 
-            fontFamily: selectedPersona.typography?.headingFont || 'inherit',
-            fontSize: selectedPersona.typography?.scale ? `calc(3rem * ${selectedPersona.typography.scale})` : undefined
+            fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
+            fontSize: selectedPersona.typography?.scale ? `calc(3rem * ${selectedPersona.typography.scale})` : undefined,
+            color: 'white'
           }}
         >
-          Ciao {userName}
+          Ciao {userName || 'Utente'}
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl text-white/80">
           Seleziona il punto del journey
@@ -130,6 +131,8 @@ export default function Welcome() {
             }}
             openApps={[]}
             className="mx-auto"
+            accentColor={selectedPersona.colors.primary}
+            personaTypography={selectedPersona.typography}
           />
         </div>
       </div>

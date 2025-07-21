@@ -114,20 +114,23 @@ export default function JourneyDetail() {
             <h1 
               className="text-3xl md:text-4xl lg:text-5xl font-bold"
               style={{
-                fontFamily: selectedPersona.typography?.headingFont || 'inherit',
-                fontSize: selectedPersona.typography?.scale ? `calc(3rem * ${selectedPersona.typography.scale})` : undefined
+                fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
+                fontSize: selectedPersona.typography?.scale ? `calc(3rem * ${selectedPersona.typography.scale})` : undefined,
+                color: selectedPersona.colors.primary
               }}
             >
               Ciao{' '}
-              <span style={{ color: selectedPersona.colors.primary }}>
-                {userName}
+              <span style={{ color: selectedPersona.colors.secondary }}>
+                {userName || 'Utente'}
               </span>
               ,
             </h1>
             <p 
-              className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-2 text-gray-700"
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-2"
               style={{
-                fontSize: selectedPersona.typography?.scale ? `calc(2rem * ${selectedPersona.typography.scale})` : undefined
+                fontSize: selectedPersona.typography?.scale ? `calc(2rem * ${selectedPersona.typography.scale})` : undefined,
+                fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+                color: selectedPersona.colors.secondary
               }}
             >
               I am your AirBuddy and I am here to assist you!
@@ -145,6 +148,8 @@ export default function JourneyDetail() {
               items={carouselItems}
               onItemSelect={handleCarouselItemSelect}
               accentColor={selectedPersona.colors.primary}
+              secondaryColor={selectedPersona.colors.secondary}
+              personaTypography={selectedPersona.typography}
               className="h-[400px] sm:h-[450px] lg:h-[500px]"
             />
           </motion.div>
@@ -160,6 +165,8 @@ export default function JourneyDetail() {
               onSend={handleSendMessage}
               placeholder="Ask me anything about your journey..."
               className="w-full"
+              accentColor={selectedPersona.colors.primary}
+              personaTypography={selectedPersona.typography}
             />
           </motion.div>
 

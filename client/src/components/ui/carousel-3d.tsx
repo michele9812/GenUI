@@ -16,9 +16,23 @@ interface Carousel3DProps {
   onItemSelect?: (item: CarouselItem) => void;
   className?: string;
   accentColor?: string;
+  secondaryColor?: string;
+  personaTypography?: {
+    fontFamily: string;
+    headingFont: string;
+    fontSize: string;
+    scale?: number;
+  };
 }
 
-export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B82F6' }: Carousel3DProps) {
+export function Carousel3D({ 
+  items, 
+  onItemSelect, 
+  className, 
+  accentColor = '#3B82F6',
+  secondaryColor = '#10B981',
+  personaTypography
+}: Carousel3DProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -212,7 +226,7 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                   width: style.width,
                   height: 320, // Altezza fissa di 320px per tutte le card
                   zIndex: style.zIndex,
-                  borderColor: isCenter ? '#F59E0B' : 'transparent',
+                  borderColor: isCenter ? accentColor : 'transparent',
                   filter: style.blur,
                   // Remove any glare effects from non-center cards
                   background: isCenter ? 'white' : '#fafafa'
@@ -254,26 +268,35 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                   isCenter ? "glare-card" : ""
                 )}>
                   {/* Header */}
-                  <div className={cn(
-                    "px-4 py-3 sm:px-6 sm:py-4 text-center",
-                    isCenter ? "bg-amber-50" : "bg-gray-50"
-                  )}>
-                    <p className={cn(
-                      "text-xs sm:text-sm font-medium uppercase tracking-wider mb-2",
-                      isCenter ? "text-amber-600" : "text-gray-500"
-                    )}>
+                  <div 
+                    className="px-4 py-3 sm:px-6 sm:py-4 text-center"
+                    style={{
+                      backgroundColor: isCenter ? `${accentColor}15` : '#f9fafb'
+                    }}
+                  >
+                    <p 
+                      className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-2"
+                      style={{
+                        color: isCenter ? accentColor : '#6b7280',
+                        fontFamily: personaTypography?.fontFamily || 'inherit'
+                      }}
+                    >
                       NAVIGATION
                     </p>
                     
                     {/* Icon */}
-                    <div className={cn(
-                      "w-10 h-10 sm:w-12 sm:h-12 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center",
-                      isCenter ? "bg-amber-400" : "bg-gray-200"
-                    )}>
-                      <span className={cn(
-                        "material-icons text-lg sm:text-xl",
-                        isCenter ? "text-white" : "text-gray-600"
-                      )}>
+                    <div 
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center"
+                      style={{
+                        backgroundColor: isCenter ? accentColor : '#e5e7eb'
+                      }}
+                    >
+                      <span 
+                        className="material-icons text-lg sm:text-xl"
+                        style={{
+                          color: isCenter ? 'white' : '#6b7280'
+                        }}
+                      >
                         {item.icon}
                       </span>
                     </div>
@@ -282,10 +305,24 @@ export function Carousel3D({ items, onItemSelect, className, accentColor = '#3B8
                   {/* Content */}
                   <div className="flex-1 px-4 py-3 sm:px-6 sm:py-4 flex flex-col justify-between">
                     <div className="text-center">
-                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
+                      <h3 
+                        className="text-base sm:text-lg font-semibold mb-2 sm:mb-3"
+                        style={{
+                          color: isCenter ? accentColor : '#111827',
+                          fontFamily: personaTypography?.headingFont || personaTypography?.fontFamily || 'inherit',
+                          fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined
+                        }}
+                      >
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-2 overflow-hidden">
+                      <p 
+                        className="text-xs sm:text-sm leading-relaxed line-clamp-2 overflow-hidden"
+                        style={{
+                          color: isCenter ? '#374151' : '#6b7280',
+                          fontFamily: personaTypography?.fontFamily || 'inherit',
+                          fontSize: personaTypography?.scale ? `calc(0.875rem * ${personaTypography.scale})` : undefined
+                        }}
+                      >
                         {item.description}
                       </p>
                     </div>
