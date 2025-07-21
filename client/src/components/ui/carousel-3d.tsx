@@ -212,9 +212,10 @@ export function Carousel3D({
   const visibleCards = getVisibleCards();
 
   return (
+    <div className="relative w-full h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing">
     <div 
       ref={containerRef}
-      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-[320px] sm:h-[420px] md:h-[460px] lg:h-[480px] portrait-spacing landscape-spacing"
+      className="container-responsive relative w-full flex items-center justify-center overflow-hidden h-full"
       style={{
         paddingLeft: `${getCardStyle(0).containerPadding}px`,
         paddingRight: `${getCardStyle(0).containerPadding}px`,
@@ -403,68 +404,68 @@ export function Carousel3D({
           })}
         </AnimatePresence>
       </motion.div>
-      {/* Navigation Controls - Outside mask area with explicit opacity */}
-      <div 
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30"
-        style={{ opacity: 1 }} // Force full opacity
+    </div>
+    
+    {/* Navigation Controls - Outside masked container */}
+    <div 
+      className="absolute left-4 top-1/2 -translate-y-1/2"
+      style={{ zIndex: 1000 }}
+    >
+      <motion.button
+        onClick={handlePrevious}
+        disabled={isAnimating}
+        className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+        style={{
+          backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+          color: selectedPersona?.colors?.secondary || accentColor,
+          border: 'none'
+        }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <motion.button
-          onClick={handlePrevious}
-          disabled={isAnimating}
-          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+        <ChevronLeft className="w-5 h-5" />
+      </motion.button>
+    </div>
+    <div 
+      className="absolute right-4 top-1/2 -translate-y-1/2"
+      style={{ zIndex: 1000 }}
+    >
+      <motion.button
+        onClick={handleNext}
+        disabled={isAnimating}
+        className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+        style={{
+          backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+          color: selectedPersona?.colors?.secondary || accentColor,
+          border: 'none'
+        }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <ChevronRight className="w-5 h-5" />
+      </motion.button>
+    </div>
+    {/* Indicators - Outside masked container */}
+    <div 
+      className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"
+      style={{ zIndex: 1000 }}
+    >
+      {items.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => handleCardClick(index)}
+          className={cn(
+            "w-2 h-2 rounded-full transition-all duration-300",
+            index === currentIndex 
+              ? "w-6" 
+              : "hover:opacity-70"
+          )}
           style={{
-            backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-            color: selectedPersona?.colors?.secondary || accentColor,
-            border: 'none',
-            opacity: isAnimating ? 0.5 : 1 // Only disabled state affects opacity
+            backgroundColor: index === currentIndex ? (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
           }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </motion.button>
-      </div>
-      <div 
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30"
-        style={{ opacity: 1 }} // Force full opacity
-      >
-        <motion.button
-          onClick={handleNext}
-          disabled={isAnimating}
-          className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-          style={{
-            backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-            color: selectedPersona?.colors?.secondary || accentColor,
-            border: 'none',
-            opacity: isAnimating ? 0.5 : 1 // Only disabled state affects opacity
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <ChevronRight className="w-5 h-5" />
-        </motion.button>
-      </div>
-      {/* Indicators - Outside mask area with explicit opacity */}
-      <div 
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30"
-        style={{ opacity: 1 }} // Force full opacity
-      >
-        {items.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleCardClick(index)}
-            className={cn(
-              "w-2 h-2 rounded-full transition-all duration-300",
-              index === currentIndex 
-                ? "w-6" 
-                : "hover:opacity-70"
-            )}
-            style={{
-              backgroundColor: index === currentIndex ? (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
-            }}
-          />
-        ))}
-      </div>
+        />
+      ))}
+    </div>
     </div>
   );
 }
