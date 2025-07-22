@@ -56,15 +56,15 @@ export function Carousel3D({
   const containerRef = useRef<HTMLDivElement>(null);
   const dragControls = useDragControls();
 
-  const handlePrevious = useCallback(() => {
-    if (isAnimating || isDragging) return;
+  const handlePrevious = useCallback((fromDrag = false) => {
+    if (isAnimating || (!fromDrag && isDragging)) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
     setTimeout(() => setIsAnimating(false), 400);
   }, [isAnimating, isDragging, items.length]);
 
-  const handleNext = useCallback(() => {
-    if (isAnimating || isDragging) return;
+  const handleNext = useCallback((fromDrag = false) => {
+    if (isAnimating || (!fromDrag && isDragging)) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev + 1) % items.length);
     setTimeout(() => setIsAnimating(false), 400);
@@ -317,7 +317,7 @@ export function Carousel3D({
                     e.stopPropagation();
                   }}
                   onDragEnd={(e, info) => {
-                    setIsDragging(false);
+                    setTimeout(() => setIsDragging(false), 100);
                     e.stopPropagation();
                     
                     const threshold = 50;
@@ -326,10 +326,10 @@ export function Carousel3D({
                     if (Math.abs(offset) > threshold) {
                       if (offset > 0) {
                         // Dragged right - go to previous
-                        handlePrevious();
+                        handlePrevious(true);
                       } else {
                         // Dragged left - go to next  
-                        handleNext();
+                        handleNext(true);
                       }
                     } else if (Math.abs(offset) < 20) {
                       // Small movement - treat as click

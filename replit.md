@@ -44,6 +44,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Enhanced carousel dragging behavior**: Fixed drag interactions with improved constraints (±150px), velocity-based navigation (500px/s threshold), enhanced drag feedback (96% scale), drag propagation prevention, and proper animation state management to eliminate conflicts between drag and click events
 - **Implemented swipe-to-navigate carousel**: Replaced card dragging with pan gesture detection - cards remain in fixed positions while swipe gestures (50px threshold) trigger navigation between cards, maintaining visual stability while enabling touch-friendly navigation
 - **Fixed carousel swipe navigation bugs**: Corrected drag system to use invisible drag constraints (left: 0, right: 0) with dragTransition power: 0 to prevent visual movement while maintaining gesture detection, improved threshold logic and event handling for reliable swipe-to-navigate functionality
+- **Resolved drag navigation blocking issue**: Fixed handlePrevious/handleNext functions by adding fromDrag parameter to bypass isDragging check when triggered by drag gestures, enabling proper navigation during drag interactions with 50px threshold and visual feedback during drag
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**
