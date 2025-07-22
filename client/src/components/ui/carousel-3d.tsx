@@ -216,14 +216,14 @@ export function Carousel3D({
   return (
     <div 
       className={cn(
-        "w-full",
-        isMobile ? "flex flex-col" : "relative"
+        "w-full relative",
+        isMobile ? "flex flex-col" : ""
       )}
       style={{
-        // Calculate: floating input height (56px) + bottom margin (24px) + required gap (40px) = 120px
-        height: isMobile ? 'calc(100vh - 120px)' : '418px', // Mobile: subtract floating input space + 40px gap
-        maxHeight: isMobile ? 'calc(100vh - 120px)' : '418px',
-        minHeight: isMobile ? '300px' : '418px' // Keep reasonable minimum
+        // Container gets max height with 40px gap from floating input
+        height: isMobile ? 'calc(100vh - 160px)' : '418px', 
+        maxHeight: isMobile ? 'calc(100vh - 160px)' : '418px',
+        minHeight: isMobile ? '400px' : '418px'
       }}
     >
       <div 
@@ -509,9 +509,9 @@ export function Carousel3D({
         </div>
       </div>
 
-      {/* Mobile Controls - Fixed at bottom of viewport */}
-      <div className="md:hidden fixed bottom-10 left-0 right-0 pointer-events-none" style={{ zIndex: 1000 }}>
-        {/* Side arrows - fixed positioning */}
+      {/* Mobile Controls - Anchored at bottom of carousel container */}
+      <div className="md:hidden absolute bottom-4 left-0 right-0 pointer-events-none" style={{ zIndex: 1000 }}>
+        {/* Side arrows - positioned within carousel container */}
         <div className="absolute left-4 pointer-events-auto">
           <motion.button
             onClick={handlePrevious}
@@ -546,7 +546,7 @@ export function Carousel3D({
           </motion.button>
         </div>
 
-        {/* Centered Indicators - fixed positioning */}
+        {/* Centered Indicators - positioned within carousel container */}
         <div className="absolute left-1/2 -translate-x-1/2 flex gap-2 pointer-events-auto">
           {items.map((_, index) => (
             <button
