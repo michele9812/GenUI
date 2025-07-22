@@ -444,7 +444,7 @@ export function Carousel3D({
         <div className="md:hidden">
           {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
           <div className="absolute inset-x-4 z-[1000] flex items-center justify-between" style={{ 
-            top: 'calc(100% + 16px)' // 16px below the motion div
+            bottom: '16px'
           }}>
             {/* Pagination Indicators - Left side on mobile */}
             <div className="flex gap-2">
