@@ -169,15 +169,15 @@ export const personas: Record<string, Persona> = {
     icon: 'family_restroom',
     theme: 'persona-theme-family',
     colors: {
-      primary: '#111827', // Charcoal - WCAG AAA compliant
-      secondary: '#047857', // Even darker green for WCAG AA compliance
-      accent: '#E66100', // Sunset Orange - high visibility
+      primary: '#9F5EA2', // Purple primary color
+      secondary: '#F0F0F0', // Light gray secondary
+      accent: '#FFD600', // Yellow accent - decorative only
       bg: '#fafaf6',
       text: '#111827',
       textSecondary: '#4B5563',
-      link: '#111827',
-      linkHover: '#0F172A',
-      focus: '#3B82F6',
+      link: '#9F5EA2',
+      linkHover: '#5a3b5c',
+      focus: '#9F5EA2',
       error: '#DC2626',
       success: '#047857',
       warning: '#D97706'
