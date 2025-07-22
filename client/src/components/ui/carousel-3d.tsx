@@ -251,8 +251,7 @@ export function Carousel3D({
             maskImage: 'none',
             WebkitMaskImage: 'none',
             position: 'relative',
-            height: 'auto',
-            minHeight: '400px'
+            height: 'fit-content'
           }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -263,7 +262,7 @@ export function Carousel3D({
           style={{
             alignItems: 'flex-start',
             height: 'auto',
-            minHeight: '318px',
+            minHeight: '350px',
             paddingTop: '16px',
             overflowX: 'hidden',
             overflowY: 'visible'
