@@ -187,12 +187,19 @@ export function Carousel3D({
         isMobile ? "gap-4" : "gap-6"
       )}
       style={{
+        height: 'fit-content',
         minHeight: isMobile ? 'calc(350px + 112px)' : '386px',
-        maxHeight: isMobile ? 'calc(100vh - 160px)' : '386px'
+        overflowY: 'visible'
       }}
     >
       {/* Main carousel container with side arrows on desktop */}
-      <div className="relative flex items-start flex-1">
+      <div 
+        className="relative flex items-start flex-1"
+        style={{
+          height: 'fit-content',
+          overflowY: 'visible'
+        }}
+      >
         {/* Left Arrow - Desktop only */}
         <div className="hidden md:flex absolute left-6 z-50">
           <motion.button
