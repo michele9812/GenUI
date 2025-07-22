@@ -238,12 +238,13 @@ export function Carousel3D({
             paddingTop: isMobile ? '16px' : '32px',
             paddingLeft: isMobile ? '8px' : '24px',
             paddingRight: isMobile ? '8px' : '24px',
-            paddingBottom: '0px',
-            overflow: 'hidden',
+            paddingBottom: '16px',
+            overflow: 'visible',
             maskImage: 'none',
             WebkitMaskImage: 'none',
             position: 'relative',
-            height: 'fit-content'
+            height: 'fit-content',
+            minHeight: '360px'
           }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -254,7 +255,8 @@ export function Carousel3D({
           style={{
             alignItems: 'flex-start',
             height: 'fit-content',
-            minHeight: '320px'
+            minHeight: '320px',
+            overflow: 'visible'
           }}
         >
           <AnimatePresence>
