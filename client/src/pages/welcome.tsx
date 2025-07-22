@@ -148,17 +148,11 @@ export default function Welcome() {
         >
           {/* Desktop Version - Icon + Text */}
           <div className="hidden sm:flex items-center gap-2 px-4 py-3">
-            <ArrowLeft 
-              className="w-4 h-4" 
-              style={{
-                color: selectedPersona.id === 'student' ? '#F59E0B' : '#6B7280'
-              }}
-            />
+            <ArrowLeft className="w-4 h-4 text-gray-600" />
             <span 
-              className="text-sm font-medium hover:text-gray-900"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
               style={{
-                fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
-                color: selectedPersona.id === 'student' ? '#F59E0B' : '#374151'
+                fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
               }}
             >
               Back to profile selection
@@ -167,12 +161,7 @@ export default function Welcome() {
 
           {/* Mobile Version - Icon Only */}
           <div className="flex sm:hidden items-center justify-center p-3">
-            <ArrowLeft 
-              className="w-6 h-6" 
-              style={{
-                color: selectedPersona.id === 'student' ? '#F59E0B' : '#6B7280'
-              }}
-            />
+            <ArrowLeft className="w-6 h-6 text-gray-600" />
           </div>
         </motion.button>
       </div>
@@ -322,7 +311,7 @@ export default function Welcome() {
             }}
             openApps={[]}
             className="mx-auto"
-            accentColor={selectedPersona.id === 'student' ? '#F59E0B' : selectedPersona.colors.primary}
+            accentColor={selectedPersona.colors.primary}
             personaTypography={selectedPersona.typography}
           />
         </div>
