@@ -215,12 +215,16 @@ export function Carousel3D({
 
   return (
     <div 
-      className="relative w-full"
+      className={cn(
+        "w-full",
+        isMobile ? "flex flex-col" : "relative" // Mobile: vertical flexbox, Desktop: relative positioning
+      )}
       style={{
         // Fill available height ensuring controls are visible within viewport
-        height: isMobile ? 'calc(100vh - 220px)' : '418px', // Mobile: increased to 220px to keep controls visible
+        height: isMobile ? 'auto' : '418px', // Mobile: auto height for flexbox, Desktop: fixed
         maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
-        minHeight: isMobile ? '280px' : '418px' // Minimum height to ensure usability
+        minHeight: isMobile ? '280px' : '418px', // Minimum height to ensure usability
+        gap: isMobile ? '24px' : undefined // 24px gap between cards and controls on mobile
       }}
     >
       <div 
@@ -236,7 +240,8 @@ export function Carousel3D({
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: isMobile ? 'auto' : '100%' // Mobile: auto height, Desktop: full height
+          height: isMobile ? 'auto' : '100%', // Mobile: auto height, Desktop: full height
+          flex: isMobile ? '1' : undefined // Mobile: flex grow for cards area
         }}
 
         onMouseEnter={() => setIsPaused(true)}
@@ -437,7 +442,7 @@ export function Carousel3D({
       </div>
       {/* Navigation Controls - Mobile: horizontal flexbox, Desktop: positioned */}
       {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
-      <div className="md:hidden relative px-4 z-[1000]" style={{ marginTop: '24px' }}>
+      <div className="md:hidden px-4 z-[1000] flex-shrink-0">
         <div className="flex justify-between items-center">
           {/* Pagination Indicators - Left side on mobile */}
           <div className="flex gap-2">
