@@ -259,7 +259,7 @@ export function Carousel3D({
             height: 'auto',
             minHeight: '350px',
             paddingTop: isMobile ? '16px' : '32px',
-            paddingBottom: isMobile ? '24px' : '40px', // Reduced by 16px on mobile: 40px - 16px = 24px
+            paddingBottom: isMobile ? '8px' : '40px', // Reduced by 32px total on mobile: 40px - 32px = 8px
             overflow: 'visible'
           }}
         >
