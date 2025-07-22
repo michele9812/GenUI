@@ -190,7 +190,7 @@ export default function Welcome() {
               `scale(${Math.min(selectedPersona.typography.scale, 1.1)})` : undefined, // Cap scale at 1.1 to prevent overflow
             transformOrigin: 'center top',
             lineHeight: selectedPersona.typography?.lineHeight || '1.2',
-            color: 'white',
+            color: selectedPersona.id === 'family' ? '#2E2E2E' : 'white',
             width: '100%',
             display: 'block',
             boxSizing: 'border-box',
@@ -208,6 +208,7 @@ export default function Welcome() {
             transformOrigin: 'center top',
             lineHeight: selectedPersona.typography?.lineHeight || '1.4',
             fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+            color: selectedPersona.id === 'family' ? '#2E2E2E' : 'rgba(255, 255, 255, 0.8)',
             width: '100%',
             display: 'block',
             boxSizing: 'border-box'
