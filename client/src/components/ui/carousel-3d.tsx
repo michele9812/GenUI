@@ -160,7 +160,7 @@ export function Carousel3D({
     const distanceFromCenter = Math.abs(position);
     const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3));
     const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
-    const cardHeight = isMobile ? Math.min(Math.floor((viewportHeight - 220) * 0.6), 350) : 320;
+    const cardHeight = 'auto';
     
     return {
       width: cardWidth,
@@ -364,7 +364,7 @@ export function Carousel3D({
                 >
                   <div 
                     className={cn(
-                      "w-full h-full rounded-lg overflow-hidden flex flex-col",
+                      "w-full h-full rounded-lg overflow-visible flex flex-col",
                       isCenter ? "glare-card" : ""
                     )}
                     style={{
