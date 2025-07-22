@@ -307,77 +307,48 @@ export function Carousel3D({
                     damping: 30,
                     mass: 0.8
                   }}
-                  // Drag functionality for individual cards
-                  drag="x"
-                  dragConstraints={{ left: -150, right: 150 }}
-                  dragElastic={0.2}
-                  dragMomentum={false}
-                  dragPropagation={false}
-                  onDragStart={(e, info) => {
+                  // Swipe interaction for navigation trigger only
+                  onPanStart={(e, info) => {
                     setIsDragging(true);
-                    setIsAnimating(true);
                     e.stopPropagation();
                   }}
-                  onDrag={(e, info) => {
-                    // Prevent any parent scrolling during drag
+                  onPan={(e, info) => {
                     e.preventDefault();
                     e.stopPropagation();
                   }}
-                  onDragEnd={(e, info) => {
+                  onPanEnd={(e, info) => {
+                    setIsDragging(false);
                     e.stopPropagation();
                     e.preventDefault();
                     
-                    console.log("Drag ended:", { 
-                      offset: info.offset.x, 
-                      velocity: info.velocity.x,
-                      point: info.point.x 
-                    });
-                    
-                    // Simplified threshold for immediate response
-                    const threshold = 30;
-                    const offset = info.offset.x; // Use signed offset
+                    const threshold = 50;
+                    const offset = info.offset.x;
                     
                     if (Math.abs(offset) > threshold) {
                       if (offset > 0) {
-                        // Dragged right - go to previous
-                        console.log("Going to previous");
+                        // Swiped right - go to previous
                         handlePrevious();
                       } else {
-                        // Dragged left - go to next  
-                        console.log("Going to next");
+                        // Swiped left - go to next  
                         handleNext();
                       }
                     } else {
                       // Small movement - treat as click
-                      console.log("Treating as click");
                       handleCardClick(originalIndex);
                     }
-                    
-                    // Reset drag state after a short delay
-                    setTimeout(() => {
-                      setIsDragging(false);
-                      setIsAnimating(false);
-                    }, 100);
                   }}
                   onClick={(e) => {
-                    if (!isDragging && !isAnimating) {
+                    if (!isDragging) {
                       handleCardClick(originalIndex);
                     }
                     e.stopPropagation();
-                    e.preventDefault();
                   }}
                   whileHover={!isDragging ? { 
                     scale: isCenter ? style.scale * 1.02 : style.scale * 1.05,
                     y: isCenter ? -5 : -3,
                     transition: { duration: 0.2 }
                   } : {}}
-                  whileTap={!isDragging ? { scale: style.scale * 0.98 } : {}}
-                  whileDrag={{ 
-                    scale: style.scale * 0.96,
-                    rotateY: 0,
-                    rotateZ: 0,
-                    transition: { duration: 0.15, ease: "easeOut" }
-                  }}
+                  whileTap={{ scale: style.scale * 0.98 }}
                 >
                   <div 
                     className={cn(

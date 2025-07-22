@@ -42,6 +42,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Carousel active card typography**: Set description paragraphs in active (center) cards to use 18px font size with persona scaling, while inactive cards maintain smaller text-xs sizing for clear hierarchy
 - **Viewport overflow control**: Added overflow: 'hidden' to main containers in journey-detail and welcome pages to prevent mobile viewport scrolling issues, ensuring carousel interactions stay within intended boundaries
 - **Enhanced carousel dragging behavior**: Fixed drag interactions with improved constraints (±150px), velocity-based navigation (500px/s threshold), enhanced drag feedback (96% scale), drag propagation prevention, and proper animation state management to eliminate conflicts between drag and click events
+- **Implemented swipe-to-navigate carousel**: Replaced card dragging with pan gesture detection - cards remain in fixed positions while swipe gestures (50px threshold) trigger navigation between cards, maintaining visual stability while enabling touch-friendly navigation
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**
