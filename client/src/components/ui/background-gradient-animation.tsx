@@ -60,31 +60,19 @@ export const BackgroundGradientAnimation = ({
   }, [gradientBackgroundStart, gradientBackgroundEnd, firstColor, secondColor, thirdColor, fourthColor, fifthColor, pointerColor, size, blendingValue]);
 
   useEffect(() => {
-    let animationId: number;
-    
     function move() {
       if (!interactiveRef.current) {
         return;
       }
-      setCurX(prev => prev + (tgX - prev) / 20);
-      setCurY(prev => prev + (tgY - prev) / 20);
+      setCurX(curX + (tgX - curX) / 20);
+      setCurY(curY + (tgY - curY) / 20);
       interactiveRef.current.style.transform = `translate(${Math.round(
         curX
       )}px, ${Math.round(curY)}px)`;
-      
-      animationId = requestAnimationFrame(move);
     }
 
-    if (interactive) {
-      move();
-    }
-
-    return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
-  }, [tgX, tgY, interactive]);
+    move();
+  }, [tgX, tgY, curX, curY]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (interactiveRef.current) {
