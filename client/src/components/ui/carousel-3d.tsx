@@ -220,8 +220,8 @@ export function Carousel3D({
         isMobile ? "flex flex-col" : ""
       )}
       style={{
-        // Container hugs content with minimum height: cards height + controls height (48px) + gap (24px) = +72px
-        minHeight: isMobile ? 'calc(350px + 72px)' : '418px', // Mobile: 422px total minimum
+        // Container hugs content with minimum height: cards height + controls height (48px) + gap (24px) = +72px + 40px extra
+        minHeight: isMobile ? 'calc(350px + 112px)' : '418px', // Mobile: 462px total minimum (added 40px)
         maxHeight: isMobile ? 'calc(100vh - 160px)' : '418px'
       }}
     >
@@ -233,7 +233,7 @@ export function Carousel3D({
           paddingTop: isMobile ? '16px' : '16px', // Max 16px top padding on mobile
           paddingLeft: isMobile ? '8px' : '24px', // Mobile: 8px, Desktop: reduced to 24px
           paddingRight: isMobile ? '8px' : '24px', // Mobile: 8px, Desktop: reduced to 24px
-          paddingBottom: isMobile ? '0px' : '48px', // Mobile: no padding for flexbox, Desktop: 48px
+          paddingBottom: '0px', // Removed desktop bottom padding as requested
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
