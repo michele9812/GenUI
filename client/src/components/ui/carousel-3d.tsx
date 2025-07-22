@@ -509,13 +509,13 @@ export function Carousel3D({
       </div>
 
       {/* Mobile Controls - Anchored at bottom of carousel container */}
-      <div className="md:hidden absolute bottom-4 left-0 right-0 pointer-events-none" style={{ zIndex: 1000 }}>
-        {/* Side arrows - positioned within carousel container */}
-        <div className="absolute left-4 pointer-events-auto">
+      <div className="md:hidden absolute bottom-4 left-0 right-0 flex items-center justify-between pointer-events-none" style={{ zIndex: 1000 }}>
+        {/* Left Arrow - horizontally aligned */}
+        <div className="pointer-events-auto">
           <motion.button
             onClick={handlePrevious}
             disabled={isAnimating}
-            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md ml-4"
             style={{
               backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
               color: selectedPersona?.colors?.secondary || accentColor,
@@ -528,25 +528,8 @@ export function Carousel3D({
           </motion.button>
         </div>
 
-        <div className="absolute right-4 pointer-events-auto">
-          <motion.button
-            onClick={handleNext}
-            disabled={isAnimating}
-            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-            style={{
-              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-              color: selectedPersona?.colors?.secondary || accentColor,
-              border: 'none'
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChevronRight className="w-5 h-5" />
-          </motion.button>
-        </div>
-
-        {/* Centered Indicators - positioned within carousel container */}
-        <div className="absolute left-1/2 -translate-x-1/2 flex gap-2 pointer-events-auto">
+        {/* Centered Indicators - horizontally aligned */}
+        <div className="flex gap-2 pointer-events-auto items-center">
           {items.map((_, index) => (
             <button
               key={index}
@@ -563,6 +546,24 @@ export function Carousel3D({
               }}
             />
           ))}
+        </div>
+
+        {/* Right Arrow - horizontally aligned */}
+        <div className="pointer-events-auto">
+          <motion.button
+            onClick={handleNext}
+            disabled={isAnimating}
+            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md mr-4"
+            style={{
+              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+              color: selectedPersona?.colors?.secondary || accentColor,
+              border: 'none'
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </motion.button>
         </div>
       </div>
     </div>
