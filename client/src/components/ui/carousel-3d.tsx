@@ -221,8 +221,8 @@ export function Carousel3D({
       )}
       style={{
         // Fill available height ensuring controls are visible within viewport
-        height: isMobile ? 'calc(100vh - 150px)' : '418px', // Mobile: more available height
-        maxHeight: isMobile ? 'calc(100vh - 150px)' : '418px',
+        height: isMobile ? 'calc(100vh - 220px)' : '418px', // Mobile: restore original height
+        maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
         minHeight: isMobile ? '320px' : '418px' // Minimum height to ensure usability
       }}
     >
@@ -441,8 +441,14 @@ export function Carousel3D({
       </div>
       {/* Navigation Controls - Mobile: horizontal flexbox, Desktop: positioned */}
       {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
-      {/* Mobile Controls - Relative positioning with 16px gap */}
-      <div className="md:hidden px-4 z-[1000] flex-shrink-0" style={{ marginTop: '16px' }}>
+      {/* Mobile Controls - Positioned at bottom of active card */}
+      <div className="md:hidden px-4 z-[1000] flex items-end justify-center" style={{ 
+        position: 'absolute',
+        bottom: '16px',
+        left: '0',
+        right: '0',
+        height: '32px'
+      }}>
         <div className="flex justify-between items-center">
           {/* Pagination Indicators - Left side on mobile */}
           <div className="flex gap-2">
