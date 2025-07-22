@@ -529,8 +529,8 @@ export default function JourneyDetail() {
         style={{
           marginTop: window.innerWidth < 768 ? '0px' : '16px', // Mobile: 0px, Desktop: 16px
           paddingTop: window.innerWidth < 768 ? '0px' : '0px', // Mobile: 0px, Desktop: 0px
-          marginBottom: window.innerWidth < 768 ? '0px' : '16px', // Mobile: 0px, Desktop: 16px
-          paddingBottom: window.innerWidth < 768 ? '0px' : '8px' // Mobile: 0px, Desktop: 8px
+          marginBottom: window.innerWidth < 768 ? '0px' : '8px', // Mobile: 0px, Desktop: 8px (reduced from 16px)
+          paddingBottom: window.innerWidth < 768 ? '0px' : '4px' // Mobile: 0px, Desktop: 4px (reduced from 8px)
         }}
       >
         <motion.div
@@ -552,7 +552,7 @@ export default function JourneyDetail() {
               transformOrigin: 'center top',
               color: primaryColor,
               lineHeight: selectedPersona.typography?.lineHeight || '1.2',
-              marginBottom: window.innerWidth < 768 ? '0px' : '8px', // Mobile: 0px, Desktop: 8px
+              marginBottom: window.innerWidth < 768 ? '0px' : '4px', // Mobile: 0px, Desktop: 4px (reduced from 8px)
               width: '100%',
               display: 'block',
               boxSizing: 'border-box'
@@ -574,7 +574,7 @@ export default function JourneyDetail() {
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? 'rgba(255, 255, 255, 0.8)' : selectedPersona.colors.secondary,
-              marginBottom: window.innerWidth < 768 ? '0px' : '8px', // Mobile: 0px, Desktop: 8px
+              marginBottom: window.innerWidth < 768 ? '0px' : '4px', // Mobile: 0px, Desktop: 4px (reduced from 8px)
               width: '100%',
               display: 'block',
               boxSizing: 'border-box'
@@ -594,7 +594,7 @@ export default function JourneyDetail() {
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
-              marginBottom: window.innerWidth < 768 ? '0px' : '8px', // Mobile: 0px, Desktop: 8px
+              marginBottom: window.innerWidth < 768 ? '0px' : '4px', // Mobile: 0px, Desktop: 4px (reduced from 8px)
               width: '100%',
               display: 'block',
               boxSizing: 'border-box'
