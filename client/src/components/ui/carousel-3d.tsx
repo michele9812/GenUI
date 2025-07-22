@@ -240,7 +240,8 @@ export function Carousel3D({
           maskImage: 'none',
           WebkitMaskImage: 'none',
           height: isMobile ? 'auto' : '100%', // Mobile: auto for flexbox, Desktop: full height
-          flex: isMobile ? '1' : undefined // Mobile: grow to fill available space
+          flex: isMobile ? 'none' : undefined, // Mobile: don't grow, hug content
+          position: 'relative' // Ensure relative positioning for absolute children
         }}
 
         onMouseEnter={() => setIsPaused(true)}
