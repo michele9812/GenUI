@@ -163,7 +163,7 @@ export default function LoginPage() {
                     {/* Journey Step Preview */}
                     <div className="p-3 space-y-2">
 
-                      {/* Mock Journey Content */}
+                      {/* Profile Information */}
                       <div 
                         className="p-2 rounded border"
                         style={{ 
@@ -178,7 +178,19 @@ export default function LoginPage() {
                             fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily
                           }}
                         >
-                          Next: Security Checkpoint
+                          {(() => {
+                            const getAgeAndNationality = (personaId: string) => {
+                              const profiles = {
+                                'tech': 'Age 38, Italian',
+                                'family': 'Age 34, Moroccan',
+                                'senior': 'Age 72, German',
+                                'bleisure': 'Age 29, Indian',
+                                'student': 'Age 20, Chinese'
+                              };
+                              return profiles[personaId as keyof typeof profiles] || 'Profile Info';
+                            };
+                            return getAgeAndNationality(selectedPersona.id);
+                          })()}
                         </div>
                         <p 
                           className="text-xs leading-relaxed"
@@ -189,7 +201,19 @@ export default function LoginPage() {
                             lineHeight: selectedPersona.typography.lineHeight || '1.5'
                           }}
                         >
-                          {selectedPersona.description.split(' ').slice(0, 12).join(' ')}...
+                          {(() => {
+                            const getDescription = (personaId: string) => {
+                              const descriptions = {
+                                'tech': 'Elite business traveler who values efficiency and cutting-edge technology for seamless airport experiences.',
+                                'family': 'Organized mother prioritizing budget-friendly, family-focused services for stress-free travel with children.',
+                                'senior': 'Experienced traveler requiring accessible services and clear information for comfortable journeys.',
+                                'bleisure': 'Digital nomad combining business meetings with leisure exploration during flexible travel schedules.',
+                                'student': 'First-time international traveler needing guidance and support for solo journey to American college.'
+                              };
+                              return descriptions[personaId as keyof typeof descriptions] || selectedPersona.description;
+                            };
+                            return getDescription(selectedPersona.id);
+                          })()}
                         </p>
                       </div>
 
@@ -211,16 +235,26 @@ export default function LoginPage() {
                           }}
                           title="Secondary/Accent Color"
                         ></div>
-                        <div className="flex-1">
+                        <div className="flex-1 space-y-0.5">
                           <div 
                             className="text-xs truncate"
                             style={{ 
                               color: selectedPersona.colors.textSecondary || '#9ca3af',
                               fontFamily: selectedPersona.typography.fontFamily,
-                              fontSize: '0.7rem'
+                              fontSize: '0.65rem'
                             }}
                           >
-                            {selectedPersona.typography.fontFamily.split(',')[0]}
+                            {selectedPersona.fonts.primary}
+                          </div>
+                          <div 
+                            className="text-xs truncate"
+                            style={{ 
+                              color: selectedPersona.colors.textSecondary || '#9ca3af',
+                              fontFamily: selectedPersona.typography.headingFont,
+                              fontSize: '0.65rem'
+                            }}
+                          >
+                            {selectedPersona.fonts.secondary}
                           </div>
                         </div>
                       </div>
