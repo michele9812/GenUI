@@ -186,7 +186,7 @@ export function Carousel3D({
     // Responsive height calculation - fill available space minus padding
     const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
     const cardHeight = isMobile ? 
-      Math.min(Math.floor((viewportHeight - 220) * 0.7), 400) : // Mobile: 70% of available height, max 400px
+      Math.min(Math.floor((viewportHeight - 180) * 0.65), 380) : // Mobile: 65% of available height, max 380px - adjusted for new container size
       320; // Desktop: fixed 320px
     
     return {
@@ -217,9 +217,9 @@ export function Carousel3D({
     <div 
       className="relative w-full"
       style={{
-        // Fill available height minus 16px spacing from floating input (32px from bottom + 16px gap = 48px total)
-        height: isMobile ? 'calc(100vh - 220px)' : '418px', // Mobile: dynamic height, Desktop: fixed
-        maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
+        // Fill available height to end exactly within viewport - accounting for header, floating input and spacing
+        height: isMobile ? 'calc(100vh - 180px)' : '418px', // Mobile: reduced from 220px to 180px for proper viewport fill
+        maxHeight: isMobile ? 'calc(100vh - 180px)' : '418px',
         minHeight: isMobile ? '280px' : '418px' // Minimum height to ensure usability
       }}
     >
@@ -231,7 +231,7 @@ export function Carousel3D({
           paddingTop: isMobile ? '16px' : '16px', // Max 16px top padding on mobile
           paddingLeft: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingRight: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
-          paddingBottom: isMobile ? '60px' : '48px', // Space for mobile controls (60px) or desktop controls (48px)
+          paddingBottom: isMobile ? '32px' : '48px', // Reduced mobile spacing from 60px to 32px (16px + 16px)
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
@@ -434,7 +434,7 @@ export function Carousel3D({
       </div>
       {/* Navigation Controls - Mobile: horizontal flexbox, Desktop: positioned */}
       {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
-      <div className="md:hidden absolute inset-x-0 px-4 z-[1000]" style={{ bottom: '24px' }}>
+      <div className="md:hidden absolute inset-x-0 px-4 z-[1000]" style={{ bottom: '16px' }}>
         <div className="flex justify-between items-center">
           {/* Pagination Indicators - Left side on mobile */}
           <div className="flex gap-2">
@@ -538,7 +538,7 @@ export function Carousel3D({
         {/* Centered Indicators */}
         <div 
           className="absolute left-1/2 -translate-x-1/2 flex gap-2"
-          style={{ zIndex: 1000, bottom: '24px' }}
+          style={{ zIndex: 1000, bottom: '16px' }}
         >
           {items.map((_, index) => (
             <button
