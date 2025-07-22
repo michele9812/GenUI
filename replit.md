@@ -53,8 +53,6 @@ This is an intelligent airport navigation web application that provides personal
 - **Fixed mobile image container padding**: Set central image container lateral padding to fixed 16px only on mobile (<768px) and vertical padding to 32px on all breakpoints in welcome page, maintaining responsive lateral padding on desktop for optimal spacing around journey point selection image
 - **Eliminated carousel container gap on mobile**: Reduced gap between carousel cards container and controls from 16px to 0px on mobile devices for ultra-compact layout, maintaining 24px gap on desktop for proper spacing
 - **Implemented 15-character limit for name input**: Added character counter (X/15 format) with real-time display, 12px font size, persona-specific typeface, positioned 4px right of input field with automatic prevention of input beyond 15 characters
-- **Updated journey detail typography alignment**: Applied left text alignment on mobile for all H1 and paragraph elements in header section, maintaining center alignment on desktop for optimal mobile readability
-- **Reduced AirBuddy subtitle font size on mobile**: Changed subtitle paragraph from 18px to 16px on mobile while maintaining 20px on desktop for better mobile space utilization
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**

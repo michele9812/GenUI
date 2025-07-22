@@ -525,7 +525,7 @@ export default function JourneyDetail() {
       </div>
       {/* Header Section - Full width with responsive padding */}
       <div 
-        className={window.innerWidth < 768 ? "text-left container-responsive-padding" : "text-center container-responsive-padding"}
+        className="text-center container-responsive-padding"
         style={{
           marginTop: window.innerWidth < 768 ? '0px' : '16px', // Mobile: 0px, Desktop: 16px
           paddingTop: window.innerWidth < 768 ? '0px' : '0px', // Mobile: 0px, Desktop: 0px
@@ -544,7 +544,7 @@ export default function JourneyDetail() {
           }}
         >
           <h1 
-            className={`h1-responsive w-full block ${window.innerWidth < 768 ? 'text-left' : 'text-center'}`}
+            className="h1-responsive w-full text-center block"
             style={{
               fontFamily: selectedPersona.typography?.headingFont || selectedPersona.typography?.fontFamily || 'inherit',
               transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
@@ -565,9 +565,9 @@ export default function JourneyDetail() {
             ,
           </h1>
           <p 
-            className={`w-full block ${window.innerWidth < 768 ? 'text-left' : 'text-center'}`}
+            className="w-full text-center block"
             style={{
-              fontSize: window.innerWidth < 768 ? '16px' : '20px', // 16px mobile, 20px desktop
+              fontSize: window.innerWidth < 768 ? '18px' : '20px', // 18px mobile minimum, 20px desktop
               transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
                 `scale(${Math.min(selectedPersona.typography.scale, 1.1)})` : undefined, // Cap scale at 1.1 to prevent overflow
               transformOrigin: 'center top',
@@ -585,7 +585,7 @@ export default function JourneyDetail() {
           
           {/* Current Journey Phase */}
           <p 
-            className={`w-full font-thin block ${window.innerWidth < 768 ? 'text-left' : 'text-center'}`}
+            className="w-full font-thin text-center block"
             style={{
               fontSize: '18px', // Fixed 18px size for all breakpoints
               transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
