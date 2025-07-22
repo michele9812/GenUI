@@ -553,7 +553,7 @@ export default function JourneyDetail() {
           <p 
             className="w-full text-center block"
             style={{
-              fontSize: window.innerWidth < 768 ? '16pt' : '18pt', // 16pt mobile, 18pt desktop
+              fontSize: window.innerWidth < 768 ? '18px' : '20px', // 18px mobile minimum, 20px desktop
               transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
                 `scale(${Math.min(selectedPersona.typography.scale, 1.1)})` : undefined, // Cap scale at 1.1 to prevent overflow
               transformOrigin: 'center top',

@@ -563,18 +563,10 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
             {/* Left: Attachment Icon */}
             <button
               onClick={() => uploadInputRef.current?.click()}
-              className="flex-shrink-0 h-8 w-8 cursor-pointer flex items-center justify-center rounded-full transition-colors"
+              className="flex-shrink-0 h-8 w-8 cursor-pointer flex items-center justify-center"
               style={{
-                color: accentColor || '#6B7280', // Primary color full opacity or gray-500
+                color: '#000000',
                 backgroundColor: 'transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(107, 114, 128, 0.1)'; // 10% opacity background
-                e.currentTarget.style.color = accentColor ? `${accentColor}E6` : '#374151'; // 90% opacity color or gray-700
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = accentColor || '#6B7280';
               }}
               disabled={isRecording}
             >
@@ -621,7 +613,7 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                   }
                   className="w-full h-full border-none outline-none bg-transparent text-gray-900 placeholder-gray-500"
                   style={{
-                    fontSize: '14px',
+                    fontSize: '12px',
                     fontFamily: personaTypography?.fontFamily || 'inherit'
                   }}
                   disabled={isLoading || isRecording}
@@ -631,7 +623,7 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
 
             {/* Right: Microphone/Send Button */}
             <button
-              className="flex-shrink-0 h-8 w-8 rounded-full transition-all duration-200 flex items-center justify-center"
+              className="flex-shrink-0 h-8 w-8 flex items-center justify-center"
               style={{
                 backgroundColor: isRecording
                   ? 'transparent'
@@ -639,33 +631,11 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                   ? accentColor
                   : 'transparent',
                 color: isRecording
-                  ? '#ef4444' // red-500
+                  ? '#ef4444'
                   : hasContent
                   ? 'white'
-                  : accentColor || '#6B7280', // Primary color full opacity or gray-500
+                  : '#000000', // Default black
                 fontFamily: personaTypography?.fontFamily || 'inherit'
-              }}
-              onMouseEnter={(e) => {
-                if (!isRecording && !hasContent) {
-                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(107, 114, 128, 0.1)'; // 10% opacity background
-                  e.currentTarget.style.color = accentColor ? `${accentColor}E6` : '#374151'; // 90% opacity color or gray-700
-                } else if (hasContent) {
-                  e.currentTarget.style.opacity = '0.8';
-                } else if (isRecording) {
-                  e.currentTarget.style.backgroundColor = 'rgba(107, 114, 128, 0.1)'; // gray-500 10% opacity
-                  e.currentTarget.style.color = '#f87171'; // red-400
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isRecording && !hasContent) {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = accentColor || '#6B7280';
-                } else if (hasContent) {
-                  e.currentTarget.style.opacity = '1';
-                } else if (isRecording) {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = '#ef4444'; // red-500
-                }
               }}
               onClick={() => {
                 if (isRecording) setIsRecording(false);
@@ -685,8 +655,8 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                 <ArrowUp className="h-4 w-4" style={{ color: 'white' }} />
               ) : (
                 <Mic 
-                  className="h-5 w-5 transition-colors" 
-                  style={{ color: accentColor || '#6B7280' }}
+                  className="h-5 w-5" 
+                  style={{ color: '#000000' }}
                 />
               )}
             </button>
@@ -791,16 +761,16 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                 onClick={() => uploadInputRef.current?.click()}
                 className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-colors"
                 style={{
-                  color: accentColor || '#9CA3AF', // Primary color full opacity
+                  color: '#000000', // Default black
                   backgroundColor: 'transparent'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(156, 163, 175, 0.1)'; // 10% opacity background
-                  e.currentTarget.style.color = accentColor ? `${accentColor}E6` : '#D1D5DB'; // 90% opacity color
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
+                  e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = accentColor || '#9CA3AF';
+                  e.currentTarget.style.color = '#000000'; // Back to black
                 }}
                 disabled={isRecording}
               >
@@ -844,24 +814,24 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                   ? '#ef4444' // red-500
                   : hasContent
                   ? 'white'
-                  : accentColor || '#9CA3AF', // Primary color full opacity
+                  : '#000000', // Default black
                 fontFamily: personaTypography?.fontFamily || 'inherit'
               }}
               onMouseEnter={(e) => {
                 if (!isRecording && !hasContent) {
-                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(156, 163, 175, 0.1)'; // 10% opacity background
-                  e.currentTarget.style.color = accentColor ? `${accentColor}E6` : '#D1D5DB'; // 90% opacity color
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
+                  e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
                 } else if (hasContent) {
                   e.currentTarget.style.opacity = '0.8';
                 } else if (isRecording) {
-                  e.currentTarget.style.backgroundColor = 'rgba(156, 163, 175, 0.1)';
+                  e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
                   e.currentTarget.style.color = '#f87171'; // red-400
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isRecording && !hasContent) {
                   e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = accentColor || '#9CA3AF';
+                  e.currentTarget.style.color = '#000000'; // Back to black
                 } else if (hasContent) {
                   e.currentTarget.style.opacity = '1';
                 } else if (isRecording) {
@@ -888,7 +858,7 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
               ) : (
                 <Mic 
                   className="h-5 w-5 transition-colors" 
-                  style={{ color: accentColor || '#1F2023' }}
+                  style={{ color: '#000000' }}
                 />
               )}
             </Button>
