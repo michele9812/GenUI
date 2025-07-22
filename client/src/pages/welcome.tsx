@@ -148,11 +148,15 @@ export default function Welcome() {
         >
           {/* Desktop Version - Icon + Text */}
           <div className="hidden sm:flex items-center gap-2 px-4 py-3">
-            <ArrowLeft className="w-4 h-4 text-gray-600" />
+            <ArrowLeft 
+              className="w-4 h-4" 
+              style={{ color: selectedPersona.colors.secondary }}
+            />
             <span 
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+              className="text-sm font-medium"
               style={{
-                fontFamily: selectedPersona.typography?.fontFamily || 'inherit'
+                fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
+                color: selectedPersona.colors.secondary
               }}
             >
               Back to profile selection
@@ -161,7 +165,10 @@ export default function Welcome() {
 
           {/* Mobile Version - Icon Only */}
           <div className="flex sm:hidden items-center justify-center p-3">
-            <ArrowLeft className="w-6 h-6 text-gray-600" />
+            <ArrowLeft 
+              className="w-6 h-6" 
+              style={{ color: selectedPersona.colors.secondary }}
+            />
           </div>
         </motion.button>
       </div>
