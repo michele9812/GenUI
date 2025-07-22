@@ -11,7 +11,7 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="h-viewport flex items-center justify-center bg-gray-200 container-responsive-padding">
+    <div className="h-viewport flex items-center justify-center bg-gray-200 container-responsive-padding text-[32px]">
       <Card className="w-full max-w-md h-[600px] sm:h-[680px] md:h-[680px] shadow-2xl animation-scale-in">
         <CardContent className="p-0 h-full relative">
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
@@ -25,7 +25,7 @@ export default function OnboardingPage() {
           </div>
 
           <div className="absolute top-24 sm:top-28 md:top-28 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
-            <h1 className="h1-responsive-small text-gray-900">
+            <h1 className="h1-responsive-small text-gray-900 text-[32px]">
               Welcome to AirBuddy
             </h1>
           </div>
