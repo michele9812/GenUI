@@ -215,16 +215,12 @@ export function Carousel3D({
 
   return (
     <div 
-      className={cn(
-        "w-full",
-        isMobile ? "flex flex-col" : "relative" // Mobile: vertical flexbox, Desktop: relative positioning
-      )}
+      className="relative w-full"
       style={{
         // Fill available height ensuring controls are visible within viewport
-        height: isMobile ? 'auto' : '418px', // Mobile: auto height for flexbox, Desktop: fixed
+        height: isMobile ? 'calc(100vh - 220px)' : '418px',
         maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
-        minHeight: isMobile ? '280px' : '418px', // Minimum height to ensure usability
-        gap: isMobile ? '24px' : undefined // 24px gap between cards and controls on mobile
+        minHeight: isMobile ? '280px' : '418px' // Minimum height to ensure usability
       }}
     >
       <div 
@@ -235,13 +231,12 @@ export function Carousel3D({
           paddingTop: isMobile ? '16px' : '16px', // Max 16px top padding on mobile
           paddingLeft: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingRight: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
-          paddingBottom: isMobile ? '0px' : '48px', // No padding bottom on mobile for precise control positioning
+          paddingBottom: isMobile ? '56px' : '48px', // Mobile: 56px (32px controls + 24px gap), Desktop: 48px
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: isMobile ? 'auto' : '100%', // Mobile: auto height, Desktop: full height
-          flex: isMobile ? '1' : undefined // Mobile: flex grow for cards area
+          height: '100%' // Use full container height
         }}
 
         onMouseEnter={() => setIsPaused(true)}
@@ -442,7 +437,7 @@ export function Carousel3D({
       </div>
       {/* Navigation Controls - Mobile: horizontal flexbox, Desktop: positioned */}
       {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
-      <div className="md:hidden px-4 z-[1000] flex-shrink-0">
+      <div className="md:hidden absolute inset-x-0 px-4 z-[1000]" style={{ bottom: '16px' }}>
         <div className="flex justify-between items-center">
           {/* Pagination Indicators - Left side on mobile */}
           <div className="flex gap-2">
