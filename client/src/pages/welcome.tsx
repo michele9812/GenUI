@@ -216,8 +216,13 @@ export default function Welcome() {
           Select your journey phase as {selectedPersona.title}
         </p>
       </div>
-      {/* Central Image - Full width with responsive padding */}
-      <div className="flex-1 flex items-center justify-center container-responsive-padding">
+      {/* Central Image - Full width with 16px padding */}
+      <div 
+        className="flex-1 flex items-center justify-center"
+        style={{
+          padding: '16px'
+        }}
+      >
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 0.8 }}
