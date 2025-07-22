@@ -415,7 +415,9 @@ export default function JourneyDetail() {
   const nameColor = isStudentPersona
     ? '#F59E0B' // Yellow for user name
     : selectedPersona.colors.secondary;
-  const buttonColor = '#F59E0B'; // Universal yellow accent for all personas
+  const buttonColor = isStudentPersona
+    ? '#F59E0B' // Yellow accent for buttons
+    : selectedPersona.colors.primary;
 
   return (
     <motion.div 
