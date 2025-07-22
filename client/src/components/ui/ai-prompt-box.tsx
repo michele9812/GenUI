@@ -780,16 +780,12 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                   backgroundColor: 'transparent'
                 }}
                 onMouseEnter={(e) => {
-                  if (window.innerWidth >= 768) { // Only on desktop
-                    e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
-                    e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
-                  }
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
+                  e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
                 }}
                 onMouseLeave={(e) => {
-                  if (window.innerWidth >= 768) { // Only on desktop
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = '#000000'; // Back to black
-                  }
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#000000'; // Back to black
                 }}
                 disabled={true} // Always disabled
               >
@@ -833,23 +829,19 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                 cursor: hasContent ? 'pointer' : 'not-allowed'
               }}
               onMouseEnter={(e) => {
-                if (window.innerWidth >= 768) { // Only on desktop
-                  if (!hasContent) {
-                    e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
-                    e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
-                  } else if (hasContent) {
-                    e.currentTarget.style.opacity = '0.8';
-                  }
+                if (!hasContent) {
+                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
+                  e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
+                } else if (hasContent) {
+                  e.currentTarget.style.opacity = '0.8';
                 }
               }}
               onMouseLeave={(e) => {
-                if (window.innerWidth >= 768) { // Only on desktop
-                  if (!hasContent) {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = '#000000'; // Back to black
-                  } else if (hasContent) {
-                    e.currentTarget.style.opacity = '1';
-                  }
+                if (!hasContent) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#000000'; // Back to black
+                } else if (hasContent) {
+                  e.currentTarget.style.opacity = '1';
                 }
               }}
               onClick={() => {
