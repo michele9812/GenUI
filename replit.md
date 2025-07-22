@@ -54,7 +54,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Eliminated carousel container gap on mobile**: Reduced gap between carousel cards container and controls from 16px to 0px on mobile devices for ultra-compact layout, maintaining 24px gap on desktop for proper spacing
 - **Implemented 15-character limit for name input with real-time counter**: Added maxLength validation with live X/15 counter display using persona typography, 12px font size, positioned 4px right of input field with input prevention at 15 characters
 - **Reduced journey phase text to 16px on mobile**: Updated "You are in [touchpoint] phase" paragraph to use 16px on mobile breakpoints and 18px on desktop for better mobile readability
-- **Aligned login card 32px from top on mobile**: Updated onboarding login card positioning to align 32px from top margin on mobile devices while maintaining center alignment on desktop for optimized mobile layout
+- **Aligned onboarding cards 32px from top on mobile**: Updated both onboarding steps card positioning to align 32px from top margin on mobile devices while maintaining center alignment on desktop for optimized mobile layout
 - **Implemented 15-character limit for name input**: Added character counter (X/15 format) with real-time display, 12px font size, persona-specific typeface, positioned 4px right of input field with automatic prevention of input beyond 15 characters
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
