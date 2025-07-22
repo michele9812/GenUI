@@ -181,11 +181,11 @@ export default function LoginPage() {
                           {(() => {
                             const getAgeAndNationality = (personaId: string) => {
                               const profiles = {
-                                'tech': 'Age 38, Italian',
-                                'family': 'Age 34, Moroccan',
-                                'senior': 'Age 72, German',
-                                'bleisure': 'Age 29, Indian',
-                                'student': 'Age 20, Chinese'
+                                'tech': 'Italian, 38 years old',
+                                'family': 'Moroccan, 34 years old',
+                                'senior': 'German, 72 years old',
+                                'bleisure': 'Indian, 29 years old',
+                                'student': 'Chinese, 20 years old'
                               };
                               return profiles[personaId as keyof typeof profiles] || 'Profile Info';
                             };
@@ -218,44 +218,35 @@ export default function LoginPage() {
                       </div>
 
                       {/* Color and Typography Sample */}
-                      <div className="flex items-center space-x-2 pt-1">
-                        <div 
-                          className="w-3 h-3 rounded-full border"
-                          style={{ 
-                            backgroundColor: selectedPersona.colors.primary,
-                            borderColor: selectedPersona.colors.primary 
-                          }}
-                          title="Primary Color"
-                        ></div>
-                        <div 
-                          className="w-3 h-3 rounded-full border"
-                          style={{ 
-                            backgroundColor: selectedPersona.colors.secondary || selectedPersona.colors.accent,
-                            borderColor: selectedPersona.colors.secondary || selectedPersona.colors.accent 
-                          }}
-                          title="Secondary/Accent Color"
-                        ></div>
-                        <div className="flex-1 space-y-0.5">
+                      <div className="space-y-2 pt-1">
+                        <div className="flex items-center space-x-2">
                           <div 
-                            className="text-xs truncate"
+                            className="w-3 h-3 rounded-full border"
                             style={{ 
-                              color: selectedPersona.colors.textSecondary || '#9ca3af',
-                              fontFamily: selectedPersona.typography.fontFamily,
-                              fontSize: '0.65rem'
+                              backgroundColor: selectedPersona.colors.primary,
+                              borderColor: selectedPersona.colors.primary 
                             }}
-                          >
-                            {selectedPersona.fonts.primary}
-                          </div>
+                            title="Primary Color"
+                          ></div>
                           <div 
-                            className="text-xs truncate"
+                            className="w-3 h-3 rounded-full border"
                             style={{ 
-                              color: selectedPersona.colors.textSecondary || '#9ca3af',
-                              fontFamily: selectedPersona.typography.headingFont,
-                              fontSize: '0.65rem'
+                              backgroundColor: selectedPersona.colors.secondary || selectedPersona.colors.accent,
+                              borderColor: selectedPersona.colors.secondary || selectedPersona.colors.accent 
                             }}
-                          >
-                            {selectedPersona.fonts.secondary}
-                          </div>
+                            title="Secondary/Accent Color"
+                          ></div>
+                        </div>
+                        <div 
+                          className="w-full p-1.5 rounded border text-xs"
+                          style={{ 
+                            backgroundColor: `${selectedPersona.colors.primary}08`,
+                            borderColor: `${selectedPersona.colors.primary}15`,
+                            color: selectedPersona.colors.textSecondary || '#9ca3af',
+                            fontSize: '0.65rem'
+                          }}
+                        >
+                          {selectedPersona.fonts.primary}, {selectedPersona.fonts.secondary}
                         </div>
                       </div>
                     </div>
