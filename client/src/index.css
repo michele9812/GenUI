@@ -57,18 +57,18 @@
 
 /* Content paragraph sizing */
 .text-content-responsive {
-  font-size: 16px; /* Mobile: 16px */
+  font-size: 18px; /* Mobile: 18px minimum */
 }
 
 @media (min-width: 768px) {
   .text-content-responsive {
-    font-size: 16px; /* Tablet: 16px */
+    font-size: 18px; /* Tablet: 18px */
   }
 }
 
 @media (min-width: 1024px) {
   .text-content-responsive {
-    font-size: 18px; /* Desktop: 18px */
+    font-size: 20px; /* Desktop: 20px */
   }
 }
 
@@ -438,11 +438,11 @@
   }
   
   .text-responsive-sm {
-    @apply text-sm sm:text-base;
+    @apply text-lg sm:text-xl;
   }
   
   .text-responsive-base {
-    @apply text-base sm:text-lg md:text-xl;
+    @apply text-lg sm:text-xl md:text-2xl;
   }
   
   .text-responsive-lg {
