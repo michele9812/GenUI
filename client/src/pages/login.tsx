@@ -218,27 +218,9 @@ export default function LoginPage() {
                       </div>
 
                       {/* Color and Typography Sample */}
-                      <div className="space-y-2 pt-1">
-                        <div className="flex items-center space-x-2">
-                          <div 
-                            className="w-3 h-3 rounded-full border"
-                            style={{ 
-                              backgroundColor: selectedPersona.colors.primary,
-                              borderColor: selectedPersona.colors.primary 
-                            }}
-                            title="Primary Color"
-                          ></div>
-                          <div 
-                            className="w-3 h-3 rounded-full border"
-                            style={{ 
-                              backgroundColor: selectedPersona.colors.secondary || selectedPersona.colors.accent,
-                              borderColor: selectedPersona.colors.secondary || selectedPersona.colors.accent 
-                            }}
-                            title="Secondary/Accent Color"
-                          ></div>
-                        </div>
+                      <div className="pt-1">
                         <div 
-                          className="w-full p-1.5 rounded border text-xs"
+                          className="inline-flex items-center justify-between p-1.5 rounded border text-xs"
                           style={{ 
                             backgroundColor: `${selectedPersona.colors.primary}08`,
                             borderColor: `${selectedPersona.colors.primary}15`,
@@ -246,7 +228,25 @@ export default function LoginPage() {
                             fontSize: '0.65rem'
                           }}
                         >
-                          {selectedPersona.fonts.primary}, {selectedPersona.fonts.secondary}
+                          <span>{selectedPersona.fonts.primary}, {selectedPersona.fonts.secondary}</span>
+                          <div className="flex items-center space-x-1 ml-3">
+                            <div 
+                              className="w-3 h-3 rounded-full border"
+                              style={{ 
+                                backgroundColor: selectedPersona.colors.primary,
+                                borderColor: selectedPersona.colors.primary 
+                              }}
+                              title="Primary Color"
+                            ></div>
+                            <div 
+                              className="w-3 h-3 rounded-full border"
+                              style={{ 
+                                backgroundColor: selectedPersona.colors.secondary || selectedPersona.colors.accent,
+                                borderColor: selectedPersona.colors.secondary || selectedPersona.colors.accent 
+                              }}
+                              title="Secondary/Accent Color"
+                            ></div>
+                          </div>
                         </div>
                       </div>
                     </div>
