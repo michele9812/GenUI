@@ -107,11 +107,11 @@ export default function LoginPage() {
                 </Select>
               </div>
 
-              <div className="h-48 sm:h-48 md:h-48 flex items-start overflow-hidden">
+              <div className="flex items-start">
                 {selectedPersona && (
                   <div 
                     key={selectedPersona.id}
-                    className="border radius-responsive-small w-full transition-all duration-300 overflow-hidden"
+                    className="border radius-responsive-small w-full transition-all duration-300"
                     style={{ 
                       backgroundColor: selectedPersona.colors.bg || `${selectedPersona.colors.primary}08`,
                       borderColor: `${selectedPersona.colors.primary}30`
