@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -22,6 +22,11 @@ export default function LoginPage() {
   const { selectPersona } = usePersona();
   const [userName, setUserName] = useState('');
   const [selectedPersonaId, setSelectedPersonaId] = useState<string>('');
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handlePersonaChange = (personaId: string) => {
     setSelectedPersonaId(personaId);
