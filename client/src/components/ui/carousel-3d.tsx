@@ -183,10 +183,10 @@ export function Carousel3D({
     const distanceFromCenter = Math.abs(position);
     const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3)); // Gradual fade instead of sharp cutoff
     
-    // Responsive height calculation - fill available space minus padding
+    // Responsive height calculation - optimized for viewport usage
     const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
     const cardHeight = isMobile ? 
-      Math.min(Math.floor((viewportHeight - 220) * 0.7), 400) : // Mobile: 70% of available height, max 400px
+      Math.min(Math.floor((viewportHeight - 180) * 0.75), 450) : // Mobile: 75% of available height, max 450px
       320; // Desktop: fixed 320px
     
     return {
@@ -217,21 +217,21 @@ export function Carousel3D({
     <div 
       className="relative w-full"
       style={{
-        // Fill available height minus 16px spacing from floating input (32px from bottom + 16px gap = 48px total)
-        height: isMobile ? 'calc(100vh - 220px)' : '418px', // Mobile: dynamic height, Desktop: fixed
-        maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
-        minHeight: isMobile ? '280px' : '418px' // Minimum height to ensure usability
+        // Fill available height accounting for header (≈160px) + floating input (≈80px) + minimal spacing
+        height: isMobile ? 'calc(100vh - 180px)' : '418px', // Mobile: optimized viewport usage, Desktop: fixed
+        maxHeight: isMobile ? 'calc(100vh - 180px)' : '418px',
+        minHeight: isMobile ? '320px' : '418px' // Increased minimum for better content display
       }}
     >
       <div 
         ref={containerRef}
         className="container-responsive relative w-full flex justify-center"
         style={{
-          alignItems: 'center', // Center alignment for both mobile and desktop
-          paddingTop: isMobile ? '16px' : '16px', // Consistent 16px top padding
+          alignItems: 'flex-start', // Top alignment to ensure 16px margin from top
+          paddingTop: '16px', // Fixed 16px top margin for both mobile and desktop
           paddingLeft: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingRight: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
-          paddingBottom: isMobile ? '60px' : '48px', // Space for mobile controls (60px) or desktop controls (48px)
+          paddingBottom: isMobile ? '40px' : '48px', // Reduced mobile controls space: 40px vs 50px
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
@@ -244,9 +244,11 @@ export function Carousel3D({
       >
         {/* Cards Container */}
         <motion.div 
-          className="relative flex justify-center w-full h-full"
+          className="relative flex justify-center w-full"
           style={{
-            alignItems: 'center' // Center alignment for both mobile and desktop
+            alignItems: 'center', // Center alignment for both mobile and desktop
+            height: isMobile ? 'calc(100% - 56px)' : 'calc(100% - 64px)', // Reduced height: mobile -56px, desktop -64px
+            minHeight: isMobile ? '260px' : '300px' // Minimum heights to ensure usability
           }}
           drag="x"
           dragControls={dragControls}

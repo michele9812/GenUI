@@ -597,9 +597,9 @@ export default function JourneyDetail() {
 
         {/* 3D Carousel, Senior Accordion, or Family Tabs */}
         <motion.div 
-          className="mb-2 sm:mb-4 md:mb-6"
+          className="mb-1 sm:mb-4 md:mb-6"
           style={{
-            marginBottom: window.innerWidth < 768 ? '8px' : undefined
+            marginBottom: window.innerWidth < 768 ? '4px' : undefined // Reduced from 8px to 4px
           }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
