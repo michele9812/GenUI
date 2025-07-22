@@ -201,7 +201,7 @@ export function Carousel3D({
         }}
       >
         {/* Left Arrow - Desktop only */}
-        <div className="hidden md:flex absolute left-6 z-50">
+        <div className="hidden md:flex absolute left-6 top-1/2 transform -translate-y-1/2 z-50">
           <motion.button
             onClick={handlePrevious}
             disabled={isAnimating}
@@ -219,7 +219,7 @@ export function Carousel3D({
         </div>
 
         {/* Right Arrow - Desktop only */}
-        <div className="hidden md:flex absolute right-6 z-50">
+        <div className="hidden md:flex absolute right-6 top-1/2 transform -translate-y-1/2 z-50">
           <motion.button
             onClick={handleNext}
             disabled={isAnimating}
@@ -263,7 +263,7 @@ export function Carousel3D({
           style={{
             alignItems: 'flex-start',
             height: 'auto',
-            minHeight: '350px',
+            minHeight: '318px',
             paddingTop: '16px',
             overflowX: 'hidden',
             overflowY: 'visible'
