@@ -420,6 +420,8 @@ export default function JourneyDetail() {
     : selectedPersona.colors.primary;
   const nameColor = isStudentPersona
     ? '#F59E0B' // Yellow for user name
+    : selectedPersona.id === 'family'
+    ? '#2E2E2E' // Dark gray for Family Planner user name
     : selectedPersona.colors.secondary;
   const buttonColor = isStudentPersona
     ? '#F59E0B' // Yellow accent for buttons
