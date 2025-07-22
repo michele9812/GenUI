@@ -126,29 +126,30 @@ export function Carousel3D({
     const isMobile = screenWidth < 640;
     const isTablet = screenWidth < 1024;
     
-    let baseWidth, centerWidth, spacing;
+    let baseWidth, centerWidth, spacing, cardHeight;
     
     if (isMobile) {
-      if (screenWidth <= 320) {
-        baseWidth = Math.floor(screenWidth * 0.5);
-        centerWidth = Math.floor(screenWidth * 0.7);
-        spacing = 12;
-      } else if (screenWidth <= 375) {
-        baseWidth = Math.floor(screenWidth * 0.5);
-        centerWidth = Math.floor(screenWidth * 0.65);
-        spacing = 16;
-      } else {
-        baseWidth = Math.floor(screenWidth * 0.55);
-        centerWidth = Math.floor(screenWidth * 0.7);
-        spacing = 20;
-      }
+      // Mobile: cards fill available space in motion.div
+      const motionDivPadding = 16 + 40; // paddingTop + paddingBottom
+      const lateralPadding = 16; // 8px per side
+      const availableWidth = screenWidth - lateralPadding;
+      const availableHeight = 350 - motionDivPadding; // minHeight minus padding
+      
+      // Center card fills 90% width, 85% height
+      // Side cards fill 70% width, 80% height
+      centerWidth = availableWidth * 0.9;
+      baseWidth = availableWidth * 0.7;
+      cardHeight = isCenter ? availableHeight * 0.85 : availableHeight * 0.8;
+      spacing = 20;
     } else if (isTablet) {
       baseWidth = 200;
       centerWidth = 240;
+      cardHeight = 'auto';
       spacing = 24;
     } else {
       baseWidth = 240;
       centerWidth = 280;
+      cardHeight = 'auto';
       spacing = 24;
     }
     
@@ -159,8 +160,6 @@ export function Carousel3D({
     const baseTranslateX = position * (centerWidth + spacing);
     const distanceFromCenter = Math.abs(position);
     const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3));
-    const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
-    const cardHeight = 'auto';
     
     return {
       width: cardWidth,
@@ -185,7 +184,7 @@ export function Carousel3D({
       className="w-full flex flex-col"
       style={{
         height: 'fit-content',
-        overflowY: 'visible',
+        overflow: 'visible',
         gap: isMobile ? '16px' : '24px'
       }}
     >
@@ -194,7 +193,7 @@ export function Carousel3D({
         className="relative flex items-start"
         style={{
           height: 'fit-content',
-          overflowY: 'visible'
+          overflow: 'visible'
         }}
       >
         {/* Left Arrow - Desktop only */}
@@ -243,6 +242,7 @@ export function Carousel3D({
             paddingRight: isMobile ? '8px' : '24px',
             overflowX: 'hidden',
             overflowY: 'visible',
+            overflow: 'visible',
             maskImage: 'none',
             WebkitMaskImage: 'none',
             position: 'relative',
@@ -260,8 +260,7 @@ export function Carousel3D({
             minHeight: '350px',
             paddingTop: isMobile ? '16px' : '32px',
             paddingBottom: '40px',
-            overflowX: 'hidden',
-            overflowY: 'visible'
+            overflow: 'visible'
           }}
         >
           <AnimatePresence>
@@ -427,11 +426,13 @@ export function Carousel3D({
                           {item.title}
                         </h3>
                         <p 
-                          className="text-xs leading-relaxed line-clamp-2 overflow-hidden"
+                          className="leading-relaxed line-clamp-2 overflow-hidden"
                           style={{
                             color: isCenter ? (selectedPersona?.colors?.text || '#111827') : '#6b7280',
                             fontFamily: personaTypography?.fontFamily || 'inherit',
-                            fontSize: personaTypography?.scale ? `calc(0.75rem * ${personaTypography.scale})` : undefined
+                            fontSize: isCenter ? 
+                              (personaTypography?.scale ? `calc(18px * ${personaTypography.scale})` : '18px') : 
+                              (personaTypography?.scale ? `calc(0.75rem * ${personaTypography.scale})` : undefined)
                           }}
                         >
                           {item.description}
