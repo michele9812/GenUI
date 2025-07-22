@@ -172,7 +172,7 @@ export function Carousel3D({
     // Enhanced positioning with responsive adjustments
     const offsetMultiplier = isCenter ? 0 : Math.sign(position) * 0.2;
     const responsiveScale = isCenter ? (isMobile ? 1.05 : 1.1) : (isMobile ? 0.9 : 0.85);
-    const verticalOffset = isCenter ? (isMobile ? -5 : -10) : Math.abs(position) * (isMobile ? 3 : 5);
+    const verticalOffset = isCenter ? (isMobile ? 0 : -10) : Math.abs(position) * (isMobile ? 0 : 5); // Mobile: no vertical offset for top alignment
     
     // Improved spacing calculation - consistent gaps for all positions
     const cardWidth = isCenter ? centerWidth : baseWidth;
@@ -227,8 +227,8 @@ export function Carousel3D({
         ref={containerRef}
         className="container-responsive relative w-full flex justify-center"
         style={{
-          alignItems: 'center', // Center alignment for both mobile and desktop
-          paddingTop: isMobile ? '16px' : '16px', // Consistent 16px top padding
+          alignItems: isMobile ? 'flex-start' : 'center', // Top alignment for mobile, center for desktop
+          paddingTop: isMobile ? '16px' : '16px', // Max 16px top padding on mobile
           paddingLeft: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingRight: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingBottom: isMobile ? '60px' : '48px', // Space for mobile controls (60px) or desktop controls (48px)
@@ -246,7 +246,7 @@ export function Carousel3D({
         <motion.div 
           className="relative flex justify-center w-full h-full"
           style={{
-            alignItems: 'center' // Center alignment for both mobile and desktop
+            alignItems: isMobile ? 'flex-start' : 'center' // Top alignment for mobile, center for desktop
           }}
           drag="x"
           dragControls={dragControls}
