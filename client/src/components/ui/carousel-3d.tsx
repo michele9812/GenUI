@@ -230,10 +230,10 @@ export function Carousel3D({
         className="container-responsive relative w-full flex justify-center"
         style={{
           alignItems: isMobile ? 'flex-start' : 'center', // Top alignment for mobile, center for desktop
-          paddingTop: isMobile ? '16px' : '16px', // Max 16px top padding on mobile
+          paddingTop: isMobile ? '16px' : '0px', // Mobile: 16px, Desktop: 0px for perfect centering
           paddingLeft: isMobile ? '8px' : '24px', // Mobile: 8px, Desktop: reduced to 24px
           paddingRight: isMobile ? '8px' : '24px', // Mobile: 8px, Desktop: reduced to 24px
-          paddingBottom: '0px', // Removed desktop bottom padding as requested
+          paddingBottom: isMobile ? '0px' : '0px', // No bottom padding to maintain centering
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
