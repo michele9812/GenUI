@@ -254,10 +254,10 @@ export function Carousel3D({
         <motion.div 
           className={cn(
             "relative flex justify-center w-full",
-            isMobile ? "h-auto" : "h-full" // Mobile: hug content, Desktop: full height
+            isMobile ? "h-full" : "h-full" // Both mobile and desktop: full height to fill container
           )}
           style={{
-            alignItems: isMobile ? 'flex-start' : 'center' // Top alignment for mobile, center for desktop
+            alignItems: isMobile ? 'center' : 'center' // Center alignment for both mobile and desktop
           }}
           drag="x"
           dragControls={dragControls}
