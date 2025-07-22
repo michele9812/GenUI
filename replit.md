@@ -37,6 +37,9 @@ This is an intelligent airport navigation web application that provides personal
 - **Restored motion.div height**: Increased minHeight back from 318px to 350px (+32px) and changed outer container from fixed minHeight to height: fit-content for adaptive sizing that matches motion.div dimensions
 - **Optimized container fit**: Moved padding from outer container to motion.div (paddingTop responsive, paddingBottom 40px) ensuring outer div perfectly fits motion.div content without extra spacing
 - **Main container fit optimization**: Removed flex-1, minHeight constraints, and Tailwind gap classes from main carousel container, replaced with inline gap styling and height: fit-content for perfect motion.div fitting
+- **Enhanced overflow visibility**: Updated all container levels (root, main, cards container, motion.div) to use overflow: 'visible' ensuring card shadows and hover effects are never clipped
+- **Mobile cards fill optimization**: Updated getCardStyle function to make mobile cards fill available space - center cards use 90% width and 85% height, side cards use 70% width and 80% height of motion.div available space
+- **Carousel active card typography**: Set description paragraphs in active (center) cards to use 18px font size with persona scaling, while inactive cards maintain smaller text-xs sizing for clear hierarchy
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**
