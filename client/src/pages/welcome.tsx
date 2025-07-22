@@ -216,11 +216,11 @@ export default function Welcome() {
           Select your journey phase as {selectedPersona.title}
         </p>
       </div>
-      {/* Central Image - Full width with 16px padding */}
+      {/* Central Image - Full width with responsive padding */}
       <div 
-        className="flex-1 flex items-center justify-center"
+        className={`flex-1 flex items-center justify-center ${window.innerWidth >= 768 ? 'container-responsive-padding' : ''}`}
         style={{
-          padding: '16px'
+          padding: window.innerWidth < 768 ? '16px' : undefined
         }}
       >
         <motion.div

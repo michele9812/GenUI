@@ -50,7 +50,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Reduced carousel motion.div padding**: Decreased paddingBottom from 40px to 8px on mobile devices (32px total reduction) while maintaining 40px on desktop for ultra-compact mobile spacing, fixed TypeScript errors by wrapping handlePrevious/handleNext in arrow functions for onClick handlers
 - **Reduced carousel motion.div height**: Decreased minHeight from 350px to 334px (16px reduction) for more compact layout while maintaining proper card visibility
 - **Optimized title div vertical spacing**: Reduced marginBottom and paddingBottom by 50% on mobile for header containers and all title elements across welcome and journey-detail pages - mobile header padding reduced from 4px/8px to 2px/4px, title marginBottom reduced from 8px to 4px for ultra-compact mobile layout
-- **Fixed image container padding**: Set central image container padding to fixed 16px on all breakpoints in welcome page, replacing responsive padding for consistent spacing around journey point selection image
+- **Fixed mobile image container padding**: Set central image container padding to fixed 16px only on mobile (<768px) in welcome page, maintaining responsive padding on desktop for optimal spacing around journey point selection image
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**
