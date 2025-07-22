@@ -257,7 +257,8 @@ export function Carousel3D({
             alignItems: 'flex-start',
             height: 'fit-content',
             minHeight: '320px',
-            overflow: 'visible'
+            overflowX: 'hidden',
+            overflowY: 'visible'
           }}
         >
           <AnimatePresence>
