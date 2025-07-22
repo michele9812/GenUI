@@ -435,7 +435,8 @@ export default function JourneyDetail() {
         letterSpacing: selectedPersona.typography?.letterSpacing || 'normal',
         background: backgroundGradient,
         backgroundColor: backgroundColor,
-        color: textColor
+        color: textColor,
+        overflow: 'hidden' // Prevent viewport scrolling on mobile
       }}
       initial={{ opacity: 0, scale: 1.05 }}
       animate={{ opacity: 1, scale: 1 }}
