@@ -84,17 +84,36 @@ export default function LoginPage() {
                 <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-2">
                   Name
                 </Label>
-                <Input
-                  id="userName"
-                  type="text"
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                  placeholder="Enter your name..."
-                  className="w-full focus:scale-105"
-                  style={selectedPersona ? {
-                    fontFamily: selectedPersona.typography.fontFamily
-                  } : undefined}
-                />
+                <div className="relative flex items-center">
+                  <Input
+                    id="userName"
+                    type="text"
+                    value={userName}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (value.length <= 15) {
+                        setUserName(value);
+                      }
+                    }}
+                    placeholder="Enter your name..."
+                    className="w-full focus:scale-105 pr-12"
+                    style={selectedPersona ? {
+                      fontFamily: selectedPersona.typography.fontFamily
+                    } : undefined}
+                    maxLength={15}
+                  />
+                  {userName.length > 0 && (
+                    <div 
+                      className="absolute right-3 text-gray-500 text-xs pointer-events-none"
+                      style={{
+                        fontFamily: selectedPersona?.typography.fontFamily || 'inherit',
+                        fontSize: '12px'
+                      }}
+                    >
+                      {userName.length}/15
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div>
