@@ -175,11 +175,11 @@ export default function Welcome() {
         className="text-center container-responsive-padding"
         style={{
           marginTop: window.innerWidth < 768 ? '0px' : '16px', // Mobile: 0px, Desktop: 16px
-          paddingTop: window.innerWidth < 768 ? '2px' : '0px', // Mobile: 2px, Desktop: 0px
-          marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                        window.innerWidth < 768 ? '8px' : '16px', // Mobile: 8px, Desktop: 16px
-          paddingBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px  
-                         window.innerWidth < 768 ? '4px' : '8px' // Mobile: 4px, Desktop: 8px
+          paddingTop: window.innerWidth < 768 ? '0px' : '0px', // Mobile: 0px (reduced from 2px), Desktop: 0px
+          marginBottom: window.innerWidth <= 320 ? '2px' : // iPhone SE: 2px (reduced from 4px)
+                        window.innerWidth < 768 ? '4px' : '8px', // Mobile: 4px (reduced from 8px), Desktop: 8px (reduced from 16px)
+          paddingBottom: window.innerWidth <= 320 ? '2px' : // iPhone SE: 2px (reduced from 4px)
+                         window.innerWidth < 768 ? '2px' : '4px' // Mobile: 2px (reduced from 4px), Desktop: 4px (reduced from 8px)
         }}
       >
         <h1 
@@ -194,8 +194,8 @@ export default function Welcome() {
             width: '100%',
             display: 'block',
             boxSizing: 'border-box',
-            marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                          window.innerWidth < 768 ? '8px' : '8px' // 8px consistent spacing
+            marginBottom: window.innerWidth <= 320 ? '2px' : // iPhone SE: 2px (reduced from 4px)
+                          window.innerWidth < 768 ? '4px' : '4px' // 4px consistent spacing (reduced from 8px)
           }}
         >
           Hello {userName || 'User'}
