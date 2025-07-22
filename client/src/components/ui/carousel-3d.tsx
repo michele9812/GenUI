@@ -185,7 +185,7 @@ export function Carousel3D({
       style={{
         height: 'fit-content',
         overflow: 'visible',
-        gap: isMobile ? '16px' : '24px'
+        gap: isMobile ? '0px' : '24px'
       }}
     >
       {/* Main carousel container with side arrows on desktop */}
