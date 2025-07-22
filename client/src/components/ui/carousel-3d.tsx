@@ -231,8 +231,8 @@ export function Carousel3D({
         style={{
           alignItems: isMobile ? 'flex-start' : 'center', // Top alignment for mobile, center for desktop
           paddingTop: isMobile ? '16px' : '16px', // Max 16px top padding on mobile
-          paddingLeft: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
-          paddingRight: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
+          paddingLeft: isMobile ? '8px' : '24px', // Mobile: 8px, Desktop: reduced to 24px
+          paddingRight: isMobile ? '8px' : '24px', // Mobile: 8px, Desktop: reduced to 24px
           paddingBottom: isMobile ? '0px' : '48px', // Mobile: no padding for flexbox, Desktop: 48px
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
@@ -508,62 +508,64 @@ export function Carousel3D({
         </div>
       </div>
 
-      {/* Mobile Controls - Anchored at bottom of carousel container */}
-      <div className="md:hidden absolute bottom-4 left-0 right-0 pointer-events-none flex items-center justify-between" style={{ zIndex: 1000 }}>
-        {/* Left arrow - aligned with indicators */}
-        <div className="pointer-events-auto ml-4">
-          <motion.button
-            onClick={handlePrevious}
-            disabled={isAnimating}
-            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-            style={{
-              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-              color: selectedPersona?.colors?.secondary || accentColor,
-              border: 'none'
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </motion.button>
-        </div>
-
-        {/* Centered Indicators - aligned horizontally with arrows */}
-        <div className="flex gap-2 pointer-events-auto">
-          {items.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleCardClick(index)}
-              className={cn(
-                "w-2 h-2 rounded-full transition-all duration-300",
-                index === currentIndex 
-                  ? "w-6" 
-                  : "hover:opacity-70"
-              )}
+      {/* Mobile Controls - Horizontal flexbox layout with centered alignment */}
+      <div className="md:hidden absolute bottom-4 left-0 right-0 pointer-events-none" style={{ zIndex: 1000 }}>
+        <div className="flex items-center justify-center gap-6 w-full px-4">
+          {/* Left arrow */}
+          <div className="pointer-events-auto">
+            <motion.button
+              onClick={handlePrevious}
+              disabled={isAnimating}
+              className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
               style={{
-                backgroundColor: index === currentIndex ? 
-                  (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
+                backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+                color: selectedPersona?.colors?.secondary || accentColor,
+                border: 'none'
               }}
-            />
-          ))}
-        </div>
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </motion.button>
+          </div>
 
-        {/* Right arrow - aligned with indicators */}
-        <div className="pointer-events-auto mr-4">
-          <motion.button
-            onClick={handleNext}
-            disabled={isAnimating}
-            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-            style={{
-              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-              color: selectedPersona?.colors?.secondary || accentColor,
-              border: 'none'
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChevronRight className="w-5 h-5" />
-          </motion.button>
+          {/* Centered Indicators */}
+          <div className="flex gap-2 pointer-events-auto">
+            {items.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleCardClick(index)}
+                className={cn(
+                  "w-2 h-2 rounded-full transition-all duration-300",
+                  index === currentIndex 
+                    ? "w-6" 
+                    : "hover:opacity-70"
+                )}
+                style={{
+                  backgroundColor: index === currentIndex ? 
+                    (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Right arrow */}
+          <div className="pointer-events-auto">
+            <motion.button
+              onClick={handleNext}
+              disabled={isAnimating}
+              className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+              style={{
+                backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+                color: selectedPersona?.colors?.secondary || accentColor,
+                border: 'none'
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </motion.button>
+          </div>
         </div>
       </div>
     </div>
