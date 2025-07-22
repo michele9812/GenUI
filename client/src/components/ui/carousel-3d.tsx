@@ -94,32 +94,26 @@ export function Carousel3D({
     }
   };
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        handlePrevious();
-      } else if (e.key === 'ArrowRight') {
-        handleNext();
-      }
+      if (e.key === 'ArrowLeft') handlePrevious();
+      if (e.key === 'ArrowRight') handleNext();
     };
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [handlePrevious, handleNext]);
 
-  // Auto-scroll pause on hover (currently unused but kept for future features)
   const [isPaused, setIsPaused] = useState(false);
 
-  // Get visible cards (center + 2 on each side) - responsive
   const getVisibleCards = useCallback(() => {
     const visibleCards = [];
-    const totalCards = Math.min(5, items.length); // Show max 5 cards
+    const totalCards = Math.min(5, items.length);
     const startOffset = Math.floor(totalCards / 2);
     
     for (let i = 0; i < totalCards; i++) {
       const index = (currentIndex - startOffset + i + items.length) % items.length;
-      const position = i - startOffset; // -2, -1, 0, 1, 2
+      const position = i - startOffset;
       visibleCards.push({ item: items[index], originalIndex: index, position });
     }
     
@@ -128,91 +122,63 @@ export function Carousel3D({
 
   const getCardStyle = useCallback((position: number) => {
     const isCenter = position === 0;
-    
-    // Get current screen width for responsive calculations
     const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
     const isMobile = screenWidth < 640;
     const isTablet = screenWidth < 1024;
     
-    let baseWidth, centerWidth, spacing, containerPadding;
+    let baseWidth, centerWidth, spacing;
     
     if (isMobile) {
       if (screenWidth <= 320) {
-        // iPhone SE configuration (≤320px) - 70% of viewport width
-        baseWidth = Math.floor(screenWidth * 0.5);  // 50% for outer cards
-        centerWidth = Math.floor(screenWidth * 0.7); // 70% for center card
-        spacing = 12; 
-        containerPadding = 4;
+        baseWidth = Math.floor(screenWidth * 0.5);
+        centerWidth = Math.floor(screenWidth * 0.7);
+        spacing = 12;
       } else if (screenWidth <= 375) {
-        // Small mobile devices (321px-375px) - 65% of viewport width
-        baseWidth = Math.floor(screenWidth * 0.5);  // 50% for outer cards
-        centerWidth = Math.floor(screenWidth * 0.65); // 65% for center card
-        spacing = 16; 
-        containerPadding = 6;
+        baseWidth = Math.floor(screenWidth * 0.5);
+        centerWidth = Math.floor(screenWidth * 0.65);
+        spacing = 16;
       } else {
-        // Larger mobile devices (376px+) - 60% of viewport width
-        baseWidth = Math.floor(screenWidth * 0.55);  // 55% for outer cards
-        centerWidth = Math.floor(screenWidth * 0.7); // 70% for center card
-        spacing = 20; 
-        containerPadding = 16;
+        baseWidth = Math.floor(screenWidth * 0.55);
+        centerWidth = Math.floor(screenWidth * 0.7);
+        spacing = 20;
       }
     } else if (isTablet) {
       baseWidth = 200;
       centerWidth = 240;
-      spacing = 24; // Maintained 24px spacing
-      containerPadding = 24;
+      spacing = 24;
     } else {
-      // Desktop configuration
       baseWidth = 240;
       centerWidth = 280;
-      spacing = 24; // Updated spacing to 24px
-      containerPadding = 40;
+      spacing = 24;
     }
     
-    // Enhanced positioning with responsive adjustments
     const offsetMultiplier = isCenter ? 0 : Math.sign(position) * 0.2;
     const responsiveScale = isCenter ? (isMobile ? 1.05 : 1.1) : (isMobile ? 0.9 : 0.85);
-    // Calculate vertical offset - keep cards centered within their container
-    const verticalOffset = isCenter ? 0 : Math.abs(position) * (isMobile ? 0 : 5); // No offset for center card, slight offset for side cards
-    
-    // Improved spacing calculation - consistent gaps for all positions
+    const verticalOffset = isCenter ? 0 : Math.abs(position) * (isMobile ? 0 : 5);
     const cardWidth = isCenter ? centerWidth : baseWidth;
-    const uniformGap = spacing; // Base gap between cards
-    const baseTranslateX = position * (centerWidth + uniformGap); // Use center width as reference for consistent spacing
-    
-    // Smooth fading based on distance from center
+    const baseTranslateX = position * (centerWidth + spacing);
     const distanceFromCenter = Math.abs(position);
-    const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3)); // Gradual fade instead of sharp cutoff
-    
-    // Responsive height calculation - fill available space minus padding
+    const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3));
     const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
-    const cardHeight = isMobile ? 
-      Math.min(Math.floor((viewportHeight - 220) * 0.6), 350) : // Mobile: 60% of available height, max 350px - restored original
-      320; // Desktop: fixed 320px
+    const cardHeight = isMobile ? Math.min(Math.floor((viewportHeight - 220) * 0.6), 350) : 320;
     
     return {
       width: cardWidth,
-      height: cardHeight, // iPhone SE: 240px, others: 320px
+      height: cardHeight,
       scale: responsiveScale,
       translateX: baseTranslateX + offsetMultiplier * (isMobile ? 6 : 12),
       translateY: verticalOffset,
-      opacity: 1, // Keep card container fully opaque
+      opacity: 1,
       zIndex: isCenter ? 10 : Math.max(1, 8 - distanceFromCenter),
-      blur: 'blur(0px)', // No blur on card container
-      brightness: 1, // Full brightness for card container
-      contentOpacity: fadeOpacity, // Opacity for content only
+      contentOpacity: fadeOpacity,
       contentBlur: distanceFromCenter > 1 ? `blur(${Math.min(4, distanceFromCenter)}px)` : 'blur(0px)',
-      contentBrightness: Math.max(0.6, 1 - (distanceFromCenter * 0.15)),
-      containerPadding
+      contentBrightness: Math.max(0.6, 1 - (distanceFromCenter * 0.15))
     };
-  }, []); // Empty dependency array since this function gets screen width dynamically
+  }, []);
 
   const visibleCards = getVisibleCards();
-
-  // Current screen dimensions for responsive container
   const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
   const isMobile = screenWidth < 640;
-  const isIPhoneSE = screenWidth <= 320;
 
   return (
     <div 
@@ -221,8 +187,7 @@ export function Carousel3D({
         isMobile ? "flex flex-col" : ""
       )}
       style={{
-        // Container hugs content with minimum height: cards height + controls height (48px) + gap (24px) = +72px + 40px extra
-        minHeight: isMobile ? 'calc(350px + 112px)' : '418px', // Mobile: 462px total minimum (added 40px)
+        minHeight: isMobile ? 'calc(350px + 112px)' : '418px',
         maxHeight: isMobile ? 'calc(100vh - 160px)' : '418px'
       }}
     >
@@ -230,18 +195,17 @@ export function Carousel3D({
         ref={containerRef}
         className="container-responsive relative w-full flex justify-center"
         style={{
-          alignItems: isMobile ? 'flex-start' : 'center', // Top alignment for mobile, center for desktop
-          paddingTop: isMobile ? '16px' : '0px', // Mobile: 16px, Desktop: 0px for perfect centering
-          paddingLeft: isMobile ? '8px' : '24px', // Mobile: 8px, Desktop: reduced to 24px
-          paddingRight: isMobile ? '8px' : '24px', // Mobile: 8px, Desktop: reduced to 24px
-          paddingBottom: isMobile ? '0px' : '0px', // No bottom padding to maintain centering
+          alignItems: isMobile ? 'flex-start' : 'center',
+          paddingTop: isMobile ? '16px' : '0px',
+          paddingLeft: isMobile ? '8px' : '24px',
+          paddingRight: isMobile ? '8px' : '24px',
+          paddingBottom: '0px',
           overflow: 'visible',
-          // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: isMobile ? 'auto' : '100%', // Mobile: auto height, Desktop: full height
-          flex: isMobile ? '0 0 auto' : undefined, // Mobile: don't grow, just hug content
-          position: 'relative' // Ensure relative positioning for absolute children
+          height: isMobile ? 'auto' : '100%',
+          flex: isMobile ? '0 0 auto' : undefined,
+          position: 'relative'
         }}
 
         onMouseEnter={() => setIsPaused(true)}
@@ -249,13 +213,10 @@ export function Carousel3D({
       >
         {/* Cards Container */}
         <motion.div 
-          className={cn(
-            "relative flex justify-center w-full",
-            isMobile ? "h-auto" : "h-auto" // Both mobile and desktop: hug content to prevent overflow
-          )}
+          className="relative flex justify-center w-full h-auto"
           style={{
-            alignItems: isMobile ? 'flex-start' : 'center', // Top alignment for mobile, center for desktop
-            height: isMobile ? 'auto' : '320px' // Desktop: fixed height matching card height
+            alignItems: isMobile ? 'flex-start' : 'center',
+            height: isMobile ? 'auto' : '320px'
           }}
           drag="x"
           dragControls={dragControls}

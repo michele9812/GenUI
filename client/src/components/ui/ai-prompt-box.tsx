@@ -619,10 +619,10 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                       ? "Create on canvas..."
                       : placeholder
                   }
-                  className="w-full h-full border-none outline-none bg-transparent text-gray-900 placeholder-gray-500 text-base"
+                  className="w-full h-full border-none outline-none bg-transparent text-gray-900 placeholder-gray-500"
                   style={{
-                    fontFamily: personaTypography?.fontFamily || 'inherit',
-                    fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined
+                    fontSize: '14px',
+                    fontFamily: personaTypography?.fontFamily || 'inherit'
                   }}
                   disabled={isLoading || isRecording}
                 />
