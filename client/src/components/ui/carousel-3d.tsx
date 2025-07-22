@@ -172,7 +172,11 @@ export function Carousel3D({
     // Enhanced positioning with responsive adjustments
     const offsetMultiplier = isCenter ? 0 : Math.sign(position) * 0.2;
     const responsiveScale = isCenter ? (isMobile ? 1.05 : 1.1) : (isMobile ? 0.9 : 0.85);
-    const verticalOffset = isCenter ? 0 : Math.abs(position) * (isMobile ? 0 : 5); // No vertical offset for center card to align with arrows
+    // Calculate vertical offset to align center card with arrows
+    // On desktop: arrows use top-1/2 to center in the main container
+    // Cards container uses alignItems: center, which should center the cards
+    // But we might need a small adjustment to perfectly align with arrows
+    const verticalOffset = isCenter ? (isMobile ? 0 : -25) : Math.abs(position) * (isMobile ? 0 : 5); // Try -25px offset for desktop center card
     
     // Improved spacing calculation - consistent gaps for all positions
     const cardWidth = isCenter ? centerWidth : baseWidth;
