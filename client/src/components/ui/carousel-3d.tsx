@@ -231,7 +231,7 @@ export function Carousel3D({
         className="container-responsive relative w-full flex justify-center"
         style={{
           alignItems: isMobile ? 'flex-start' : 'center', // Top alignment for mobile, center for desktop
-          paddingTop: isMobile ? '0px' : '16px', // Mobile: no top padding, Desktop: 16px
+          paddingTop: isMobile ? '16px' : '16px', // Max 16px top padding on mobile
           paddingLeft: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingRight: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingBottom: isMobile ? '0px' : '48px', // Mobile: no padding for flexbox, Desktop: 48px
