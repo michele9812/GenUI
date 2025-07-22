@@ -232,7 +232,7 @@ export function Carousel3D({
         {/* Cards container */}
         <div 
           ref={containerRef}
-          className="container-responsive relative w-full h-full flex justify-center"
+          className="container-responsive relative w-full flex justify-center"
           style={{
             alignItems: 'flex-start',
             paddingTop: isMobile ? '16px' : '32px',
@@ -242,16 +242,18 @@ export function Carousel3D({
             overflow: 'hidden',
             maskImage: 'none',
             WebkitMaskImage: 'none',
-            position: 'relative'
+            position: 'relative',
+            height: 'fit-content'
           }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
         {/* Cards Container */}
         <motion.div 
-          className="relative flex justify-center w-full h-full"
+          className="relative flex justify-center w-full"
           style={{
             alignItems: 'flex-start',
+            height: 'fit-content',
             minHeight: '320px'
           }}
         >
