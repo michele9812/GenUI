@@ -440,10 +440,12 @@ export function Carousel3D({
           </AnimatePresence>
         </motion.div>
 
-        {/* Mobile Controls - Relative positioning below motion div */}
-        <div className="md:hidden mt-4 px-4">
+        {/* Mobile Controls - Inside carousel container, similar to desktop positioning */}
+        <div className="md:hidden">
           {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
-          <div className="flex items-center justify-between">
+          <div className="absolute inset-x-4 z-[1000] flex items-center justify-between" style={{ 
+            top: 'calc(100% + 16px)' // 16px below the motion div
+          }}>
             {/* Pagination Indicators - Left side on mobile */}
             <div className="flex gap-2">
               {items.map((_, index) => (
