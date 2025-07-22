@@ -12,7 +12,9 @@ This is an intelligent airport navigation web application that provides personal
 - **Enhanced mobile carousel layout**: Added 40px extra height to mobile container and restructured controls with dots and arrows in centered horizontal flexbox for optimal mobile usability
 - **Comprehensive code cleanup**: Removed redundant comments, unused variables, and consolidated styling logic in carousel-3d.tsx for improved maintainability and performance
 - **Updated mobile text sizing standards**: Set minimum 18px font size for all body text on mobile devices, increased text-content-responsive from 16px to 18px mobile, updated responsive text classes to ensure readability
-- **Customized AI prompt input**: Reduced AI prompt box input text to 14px as specifically requested for better compact interface design
+- **Enhanced journey detail text sizing**: Updated journey detail page paragraphs to use 18px minimum on mobile (up from 16pt) and 20px on desktop for better readability
+- **Standardized floating input icon behavior**: All icons default to black (#000000) with primary color hover effects on desktop, mobile versions have no interactive states for clean touch interface, consistent styling across all floating input components
+- **Fixed carousel indicator colors**: Updated both mobile and desktop carousel indicators to use primary color (yellow #F59E0B) as fallback when persona primary color is not available
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**
