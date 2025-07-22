@@ -221,9 +221,9 @@ export function Carousel3D({
       )}
       style={{
         // Fill available height ensuring controls are visible within viewport
-        height: isMobile ? 'calc(100vh - 220px)' : '418px',
-        maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
-        minHeight: isMobile ? '280px' : '418px' // Minimum height to ensure usability
+        height: isMobile ? 'calc(100vh - 150px)' : '418px', // Mobile: more available height
+        maxHeight: isMobile ? 'calc(100vh - 150px)' : '418px',
+        minHeight: isMobile ? '320px' : '418px' // Minimum height to ensure usability
       }}
     >
       <div 
