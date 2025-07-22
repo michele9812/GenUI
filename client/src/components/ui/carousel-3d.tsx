@@ -183,11 +183,11 @@ export function Carousel3D({
     const distanceFromCenter = Math.abs(position);
     const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3)); // Gradual fade instead of sharp cutoff
     
-    // Responsive height calculation based on viewport
+    // Responsive height calculation - fill available space minus padding
+    const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
     const cardHeight = isMobile ? 
-      (screenWidth <= 320 ? Math.floor(screenWidth * 0.6) : // iPhone SE: 60% of viewport width
-       screenWidth <= 375 ? Math.floor(screenWidth * 0.6) : // Small mobile: 60% of viewport width  
-       Math.min(320, Math.floor(screenWidth * 0.55))) : 320; // Large mobile: max 320px or 55% of width
+      Math.min(Math.floor((viewportHeight - 220) * 0.7), 400) : // Mobile: 70% of available height, max 400px
+      320; // Desktop: fixed 320px
     
     return {
       width: cardWidth,
@@ -217,12 +217,10 @@ export function Carousel3D({
     <div 
       className="relative w-full"
       style={{
-        height: screenWidth <= 320 ? '240px' : // iPhone SE: 240px container (reduced from 280px)
-                screenWidth <= 375 ? '320px' : // Small mobile: 320px (reduced from 360px)
-                (isMobile ? '480px' : '418px'), // Large mobile/desktop
-        maxHeight: screenWidth <= 320 ? '240px' : 
-                   screenWidth <= 375 ? '320px' : 
-                   (isMobile ? '480px' : '418px')
+        // Fill available height minus 16px spacing from floating input (32px from bottom + 16px gap = 48px total)
+        height: isMobile ? 'calc(100vh - 220px)' : '418px', // Mobile: dynamic height, Desktop: fixed
+        maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
+        minHeight: isMobile ? '280px' : '418px' // Minimum height to ensure usability
       }}
     >
       <div 
@@ -230,17 +228,15 @@ export function Carousel3D({
         className="container-responsive relative w-full flex justify-center"
         style={{
           alignItems: 'center', // Center alignment for both mobile and desktop
-          paddingTop: window.innerWidth <= 320 ? '8px' : '16px', // iPhone SE: 8px, others: 16px
-          paddingLeft: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                       window.innerWidth < 640 ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
-          paddingRight: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                        window.innerWidth < 640 ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
+          paddingTop: isMobile ? '16px' : '16px', // Consistent 16px top padding
+          paddingLeft: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
+          paddingRight: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
+          paddingBottom: isMobile ? '60px' : '48px', // Space for mobile controls (60px) or desktop controls (48px)
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: window.innerWidth <= 320 ? 'calc(100% - 32px)' : // iPhone SE: minimal gap (32px total)
-                  window.innerWidth < 640 ? 'calc(100% - 48px)' : 'calc(100% - 32px)' // Mobile: 48px total, Desktop: 32px total
+          height: '100%' // Use full container height
         }}
 
         onMouseEnter={() => setIsPaused(true)}
