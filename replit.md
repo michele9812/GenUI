@@ -17,6 +17,11 @@ This is an intelligent airport navigation web application that provides personal
 - **Student persona yellow accent in journey detail only**: Applied #F59E0B color specifically to journey-detail page for Student persona - carousel dot indicators when active and "back to phase selection" button icon/text. Welcome page maintains standard persona colors for consistency
 - **Enhanced desktop spacing in journey detail**: Added 24px vertical gap between title section and carousel content on desktop (16px on mobile) for improved visual hierarchy and readability
 - **Optimized carousel container sizing**: Reduced desktop carousel height from 418px to 386px (-32px) and decreased mobile lateral padding from 16px to 8px to prevent content clipping while maintaining proper card visibility
+- **Improved dock mobile interaction**: Fixed double-tap issue on mobile by adding proper touch event handlers (onTouchStart/onTouchEnd) with preventDefault for mobile, while maintaining hover states only for desktop devices (≥768px)
+- **Enhanced page navigation**: Added automatic scroll-to-top functionality when loading all pages (onboarding, login, welcome, journey-detail) for consistent user experience
+- **Converted carousel to relative positioning**: Restructured carousel layout from absolute positioning to flexbox with relative controls - desktop uses side arrows + bottom indicators, mobile uses horizontal controls layout, maintaining identical visual appearance with cleaner, more maintainable code structure
+- **Added drag interaction to carousel cards**: Implemented individual card drag functionality with 50px threshold for navigation - dragging right goes to previous card, dragging left goes to next card, small movements treated as clicks, includes visual feedback with scale and rotation effects during drag
+- **Fixed carousel content alignment**: Restored top alignment of carousel content by changing container from items-center to items-start, ensuring cards are positioned at the top of the container as intended
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**

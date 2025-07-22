@@ -14,6 +14,11 @@ export default function Welcome() {
   const [, setLocation] = useLocation();
   const [screenWidth, setScreenWidth] = useState<number>(0);
 
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Handle responsive screen width
   useEffect(() => {
     const updateScreenWidth = () => {

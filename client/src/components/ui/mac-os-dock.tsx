@@ -289,12 +289,26 @@ const MacOSDock: React.FC<MacOSDockProps> = ({
               ref={(el) => { iconRefs.current[index] = el; }}
               className="absolute cursor-pointer flex flex-col items-center justify-end"
               onClick={() => handleAppClick(app.id, index)}
-              onMouseEnter={() => {
+              onTouchStart={() => {
+                // For mobile: immediate feedback on touch
                 setHoveredIndex(index);
                 onAppHover?.(app.id);
               }}
+              onTouchEnd={(e) => {
+                // Prevent mouse events on mobile
+                e.preventDefault();
+                setHoveredIndex(null);
+                handleAppClick(app.id, index);
+              }}
+              onMouseEnter={() => {
+                // Only for desktop hover
+                if (window.innerWidth >= 768) {
+                  setHoveredIndex(index);
+                  onAppHover?.(app.id);
+                }
+              }}
               onMouseLeave={() => {
-                if (hoveredIndex === index) {
+                if (hoveredIndex === index && window.innerWidth >= 768) {
                   setHoveredIndex(null);
                 }
               }}

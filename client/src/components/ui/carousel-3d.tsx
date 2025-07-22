@@ -183,34 +183,72 @@ export function Carousel3D({
   return (
     <div 
       className={cn(
-        "w-full relative",
-        isMobile ? "flex flex-col" : ""
+        "w-full flex flex-col",
+        isMobile ? "gap-4" : "gap-6"
       )}
       style={{
         minHeight: isMobile ? 'calc(350px + 112px)' : '386px',
         maxHeight: isMobile ? 'calc(100vh - 160px)' : '386px'
       }}
     >
-      <div 
-        ref={containerRef}
-        className="container-responsive relative w-full flex justify-center"
-        style={{
-          alignItems: isMobile ? 'flex-start' : 'center',
-          paddingTop: isMobile ? '16px' : '0px',
-          paddingLeft: isMobile ? '8px' : '24px',
-          paddingRight: isMobile ? '8px' : '24px',
-          paddingBottom: '0px',
-          overflow: 'visible',
-          maskImage: 'none',
-          WebkitMaskImage: 'none',
-          height: isMobile ? 'auto' : '100%',
-          flex: isMobile ? '0 0 auto' : undefined,
-          position: 'relative'
-        }}
+      {/* Main carousel container with side arrows on desktop */}
+      <div className="relative flex items-start flex-1">
+        {/* Left Arrow - Desktop only */}
+        <div className="hidden md:flex absolute left-6 z-50">
+          <motion.button
+            onClick={handlePrevious}
+            disabled={isAnimating}
+            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+            style={{
+              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+              color: selectedPersona?.colors?.secondary || accentColor,
+              border: 'none'
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </motion.button>
+        </div>
 
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
+        {/* Right Arrow - Desktop only */}
+        <div className="hidden md:flex absolute right-6 z-50">
+          <motion.button
+            onClick={handleNext}
+            disabled={isAnimating}
+            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+            style={{
+              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+              color: selectedPersona?.colors?.secondary || accentColor,
+              border: 'none'
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </motion.button>
+        </div>
+
+        {/* Cards container */}
+        <div 
+          ref={containerRef}
+          className="container-responsive relative w-full flex justify-center"
+          style={{
+            alignItems: 'flex-start',
+            paddingTop: isMobile ? '16px' : '32px',
+            paddingLeft: isMobile ? '8px' : '24px',
+            paddingRight: isMobile ? '8px' : '24px',
+            paddingBottom: '0px',
+            overflow: 'visible',
+            maskImage: 'none',
+            WebkitMaskImage: 'none',
+            height: isMobile ? 'auto' : '100%',
+            flex: isMobile ? '0 0 auto' : undefined,
+            position: 'relative'
+          }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
         {/* Cards Container */}
         <motion.div 
           className="relative flex justify-center w-full h-auto"
@@ -218,13 +256,6 @@ export function Carousel3D({
             alignItems: isMobile ? 'flex-start' : 'center',
             height: isMobile ? 'auto' : '320px'
           }}
-          drag="x"
-          dragControls={dragControls}
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.2}
-          onDragStart={() => setIsDragging(true)}
-          onDragEnd={handleDragEnd}
-          whileDrag={{ cursor: 'grabbing' }}
         >
           <AnimatePresence>
             {visibleCards.map(({ item, originalIndex, position }) => {
@@ -236,9 +267,8 @@ export function Carousel3D({
                   key={`${item.id}-${originalIndex}`}
                   className={cn(
                     "absolute rounded-lg bg-white shadow-lg select-none",
-                    isCenter ? "shadow-2xl cursor-pointer" : "shadow-md cursor-default",
-                    isDragging ? "pointer-events-none" : (isCenter ? "pointer-events-auto" : "pointer-events-none"),
-                    !isCenter && "backdrop-blur-none"
+                    isCenter ? "shadow-2xl cursor-grab active:cursor-grabbing" : "shadow-md cursor-pointer",
+                    "backdrop-blur-none"
                   )}
                   style={{
                     width: style.width,
@@ -271,13 +301,55 @@ export function Carousel3D({
                     damping: 30,
                     mass: 0.8
                   }}
-                  onClick={isCenter ? () => handleCardClick(originalIndex) : undefined}
-                  whileHover={!isDragging && isCenter ? { 
-                    scale: style.scale * 1.02,
-                    y: -5,
+                  // Drag functionality for individual cards
+                  drag="x"
+                  dragConstraints={{ left: -100, right: 100 }}
+                  dragElastic={0.3}
+                  dragMomentum={false}
+                  onDragStart={(e, info) => {
+                    setIsDragging(true);
+                    e.stopPropagation();
+                  }}
+                  onDragEnd={(e, info) => {
+                    setIsDragging(false);
+                    e.stopPropagation();
+                    
+                    // Threshold for navigation
+                    const threshold = 50;
+                    
+                    if (Math.abs(info.offset.x) > threshold) {
+                      if (info.offset.x > 0) {
+                        // Dragged right - go to previous
+                        handlePrevious();
+                      } else {
+                        // Dragged left - go to next
+                        handleNext();
+                      }
+                    } else if (isCenter && Math.abs(info.offset.x) < 10) {
+                      // Small movement on center card - treat as click
+                      handleCardClick(originalIndex);
+                    } else if (!isCenter && Math.abs(info.offset.x) < 10) {
+                      // Small movement on side card - navigate to it
+                      handleCardClick(originalIndex);
+                    }
+                  }}
+                  onClick={(e) => {
+                    if (!isDragging) {
+                      handleCardClick(originalIndex);
+                    }
+                    e.stopPropagation();
+                  }}
+                  whileHover={!isDragging ? { 
+                    scale: isCenter ? style.scale * 1.02 : style.scale * 1.05,
+                    y: isCenter ? -5 : -3,
                     transition: { duration: 0.2 }
                   } : {}}
-                  whileTap={!isDragging && isCenter ? { scale: style.scale * 0.98 } : {}}
+                  whileTap={!isDragging ? { scale: style.scale * 0.98 } : {}}
+                  whileDrag={{ 
+                    scale: style.scale * 0.95,
+                    rotateY: (_, info) => info.offset.x * 0.1,
+                    transition: { duration: 0.1 }
+                  }}
                 >
                   <div 
                     className={cn(
@@ -401,57 +473,13 @@ export function Carousel3D({
             })}
           </AnimatePresence>
         </motion.div>
+        </div>
       </div>
 
-      {/* Desktop Layout: Side arrows and centered indicators */}
-      <div className="hidden md:block">
-        {/* Left Arrow */}
-        <div 
-          className="absolute left-6 top-1/2 -translate-y-1/2"
-          style={{ zIndex: 1000 }}
-        >
-          <motion.button
-            onClick={handlePrevious}
-            disabled={isAnimating}
-            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-            style={{
-              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-              color: selectedPersona?.colors?.secondary || accentColor,
-              border: 'none'
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </motion.button>
-        </div>
-
-        {/* Right Arrow */}
-        <div 
-          className="absolute right-6 top-1/2 -translate-y-1/2"
-          style={{ zIndex: 1000 }}
-        >
-          <motion.button
-            onClick={handleNext}
-            disabled={isAnimating}
-            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-            style={{
-              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-              color: selectedPersona?.colors?.secondary || accentColor,
-              border: 'none'
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChevronRight className="w-5 h-5" />
-          </motion.button>
-        </div>
-
-        {/* Centered Indicators */}
-        <div 
-          className="absolute left-1/2 -translate-x-1/2 flex gap-2"
-          style={{ zIndex: 1000, bottom: '16px' }}
-        >
+      {/* Controls Section - Relative positioning */}
+      <div className="flex-shrink-0">
+        {/* Desktop Indicators */}
+        <div className="hidden md:flex justify-center gap-2">
           {items.map((_, index) => (
             <button
               key={index}
@@ -469,31 +497,27 @@ export function Carousel3D({
             />
           ))}
         </div>
-      </div>
 
-      {/* Mobile Controls - Horizontal flexbox layout with centered alignment */}
-      <div className="md:hidden absolute bottom-4 left-0 right-0 pointer-events-none" style={{ zIndex: 1000 }}>
-        <div className="flex items-center justify-center gap-6 w-full px-4">
+        {/* Mobile Controls - Horizontal flexbox layout */}
+        <div className="md:hidden flex items-center justify-center gap-6 px-4">
           {/* Left arrow */}
-          <div className="pointer-events-auto">
-            <motion.button
-              onClick={handlePrevious}
-              disabled={isAnimating}
-              className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-              style={{
-                backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-                color: selectedPersona?.colors?.secondary || accentColor,
-                border: 'none'
-              }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </motion.button>
-          </div>
+          <motion.button
+            onClick={handlePrevious}
+            disabled={isAnimating}
+            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+            style={{
+              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+              color: selectedPersona?.colors?.secondary || accentColor,
+              border: 'none'
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </motion.button>
 
           {/* Centered Indicators */}
-          <div className="flex gap-2 pointer-events-auto">
+          <div className="flex gap-2">
             {items.map((_, index) => (
               <button
                 key={index}
@@ -513,22 +537,20 @@ export function Carousel3D({
           </div>
 
           {/* Right arrow */}
-          <div className="pointer-events-auto">
-            <motion.button
-              onClick={handleNext}
-              disabled={isAnimating}
-              className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
-              style={{
-                backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
-                color: selectedPersona?.colors?.secondary || accentColor,
-                border: 'none'
-              }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ChevronRight className="w-5 h-5" />
-            </motion.button>
-          </div>
+          <motion.button
+            onClick={handleNext}
+            disabled={isAnimating}
+            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
+            style={{
+              backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
+              color: selectedPersona?.colors?.secondary || accentColor,
+              border: 'none'
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </motion.button>
         </div>
       </div>
     </div>

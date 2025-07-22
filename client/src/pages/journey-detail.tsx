@@ -1,5 +1,6 @@
 import { useLocation } from 'wouter';
 import { ArrowLeft } from 'lucide-react';
+import { useEffect } from 'react';
 
 import { usePersona } from '@/hooks/use-persona';
 import { Carousel3D } from '@/components/ui/carousel-3d';
@@ -11,6 +12,11 @@ import { motion } from 'framer-motion';
 export default function JourneyDetail() {
   const { selectedPersona, currentStep, userName } = usePersona();
   const [, setLocation] = useLocation();
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Find the current step object from the persona's journey steps
   const currentStepObj = selectedPersona?.journeySteps.find(step => step.id === currentStep);

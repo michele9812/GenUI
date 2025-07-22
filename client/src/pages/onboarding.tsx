@@ -1,10 +1,16 @@
 import { useLocation } from 'wouter';
+import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import cheerfulPilotPath from '@assets/Cheerful Pilot Character_1753105244175.png';
 
 export default function OnboardingPage() {
   const [, navigate] = useLocation();
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleContinue = () => {
     navigate('/login');
