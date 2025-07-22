@@ -220,8 +220,8 @@ export function Carousel3D({
         isMobile ? "flex flex-col" : ""
       )}
       style={{
-        // Container hugs content with minimum height constraint
-        minHeight: isMobile ? '350px' : '418px',
+        // Container hugs content with minimum height: cards height + controls height (48px) + gap (24px) = +72px
+        minHeight: isMobile ? 'calc(350px + 72px)' : '418px', // Mobile: 422px total minimum
         maxHeight: isMobile ? 'calc(100vh - 160px)' : '418px'
       }}
     >
