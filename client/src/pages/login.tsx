@@ -13,8 +13,7 @@ import {
   Users, 
   Accessibility, 
   Globe, 
-  GraduationCap,
-  ArrowLeft 
+  GraduationCap
 } from 'lucide-react';
 
 export default function LoginPage() {
@@ -54,32 +53,32 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="h-viewport flex items-center justify-center bg-gray-200 container-responsive-padding">
-      <Card className="w-full max-w-md h-[600px] sm:h-[680px] md:h-[680px] shadow-2xl animation-scale-in">
-        <CardContent className="p-0 h-full relative">
-          <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center bg-gray-200 container-responsive-padding" style={{ height: '100vh', minHeight: '-webkit-fill-available' }}>
+      <Card className="w-full max-w-md shadow-2xl animation-scale-in" style={{ 
+        height: 'min(90vh, 680px)',
+        maxHeight: '90vh'
+      }}>
+        <CardContent className="p-4 sm:p-6 h-full flex flex-col">
+          {/* Header Section */}
+          <div className="flex-shrink-0 text-center mb-4">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-gray-50 mb-3">
               <img 
                 src={cheerfulPilotImage} 
                 alt="AirBuddy Pilot" 
                 className="w-full h-full object-contain"
               />
             </div>
-          </div>
-          
-          <div className="absolute top-24 sm:top-28 md:top-28 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
-            <h1 className="h1-responsive-small text-gray-900 text-[32px]">
+            <h1 className="h1-responsive-small text-gray-900 text-[28px] sm:text-[32px] mb-1">
               AirBuddy Assistant
             </h1>
-          </div>
-
-          <div className="absolute top-32 sm:top-44 md:top-44 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
-            <p className="text-sm sm:text-base md:text-base text-gray-600">
+            <p className="text-sm sm:text-base text-gray-600">
               Select your profile to continue
             </p>
           </div>
-          <div className="absolute top-40 sm:top-56 md:top-56 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
-            <div className="space-y-2 sm:space-y-4 md:space-y-4">
+          
+          {/* Form Section - Expandable */}
+          <div className="flex-1 flex flex-col justify-center">
+            <div className="space-y-3 sm:space-y-4">
               <div>
                 <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-2">
                   Name
@@ -112,160 +111,122 @@ export default function LoginPage() {
                 </Select>
               </div>
 
-              <div className="flex items-start">
-                {selectedPersona && (
+              {selectedPersona && (
+                <div 
+                  key={selectedPersona.id}
+                  className="border radius-responsive-small w-full transition-all duration-300"
+                  style={{ 
+                    backgroundColor: selectedPersona.colors.bg || `${selectedPersona.colors.primary}08`,
+                    borderColor: `${selectedPersona.colors.primary}30`
+                  }}
+                >
                   <div 
-                    key={selectedPersona.id}
-                    className="border radius-responsive-small w-full transition-all duration-300"
+                    className="px-3 py-2 border-b flex items-center justify-between"
                     style={{ 
-                      backgroundColor: selectedPersona.colors.bg || `${selectedPersona.colors.primary}08`,
-                      borderColor: `${selectedPersona.colors.primary}30`
+                      backgroundColor: `${selectedPersona.colors.primary}15`,
+                      borderBottomColor: `${selectedPersona.colors.primary}25`
                     }}
                   >
-                    {/* Preview Header */}
+                    <div className="flex items-center space-x-2">
+                      <div 
+                        className="w-6 h-6 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                        style={{ 
+                          backgroundColor: selectedPersona.colors.primary,
+                          minWidth: '24px',
+                          minHeight: '24px'
+                        }}
+                      >
+                        <div className="w-[18px] h-[18px] flex items-center justify-center">
+                          {renderPersonaIcon(selectedPersona.id)}
+                        </div>
+                      </div>
+                      <h3 
+                        className="font-semibold text-xs"
+                        style={{ 
+                          color: selectedPersona.colors.text || selectedPersona.colors.primary,
+                          fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily,
+                          fontSize: selectedPersona.typography.scale ? `${0.75 * selectedPersona.typography.scale}rem` : '0.75rem'
+                        }}
+                      >
+                        {selectedPersona.title}
+                      </h3>
+                    </div>
                     <div 
-                      className="px-3 py-2 border-b flex items-center justify-between"
+                      className="text-xs px-2 py-1 rounded-full"
                       style={{ 
-                        backgroundColor: `${selectedPersona.colors.primary}15`,
-                        borderBottomColor: `${selectedPersona.colors.primary}25`
+                        backgroundColor: `${selectedPersona.colors.primary}20`,
+                        color: selectedPersona.colors.primary
                       }}
                     >
-                      <div className="flex items-center space-x-2">
-                        <div 
-                          className="w-6 h-6 rounded-full flex items-center justify-center text-white flex-shrink-0"
-                          style={{ 
-                            backgroundColor: selectedPersona.colors.primary,
-                            minWidth: '24px',
-                            minHeight: '24px'
-                          }}
-                        >
-                          <div className="w-[18px] h-[18px] flex items-center justify-center">
-                            {renderPersonaIcon(selectedPersona.id)}
-                          </div>
-                        </div>
-                        <h3 
-                          className="font-semibold text-xs"
-                          style={{ 
-                            color: selectedPersona.colors.text || selectedPersona.colors.primary,
-                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily,
-                            fontSize: selectedPersona.typography.scale ? `${0.75 * selectedPersona.typography.scale}rem` : '0.75rem'
-                          }}
-                        >
-                          {selectedPersona.title}
-                        </h3>
-                      </div>
-                      <div 
-                        className="text-xs px-2 py-1 rounded-full"
-                        style={{ 
-                          backgroundColor: `${selectedPersona.colors.primary}20`,
-                          color: selectedPersona.colors.primary
-                        }}
-                      >
-                        Preview
-                      </div>
-                    </div>
-
-                    {/* Journey Step Preview */}
-                    <div className="p-3 space-y-2">
-
-                      {/* Profile Information */}
-                      <div 
-                        className="p-2 rounded border"
-                        style={{ 
-                          backgroundColor: `${selectedPersona.colors.secondary || selectedPersona.colors.primary}08`,
-                          borderColor: `${selectedPersona.colors.secondary || selectedPersona.colors.primary}20`
-                        }}
-                      >
-                        <div 
-                          className="text-xs font-medium mb-1"
-                          style={{ 
-                            color: selectedPersona.colors.secondary || selectedPersona.colors.primary,
-                            fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily
-                          }}
-                        >
-                          {(() => {
-                            const getAgeAndNationality = (personaId: string) => {
-                              const profiles = {
-                                'tech': 'Italian, 38 years old',
-                                'family': 'Moroccan, 34 years old',
-                                'senior': 'German, 72 years old',
-                                'bleisure': 'Indian, 29 years old',
-                                'student': 'Chinese, 20 years old'
-                              };
-                              return profiles[personaId as keyof typeof profiles] || 'Profile Info';
-                            };
-                            return getAgeAndNationality(selectedPersona.id);
-                          })()}
-                        </div>
-                        <p 
-                          className="text-xs leading-relaxed"
-                          style={{ 
-                            color: selectedPersona.colors.textSecondary || '#6b7280',
-                            fontFamily: selectedPersona.typography.fontFamily,
-                            fontSize: selectedPersona.typography.scale ? `${0.75 * selectedPersona.typography.scale}rem` : '0.75rem',
-                            lineHeight: selectedPersona.typography.lineHeight || '1.5'
-                          }}
-                        >
-                          {(() => {
-                            const getDescription = (personaId: string) => {
-                              const descriptions = {
-                                'tech': 'Elite business traveler who values efficiency and cutting-edge technology for seamless airport experiences.',
-                                'family': 'Organized mother prioritizing budget-friendly, family-focused services for stress-free travel with children.',
-                                'senior': 'Experienced traveler requiring accessible services and clear information for comfortable journeys.',
-                                'bleisure': 'Digital nomad combining business meetings with leisure exploration during flexible travel schedules.',
-                                'student': 'First-time international traveler needing guidance and support for solo journey to American college.'
-                              };
-                              return descriptions[personaId as keyof typeof descriptions] || selectedPersona.description;
-                            };
-                            return getDescription(selectedPersona.id);
-                          })()}
-                        </p>
-                      </div>
-
-                      {/* Color and Typography Sample */}
-                      <div className="pt-1">
-                        <div 
-                          className="w-full flex items-center justify-between p-1.5 rounded border text-xs"
-                          style={{ 
-                            backgroundColor: `${selectedPersona.colors.primary}08`,
-                            borderColor: `${selectedPersona.colors.primary}15`,
-                            color: selectedPersona.colors.textSecondary || '#9ca3af',
-                            fontSize: '0.65rem'
-                          }}
-                        >
-                          <span className="flex-1">{selectedPersona.fonts.primary}, {selectedPersona.fonts.secondary}</span>
-                          <div className="flex items-center space-x-1 ml-3">
-                            <div 
-                              className="w-3 h-3 rounded-full border"
-                              style={{ 
-                                backgroundColor: selectedPersona.colors.primary,
-                                borderColor: selectedPersona.colors.primary 
-                              }}
-                              title="Primary Color"
-                            ></div>
-                            <div 
-                              className="w-3 h-3 rounded-full border"
-                              style={{ 
-                                backgroundColor: selectedPersona.colors.secondary || selectedPersona.colors.accent,
-                                borderColor: selectedPersona.colors.secondary || selectedPersona.colors.accent 
-                              }}
-                              title="Secondary/Accent Color"
-                            ></div>
-                          </div>
-                        </div>
-                      </div>
+                      Preview
                     </div>
                   </div>
-                )}
-              </div>
+
+                  <div className="p-3 space-y-2">
+                    <div 
+                      className="p-2 rounded border"
+                      style={{ 
+                        backgroundColor: `${selectedPersona.colors.secondary || selectedPersona.colors.primary}08`,
+                        borderColor: `${selectedPersona.colors.secondary || selectedPersona.colors.primary}20`
+                      }}
+                    >
+                      <div 
+                        className="text-xs font-medium mb-1"
+                        style={{ 
+                          color: selectedPersona.colors.secondary || selectedPersona.colors.primary,
+                          fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily
+                        }}
+                      >
+                        {(() => {
+                          const getAgeAndNationality = (personaId: string) => {
+                            const profiles = {
+                              'tech': 'Italian, 38 years old',
+                              'family': 'Moroccan, 34 years old',
+                              'senior': 'German, 72 years old',
+                              'bleisure': 'Indian, 29 years old',
+                              'student': 'Chinese, 20 years old'
+                            };
+                            return profiles[personaId as keyof typeof profiles] || 'Profile Info';
+                          };
+                          return getAgeAndNationality(selectedPersona.id);
+                        })()}
+                      </div>
+                      <p 
+                        className="text-xs leading-relaxed"
+                        style={{ 
+                          color: selectedPersona.colors.textSecondary || '#6b7280',
+                          fontFamily: selectedPersona.typography.fontFamily,
+                          fontSize: selectedPersona.typography.scale ? `${0.75 * selectedPersona.typography.scale}rem` : '0.75rem',
+                          lineHeight: selectedPersona.typography.lineHeight || '1.5'
+                        }}
+                      >
+                        {(() => {
+                          const getDescription = (personaId: string) => {
+                            const descriptions = {
+                              'tech': 'Elite business traveler who values efficiency and cutting-edge technology for seamless airport experiences.',
+                              'family': 'Organized mother prioritizing budget-friendly, family-focused services for stress-free travel with children.',
+                              'senior': 'Experienced traveler requiring accessible services and clear information for comfortable journeys.',
+                              'bleisure': 'Digital nomad combining business meetings with leisure exploration during flexible travel schedules.',
+                              'student': 'First-time international traveler needing guidance and support for solo journey to American college.'
+                            };
+                            return descriptions[personaId as keyof typeof descriptions] || selectedPersona.description;
+                          };
+                          return getDescription(selectedPersona.id);
+                        })()}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-
-          <div className="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
+          
+          {/* Footer Section */}
+          <div className="flex-shrink-0 mt-4">
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
-              className="w-full py-1.5 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:from-cyan-600 hover:to-cyan-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transform hover:scale-105 disabled:transform-none"
+              className="w-full py-2 sm:py-3 text-sm sm:text-base font-medium bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:from-cyan-600 hover:to-cyan-700 disabled:from-gray-400 disabled:to-gray-500 transform hover:scale-105"
             >
               Start the journey
             </Button>
