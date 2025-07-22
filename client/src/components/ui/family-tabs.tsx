@@ -177,8 +177,8 @@ export default function FamilyTabs({
               <motion.button
                 className="w-full py-2.5 md:py-3 font-medium rounded-lg transition-colors hover:opacity-90 max-h-[56px] md:max-h-none"
                 style={{ 
-                  backgroundColor: selectedPersona?.colors.secondary || secondaryColor,
-                  color: '#2E2E2E',
+                  backgroundColor: '#2E2E2E',
+                  color: '#FFFFFF',
                   fontFamily: personaTypography?.fontFamily || 'inherit',
                   fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined,
                   border: 'none'
