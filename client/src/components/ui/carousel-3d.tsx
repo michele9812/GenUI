@@ -242,10 +242,8 @@ export function Carousel3D({
           className="container-responsive relative w-full flex justify-center"
           style={{
             alignItems: 'flex-start',
-            paddingTop: isMobile ? '16px' : '32px',
             paddingLeft: isMobile ? '8px' : '24px',
             paddingRight: isMobile ? '8px' : '24px',
-            paddingBottom: '40px',
             overflowX: 'hidden',
             overflowY: 'visible',
             maskImage: 'none',
@@ -263,7 +261,8 @@ export function Carousel3D({
             alignItems: 'flex-start',
             height: 'auto',
             minHeight: '350px',
-            paddingTop: '16px',
+            paddingTop: isMobile ? '16px' : '32px',
+            paddingBottom: '40px',
             overflowX: 'hidden',
             overflowY: 'visible'
           }}
