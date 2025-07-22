@@ -50,7 +50,7 @@ export default function LoginPage() {
 
   return (
     <div className="h-viewport flex items-center justify-center bg-gray-200 container-responsive-padding">
-      <Card className="w-full max-w-md h-[680px] sm:h-[680px] md:h-[680px] shadow-2xl animation-scale-in">
+      <Card className="w-full max-w-md h-[600px] sm:h-[680px] md:h-[680px] shadow-2xl animation-scale-in">
         <CardContent className="p-0 h-full relative">
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
             <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-gray-50">
