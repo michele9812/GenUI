@@ -488,7 +488,12 @@ export default function JourneyDetail() {
         >
           {/* Desktop Version - Icon + Text */}
           <div className="hidden sm:flex items-center gap-2 px-4 py-3">
-            <ArrowLeft className="w-4 h-4 text-gray-600" />
+            <ArrowLeft 
+              className="w-4 h-4" 
+              style={{
+                color: isStudentPersona ? '#f59e0b' : '#6b7280'
+              }}
+            />
             <span 
               className="text-sm font-medium"
               style={{
@@ -502,7 +507,12 @@ export default function JourneyDetail() {
 
           {/* Mobile Version - Icon Only */}
           <div className="flex sm:hidden items-center justify-center p-3">
-            <ArrowLeft className="w-6 h-6 text-gray-600" />
+            <ArrowLeft 
+              className="w-6 h-6" 
+              style={{
+                color: isStudentPersona ? '#f59e0b' : '#6b7280'
+              }}
+            />
           </div>
         </motion.button>
       </div>

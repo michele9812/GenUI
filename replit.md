@@ -14,7 +14,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Updated mobile text sizing standards**: Set minimum 18px font size for all body text on mobile devices, increased text-content-responsive from 16px to 18px mobile, updated responsive text classes to ensure readability
 - **Enhanced journey detail text sizing**: Updated journey detail page paragraphs to use 18px minimum on mobile (up from 16pt) and 20px on desktop for better readability
 - **Standardized floating input icon behavior**: All icons default to black (#000000) with primary color hover effects on desktop, mobile versions have no interactive states for clean touch interface, consistent styling across all floating input components
-- **Standardized Student persona yellow accent**: Updated all interactive elements for Student persona to use #F59E0B including carousel indicators, MacOSDock dots, and "back to profile selection" button icons and text, ensuring consistent yellow accent theming
+- **Student persona yellow accent in journey detail only**: Applied #F59E0B color specifically to journey-detail page for Student persona - carousel dot indicators when active and "back to phase selection" button icon/text. Welcome page maintains standard persona colors for consistency
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**
