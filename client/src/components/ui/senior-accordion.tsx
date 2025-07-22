@@ -186,9 +186,7 @@ export function SeniorAccordion({
                         fontSize: personaTypography?.scale ? 
                           `calc(${window.innerWidth < 640 ? '0.875rem' : '1rem'} * ${Math.min(personaTypography.scale, 1.15)})` : 
                           window.innerWidth < 640 ? '0.875rem' : undefined,
-                        border: 'none',
-                        maxWidth: window.innerWidth < 640 ? '100%' : '320px',
-                        minWidth: window.innerWidth < 640 ? 'auto' : '140px'
+                        border: 'none'
                       }}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
