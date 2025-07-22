@@ -68,13 +68,13 @@ export default function LoginPage() {
             </h1>
           </div>
 
-          <div className="absolute top-36 sm:top-44 md:top-44 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
+          <div className="absolute top-32 sm:top-44 md:top-44 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6 text-center">
             <p className="text-sm sm:text-base md:text-base text-gray-600">
               Select your profile to continue
             </p>
           </div>
-          <div className="absolute top-48 sm:top-56 md:top-56 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
-            <div className="space-y-3 sm:space-y-4 md:space-y-4">
+          <div className="absolute top-40 sm:top-56 md:top-56 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
+            <div className="space-y-2 sm:space-y-4 md:space-y-4">
               <div>
                 <Label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-2">
                   Name
@@ -256,11 +256,11 @@ export default function LoginPage() {
             </div>
           </div>
 
-          <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
+          <div className="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6 md:left-6 md:right-6">
             <Button 
               onClick={handleStart}
               disabled={!selectedPersonaId || !userName.trim()}
-              className="w-full py-2 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:from-cyan-600 hover:to-cyan-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transform hover:scale-105 disabled:transform-none"
+              className="w-full py-1.5 sm:py-3 md:py-3 text-sm sm:text-base md:text-base font-medium bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:from-cyan-600 hover:to-cyan-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transform hover:scale-105 disabled:transform-none"
             >
               Start the journey
             </Button>
