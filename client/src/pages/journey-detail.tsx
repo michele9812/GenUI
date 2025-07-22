@@ -404,10 +404,8 @@ export default function JourneyDetail() {
 
   const carouselItems = getContextualActions();
 
-  // Special styling for Student and Family Planner personas
+  // Special dark navy background for First-Time Student persona
   const isStudentPersona = selectedPersona.id === 'student';
-  const isFamilyPersona = selectedPersona.id === 'family';
-  
   const backgroundColor = isStudentPersona 
     ? '#0F172A' // Dark navy background for student persona
     : selectedPersona.colors.bg;
@@ -422,16 +420,9 @@ export default function JourneyDetail() {
     : selectedPersona.colors.primary;
   const nameColor = isStudentPersona
     ? '#F59E0B' // Yellow for user name
-    : isFamilyPersona
-    ? '#FFFFFF' // White text for family persona name with dark background
     : selectedPersona.colors.secondary;
-  const nameBackgroundColor = isFamilyPersona 
-    ? '#2E2E2E' // Dark background for family persona name
-    : 'transparent';
   const buttonColor = isStudentPersona
     ? '#F59E0B' // Yellow accent for buttons
-    : isFamilyPersona
-    ? selectedPersona.colors.secondary // Use secondary color for family buttons
     : selectedPersona.colors.primary;
 
   return (
@@ -568,13 +559,7 @@ export default function JourneyDetail() {
             }}
           >
             Hello{' '}
-            <span style={{ 
-              color: nameColor,
-              backgroundColor: nameBackgroundColor,
-              padding: isFamilyPersona ? '4px 8px' : '0',
-              borderRadius: isFamilyPersona ? '6px' : '0',
-              display: isFamilyPersona ? 'inline-block' : 'inline'
-            }}>
+            <span style={{ color: nameColor }}>
               {userName || 'User'}
             </span>
             ,
