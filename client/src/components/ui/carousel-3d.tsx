@@ -444,7 +444,7 @@ export function Carousel3D({
       <div className="hidden md:block">
         {/* Left Arrow */}
         <div 
-          className="absolute left-4 top-1/2 -translate-y-1/2"
+          className="absolute left-6 top-1/2 -translate-y-1/2"
           style={{ zIndex: 1000 }}
         >
           <motion.button
@@ -465,7 +465,7 @@ export function Carousel3D({
 
         {/* Right Arrow */}
         <div 
-          className="absolute right-4 top-1/2 -translate-y-1/2"
+          className="absolute right-6 top-1/2 -translate-y-1/2"
           style={{ zIndex: 1000 }}
         >
           <motion.button
