@@ -199,7 +199,7 @@ export function Carousel3D({
         {/* Left Arrow - Desktop only */}
         <div className="hidden md:flex absolute left-6 top-1/2 transform -translate-y-1/2 z-50">
           <motion.button
-            onClick={handlePrevious}
+            onClick={() => handlePrevious()}
             disabled={isAnimating}
             className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
             style={{
@@ -217,7 +217,7 @@ export function Carousel3D({
         {/* Right Arrow - Desktop only */}
         <div className="hidden md:flex absolute right-6 top-1/2 transform -translate-y-1/2 z-50">
           <motion.button
-            onClick={handleNext}
+            onClick={() => handleNext()}
             disabled={isAnimating}
             className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
             style={{
@@ -259,7 +259,7 @@ export function Carousel3D({
             height: 'auto',
             minHeight: '350px',
             paddingTop: isMobile ? '16px' : '32px',
-            paddingBottom: '40px',
+            paddingBottom: isMobile ? '24px' : '40px', // Reduced by 16px on mobile: 40px - 16px = 24px
             overflow: 'visible'
           }}
         >
@@ -506,7 +506,7 @@ export function Carousel3D({
         <div className="md:hidden flex items-center justify-center gap-6 px-4">
           {/* Left arrow */}
           <motion.button
-            onClick={handlePrevious}
+            onClick={() => handlePrevious()}
             disabled={isAnimating}
             className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
             style={{
@@ -542,7 +542,7 @@ export function Carousel3D({
 
           {/* Right arrow */}
           <motion.button
-            onClick={handleNext}
+            onClick={() => handleNext()}
             disabled={isAnimating}
             className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
             style={{
