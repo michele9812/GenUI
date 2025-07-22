@@ -183,10 +183,10 @@ export function Carousel3D({
     const distanceFromCenter = Math.abs(position);
     const fadeOpacity = Math.max(0.1, 1 - (distanceFromCenter * 0.3)); // Gradual fade instead of sharp cutoff
     
-    // Responsive height calculation - fill available space minus padding and controls
+    // Responsive height calculation - fill available space minus padding
     const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
     const cardHeight = isMobile ? 
-      Math.min(Math.floor((viewportHeight - 280) * 0.7), 300) : // Mobile: 70% of available height, max 300px - adjusted for controls space
+      Math.min(Math.floor((viewportHeight - 220) * 0.6), 350) : // Mobile: 60% of available height, max 350px - restored original
       320; // Desktop: fixed 320px
     
     return {
@@ -220,10 +220,10 @@ export function Carousel3D({
         isMobile ? "flex flex-col" : "relative"
       )}
       style={{
-        // Fill available height ensuring controls are visible within viewport - reduced for mobile controls
-        height: isMobile ? 'calc(100vh - 280px)' : '418px', // Mobile: reduced by 60px for controls space
-        maxHeight: isMobile ? 'calc(100vh - 280px)' : '418px',
-        minHeight: isMobile ? '280px' : '418px' // Reduced minimum for mobile
+        // Fill available height ensuring controls are visible within viewport
+        height: isMobile ? 'calc(100vh - 220px)' : '418px', // Mobile: restored original height
+        maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
+        minHeight: isMobile ? '320px' : '418px' // Restored original minimum
       }}
     >
       <div 
