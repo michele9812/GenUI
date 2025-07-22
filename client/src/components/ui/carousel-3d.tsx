@@ -309,21 +309,35 @@ export function Carousel3D({
                   }}
                   // Drag functionality for individual cards
                   drag="x"
-                  dragConstraints={{ left: -100, right: 100 }}
-                  dragElastic={0.3}
+                  dragConstraints={{ left: -150, right: 150 }}
+                  dragElastic={0.2}
                   dragMomentum={false}
+                  dragPropagation={false}
                   onDragStart={(e, info) => {
                     setIsDragging(true);
+                    setIsAnimating(true);
+                    e.stopPropagation();
+                  }}
+                  onDrag={(e, info) => {
+                    // Prevent any parent scrolling during drag
+                    e.preventDefault();
                     e.stopPropagation();
                   }}
                   onDragEnd={(e, info) => {
-                    setIsDragging(false);
+                    setTimeout(() => {
+                      setIsDragging(false);
+                      setIsAnimating(false);
+                    }, 150);
                     e.stopPropagation();
+                    e.preventDefault();
                     
-                    // Threshold for navigation
-                    const threshold = 50;
+                    // Enhanced threshold for better responsiveness
+                    const threshold = 60;
+                    const velocity = Math.abs(info.velocity.x);
+                    const offset = Math.abs(info.offset.x);
                     
-                    if (Math.abs(info.offset.x) > threshold) {
+                    // Consider both distance and velocity for navigation
+                    if (offset > threshold || velocity > 500) {
                       if (info.offset.x > 0) {
                         // Dragged right - go to previous
                         handlePrevious();
@@ -331,19 +345,22 @@ export function Carousel3D({
                         // Dragged left - go to next
                         handleNext();
                       }
-                    } else if (isCenter && Math.abs(info.offset.x) < 10) {
-                      // Small movement on center card - treat as click
-                      handleCardClick(originalIndex);
-                    } else if (!isCenter && Math.abs(info.offset.x) < 10) {
-                      // Small movement on side card - navigate to it
-                      handleCardClick(originalIndex);
+                    } else if (offset < 15 && velocity < 300) {
+                      // Very small movement - treat as click
+                      if (isCenter) {
+                        handleCardClick(originalIndex);
+                      } else {
+                        // Navigate to side card
+                        handleCardClick(originalIndex);
+                      }
                     }
                   }}
                   onClick={(e) => {
-                    if (!isDragging) {
+                    if (!isDragging && !isAnimating) {
                       handleCardClick(originalIndex);
                     }
                     e.stopPropagation();
+                    e.preventDefault();
                   }}
                   whileHover={!isDragging ? { 
                     scale: isCenter ? style.scale * 1.02 : style.scale * 1.05,
@@ -352,9 +369,10 @@ export function Carousel3D({
                   } : {}}
                   whileTap={!isDragging ? { scale: style.scale * 0.98 } : {}}
                   whileDrag={{ 
-                    scale: style.scale * 0.95,
+                    scale: style.scale * 0.96,
                     rotateY: 0,
-                    transition: { duration: 0.1 }
+                    rotateZ: 0,
+                    transition: { duration: 0.15, ease: "easeOut" }
                   }}
                 >
                   <div 
