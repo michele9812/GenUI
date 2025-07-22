@@ -593,7 +593,7 @@ export default function JourneyDetail() {
         </motion.div>
       </div>
       {/* Main Content - Full width with responsive padding */}
-      <main className="flex-1 w-full h-full overflow-hidden container-responsive-padding">
+      <main className="flex-1 w-full h-full container-responsive-padding">
 
         {/* 3D Carousel, Senior Accordion, or Family Tabs */}
         <motion.div 
