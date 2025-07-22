@@ -28,6 +28,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Fixed carousel content clipping**: Changed overflow from hidden to visible and added bottom padding to prevent card content from being cut off, ensuring full card visibility on both desktop and mobile with proper hug content behavior
 - **Optimized carousel overflow behavior**: Applied overflow-x hidden and overflow-y visible to both outer and inner carousel containers to prevent horizontal viewport anomalies while allowing vertical card content to display completely without clipping
 - **Removed carousel container height constraints**: Eliminated minHeight restrictions from motion.div to ensure pure fit-content behavior without any height limitations that could clip card content
+- **Restored minimal height constraint**: Added back minHeight: 320px to motion.div to prevent container collapse while maintaining fit-content behavior for proper card visibility
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**
