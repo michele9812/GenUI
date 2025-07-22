@@ -135,11 +135,11 @@ export function Carousel3D({
       const availableWidth = screenWidth - lateralPadding;
       const availableHeight = 350 - motionDivPadding; // minHeight minus padding
       
-      // Center card fills 90% width, 85% height
-      // Side cards fill 70% width, 80% height
+      // Center card fills 90% width, 98% height for true fill
+      // Side cards fill 70% width, 95% height for true fill
       centerWidth = availableWidth * 0.9;
       baseWidth = availableWidth * 0.7;
-      cardHeight = isCenter ? availableHeight * 0.85 : availableHeight * 0.8;
+      cardHeight = isCenter ? availableHeight * 0.98 : availableHeight * 0.95;
       spacing = 20;
     } else if (isTablet) {
       baseWidth = 200;
