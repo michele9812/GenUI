@@ -231,12 +231,12 @@ export function Carousel3D({
           paddingTop: isMobile ? '16px' : '16px', // Max 16px top padding on mobile
           paddingLeft: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingRight: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
-          paddingBottom: isMobile ? '24px' : '48px', // 24px gap between cards and controls on mobile
+          paddingBottom: isMobile ? '0px' : '48px', // No padding bottom on mobile for precise control positioning
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: '100%' // Use full container height
+          height: isMobile ? 'auto' : '100%' // Mobile: auto height, Desktop: full height
         }}
 
         onMouseEnter={() => setIsPaused(true)}
@@ -437,7 +437,7 @@ export function Carousel3D({
       </div>
       {/* Navigation Controls - Mobile: horizontal flexbox, Desktop: positioned */}
       {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
-      <div className="md:hidden absolute inset-x-0 px-4 z-[1000]" style={{ bottom: '16px' }}>
+      <div className="md:hidden relative px-4 z-[1000]" style={{ marginTop: '24px' }}>
         <div className="flex justify-between items-center">
           {/* Pagination Indicators - Left side on mobile */}
           <div className="flex gap-2">
