@@ -101,7 +101,7 @@ export default function Welcome() {
       size="90%"
       blendingValue="soft-light"
       interactive={true}
-      containerClassName="h-viewport"
+      containerClassName="h-viewport overflow-hidden"
       className="flex flex-col"
     >
       {/* Navbar - Full width with horizontal layout */}

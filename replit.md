@@ -40,6 +40,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Enhanced overflow visibility**: Updated all container levels (root, main, cards container, motion.div) to use overflow: 'visible' ensuring card shadows and hover effects are never clipped
 - **Mobile cards fill optimization**: Updated getCardStyle function to make mobile cards fill available space - center cards use 90% width and 98% height, side cards use 70% width and 95% height of motion.div available space for true fill behavior
 - **Carousel active card typography**: Set description paragraphs in active (center) cards to use 18px font size with persona scaling, while inactive cards maintain smaller text-xs sizing for clear hierarchy
+- **Viewport overflow control**: Added overflow: 'hidden' to main containers in journey-detail and welcome pages to prevent mobile viewport scrolling issues, ensuring carousel interactions stay within intended boundaries
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**
