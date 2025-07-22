@@ -220,10 +220,10 @@ export function Carousel3D({
         isMobile ? "flex flex-col" : "relative"
       )}
       style={{
-        // Fill available height with proper spacing from floating input
-        height: isMobile ? 'calc(100vh - 300px)' : '418px', // Mobile: extra space for floating input + 40px gap
-        maxHeight: isMobile ? 'calc(100vh - 300px)' : '418px',
-        minHeight: isMobile ? '250px' : '418px' // Reduced minimum height for mobile
+        // Fill available height with proper spacing from floating input (typically 80px + 40px gap = 120px total)
+        height: isMobile ? 'calc(100vh - 160px)' : '418px', // Mobile: reduced height to leave space for floating input
+        maxHeight: isMobile ? 'calc(100vh - 160px)' : '418px',
+        minHeight: isMobile ? '300px' : '418px' // Keep reasonable minimum
       }}
     >
       <div 
