@@ -773,21 +773,25 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
           >
             <PromptInputAction tooltip="Upload image">
               <button
-                onClick={() => uploadInputRef.current?.click()}
-                className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-colors"
+                onClick={() => {}} // Disabled functionality
+                className="flex h-8 w-8 cursor-not-allowed items-center justify-center rounded-full transition-colors opacity-50"
                 style={{
                   color: '#000000', // Default black
                   backgroundColor: 'transparent'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
-                  e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
+                  if (window.innerWidth >= 768) { // Only on desktop
+                    e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
+                    e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = '#000000'; // Back to black
+                  if (window.innerWidth >= 768) { // Only on desktop
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = '#000000'; // Back to black
+                  }
                 }}
-                disabled={isRecording}
+                disabled={true} // Always disabled
               >
                 <Paperclip className="h-5 w-5 transition-colors" />
                 <input
@@ -808,11 +812,9 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
             tooltip={
               isLoading
                 ? "Stop generation"
-                : isRecording
-                ? "Stop recording"
                 : hasContent
                 ? "Send message"
-                : "Voice message"
+                : "Voice message (disabled)"
             }
           >
             <Button
@@ -820,60 +822,52 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
               size="icon"
               className="h-8 w-8 rounded-full transition-all duration-200"
               style={{
-                backgroundColor: isRecording
-                  ? 'transparent'
-                  : hasContent
+                backgroundColor: hasContent
                   ? accentColor
                   : 'transparent',
-                color: isRecording
-                  ? '#ef4444' // red-500
-                  : hasContent
+                color: hasContent
                   ? 'white'
                   : '#000000', // Default black
-                fontFamily: personaTypography?.fontFamily || 'inherit'
+                fontFamily: personaTypography?.fontFamily || 'inherit',
+                opacity: hasContent ? 1 : 0.5, // Disabled appearance when no content
+                cursor: hasContent ? 'pointer' : 'not-allowed'
               }}
               onMouseEnter={(e) => {
-                if (!isRecording && !hasContent) {
-                  e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
-                  e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
-                } else if (hasContent) {
-                  e.currentTarget.style.opacity = '0.8';
-                } else if (isRecording) {
-                  e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-                  e.currentTarget.style.color = '#f87171'; // red-400
+                if (window.innerWidth >= 768) { // Only on desktop
+                  if (!hasContent) {
+                    e.currentTarget.style.backgroundColor = accentColor ? `${accentColor}1A` : 'rgba(0, 0, 0, 0.1)'; // 10% opacity background
+                    e.currentTarget.style.color = accentColor || '#000000'; // Primary color on hover
+                  } else if (hasContent) {
+                    e.currentTarget.style.opacity = '0.8';
+                  }
                 }
               }}
               onMouseLeave={(e) => {
-                if (!isRecording && !hasContent) {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = '#000000'; // Back to black
-                } else if (hasContent) {
-                  e.currentTarget.style.opacity = '1';
-                } else if (isRecording) {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = '#ef4444'; // red-500
+                if (window.innerWidth >= 768) { // Only on desktop
+                  if (!hasContent) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = '#000000'; // Back to black
+                  } else if (hasContent) {
+                    e.currentTarget.style.opacity = '1';
+                  }
                 }
               }}
               onClick={() => {
-                if (isRecording) setIsRecording(false);
-                else if (hasContent) handleSubmit();
-                else setIsRecording(true);
+                if (hasContent) handleSubmit(); // Only allow send when there's content
               }}
-              disabled={isLoading && !hasContent}
+              disabled={isLoading || !hasContent} // Disabled when no content
             >
               {isLoading ? (
                 <Square 
                   className="h-4 w-4 animate-pulse" 
                   style={{ fill: hasContent ? 'white' : (accentColor || '#1F2023') }}
                 />
-              ) : isRecording ? (
-                <StopCircle className="h-5 w-5" style={{ color: '#ef4444' }} />
               ) : hasContent ? (
                 <ArrowUp className="h-4 w-4" style={{ color: 'white' }} />
               ) : (
                 <Mic 
                   className="h-5 w-5 transition-colors" 
-                  style={{ color: '#000000' }}
+                  style={{ color: '#000000', opacity: '0.5' }}
                 />
               )}
             </Button>
