@@ -606,7 +606,7 @@ export default function JourneyDetail() {
       <main 
         className="flex-1 w-full h-full container-responsive-padding"
         style={{
-          marginTop: window.innerWidth >= 768 ? '32px' : '16px' // 32px desktop, 16px mobile
+          marginTop: window.innerWidth >= 768 ? '24px' : '16px' // 24px desktop, 16px mobile
         }}
       >
 
