@@ -172,11 +172,8 @@ export function Carousel3D({
     // Enhanced positioning with responsive adjustments
     const offsetMultiplier = isCenter ? 0 : Math.sign(position) * 0.2;
     const responsiveScale = isCenter ? (isMobile ? 1.05 : 1.1) : (isMobile ? 0.9 : 0.85);
-    // Calculate vertical offset to align center card with arrows
-    // On desktop: arrows use top-1/2 to center in the main container
-    // Cards container uses alignItems: center, which should center the cards
-    // But we might need a small adjustment to perfectly align with arrows
-    const verticalOffset = isCenter ? (isMobile ? 0 : -25) : Math.abs(position) * (isMobile ? 0 : 5); // Try -25px offset for desktop center card
+    // Calculate vertical offset - keep cards centered within their container
+    const verticalOffset = isCenter ? 0 : Math.abs(position) * (isMobile ? 0 : 5); // No offset for center card, slight offset for side cards
     
     // Improved spacing calculation - consistent gaps for all positions
     const cardWidth = isCenter ? centerWidth : baseWidth;
@@ -254,10 +251,11 @@ export function Carousel3D({
         <motion.div 
           className={cn(
             "relative flex justify-center w-full",
-            isMobile ? "h-auto" : "h-full" // Mobile: hug content, Desktop: full height
+            isMobile ? "h-auto" : "h-auto" // Both mobile and desktop: hug content to prevent overflow
           )}
           style={{
-            alignItems: isMobile ? 'flex-start' : 'center' // Top alignment for mobile, center for desktop
+            alignItems: isMobile ? 'flex-start' : 'center', // Top alignment for mobile, center for desktop
+            height: isMobile ? 'auto' : '320px' // Desktop: fixed height matching card height
           }}
           drag="x"
           dragControls={dragControls}
