@@ -244,11 +244,11 @@ export function Carousel3D({
       >
         {/* Cards Container */}
         <motion.div 
-          className="relative flex justify-center w-full"
+          className="relative flex justify-center w-full h-full"
           style={{
             alignItems: 'center', // Center alignment for both mobile and desktop
-            height: isMobile ? 'calc(100% - 56px)' : 'calc(100% - 64px)', // Reduced height: mobile -56px, desktop -64px
-            minHeight: isMobile ? '260px' : '300px' // Minimum heights to ensure usability
+            marginTop: '0px', // No additional top margin since parent has 16px padding-top
+            paddingBottom: '0px' // No internal padding - controls are positioned separately
           }}
           drag="x"
           dragControls={dragControls}
@@ -436,7 +436,7 @@ export function Carousel3D({
       </div>
       {/* Navigation Controls - Mobile: horizontal flexbox, Desktop: positioned */}
       {/* Mobile Layout: Bottom horizontal flexbox with dots left, arrows right */}
-      <div className="md:hidden absolute inset-x-0 px-4 z-[1000]" style={{ bottom: '24px' }}>
+      <div className="md:hidden absolute inset-x-0 px-4 z-[1000]" style={{ bottom: '16px' }}>
         <div className="flex justify-between items-center">
           {/* Pagination Indicators - Left side on mobile */}
           <div className="flex gap-2">
