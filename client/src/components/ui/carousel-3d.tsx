@@ -244,7 +244,10 @@ export function Carousel3D({
       >
         {/* Cards Container */}
         <motion.div 
-          className="relative flex justify-center w-full h-full"
+          className={cn(
+            "relative flex justify-center w-full",
+            isMobile ? "h-auto" : "h-full" // Mobile: hug content, Desktop: full height
+          )}
           style={{
             alignItems: isMobile ? 'flex-start' : 'center' // Top alignment for mobile, center for desktop
           }}
