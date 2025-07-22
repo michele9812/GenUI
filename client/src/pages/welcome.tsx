@@ -198,16 +198,7 @@ export default function Welcome() {
                           window.innerWidth < 768 ? '4px' : '4px' // 4px consistent spacing (reduced from 8px)
           }}
         >
-          Hello{' '}
-          <span style={{
-            backgroundColor: selectedPersona.id === 'family' ? '#2E2E2E' : 'transparent',
-            color: selectedPersona.id === 'family' ? '#FFFFFF' : 'white',
-            padding: selectedPersona.id === 'family' ? '4px 8px' : '0',
-            borderRadius: selectedPersona.id === 'family' ? '6px' : '0',
-            display: selectedPersona.id === 'family' ? 'inline-block' : 'inline'
-          }}>
-            {userName || 'User'}
-          </span>
+          Hello {userName || 'User'}
         </h1>
         <p 
           className="text-white/80 text-responsive w-full block"
