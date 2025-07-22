@@ -184,7 +184,7 @@ export function Carousel3D({
       className="w-full flex flex-col"
       style={{
         height: 'fit-content',
-        overflow: isMobile ? 'hidden' : 'visible',
+        overflow: 'visible',
         gap: isMobile ? '16px' : '24px'
       }}
     >
@@ -193,7 +193,7 @@ export function Carousel3D({
         className="relative flex items-start"
         style={{
           height: 'fit-content',
-          overflow: isMobile ? 'hidden' : 'visible'
+          overflow: 'visible'
         }}
       >
         {/* Left Arrow - Desktop only */}
@@ -201,7 +201,7 @@ export function Carousel3D({
           <motion.button
             onClick={handlePrevious}
             disabled={isAnimating}
-            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center disabled:opacity-50 shadow-md"
+            className="w-10 h-10 rounded-lg backdrop-blur-sm flex items-center justify-center transition-all disabled:opacity-50 shadow-md"
             style={{
               backgroundColor: selectedPersona?.colors?.bg || '#ffffff',
               color: selectedPersona?.colors?.secondary || accentColor,
@@ -240,7 +240,11 @@ export function Carousel3D({
             alignItems: 'flex-start',
             paddingLeft: isMobile ? '8px' : '24px',
             paddingRight: isMobile ? '8px' : '24px',
-            overflow: isMobile ? 'hidden' : 'visible',
+            overflowX: 'hidden',
+            overflowY: 'visible',
+            overflow: 'visible',
+            maskImage: 'none',
+            WebkitMaskImage: 'none',
             position: 'relative',
             height: 'fit-content'
           }}
@@ -256,7 +260,7 @@ export function Carousel3D({
             minHeight: '350px',
             paddingTop: isMobile ? '16px' : '32px',
             paddingBottom: '40px',
-            overflow: isMobile ? 'hidden' : 'visible'
+            overflow: 'visible'
           }}
         >
           <AnimatePresence>
@@ -299,10 +303,9 @@ export function Carousel3D({
                   }}
                   transition={{
                     type: "spring",
-                    stiffness: 400,
-                    damping: 25,
-                    mass: 0.6,
-                    duration: 0.6
+                    stiffness: 300,
+                    damping: 30,
+                    mass: 0.8
                   }}
                   // Drag functionality for individual cards
                   drag="x"
@@ -345,16 +348,13 @@ export function Carousel3D({
                   whileHover={!isDragging ? { 
                     scale: isCenter ? style.scale * 1.02 : style.scale * 1.05,
                     y: isCenter ? -5 : -3,
-                    transition: { type: "spring", stiffness: 600, damping: 20, duration: 0.3 }
+                    transition: { duration: 0.2 }
                   } : {}}
-                  whileTap={!isDragging ? { 
-                    scale: style.scale * 0.98,
-                    transition: { type: "spring", stiffness: 700, damping: 15, duration: 0.2 }
-                  } : {}}
+                  whileTap={!isDragging ? { scale: style.scale * 0.98 } : {}}
                   whileDrag={{ 
                     scale: style.scale * 0.95,
                     rotateY: 0,
-                    transition: { type: "spring", stiffness: 800, damping: 30, duration: 0.15 }
+                    transition: { duration: 0.1 }
                   }}
                 >
                   <div 
