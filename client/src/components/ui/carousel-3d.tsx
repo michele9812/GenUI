@@ -220,10 +220,9 @@ export function Carousel3D({
         isMobile ? "flex flex-col" : ""
       )}
       style={{
-        // Container gets max height with 40px gap from floating input
-        height: isMobile ? 'calc(100vh - 160px)' : '418px', 
-        maxHeight: isMobile ? 'calc(100vh - 160px)' : '418px',
-        minHeight: isMobile ? '400px' : '418px'
+        // Container hugs content with minimum height constraint
+        minHeight: isMobile ? '350px' : '418px',
+        maxHeight: isMobile ? 'calc(100vh - 160px)' : '418px'
       }}
     >
       <div 
