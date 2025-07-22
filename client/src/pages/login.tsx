@@ -188,7 +188,7 @@ export default function LoginPage() {
                         className="text-xs px-2 py-1 rounded-full"
                         style={{ 
                           backgroundColor: `${selectedPersona.colors.primary}20`,
-                          color: selectedPersona.colors.primary
+                          color: selectedPersona.id === 'family' ? '#2E2E2E' : selectedPersona.colors.primary
                         }}
                       >
                         Preview
@@ -209,7 +209,7 @@ export default function LoginPage() {
                         <div 
                           className="text-xs font-medium mb-1"
                           style={{ 
-                            color: selectedPersona.colors.secondary || selectedPersona.colors.primary,
+                            color: selectedPersona.id === 'family' ? '#2E2E2E' : (selectedPersona.colors.secondary || selectedPersona.colors.primary),
                             fontFamily: selectedPersona.typography.headingFont || selectedPersona.typography.fontFamily
                           }}
                         >
@@ -277,7 +277,8 @@ export default function LoginPage() {
                               className="w-3 h-3 rounded-full border"
                               style={{ 
                                 backgroundColor: selectedPersona.colors.secondary || selectedPersona.colors.accent,
-                                borderColor: selectedPersona.colors.secondary || selectedPersona.colors.accent 
+                                borderColor: selectedPersona.id === 'family' ? '#2E2E2E' : (selectedPersona.colors.secondary || selectedPersona.colors.accent),
+                                borderWidth: '1px'
                               }}
                               title="Secondary/Accent Color"
                             ></div>
