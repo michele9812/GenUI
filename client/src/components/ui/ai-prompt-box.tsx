@@ -8,13 +8,20 @@ import { cn } from "@/lib/utils";
 // Textarea Component
 interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   className?: string;
+  textColor?: string;
+  fontFamily?: string;
 }
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, ...props }, ref) => (
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, textColor = "#000000", fontFamily, ...props }, ref) => (
   <textarea
     className={cn(
-      "flex w-full rounded-md border-none bg-transparent px-3 py-2.5 text-base text-gray-100 placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 min-h-[44px] resize-none scrollbar-thin scrollbar-thumb-[#444444] scrollbar-track-transparent hover:scrollbar-thumb-[#555555]",
+      "flex w-full rounded-md border-none bg-transparent px-3 py-2.5 text-base placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 min-h-[44px] resize-none scrollbar-thin scrollbar-thumb-[#444444] scrollbar-track-transparent hover:scrollbar-thumb-[#555555]",
       className
     )}
+    style={{
+      color: textColor,
+      fontFamily: fontFamily || 'inherit',
+      ...props.style
+    }}
     ref={ref}
     rows={1}
     {...props}
@@ -315,12 +322,16 @@ PromptInput.displayName = "PromptInput";
 interface PromptInputTextareaProps {
   disableAutosize?: boolean;
   placeholder?: string;
+  textColor?: string;
+  fontFamily?: string;
 }
 const PromptInputTextarea: React.FC<PromptInputTextareaProps & React.ComponentProps<typeof Textarea>> = ({
   className,
   onKeyDown,
   disableAutosize = false,
   placeholder,
+  textColor,
+  fontFamily,
   ...props
 }) => {
   const { value, setValue, maxHeight, onSubmit, disabled } = usePromptInput();
@@ -352,6 +363,8 @@ const PromptInputTextarea: React.FC<PromptInputTextareaProps & React.ComponentPr
       className={cn("text-base", className)}
       disabled={disabled}
       placeholder={placeholder}
+      textColor={textColor}
+      fontFamily={fontFamily}
       {...props}
     />
   );
@@ -734,6 +747,8 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                 : placeholder
             }
             className="text-base"
+            textColor="#000000"
+            fontFamily={personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif'}
             style={{
               fontFamily: personaTypography?.fontFamily || 'inherit',
               fontSize: personaTypography?.scale ? `calc(1rem * ${personaTypography.scale})` : undefined
