@@ -239,8 +239,8 @@ export function Carousel3D({
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
           WebkitMaskImage: 'none',
-          height: isMobile ? 'auto' : '100%', // Mobile: auto for flexbox, Desktop: full height
-          flex: isMobile ? 'none' : undefined, // Mobile: don't grow, hug content
+          height: isMobile ? 'calc(100% - 60px)' : '100%', // Mobile: reserve 60px for controls, Desktop: full height
+          flex: isMobile ? '1' : undefined, // Mobile: grow to fill available space, leaving room for controls
           position: 'relative' // Ensure relative positioning for absolute children
         }}
 
