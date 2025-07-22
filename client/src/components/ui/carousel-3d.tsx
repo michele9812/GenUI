@@ -324,36 +324,40 @@ export function Carousel3D({
                     e.stopPropagation();
                   }}
                   onDragEnd={(e, info) => {
-                    setTimeout(() => {
-                      setIsDragging(false);
-                      setIsAnimating(false);
-                    }, 150);
                     e.stopPropagation();
                     e.preventDefault();
                     
-                    // Enhanced threshold for better responsiveness
-                    const threshold = 60;
-                    const velocity = Math.abs(info.velocity.x);
-                    const offset = Math.abs(info.offset.x);
+                    console.log("Drag ended:", { 
+                      offset: info.offset.x, 
+                      velocity: info.velocity.x,
+                      point: info.point.x 
+                    });
                     
-                    // Consider both distance and velocity for navigation
-                    if (offset > threshold || velocity > 500) {
-                      if (info.offset.x > 0) {
+                    // Simplified threshold for immediate response
+                    const threshold = 30;
+                    const offset = info.offset.x; // Use signed offset
+                    
+                    if (Math.abs(offset) > threshold) {
+                      if (offset > 0) {
                         // Dragged right - go to previous
+                        console.log("Going to previous");
                         handlePrevious();
                       } else {
-                        // Dragged left - go to next
+                        // Dragged left - go to next  
+                        console.log("Going to next");
                         handleNext();
                       }
-                    } else if (offset < 15 && velocity < 300) {
-                      // Very small movement - treat as click
-                      if (isCenter) {
-                        handleCardClick(originalIndex);
-                      } else {
-                        // Navigate to side card
-                        handleCardClick(originalIndex);
-                      }
+                    } else {
+                      // Small movement - treat as click
+                      console.log("Treating as click");
+                      handleCardClick(originalIndex);
                     }
+                    
+                    // Reset drag state after a short delay
+                    setTimeout(() => {
+                      setIsDragging(false);
+                      setIsAnimating(false);
+                    }, 100);
                   }}
                   onClick={(e) => {
                     if (!isDragging && !isAnimating) {
