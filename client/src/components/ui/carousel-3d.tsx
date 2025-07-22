@@ -464,7 +464,7 @@ export function Carousel3D({
               )}
               style={{
                 backgroundColor: index === currentIndex ? 
-                  (selectedPersona?.colors?.primary || '#F59E0B') : '#d1d5db'
+                  (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
               }}
             />
           ))}
@@ -506,7 +506,7 @@ export function Carousel3D({
                 )}
                 style={{
                   backgroundColor: index === currentIndex ? 
-                    (selectedPersona?.colors?.primary || '#F59E0B') : '#d1d5db'
+                    (selectedPersona?.colors?.primary || accentColor) : '#d1d5db'
                 }}
               />
             ))}
