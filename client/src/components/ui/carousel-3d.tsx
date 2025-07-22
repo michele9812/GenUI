@@ -220,10 +220,10 @@ export function Carousel3D({
         isMobile ? "flex flex-col" : "relative"
       )}
       style={{
-        // Fill available height ensuring controls are visible within viewport
-        height: isMobile ? 'calc(100vh - 220px)' : '418px', // Mobile: restored original height
-        maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
-        minHeight: isMobile ? '320px' : '418px' // Restored original minimum
+        // Fill available height with 40px spacing from floating input
+        height: isMobile ? 'calc(100vh - 260px)' : '418px', // Mobile: 40px extra spacing for floating input
+        maxHeight: isMobile ? 'calc(100vh - 260px)' : '418px',
+        minHeight: isMobile ? '280px' : '418px' // Adjusted minimum height
       }}
     >
       <div 
@@ -509,13 +509,10 @@ export function Carousel3D({
         </div>
       </div>
 
-      {/* Mobile Controls - Similar structure to desktop but adapted */}
-      <div className="md:hidden">
-        {/* Side arrows - positioned like desktop but lower */}
-        <div 
-          className="absolute left-4"
-          style={{ zIndex: 1000, bottom: '16px' }}
-        >
+      {/* Mobile Controls - Fixed at bottom of viewport */}
+      <div className="md:hidden fixed bottom-10 left-0 right-0 pointer-events-none" style={{ zIndex: 1000 }}>
+        {/* Side arrows - fixed positioning */}
+        <div className="absolute left-4 pointer-events-auto">
           <motion.button
             onClick={handlePrevious}
             disabled={isAnimating}
@@ -532,10 +529,7 @@ export function Carousel3D({
           </motion.button>
         </div>
 
-        <div 
-          className="absolute right-4"
-          style={{ zIndex: 1000, bottom: '16px' }}
-        >
+        <div className="absolute right-4 pointer-events-auto">
           <motion.button
             onClick={handleNext}
             disabled={isAnimating}
@@ -552,11 +546,8 @@ export function Carousel3D({
           </motion.button>
         </div>
 
-        {/* Centered Indicators - positioned like desktop */}
-        <div 
-          className="absolute left-1/2 -translate-x-1/2 flex gap-2"
-          style={{ zIndex: 1000, bottom: '16px' }}
-        >
+        {/* Centered Indicators - fixed positioning */}
+        <div className="absolute left-1/2 -translate-x-1/2 flex gap-2 pointer-events-auto">
           {items.map((_, index) => (
             <button
               key={index}
