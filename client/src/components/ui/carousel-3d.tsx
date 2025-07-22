@@ -187,8 +187,8 @@ export function Carousel3D({
         isMobile ? "flex flex-col" : ""
       )}
       style={{
-        minHeight: isMobile ? 'calc(350px + 112px)' : '418px',
-        maxHeight: isMobile ? 'calc(100vh - 160px)' : '418px'
+        minHeight: isMobile ? 'calc(350px + 112px)' : '386px',
+        maxHeight: isMobile ? 'calc(100vh - 160px)' : '386px'
       }}
     >
       <div 
