@@ -91,6 +91,9 @@ export default function LoginPage() {
                   onChange={(e) => setUserName(e.target.value)}
                   placeholder="Enter your name..."
                   className="w-full focus:scale-105"
+                  style={selectedPersona ? {
+                    fontFamily: selectedPersona.typography.fontFamily
+                  } : undefined}
                 />
               </div>
 
@@ -99,7 +102,12 @@ export default function LoginPage() {
                   Select Your Profile
                 </Label>
                 <Select value={selectedPersonaId} onValueChange={handlePersonaChange}>
-                  <SelectTrigger className="w-full hover:bg-gray-50 transition-colors duration-200">
+                  <SelectTrigger 
+                    className="w-full hover:bg-gray-50 transition-colors duration-200"
+                    style={selectedPersona ? {
+                      fontFamily: selectedPersona.typography.fontFamily
+                    } : undefined}
+                  >
                     <SelectValue placeholder="Choose your traveler profile..." />
                   </SelectTrigger>
                   <SelectContent>
