@@ -54,7 +54,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="h-viewport flex items-center justify-center bg-gray-200 container-responsive-padding">
+    <div className="h-viewport flex justify-center bg-gray-200 container-responsive-padding" style={{
+      alignItems: window.innerWidth < 768 ? 'flex-start' : 'center',
+      paddingTop: window.innerWidth < 768 ? '32px' : undefined
+    }}>
       <Card className="w-full max-w-md h-[600px] sm:h-[680px] md:h-[680px] shadow-2xl animation-scale-in">
         <CardContent className="p-0 h-full relative">
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
