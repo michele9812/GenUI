@@ -500,7 +500,7 @@ export default function JourneyDetail() {
             <ArrowLeft 
               className="w-4 h-4" 
               style={{
-                color: isStudentPersona ? '#f59e0b' : '#6b7280'
+                color: isStudentPersona ? '#f59e0b' : selectedPersona.id === 'family' ? selectedPersona.colors.primary : '#6b7280'
               }}
             />
             <span 
@@ -519,7 +519,7 @@ export default function JourneyDetail() {
             <ArrowLeft 
               className="w-6 h-6" 
               style={{
-                color: isStudentPersona ? '#f59e0b' : '#6b7280'
+                color: isStudentPersona ? '#f59e0b' : selectedPersona.id === 'family' ? selectedPersona.colors.primary : '#6b7280'
               }}
             />
           </div>
