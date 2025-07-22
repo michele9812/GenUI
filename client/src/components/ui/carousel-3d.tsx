@@ -186,7 +186,7 @@ export function Carousel3D({
     // Responsive height calculation - fill available space minus padding
     const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
     const cardHeight = isMobile ? 
-      Math.min(Math.floor((viewportHeight - 180) * 0.65), 380) : // Mobile: 65% of available height, max 380px - adjusted for new container size
+      Math.min(Math.floor((viewportHeight - 220) * 0.6), 350) : // Mobile: 60% of available height, max 350px - adjusted for container visibility
       320; // Desktop: fixed 320px
     
     return {
@@ -217,9 +217,9 @@ export function Carousel3D({
     <div 
       className="relative w-full"
       style={{
-        // Fill available height to end exactly within viewport - accounting for header, floating input and spacing
-        height: isMobile ? 'calc(100vh - 180px)' : '418px', // Mobile: reduced from 220px to 180px for proper viewport fill
-        maxHeight: isMobile ? 'calc(100vh - 180px)' : '418px',
+        // Fill available height ensuring controls are visible within viewport
+        height: isMobile ? 'calc(100vh - 220px)' : '418px', // Mobile: increased to 220px to keep controls visible
+        maxHeight: isMobile ? 'calc(100vh - 220px)' : '418px',
         minHeight: isMobile ? '280px' : '418px' // Minimum height to ensure usability
       }}
     >
