@@ -127,10 +127,16 @@ export default function LoginPage() {
                     >
                       <div className="flex items-center space-x-2">
                         <div 
-                          className="w-5 h-5 rounded-full flex items-center justify-center text-white flex-shrink-0"
-                          style={{ backgroundColor: selectedPersona.colors.primary }}
+                          className="w-6 h-6 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                          style={{ 
+                            backgroundColor: selectedPersona.colors.primary,
+                            minWidth: '24px',
+                            minHeight: '24px'
+                          }}
                         >
-                          {renderPersonaIcon(selectedPersona.id)}
+                          <div className="w-[18px] h-[18px] flex items-center justify-center">
+                            {renderPersonaIcon(selectedPersona.id)}
+                          </div>
                         </div>
                         <h3 
                           className="font-semibold text-xs"
