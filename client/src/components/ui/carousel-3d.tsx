@@ -231,7 +231,7 @@ export function Carousel3D({
           paddingTop: isMobile ? '16px' : '16px', // Max 16px top padding on mobile
           paddingLeft: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
           paddingRight: isMobile ? '8px' : '80px', // Mobile: 8px, Desktop: 80px
-          paddingBottom: isMobile ? '16px' : '48px', // 16px gap between cards and controls on mobile
+          paddingBottom: isMobile ? '24px' : '48px', // 24px gap between cards and controls on mobile
           overflow: 'visible',
           // Remove gradient masks to prevent content clipping
           maskImage: 'none',
