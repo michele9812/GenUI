@@ -172,7 +172,7 @@ export function Carousel3D({
     // Enhanced positioning with responsive adjustments
     const offsetMultiplier = isCenter ? 0 : Math.sign(position) * 0.2;
     const responsiveScale = isCenter ? (isMobile ? 1.05 : 1.1) : (isMobile ? 0.9 : 0.85);
-    const verticalOffset = isCenter ? (isMobile ? 0 : -10) : Math.abs(position) * (isMobile ? 0 : 5); // Mobile: no vertical offset for top alignment
+    const verticalOffset = isCenter ? 0 : Math.abs(position) * (isMobile ? 0 : 5); // No vertical offset for center card to align with arrows
     
     // Improved spacing calculation - consistent gaps for all positions
     const cardWidth = isCenter ? centerWidth : baseWidth;
