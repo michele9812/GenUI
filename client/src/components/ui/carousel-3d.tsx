@@ -257,7 +257,7 @@ export function Carousel3D({
           style={{
             alignItems: 'flex-start',
             height: 'auto',
-            minHeight: '350px',
+            minHeight: '334px', // Reduced by 16px: 350px - 16px = 334px
             paddingTop: isMobile ? '16px' : '32px',
             paddingBottom: isMobile ? '8px' : '40px', // Reduced by 32px total on mobile: 40px - 32px = 8px
             overflow: 'visible'
