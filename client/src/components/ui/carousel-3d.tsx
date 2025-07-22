@@ -263,7 +263,6 @@ export function Carousel3D({
           style={{
             alignItems: 'flex-start',
             height: 'fit-content',
-            minHeight: '320px',
             overflowX: 'hidden',
             overflowY: 'visible'
           }}
@@ -358,7 +357,7 @@ export function Carousel3D({
                   whileTap={!isDragging ? { scale: style.scale * 0.98 } : {}}
                   whileDrag={{ 
                     scale: style.scale * 0.95,
-                    rotateY: (_, info) => info.offset.x * 0.1,
+                    rotateY: 0,
                     transition: { duration: 0.1 }
                   }}
                 >
