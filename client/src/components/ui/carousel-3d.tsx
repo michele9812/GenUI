@@ -264,6 +264,7 @@ export function Carousel3D({
             alignItems: 'flex-start',
             height: 'auto',
             minHeight: '350px',
+            paddingTop: '16px',
             overflowX: 'hidden',
             overflowY: 'visible'
           }}
