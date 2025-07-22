@@ -587,7 +587,7 @@ export default function JourneyDetail() {
           <p 
             className="w-full font-thin text-center block"
             style={{
-              fontSize: '18px', // Fixed 18px size for all breakpoints
+              fontSize: window.innerWidth < 768 ? '16px' : '18px', // 16px mobile, 18px desktop
               transform: selectedPersona.typography?.scale && selectedPersona.typography.scale > 1.1 ? 
                 `scale(${Math.min(selectedPersona.typography.scale, 1.1)})` : undefined, // Cap scale at 1.1 to prevent overflow
               transformOrigin: 'center top',
