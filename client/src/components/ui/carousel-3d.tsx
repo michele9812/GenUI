@@ -182,19 +182,16 @@ export function Carousel3D({
 
   return (
     <div 
-      className={cn(
-        "w-full flex flex-col",
-        isMobile ? "gap-4" : "gap-6"
-      )}
+      className="w-full flex flex-col"
       style={{
         height: 'fit-content',
-        minHeight: isMobile ? 'calc(350px + 112px)' : '386px',
-        overflowY: 'visible'
+        overflowY: 'visible',
+        gap: isMobile ? '16px' : '24px'
       }}
     >
       {/* Main carousel container with side arrows on desktop */}
       <div 
-        className="relative flex items-start flex-1"
+        className="relative flex items-start"
         style={{
           height: 'fit-content',
           overflowY: 'visible'
