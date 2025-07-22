@@ -139,7 +139,7 @@ export default function FamilyTabs({
                   <p 
                     className="text-xs uppercase tracking-wider font-medium mb-0 md:mb-1"
                     style={{
-                      color: selectedPersona?.colors.secondary || secondaryColor,
+                      color: '#2E2E2E',
                       fontFamily: personaTypography?.fontFamily || 'system-ui, -apple-system, sans-serif',
                       fontSize: personaTypography?.scale && personaTypography.scale > 1.1 ? 
                         `calc(0.75rem * ${personaTypography.scale})` : undefined
