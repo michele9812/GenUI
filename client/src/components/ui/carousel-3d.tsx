@@ -307,21 +307,26 @@ export function Carousel3D({
                     damping: 30,
                     mass: 0.8
                   }}
-                  // Swipe interaction for navigation trigger only
-                  onPanStart={(e, info) => {
+                  // Touch/drag interaction for navigation trigger only
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0}
+                  dragMomentum={false}
+                  dragTransition={{ power: 0, timeConstant: 0 }}
+                  onDragStart={(e, info) => {
                     setIsDragging(true);
                     e.stopPropagation();
                   }}
-                  onPan={(e, info) => {
+                  onDrag={(e, info) => {
+                    // Prevent any visual movement during drag
                     e.preventDefault();
                     e.stopPropagation();
                   }}
-                  onPanEnd={(e, info) => {
+                  onDragEnd={(e, info) => {
                     setIsDragging(false);
                     e.stopPropagation();
-                    e.preventDefault();
                     
-                    const threshold = 50;
+                    const threshold = 40;
                     const offset = info.offset.x;
                     
                     if (Math.abs(offset) > threshold) {
@@ -332,7 +337,7 @@ export function Carousel3D({
                         // Swiped left - go to next  
                         handleNext();
                       }
-                    } else {
+                    } else if (Math.abs(offset) < 15) {
                       // Small movement - treat as click
                       handleCardClick(originalIndex);
                     }
