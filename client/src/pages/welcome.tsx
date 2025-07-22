@@ -220,7 +220,10 @@ export default function Welcome() {
       <div 
         className={`flex-1 flex items-center justify-center ${window.innerWidth >= 768 ? 'container-responsive-padding' : ''}`}
         style={{
-          padding: window.innerWidth < 768 ? '16px' : undefined
+          paddingLeft: window.innerWidth < 768 ? '16px' : undefined,
+          paddingRight: window.innerWidth < 768 ? '16px' : undefined,
+          paddingTop: '32px',
+          paddingBottom: '32px'
         }}
       >
         <motion.div
