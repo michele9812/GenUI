@@ -603,7 +603,12 @@ export default function JourneyDetail() {
         </motion.div>
       </div>
       {/* Main Content - Full width with responsive padding */}
-      <main className="flex-1 w-full h-full container-responsive-padding">
+      <main 
+        className="flex-1 w-full h-full container-responsive-padding"
+        style={{
+          marginTop: window.innerWidth >= 768 ? '32px' : '16px' // 32px desktop, 16px mobile
+        }}
+      >
 
         {/* 3D Carousel, Senior Accordion, or Family Tabs */}
         <motion.div 
