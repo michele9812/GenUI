@@ -220,7 +220,7 @@ export default function LoginPage() {
                       {/* Color and Typography Sample */}
                       <div className="pt-1">
                         <div 
-                          className="inline-flex items-center justify-between p-1.5 rounded border text-xs"
+                          className="w-full flex items-center justify-between p-1.5 rounded border text-xs"
                           style={{ 
                             backgroundColor: `${selectedPersona.colors.primary}08`,
                             borderColor: `${selectedPersona.colors.primary}15`,
@@ -228,7 +228,7 @@ export default function LoginPage() {
                             fontSize: '0.65rem'
                           }}
                         >
-                          <span>{selectedPersona.fonts.primary}, {selectedPersona.fonts.secondary}</span>
+                          <span className="flex-1">{selectedPersona.fonts.primary}, {selectedPersona.fonts.secondary}</span>
                           <div className="flex items-center space-x-1 ml-3">
                             <div 
                               className="w-3 h-3 rounded-full border"
