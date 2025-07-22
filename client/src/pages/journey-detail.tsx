@@ -528,11 +528,9 @@ export default function JourneyDetail() {
         className="text-center container-responsive-padding"
         style={{
           marginTop: window.innerWidth < 768 ? '0px' : '16px', // Mobile: 0px, Desktop: 16px
-          paddingTop: window.innerWidth < 768 ? '2px' : '0px', // Mobile: 2px, Desktop: 0px
-          marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                        window.innerWidth < 768 ? '8px' : '16px', // Mobile: 8px, Desktop: 16px
-          paddingBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px  
-                         window.innerWidth < 768 ? '4px' : '8px' // Mobile: 4px, Desktop: 8px
+          paddingTop: window.innerWidth < 768 ? '0px' : '0px', // Mobile: 0px, Desktop: 0px
+          marginBottom: window.innerWidth < 768 ? '0px' : '16px', // Mobile: 0px, Desktop: 16px
+          paddingBottom: window.innerWidth < 768 ? '0px' : '8px' // Mobile: 0px, Desktop: 8px
         }}
       >
         <motion.div
@@ -554,8 +552,7 @@ export default function JourneyDetail() {
               transformOrigin: 'center top',
               color: primaryColor,
               lineHeight: selectedPersona.typography?.lineHeight || '1.2',
-              marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                            window.innerWidth < 768 ? '8px' : '8px', // 8px consistent spacing
+              marginBottom: window.innerWidth < 768 ? '0px' : '8px', // Mobile: 0px, Desktop: 8px
               width: '100%',
               display: 'block',
               boxSizing: 'border-box'
@@ -577,8 +574,7 @@ export default function JourneyDetail() {
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? 'rgba(255, 255, 255, 0.8)' : selectedPersona.colors.secondary,
-              marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                            window.innerWidth < 768 ? '8px' : '8px', // 8px spacing mobile and desktop
+              marginBottom: window.innerWidth < 768 ? '0px' : '8px', // Mobile: 0px, Desktop: 8px
               width: '100%',
               display: 'block',
               boxSizing: 'border-box'
@@ -598,8 +594,7 @@ export default function JourneyDetail() {
               fontFamily: selectedPersona.typography?.fontFamily || 'inherit',
               color: isStudentPersona ? '#E5E7EB' : selectedPersona.colors.text || '#374151',
               lineHeight: selectedPersona.typography?.lineHeight || '1.4',
-              marginBottom: window.innerWidth <= 320 ? '4px' : // iPhone SE: 4px
-                            window.innerWidth < 768 ? '8px' : '8px', // 8px consistent spacing
+              marginBottom: window.innerWidth < 768 ? '0px' : '8px', // Mobile: 0px, Desktop: 8px
               width: '100%',
               display: 'block',
               boxSizing: 'border-box'
