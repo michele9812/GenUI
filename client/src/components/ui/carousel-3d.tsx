@@ -239,7 +239,7 @@ export function Carousel3D({
             paddingLeft: isMobile ? '8px' : '24px',
             paddingRight: isMobile ? '8px' : '24px',
             paddingBottom: '0px',
-            overflow: 'visible',
+            overflow: 'hidden',
             maskImage: 'none',
             WebkitMaskImage: 'none',
             height: isMobile ? 'auto' : '100%',

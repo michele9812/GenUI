@@ -22,6 +22,7 @@ This is an intelligent airport navigation web application that provides personal
 - **Converted carousel to relative positioning**: Restructured carousel layout from absolute positioning to flexbox with relative controls - desktop uses side arrows + bottom indicators, mobile uses horizontal controls layout, maintaining identical visual appearance with cleaner, more maintainable code structure
 - **Added drag interaction to carousel cards**: Implemented individual card drag functionality with 50px threshold for navigation - dragging right goes to previous card, dragging left goes to next card, small movements treated as clicks, includes visual feedback with scale and rotation effects during drag
 - **Fixed carousel content alignment**: Restored top alignment of carousel content by changing container from items-center to items-start, ensuring cards are positioned at the top of the container as intended
+- **Fixed carousel container overflow**: Added overflow hidden to carousel container to prevent anomalous viewport behavior during drag interactions, especially on mobile devices
 - **Project analysis completed**: Analyzed current generative UI prototype architecture, identified 5 user personas with dynamic theming, journey mapping system, and responsive design implementation
 
 **Previous Development (July 21, 2025):**
