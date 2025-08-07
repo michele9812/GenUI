@@ -1,4 +1,3 @@
-import { useLocation } from 'wouter';
 import { ArrowLeft } from 'lucide-react';
 import { useEffect } from 'react';
 
@@ -9,9 +8,12 @@ import FamilyTabs from '@/components/ui/family-tabs';
 import { PromptInputBox } from '@/components/ui/ai-prompt-box';
 import { motion } from 'framer-motion';
 
-export default function JourneyDetail() {
+interface JourneyDetailProps {
+  onNavigate: (page: string) => void;
+}
+
+export default function JourneyDetail({ onNavigate }: JourneyDetailProps) {
   const { selectedPersona, currentStep, userName } = usePersona();
-  const [, setLocation] = useLocation();
 
   // Scroll to top when page loads
   useEffect(() => {
@@ -22,12 +24,12 @@ export default function JourneyDetail() {
   const currentStepObj = selectedPersona?.journeySteps.find(step => step.id === currentStep);
 
   if (!selectedPersona || !currentStep || !currentStepObj) {
-    setLocation('/welcome');
+    onNavigate('welcome');
     return null;
   }
 
   const handleBack = () => {
-    setLocation('/welcome');
+    onNavigate('welcome');
   };
 
   const handleSendMessage = (message: string, files?: File[]) => {

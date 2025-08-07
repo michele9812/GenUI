@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import MacOSDock from '@/components/ui/mac-os-dock';
@@ -7,11 +6,14 @@ import { BackgroundGradientAnimation } from '@/components/ui/background-gradient
 import { getPersonaBackgroundColors } from '@/lib/background-colors';
 import { usePersona } from '@/hooks/use-persona';
 
-export default function Welcome() {
+interface WelcomeProps {
+  onNavigate: (page: string) => void;
+}
+
+export default function Welcome({ onNavigate }: WelcomeProps) {
   const { selectedPersona, selectStep, userName } = usePersona();
   const [currentImage, setCurrentImage] = useState<string>('');
   const [isZooming, setIsZooming] = useState(false);
-  const [, setLocation] = useLocation();
   const [screenWidth, setScreenWidth] = useState<number>(0);
 
   // Scroll to top when page loads
@@ -33,7 +35,7 @@ export default function Welcome() {
   }, []);
 
   if (!selectedPersona) {
-    setLocation('/');
+    onNavigate('onboarding');
     return null;
   }
 
@@ -75,7 +77,7 @@ export default function Welcome() {
         // Navigate after brief white fade
         setTimeout(() => {
           setIsZooming(false); // Reset zoom state
-          setLocation('/journey-detail');
+          onNavigate('journey-detail');
           // Remove overlay after navigation
           setTimeout(() => {
             if (overlay.parentNode) {
@@ -90,7 +92,7 @@ export default function Welcome() {
   const defaultImage = selectedPersona.journeySteps[0]?.image || 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600';
 
   const handleBackToPersonaSelection = () => {
-    setLocation('/');
+    onNavigate('onboarding');
   };
 
   const backgroundColors = getPersonaBackgroundColors(selectedPersona);

@@ -1,34 +1,31 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { useState } from "react";
 import OnboardingPage from "@/pages/onboarding";
 import Login from "@/pages/login";
 import Welcome from "@/pages/welcome";
 import JourneyDetail from "@/pages/journey-detail";
-import NotFound from "@/pages/not-found";
-
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={OnboardingPage} />
-      <Route path="/login" component={Login} />
-      <Route path="/welcome" component={Welcome} />
-      <Route path="/journey-detail" component={JourneyDetail} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('onboarding');
+  
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'onboarding':
+        return <OnboardingPage onNavigate={setCurrentPage} />;
+      case 'login':
+        return <Login onNavigate={setCurrentPage} />;
+      case 'welcome':
+        return <Welcome onNavigate={setCurrentPage} />;
+      case 'journey-detail':
+        return <JourneyDetail onNavigate={setCurrentPage} />;
+      default:
+        return <OnboardingPage onNavigate={setCurrentPage} />;
+    }
+  };
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <div className="min-h-screen">
+      {renderPage()}
+    </div>
   );
 }
 

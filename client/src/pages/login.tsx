@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -17,8 +16,11 @@ import {
   ArrowLeft 
 } from 'lucide-react';
 
-export default function LoginPage() {
-  const [, navigate] = useLocation();
+interface LoginPageProps {
+  onNavigate: (page: string) => void;
+}
+
+export default function LoginPage({ onNavigate }: LoginPageProps) {
   const { selectPersona } = usePersona();
   const [userName, setUserName] = useState('');
   const [selectedPersonaId, setSelectedPersonaId] = useState<string>('');
@@ -35,7 +37,7 @@ export default function LoginPage() {
   const handleStart = () => {
     if (selectedPersonaId && userName.trim()) {
       selectPersona(selectedPersonaId, userName);
-      navigate('/welcome');
+      onNavigate('welcome');
     }
   };
 
