@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import cheerfulPilotPath from '@assets/Cheerful Pilot Character_1753105244175.png';
 
 interface OnboardingPageProps {
   onNavigate: (page: string) => void;
@@ -28,7 +27,7 @@ export default function OnboardingPage({ onNavigate }: OnboardingPageProps) {
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
             <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-gray-50">
               <img 
-                src={cheerfulPilotPath} 
+                src="/attached_assets/Cheerful%20Pilot%20Character_1753105244175.png" 
                 alt="AirBuddy Pilot" 
                 className="w-full h-full object-contain"
               />

@@ -1,40 +1,40 @@
 // Journey Step Image Constants - All paths verified and tested
 export const JOURNEY_IMAGES = {
   // Terminal and Parking Areas
-  TERMINAL: '/attached_assets/Modern%20Airport%20Terminal%20%281%29_1753100792152.png',
-  PARKING: '/attached_assets/Modern%20Airport%20Terminal%20%282%29_1753100970301.png',
-  ARRIVAL: '/attached_assets/Modern%20Baggage%20Claim_1753100330466.png', 
+  TERMINAL: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  PARKING: 'https://images.pexels.com/photos/753876/pexels-photo-753876.jpeg?auto=compress&cs=tinysrgb&w=800',
+  ARRIVAL: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800', 
   
   // Security and Screening  
-  SECURITY: '/attached_assets/TSA%20PreCheck%20Area_1753100330467.png',
-  SCREENING: '/attached_assets/TSA%20PreCheck%20Area_1753100330467.png',
+  SECURITY: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  SCREENING: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
   
   // Boarding Areas
-  BOARDING: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
-  IMBARCO: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
-  RETURN: '/attached_assets/Airport%20Boarding%20Area_1753099981602.png',
+  BOARDING: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  IMBARCO: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  RETURN: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
   
   // Service Counters and Premium Areas
-  SERVICE_COUNTER: '/attached_assets/Modern%20Service%20Area_1753100792151.png',
-  HELP_DESK: '/attached_assets/Modern%20Service%20Area_1753100792151.png',
-  TRANSFER: '/attached_assets/Modern%20Service%20Area_1753100792151.png',
-  POST_FLIGHT: '/attached_assets/Modern%20Baggage%20Claim_1753100330466.png',
+  SERVICE_COUNTER: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  HELP_DESK: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  TRANSFER: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  POST_FLIGHT: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
   
   // Kiosk Interactions
-  KIOSK: '/attached_assets/Airport%20Kiosk%20Interaction_1753099981603.png',
-  CHECKIN: '/attached_assets/Airport%20Kiosk%20Interaction_1753099981603.png',
-  SELF_SERVICE: '/attached_assets/Airport%20Kiosk%20Interaction_1753099981603.png',
-  POST_MEETING: '/attached_assets/Airport%20Kiosk%20Interaction_1753099981603.png',
+  KIOSK: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  CHECKIN: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  SELF_SERVICE: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  POST_MEETING: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
   
   // Waiting Areas and Lounges
-  WAITING: '/attached_assets/Person%20in%20Airport%20Terminal_1753100792151.png',
-  LOUNGE: '/attached_assets/lounge_1753100792150.png',
-  WORK_AREA: '/attached_assets/Person%20in%20Airport%20Terminal_1753100792151.png',
+  WAITING: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  LOUNGE: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  WORK_AREA: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
   
   // Corridors and Navigation
-  CORRIDOR: '/attached_assets/Modern%20Airport%20Terminal%20%281%29_1753100792152.png',
-  LAYOVER: '/attached_assets/Modern%20Waiting%20Area_1753101085541.png',
-  IMMIGRATION: '/attached_assets/immigration_1753100792151.png'
+  CORRIDOR: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  LAYOVER: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800',
+  IMMIGRATION: 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800'
 } as const;
 
 export interface PersonaColors {
