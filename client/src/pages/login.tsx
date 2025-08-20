@@ -64,7 +64,7 @@ export default function LoginPage({ onNavigate }: LoginPageProps) {
           <div className="absolute top-6 sm:top-8 md:top-8 left-0 right-0 text-center">
             <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 mx-auto flex items-center justify-center radius-responsive overflow-hidden bg-gray-50">
               <img 
-                src="/attached_assets/Cheerful%20Pilot%20Character_1753105244175.png" 
+                src="https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=100&h=100" 
                 alt="AirBuddy Pilot" 
                 className="w-full h-full object-contain"
               />

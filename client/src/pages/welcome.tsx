@@ -117,7 +117,7 @@ export default function Welcome({ onNavigate }: WelcomeProps) {
             border: '1px solid rgba(107, 114, 128, 0.3)',
             width: '48px',
             height: '48px',
-            backgroundImage: "url('/attached_assets/Cheerful%20Pilot%20Character_1753110261655.png')",
+            backgroundImage: "url('https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=100&h=100')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -131,7 +131,7 @@ export default function Welcome({ onNavigate }: WelcomeProps) {
             ease: [0.16, 1, 0.3, 1],
             delay: 0.1
           }}
-          onClick={() => setLocation('/')}
+          onClick={() => onNavigate('onboarding')}
         />
 
         {/* Back Action Button */}

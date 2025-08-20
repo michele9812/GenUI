@@ -3,6 +3,7 @@ import OnboardingPage from "@/pages/onboarding";
 import Login from "@/pages/login";
 import Welcome from "@/pages/welcome";
 import JourneyDetail from "@/pages/journey-detail";
+import { Toaster } from "@/components/ui/toaster";
 
 function App() {
   const [currentPage, setCurrentPage] = useState('onboarding');
@@ -25,6 +26,7 @@ function App() {
   return (
     <div className="min-h-screen">
       {renderPage()}
+      <Toaster />
     </div>
   );
 }
